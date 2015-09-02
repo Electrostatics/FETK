@@ -1,0 +1,67 @@
+
+
+
+GLwDrawingAreaSwapBuffers(3X)                    GLwDrawingAreaSwapBuffers(3X)
+
+
+
+NAME
+     GLwDrawingAreaSwapBuffers - swap buffers in a GLwDrawingArea.
+
+
+SYNOPSIS
+     #include <GL/GLwDraw.h>
+     void GLwDrawingAreaSwapBuffers(w)
+          Widget w;
+
+DESCRIPTION
+     GLwDrawingAreaSwapBuffers is a front end to glXSwapBuffers, however
+     instead of passing in a Display and a Window, a Widget is passed in.
+
+SEE ALSO
+     GLwMDrawingArea, glXSwapBuffers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        Page 1
+
+
+
+

@@ -1,0 +1,236 @@
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: rcd16.mcsh,v 1.3 2010/08/12 05:16:58 fetk Exp $"
+### ##########################################################################
+
+##############################################################################
+# File:     rcd16.mcsh (16 processor)
+#
+# Purpose:  Initialization script for batch (parallel) use of MC.
+#
+# Notes:    This one works well for SIAM domain.
+#
+# rcsid="$Id: rcd16.mcsh,v 1.3 2010/08/12 05:16:58 fetk Exp $"
+##############################################################################
+
+##############################################################################
+# EVERYONE: initialization
+##############################################################################
+
+set VMP_F -1
+
+# basic setup
+noio
+set FKEY 1
+set GVAL 1.0
+set GVLO 4x1
+set OSFMT xdr
+
+# adaptivity
+set ETOL 1.0e-3
+set AKEY 2
+set RKEY 0
+set RCOL -1
+
+# solver
+set NKEY 0
+set LKEY 0
+set GUES 2
+set LMAX 5000
+set NMAX 20
+set LTOL 1.0e-7
+
+# partition
+set PPOW 4
+set PKEY 1
+set PWHT 0
+
+# write/plot
+set PVEC -1 
+set CKEY 1
+set DKEY -1
+set OHVAL localhost
+
+##############################################################################
+# EVERYONE: setup socket graphics and focus partitions
+##############################################################################
+
+set VMP_F 0
+set OSNAM 0
+set RCOL 0
+
+set VMP_F 1
+set OSNAM 1
+set RCOL 1
+
+set VMP_F 2
+set OSNAM 2
+set RCOL 2
+
+set VMP_F 3
+set OSNAM 3
+set RCOL 3
+
+set VMP_F 4
+set OSNAM 4
+set RCOL 4
+
+set VMP_F 5
+set OSNAM 5
+set RCOL 5
+
+set VMP_F 6
+set OSNAM 6
+set RCOL 6
+
+set VMP_F 7
+set OSNAM 7
+set RCOL 7
+
+set VMP_F 8
+set OSNAM 8
+set RCOL 8
+
+set VMP_F 9
+set OSNAM 9
+set RCOL 9
+
+set VMP_F 10
+set OSNAM 10
+set RCOL 10
+
+set VMP_F 11
+set OSNAM 11
+set RCOL 11
+
+set VMP_F 12
+set OSNAM 12
+set RCOL 12
+
+set VMP_F 13
+set OSNAM 13
+set RCOL 13
+
+set VMP_F 14
+set OSNAM 14
+set RCOL 14
+
+set VMP_F 15
+set OSNAM 15
+set RCOL 15
+
+##############################################################################
+# EVERYONE: read
+##############################################################################
+
+set VMP_F -1
+read
+writeoff
+
+##############################################################################
+# PROCESS 0: pause
+##############################################################################
+
+set VMP_F 0
+pause
+
+##############################################################################
+# EVERYONE: synchronize
+##############################################################################
+
+set VMP_F -1
+vmp_bar
+
+##############################################################################
+# EVERYONE: solve-estimate-partition
+##############################################################################
+
+set VMP_F -1
+lsolve
+set AKEY 2
+set RKEY 0
+estimate
+part
+writeoff
+
+##############################################################################
+# PROCESS 0: pause
+##############################################################################
+
+set VMP_F 0
+pause
+
+##############################################################################
+# EVERYONE: synchronize
+##############################################################################
+
+set VMP_F -1
+vmp_bar
+
+##############################################################################
+# EVERYONE: estimate-refine-solve-plotsol
+##############################################################################
+
+set VMP_F -1
+
+estimate
+refine
+lsolve
+writeoffdis
+vmp_bar
+
+estimate
+refine
+lsolve
+writeoffdis
+vmp_bar
+
+estimate
+refine
+lsolve
+writeoffdis
+vmp_bar
+
+estimate
+refine
+lsolve
+writeoffdis
+vmp_bar
+
+# estimate
+# refine
+# lsolve
+# writeoffdis
+# vmp_bar
+
+##############################################################################
+# PROCESS 0: pause
+##############################################################################
+
+set VMP_F 0
+pause
+
+##############################################################################
+# EVERYONE: synchronization barrier
+##############################################################################
+
+set VMP_F -1
+vmp_bar
+exit
+

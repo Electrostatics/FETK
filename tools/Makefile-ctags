@@ -1,0 +1,15 @@
+
+FETK_SRC_PATH=/usr/people/mholst/work/hack/fetk/codes/fetk
+
+default : 
+	# usage: make [ fetk.ctags | clean ]
+
+fetk.ctags : fetk.cfiles
+	ctags -R -h default --sort=yes -L fetk.cfiles -f fetk.ctags
+
+fetk.cfiles :
+	find ${FETK_SRC_PATH} | grep "\.c" > fetk.cfiles
+
+clean :
+	-rm -f fetk.cfiles fetk.ctags
+

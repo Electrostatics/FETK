@@ -1,0 +1,7 @@
+#! /bin/sh
+FETK_ARCH=`. ../config/config.guess`
+. ../../build/${FETK_ARCH}/fetk-env
+# FETK_FLAGS_XTRA="--enable-vf2cforce --enable-blasforce --enable-lapackforce --enable-amdforce --enable-umfpackforce --enable-superluforce --enable-arpackforce --enable-cgcodeforce --enable-pmgforce "
+FETK_FLAGS_XTRA="--enable-vf2cforce --enable-blasforce --enable-amdforce --enable-umfpackforce --enable-superluforce"
+../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} ${FETK_FLAGS_XTRA} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+

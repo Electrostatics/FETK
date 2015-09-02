@@ -1,0 +1,61 @@
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: rc.mcsh,v 1.9 2010/08/12 05:17:29 fetk Exp $"
+### ##########################################################################
+
+##############################################################################
+# File:     rc.mcsh (batch)
+#
+# Purpose:  Initialization script for interactive (sequential) use of MC.
+#
+# rcsid="$Id: rc.mcsh,v 1.9 2010/08/12 05:17:29 fetk Exp $"
+##############################################################################
+
+# basic setup
+io
+set FKEY 1
+set GVAL 1.0
+set GVLO 2x1r
+set OSFMT xdr
+
+# adaptivity
+set ETOL 1.0e-2
+set EKEY 1
+set AKEY 2
+set RKEY 0
+set RCOL -1
+
+# solver
+set NKEY 0
+set LKEY 3
+set PREC 2
+set GUES 0
+set LMAX 50
+set NMAX 20
+
+# partition
+set PPOW 2
+set PKEY 1
+set PWHT 0
+
+# write/plot
+set PVEC -1 
+set CKEY 1
+set DKEY -1
+

@@ -1,0 +1,101 @@
+#!./mcsh
+io
+
+set ISKEY file       # input device
+set IFNAM mcin.m     # input device filename
+set ISNAM 0          # input device/port number
+set IHVAL unix       # host owning the input device (unix=me)
+
+set OSKEY inet       # output device
+
+set GVAL 1.0         # simplex separation for viewing
+set FKEY 0           # draw only boundary faces for speed
+set OFNAM mcout.m    # output device filename
+set OHVAL localhost  # host owning the input device (unix=me)
+
+set AKEY 0  # 0 all  2 user  4 local
+set RKEY 0  # 0 b-b  1 q-b   2 q-q
+set BKEY 1  # 0 LE   1 NV    2 NP
+set LKEY 2  # 0 slu  1 mg    2 cg    3 bcg
+set PREC 4  # 0 none 1 diag  2 mg    3 hbmg    4 bpxmg
+set LMAX 100 # maximum iterations
+set GUES 2  # initial guess
+
+set PROK 0 # matrix structure: 0 = [I,P], 1 = [P]
+
+#set ETOL 5.0e-2
+#set ETOL 4.0e-4
+set ETOL 4.0e-15
+set LTOL 1.0e-8
+
+########## level 0
+read
+subsolve
+echo !!!!!!!!!!!! level 0 finished
+pause
+
+######### level 1
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 1 finished
+pause
+
+########## level 2
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 2 finished
+pause
+
+########## level 3
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 3 finished
+pause
+
+######## level 4
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 4 finished
+pause
+
+########## level 5
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 5 finished
+pause
+
+########## level 6
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 6 finished
+pause
+
+########## level 7
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 7 finished
+pause
+
+########## level 8
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 8 finished
+pause
+
+########## level 9
+estimate
+refine
+subsolve
+echo !!!!!!!!!!!! level 9 finished
+pause
+
+# do a "pinfo" to see details
+# do a "set" equivalent to "penv" to see the env variables

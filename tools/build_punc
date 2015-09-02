@@ -1,0 +1,2 @@
+../configure --enable-pansi --enable-vf2cforce --enable-blasforce --enable-lapackforce --enable-amdforce --enable-umfpackforce --enable-superluforce --enable-arpackforce --enable-cgcodeforce --enable-pmgforce 
+

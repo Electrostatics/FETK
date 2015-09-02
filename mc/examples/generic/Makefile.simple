@@ -1,0 +1,62 @@
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: Makefile.simple,v 1.7 2010/08/12 05:17:10 fetk Exp $"
+### ##########################################################################
+
+## ###########################################################################
+## File:    Makefile.simple
+##
+## Purpose: Simple makefile for building FEtk tools without using autoconf.
+##
+## Notes:   Edit as needed and then invoke via "make -f Makefile.simple"
+##
+## Author:  Michael Holst
+## ###########################################################################
+
+ARCH     = powerpc-apple-darwin8.7.0
+#ARCH    = x86_64-unknown-linux-gnu
+DMAL     =
+#DMAL    = -ldmalloc
+SYSLIB   = -L/usr/X11R6/lib -L/sw/lib -lreadline -lncurses -lm ${DMAL}
+#SYSLIB  = -L/usr/lib64 -lreadline -lncurses -lm ${DMAL}
+
+HOME     = /usr/people/mholst
+FETK_INC = -I${HOME}/include
+FETK_LIB = -L${HOME}/lib/${ARCH} -lmc -lpunc -lmaloc -lcgcode -larpack -lsuperlu -lumfpack -lamd -llapack -lblas -lvf2c ${DMAL}
+
+default : mcsh
+
+main.o : main.c
+	gcc -c -g -O2 -I. ${FETK_INC} main.c
+
+mypde.o : mypde.c
+	gcc -c -g -O2 -I. ${FETK_INC} mypde.c
+
+myelm.o : myelm.c
+	gcc -c -g -O2 -I. ${FETK_INC} myelm.c
+
+mcsh : main.o mypde.o myelm.o
+	gcc -g -O2 -o mcsh main.o mypde.o myelm.o ${FETK_LIB} ${SYSLIB}
+
+setdmal :
+	dmalloc -l logfile -i 100 high
+
+clean :
+	-rm -f *.o mcsh io.mc hist.mcsh logfile .gdb_history
+

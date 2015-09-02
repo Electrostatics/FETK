@@ -1,0 +1,218 @@
+#!/bin/bash
+
+### ######################################################################
+### Shell script for cleaning up after build_fetk
+###
+### rcsid="$Id: clean_fetk,v 1.20 2008/11/21 23:04:40 fetk Exp $"
+### ######################################################################
+
+### ######################################################################
+### Routine: my_rmdir
+### Purpose: Verbose remove directory
+### ###################################################################### 
+my_rmdir ()  
+{
+  DIRNAM=${1}
+  if [ -d "${DIRNAM}" ]
+  then
+    if [ -z "`ls ${DIRNAM}/`" ]
+    then
+      echo "  Removing directory ${DIRNAM}"
+      rmdir ${DIRNAM}
+    fi
+  fi
+}
+
+### ######################################################################
+### Routine: my_distclean
+### Purpose: Make uninstall and distclean
+### ###################################################################### 
+my_distclean () 
+{
+  DIRNAM=${1}
+  if [ -d "${DIRNAM}" ]
+  then
+    pushd ${DIRNAM} > /dev/null
+    echo "  Now in `pwd`"
+    if [ -f "Makefile" ]
+    then
+      gmake uninstall
+      gmake distclean
+      if [ -d "src" ]
+      then
+        rm -rf src/aaa_inc
+        rm -f src/*/Makefile
+        rmdir src/*
+        rmdir src
+      fi
+      if [ -d "tests" ]
+      then
+        rm -f tests/*/Makefile
+        rm -f tests/Makefile
+        rmdir tests/*
+        rmdir tests
+      fi
+    fi
+    popd > /dev/null
+    echo "  Now in `pwd`"
+  else
+    echo "  ${DIRNAM} does not exist"
+    echo "  It may be already cleaned?"
+  fi
+}
+
+### ######################################################################
+### Main Script
+### ######################################################################
+
+while [ ${#} -gt 0 ]
+do
+  case "${1}" in
+    maloc) 
+     MODES="${MODES} ${1}"
+     BMALOC=1
+    ;;
+    punc) 
+     MODES="${MODES} ${1}"
+     BPUNC=1
+    ;;
+    mc) 
+     MODES="${MODES} ${1}"
+     BMC=1
+    ;;
+    sg)  
+     MODES="${MODES} ${1}"
+     BSG=1
+    ;;
+    gamer)
+     MODES="${MODES} ${1}"
+     BGAMER=1
+    ;;
+    all)
+     MODES="${MODES} ${1}"
+     BALL=1
+    ;;
+    -prefix*)
+     PREFIX=`echo ${1} | sed -e "s/-prefix=//i"`
+     echo "PREFIX=${PREFIX}"
+    ;;
+    -fetkroot*)
+     FETK_ROOT=`echo ${1} | sed -e "s/-fetkroot=//i"`
+     echo "FETK_ROOT=${FETK_ROOT}"
+    ;;
+    *-help)
+     echo "USAGE: ${0} [FLAGS] [MODULE]"
+     echo ""
+     echo "MODULES: maloc  punc  mc  sg  gamer all"
+     echo ""
+     echo "FLAGS:  -fetkroot=PATH  Sets the path to the root fetk dir"
+     echo "                        Default option is the root of this script"
+     echo "        -prefix=PATH    Sets the lib & include install paths"
+     echo "                        Default path is the dir above fetkroot"
+     exit
+    ;;
+    -*) 
+     FLAGS="${FLAGS} ${1}" 
+     echo "UNKNOWN FLAG: ${1}"
+    ;;
+    *)
+     OTHER="${1}"
+     echo "UNKNOWN OPTION: ${1}" 
+    ;;
+   esac
+   shift
+done
+
+SCRIPTDIR=`pwd`/`dirname ${0}`
+
+if [ -z "${MODES}" ]
+then
+  MODES=all
+  BALL=1
+  echo "No mode specified, cleaning ${MODES} ..."
+fi
+
+if [ -z "${FETK_ROOT}" ]
+then
+  pushd ${SCRIPTDIR}/../. > /dev/null
+  FETK_ROOT=`pwd`
+  popd > /dev/null
+  echo "No fetkroot specified, trying ${FETK_ROOT} ..."
+fi
+
+FETK_ARCH=`. ${FETK_ROOT}/maloc/config/config.guess`
+
+if [ -z "${PREFIX}" ]
+then
+  pushd ${FETK_ROOT}/build/${FETK_ARCH} > /dev/null
+  PREFIX=`pwd`
+  popd > /dev/null
+  echo "No install prefix specified, trying ${PREFIX} ..."
+fi
+
+echo "########## CLEAN ENVIRONMENT ###########"
+echo ""
+echo "FETK_ROOT      = ${FETK_ROOT}"
+echo "FETK_LIBRARY   = ${PREFIX}/lib"
+echo "FETK_INCLUDE   = ${PREFIX}/include"
+echo "FETK_ARCH      = ${FETK_ARCH}"
+echo "MODULES        = ${MODES}"
+echo ""
+echo "Press enter to continue, or ctrl-c to break"
+read RESPONSE
+
+if [ "${BGAMER}" == "1" -o "${BALL}" == "1" ]
+then
+  echo "Cleaning gamer ... "
+  my_distclean ${FETK_ROOT}/gamer/tools/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/gamer/tools/${FETK_ARCH}
+  my_distclean ${FETK_ROOT}/gamer/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/gamer/${FETK_ARCH}
+  my_rmdir ${PREFIX}/include/gamer
+fi
+
+if [ "${BSG}" == "1" -o "${BALL}" == "1" ]
+then
+  echo "Cleaning sg ... "
+  my_distclean ${FETK_ROOT}/sg/${FETK_ARCH} 
+  my_rmdir ${FETK_ROOT}/sg/${FETK_ARCH}
+  my_rmdir ${PREFIX}/include/sg 
+  my_rmdir ${PREFIX}/include/GL 
+  my_distclean ${FETK_ROOT}/sg/tools/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/sg/tools/${FETK_ARCH}
+fi
+
+if [ "${BMC}" == "1" -o "${BALL}" == "1" ]
+then
+  echo "Cleaning mc ... "
+  my_distclean ${FETK_ROOT}/mc/tools/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/mc/tools/${FETK_ARCH}
+  my_distclean ${FETK_ROOT}/mc/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/mc/${FETK_ARCH}
+  my_rmdir ${PREFIX}/include/mc
+fi
+
+if [ "${BPUNC}" == "1" -o "${BALL}" == "1" ]
+then
+  echo "Cleaning punc ... "
+  my_distclean ${FETK_ROOT}/punc/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/punc/${FETK_ARCH}
+  my_rmdir ${PREFIX}/include/punc
+fi
+
+if [ "${BMALOC}" == "1" -o "${BALL}" == "1" ]
+then
+  echo "Cleaning maloc ... "
+  my_distclean ${FETK_ROOT}/maloc/tools/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/maloc/tools/${FETK_ARCH}
+  my_distclean ${FETK_ROOT}/maloc/${FETK_ARCH}
+  my_rmdir ${FETK_ROOT}/maloc/${FETK_ARCH}
+  my_rmdir ${PREFIX}/include/maloc
+fi
+
+my_rmdir ${PREFIX}/doc
+my_rmdir ${PREFIX}/include
+my_rmdir ${PREFIX}/lib 
+my_rmdir ${PREFIX}/bin
+rm -f ${PREFIX}/fetk-env
+my_rmdir ${PREFIX}

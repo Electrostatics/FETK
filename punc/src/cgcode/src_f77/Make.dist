@@ -1,0 +1,17 @@
+
+include ../make.inc
+
+THISLIB = libcgcode.a
+SOBJLIB = scgdrv.o scg.o scr.o scrind.o spcg.o scgnr.o scgne.o spcgnr.o spcgne.o sppcg.o spcgca.o sdpchb.o scbfix.o sckchb.o scgchk.o sonest.o msstop.o r1mach.o sratqr.o
+DOBJLIB = dcgdrv.o dcg.o dcr.o dcrind.o dpcg.o dcgnr.o dcgne.o dpcgnr.o dpcgne.o dppcg.o dpcgca.o ddpchb.o dcbfix.o dckchb.o dcgchk.o donest.o mdstop.o d1mach.o dratqr.o depsln.o
+
+$(THISLIB) : $(SOBJLIB) $(DOBJLIB)
+	$(AR) $(THISLIB) $(SOBJLIB) $(DOBJLIB)
+	cp $(THISLIB) ../.
+
+.f.o :
+	$(F77) $(CFLAGS) $(DEBUG) $(OFLAGS) $*$ .f
+	
+clean :
+	rm -f *.o $(THISLIB)
+

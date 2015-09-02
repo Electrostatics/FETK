@@ -1,0 +1,127 @@
+#!/bin/bash
+
+### ######################################################################
+### Shell script for selectively building MC examples
+###
+### rcsid="$Id: build_examples,v 1.8 2008/11/21 23:04:38 fetk Exp $"
+### ######################################################################
+
+while [ ${#} -gt 0 ]
+do
+  case "${1}" in
+    born)
+     MODE="${1}"
+    ;;
+    dynamics) 
+     MODE="${1}"
+    ;;
+    elastic) 
+     MODE="${1}" 
+    ;;
+    hb)
+     MODE="${1}"
+    ;;
+    simple)
+     MODE="${1}"
+    ;;
+    simpleMCsh)
+     MODE="${1}"
+    ;;
+    test)
+     MODE="${1}"
+    ;;
+    testLL)
+     MODE="${1}"
+    ;;
+    all)
+     MODE="${1}"
+    ;;
+    -prefix*)
+     PREFIX=`echo ${1} | sed -e "s/-prefix=//i"`
+     echo "PREFIX=${PREFIX}"
+    ;;
+    -fetkroot*)
+     FETK_ROOT=`echo ${1} | sed -e "s/-fetkroot=//i"`
+     echo "FETK_ROOT=${FETK_ROOT}"
+    ;;
+    *-help)
+     echo "USAGE: ${0} [FLAGS] [MODULE]"
+     echo ""
+     echo "MODULES: born dynamics elastic hb simple simpleMCsh test testLL all"
+     echo ""
+     echo "FLAGS:  -fetkroot=PATH  Sets the path to the root fetk dir"
+     echo "                        Default path is the root of this script"
+     echo "        -prefix=PATH    Sets the lib & include install paths"
+     echo "                        Default path is the dir above fetkroot"
+     exit
+    ;;
+    -*) 
+     FLAGS="${FLAGS} ${1}" 
+     echo "UNKNOWN FLAG: ${1}"
+    ;;
+    *)
+     OTHER="${1}"
+     echo "UNKNOWN OPTION: ${1}" 
+    ;;
+   esac
+   shift
+done
+
+SCRIPTDIR=`pwd`/`dirname ${0}`
+
+if [ "${MODE}" = "" ]
+then
+  MODE=all
+  echo "No mode specified, building ${MODE} ..."
+fi
+
+if [ "${FETK_ROOT}" = "" ]
+then
+  pushd ${SCRIPTDIR}/../. > /dev/null
+  FETK_ROOT=`pwd`
+  popd > /dev/null
+  echo "No fetkroot specified, trying ${FETK_ROOT} ..."
+fi
+
+FETK_ARCH=`. ${FETK_ROOT}/maloc/config/config.guess`
+
+if [ "${PREFIX}" = "" ]
+then
+  pushd ${FETK_ROOT}/build/${FETK_ARCH} > /dev/null
+  PREFIX=`pwd`
+  popd > /dev/null
+  echo "No install prefix specified, trying ${PREFIX} ..."
+fi
+
+echo "Setting FETK_INCLUDE environmental variable to ${PREFIX}/include ..."
+export FETK_INCLUDE=${PREFIX}/include
+echo "Setting FETK_LIBRARY environmental variable to ${PREFIX}/lib ..."
+export FETK_LIBRARY=${PREFIX}/lib
+
+echo "########## BUILD ENVIRONMENT ###########"
+echo ""
+echo "FETK_ROOT      = ${FETK_ROOT}"
+echo "FETK_INCLUDE   = ${FETK_INCLUDE}"
+echo "FETK_LIBRARY   = ${FETK_LIBRARY}"
+echo "BUILD_ARCH     = ${FETK_ARCH}"
+echo "MODULES        = ${MODE}"
+echo ""
+echo "Press enter to continue, or ctrl-c to break"
+read RESPONSE
+
+for DIR in born dynamics elastic hb simple simpleMCsh test testLL
+do
+  if [ "${MODE}" == "${DIR}" -o "${MODE}" == "all" ]
+  then
+    echo "Building ${DIR} ... "
+    pushd ${FETK_ROOT}/mc/examples/${DIR}
+    MAKEFILE="Makefile.${FETK_ARCH}"
+    cat Makefile > ${MAKEFILE}
+    sed -i -e "s@^[ ]*\(ARCH[ ]*=\).*@\1 ${FETK_ARCH}@" ${MAKEFILE}
+    sed -i -e "s@^[ ]*\(HOME[ ]*=\).*@\1 = ${PREFIX}@" ${MAKEFILE}
+    sed -i -e "s@^[ ]*\(FETK_INC[ ]*=\)[ ]*-I[^ ]*@\1 -I${FETK_INCLUDE}@" ${MAKEFILE}
+    sed -i -e "s@^[ ]*\(FETK_LIB[ ]*=\)[ ]*-L[^ ]*@\1 -L${FETK_LIBRARY}@" ${MAKEFILE}
+    gmake -f ${MAKEFILE}
+    popd
+  fi
+done

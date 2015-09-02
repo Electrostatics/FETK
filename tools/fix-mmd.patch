@@ -1,0 +1,16 @@
+diff -rud --exclude=CVS --exclude=mcx fetk/mc/src/zslu/mmd.c fetk_PATCHED/mc/src/zslu/mmd.c
+--- fetk/mc/src/zslu/mmd.c	Sat Oct  7 15:57:41 2000
++++ fetk_PATCHED/mc/src/zslu/mmd.c	Sat May 18 15:41:36 2002
+@@ -148,6 +148,12 @@
+ 	goto L600;
+     }
+     ++mdeg;
++/* --------------> BEGIN STEPHEN BOND'S EXPERIMENTAL FIX <------------ */
++    if ( mdeg >= (*neqns + *delta) ) {
++      Vnm_print(2,"genmmd:  Detected a problem, moving on!\n");
++      goto L1000;
++    }
++/* -------------->  END  STEPHEN BOND'S EXPERIMENTAL FIX <------------ */
+     if (mdeg > mdlmt) {
+ 	goto L900;
+     }

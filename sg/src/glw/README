@@ -1,0 +1,11 @@
+This is a subset of: 
+
+    The GLw widget lib from v2.2 of Brian Paul's Mesa 3-D graphics library
+
+This is GNU software.
+
+The man pages describe SGI's GLw (GL Widget) which the MESA GL widgets try to
+replicate.  The functionality appears to be identical...
+
+--Michael Holst, 091796
+

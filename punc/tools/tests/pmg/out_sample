@@ -1,0 +1,71 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % MGMAIN: TOTAL FP  STORAGE DECLARED:          1165339
+ % MGMAIN: TOTAL INT STORAGE DECLARED:          2100
+ % MGMAIN: max number of unknowns:              35937
+ % MGMAIN: max vector length for all levels:    42026
+ % MGMAIN: DECLARED fp  work array size:        837892
+ % MGMAIN: DECLARED int work array size:        2000
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% READIT: done reading input file... 
+ % MGSIZE: number of unknowns on finest level:      35937
+ % MGSIZE: number of unknowns on coarsest level:    125
+ % MGSIZE: storage for a vector on all levels:      41704
+ % MGSIZE: storage for a vector on coarse levels:   5767
+ % MGSIZE: REQUIRED floating point array size:      406433
+ % MGSIZE: REQUIRED integer array size:             750
+ % MGMAIN: time to read in problem description:    0.56000000000000
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % MGMAIN: calling nmg (linear/nonlinear) ... 
+ % PRTSTP: initializing timer...
+% BUILDOPS: (FINE) :   [ 33, 33, 33] 
+ % BUILDA:   (BOX) performing discretization...
+ % BUILDOPS: operator stencil (lev,numdia) =   1  4
+ % MGDRIV2: fine problem setup time:     1.6900000000000
+ % BUILDP:   (TRILINEAR) building prolongation...
+% BUILDOPS: (STAND)    [ 17, 17, 17] 
+ % BUILDA:   (BOX) performing discretization...
+ % BUILDOPS: operator stencil (lev,numdia) =   2  4
+ % BUILDP:   (TRILINEAR) building prolongation...
+% BUILDOPS: (STAND)    [  9,  9,  9] 
+ % BUILDA:   (BOX) performing discretization...
+ % BUILDOPS: operator stencil (lev,numdia) =   3  4
+ % BUILDP:   (TRILINEAR) building prolongation...
+% BUILDOPS: (STAND)    [  5,  5,  5] 
+ % BUILDA:   (BOX) performing discretization...
+ % BUILDOPS: operator stencil (lev,numdia) =   4  4
+ % MGDRIV2: coarse problem setup time:    0.44000000000000
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MGDRIV2: ANALYSIS==> [ 33, 33, 33] 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MGDRIV2: ANALYSIS==> [ 17, 17, 17] 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MGDRIV2: ANALYSIS==> [  9,  9,  9] 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MGDRIV2: ANALYSIS==> [  5,  5,  5] 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  mg = [ 
+ % MGDRIV2: linear mode...
+% MVCS: starting:      [ 33, 33, 33]    [  5,  5,  5] 
+% ---------    -----------    -----------    -----       
+% iteration    relat resid    contraction    wall        
+% count        discr(1-nm)    number         clock       
+% ---------    -----------    -----------    -----       
+     -1        0.00000E+00    0.00000E+00    2.18E+00                    %%%
+      0        1.00000E+00    1.00000E+00    2.24E+00                    %%%
+      1        1.84878E-01    1.84878E-01    8.50E+00                    %%%
+      2        3.08385E-02    1.66805E-01    1.48E+01                    %%%
+      3        5.45476E-03    1.76882E-01    2.10E+01                    %%%
+      4        1.25517E-03    2.30106E-01    2.72E+01                    %%%
+      5        3.12594E-04    2.49045E-01    3.34E+01                    %%%
+      6        7.77590E-05    2.48754E-01    3.97E+01                    %%%
+      7        1.96829E-05    2.53127E-01    4.59E+01                    %%%
+      8        5.21107E-06    2.64751E-01    5.21E+01                    %%%
+      9        1.40281E-06    2.69198E-01    5.84E+01                    %%%
+     10        3.82440E-07    2.72624E-01    6.46E+01                    %%%
+ % MGDRIV2: solve time:     62.440000000000
+ ];   mg_sf=1.690E+00;   mg_sc=4.400E-01;   mg_st=2.130E+00;   mg_so=6.244E+01;
+ % MGMAIN: returned from iterative solver.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % MGMAIN: total time spent in solve routine:     64.630000000000
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

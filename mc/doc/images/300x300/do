@@ -1,0 +1,4 @@
+files="2d_1.gif 2d_2.gif 2d_3.gif 3d_1.gif 3d_2.gif 3d_3.gif b9.gif b9d.gif bar2d.gif bar3d.gif boxin.gif boxin2.gif boxsp.gif boxsp2.gif c8.gif c8d.gif coolone.gif do ext.gif hole2in.gif hole2sp.gif holein.gif holesp.gif inbis.gif int.gif int2.gif l2din.gif l2dsp.gif l3d2in.gif l3d2sp.gif l3din.gif l3dsp.gif linux.gif linux_big.gif linux_old.gif lshape.gif lsupin.gif lsupsp.gif man1in.gif man1sp.gif man2in.gif man2sp.gif mancoarse.gif mc.gif os2.gif p1.gif p2.gif p3.gif p6.gif p9.gif rodin1.gif rodin2.gif rodsp1.gif rodsp2.gif spbis.gif sphin.gif sphsp.gif tet.gif tetin.gif tetin2.gif tetsp.gif tetsp2.gif torus_in.gif torus_sp.gif uin1.gif uin2.gif usp1.gif usp2.gif venusin.gif venussp.gif vw.gif vwin.gif winnt.gif"
+for file in ${files}; do
+    xv ${file}
+done

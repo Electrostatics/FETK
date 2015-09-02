@@ -1,0 +1,85 @@
+
+Welcome to FETK (The Finite Element ToolKit).
+
+FETK is developed and maintained by the Mathematical and Computational 
+Physics Group in the Mathematics and Physics Departments at UC San Diego,
+together with colleagues from around the world.  The development effort 
+is based in the Center for Computational Mathematics at UCSD.  For more 
+detailed information about FETK, see the FETK.org website:
+
+    http://FETK.org/
+
+In brief, FETK consists of a number of finite element modeling 
+software libraries that depend on each other in a hierarchical way.
+The dependencies in the core FETK libraries are:
+
+   MALOC
+     |
+     |-----> SG     .....
+     |                   \
+     |-----> PUNC   ----> MC
+     |                   /
+     |-----> GAMer  ..../
+
+The solid lines mean that there is a build dependency; the dotted lines 
+means that there is run-time dependency, in that additional capabilities 
+are provided to MC if either/both of SG and/or GAMer have been built.
+FETK is based around a GNU autoconf build framework; you can build each 
+library independently, or you can build the entire FETK suite using a 
+script we provide (see below).  Below is a brief summary of what the 
+core libraries do.
+
+MALOC (Minimal Abstraction Layer for Object-oriented C):
+  All of the FETK libraries depend on the single low-level abstraction 
+  library MALOC (as does several tools developed separately from FETK, 
+  such as APBS; see the ABPS website for more information about APBS).
+  See the FETK website for more information about MALOC.
+
+PUNC (Portable Understructure for Numerical Computing):
+  The MC library (below) depends on having access to a standard set 
+  of numerical libraries such as BLAS, LAPACK, SuperLU, UMFPACK, ARPACK,
+  and a few other tools.  PUNC looks for these on the given platform,
+  and builds them if it is unable to locate a functioning library;
+  after building and installing PUNC, the MC library is assured of having
+  access to all of the standard libraries on which it depends.
+  See the FETK website for more information about PUNC.
+
+SG (Socket Graphics):
+  The SG library provides a very lightweight polygon visualization
+  and manipulation tool, similar to Geomview but is much simpler.
+  It does do three things that Geomview does not do:
+    (1) It accepts Geomview OFF input as well as several other formats.
+    (2) It accepts input from files, pipes, buffers, UNIX sockets, and
+        also INET sockets (both UNIX and Windows via Winsock).
+    (3) It generates exact postscript renderings using the Painter's
+        Algorithm, by solving linear programming problems to determine
+        a feasible point in the set of correct rendering orders.
+  See the FETK website for more information about SG.
+
+GAMer (Geometry-preservering Adaptiver Mesher):
+  The GAMer library is a surface and volume mesh generator based on
+  standard simplex generation, smoothing, and subdivision algorithms.
+  It was designed for modeling molecular surfaces, but is a general
+  meshing tool that can be used for many applications.  It generates
+  meshing files that are compatible mesh input files for MC (see below).
+  GAMer employs both Triangle and Tetgen as auxilliary triangulation 
+  and tetrahedralization tools.  See the FETK website for more information
+  about GAMer.
+
+MC (Manifold Code):
+  The MC library is a finite element modeling library for discretizing
+  and solving coupled systems of elliptic and parabolic partial differential
+  equations on both 2D and 3D domains.  It has been designed to allow for
+  the representation of 2- and 3-manifold domains, and the discretization
+  of elliptic and parabolic differential operators on these types of domains.
+  It has been used to simulate problems ranging from molecular systems
+  to black holes.  See the FETK website for more information about MC.
+
+The simplest way to build the entire FETK suite of libraries is the
+using the "fetk-build" script in the main FETK directory.
+
+Have fun.
+
+-michael holst 
+ Mon Jun 28 10:27:39 PDT 2010
+

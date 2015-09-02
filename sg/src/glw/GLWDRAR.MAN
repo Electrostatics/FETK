@@ -1,0 +1,595 @@
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+NAME
+     GLwDrawingArea, GLwMDrawingArea - OpenGL drawing widgets.
+
+
+SYNOPSIS
+     #include <GL/GLwDrawA.h>
+     ld ... -lGLw -l<anywidgetlibrary> -lGL -lXext -lX11 -lXm -lXt -lm
+
+     #include <GL/GLwMDrawA.h>
+     ld ... -lGLw -lGL -lXext -lX11 -lXm -lXt -lm
+
+
+DESCRIPTION
+     GLwDrawingArea and GLwMDrawingArea are widgets suitable for OpenGL
+     drawing.  They provide a window with the appropriate visual and colormaps
+     needed for OpenGL, based on supplied parameters.  GLwDrawingArea and
+     GLwMDrawingArea also provide callbacks for redraw, resize, input, and
+     initialization.
+
+     GLwDrawingArea is not a part of any widget set, but depends only on Xt.
+     GLwDrawingArea can be used with any widget set.  GLwMDrawingArea is
+     identical to GLwDrawingArea except that it is a subclass of the Motif
+     widget class XmPrimitive and has resources and defaults suitable for use
+     with Motif.  For example, GLwMDrawingArea provides the default Motif
+     background and foreground colors for resources, and deals better with
+     keyboard traversal.  Although the GLwDrawingArea widget can be used in a
+     Motif program, it is recommended that GLwMDrawingArea be used instead.
+
+     Since both GLwDrawingArea and GLwMDrawingArea widgets behave almost
+     identically, the remainder of this manual page will refer only to
+     GLwDrawingArea, except when the behaviors differ.  Unless explicitly
+     stated, all statements about GLwDrawingArea also apply to
+     GLwMDrawingArea.
+
+     Among the information provided when creating a GLwDrawingArea is
+     information necessary to determine the visual.  This may be provided in
+     three ways, all of them through resources.  A specific visualInfo
+     structure may be passed in.  (This visualInfo must have been obtained
+     elsewhere; it is the application designer's responsibility to make sure
+     that it is compatible with the OpenGL rendering done by the application).
+     Alternatively, an attribute list may be provided.  This attribute list is
+     formatted identically to that used for direct open GL programming.
+     Finally, each attribute can be specified as an individual resource.  The
+     latter method is the simplest, and is the only method that works from
+     resource files.
+
+     In addition to allocating the visual, the GLwDrawingArea will also
+     allocate the colormap unless one is provided by the application.  (If one
+     is provided it is the application writer's responsibility to guarantee
+     compatibility between the colormap and the visual).  If an application
+     creates multiple GLwDrawingAreas with the same visual, the same colormap
+     will be used.  (However the colormap will not be shared among separate
+
+
+
+                                                                        Page 1
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+     applications).
+
+     Creating the widget does not actually create the window until it is
+     realized, and consequently, the application should not perform any OpenGL
+     operations to the window immediately after creation.  Instead the
+     application must wait until after it has realized the window.
+     Alternatively, the ginit callback may be used to indicate when the window
+     has been created.  Upon receiving this callback, the application can
+     perform all OpenGL initialization for the window, and can subsequently
+     perform other operations on it.  The initialization is discussed in more
+     detail below.
+
+     Applications select which GLwDrawingArea they are accessing using either
+     glXMakeCurrent or the convenience function GLwDrawingAreaMakeCurrent
+     which uses a widget instead of a display and window.  If there is only
+     one GLwDrawingArea this need only be called once, however if there is
+     more than one GLwDrawingArea it should be called at the start of each
+     callback.  Callbacks in this case include not only callbacks provided by
+     the widget itself, but any other callback that leads to GL activity such
+     as a timeout or a workproc.
+
+     If an application is using double buffering, it may call
+     GLwDrawingAreaSwapBuffers instead of glXSwapBuffers.  This allows the use
+     of the widget instead of the display and window.
+
+   GLwDrawingArea Classes
+     GLwDrawingArea inherits behavior and resources from the Core class.
+     The class pointer is GLwDrawingAreaWidgetClass.
+     The class name is GLwDrawingArea.
+
+   GLwMDrawingArea Classes
+     GLwMDrawingArea inherits behavior and resources from the XmPrimitive and
+     Core classes.
+     The class pointer is GLwMDrawingAreaWidgetClass.
+     The class name is GLwMDrawingArea.
+
+
+   New Resources
+     The following tables define a set of widget resources used by the
+     programmer to specify data.  The programmer can also set the resource
+     values for the inherited classes to set attributes for this widget.  To
+     reference a resource by name or by class in a .Xdefaults file, remove the
+     GLwN or GLwC prefix and use the remaining letters.  There are two tables
+     included.  The first table includes resources that correspond directly to
+     the attributes used by glXChooseVisual.  As with glXChooseVisual, all
+     Boolean resources default to FALSE and all integer resources default to
+     0, except redSize, greenSize and blueSize which default to 1.  These
+     resources can all be set only at creation time, and are used to determine
+     the visual.  If either the GLwNattribList or GLwNvisualInfo resource is
+     set, these resources are ignored.  The specific meaning of these
+     resources is discussed in the glXChooseVisual manual page and will not be
+     discussed here.
+
+
+
+                                                                        Page 2
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+   ___________________________________________________________________________
+   | Name              |  Class             |  Type   |  OpenGL attribute    |
+   |___________________|____________________|_________|______________________|
+   | GLwNbufferSize    |  GLwCBufferSize    |  int    |  GLX_BUFFER_SIZE     |
+   |___________________|____________________|_________|______________________|
+   | GLwNlevel         |  GLwCLevel         |  int    |  GLX_LEVEL           |
+   |___________________|____________________|_________|______________________|
+   | GLwNrgba          |  GLwCRgba          |  Boolean|  GLX_RGBA            |
+   |___________________|____________________|_________|______________________|
+   | GLwNdoublebuffer  |  GLwCDoublebuffer  |  Boolean|  GLX_DOUBLEBUFFER    |
+   |___________________|____________________|_________|______________________|
+   | GLwNstereo        |  GLwCStereo        |  Boolean|  GLX_STEREO          |
+   |___________________|____________________|_________|______________________|
+   | GLwNauxBuffers    |  GLwCAuxBuffers    |  Boolean|  GLX_AUX_BUFFERS     |
+   |___________________|____________________|_________|______________________|
+   | GLwNredSize       |  GLwCColorSize     |  int    |  GLX_RED_SIZE        |
+   |___________________|____________________|_________|______________________|
+   | GLwNgreenSize     |  GLwCColorSize     |  int    |  GLX_GREEN_SIZE      |
+   |___________________|____________________|_________|______________________|
+   | GLwNblueSize      |  GLwCColorSize     |  int    |  GLX_BLUE_SIZE       |
+   |___________________|____________________|_________|______________________|
+   | GLwNalphaSize     |  GLwCAlphaSize     |  int    |  GLX_ALPHA_SIZE      |
+   |___________________|____________________|_________|______________________|
+   | GLwNdepthSize     |  GLwCDepthSize     |  int    |  GLX_DEPTH_SIZE      |
+   |___________________|____________________|_________|______________________|
+   | GLwNstencilSize   |  GLwCStencilSize   |  int    |  GLX_STENCIL_SIZE    |
+   |___________________|____________________|_________|______________________|
+   | GLwNaccumRedSize  |  GLwCAccumColorSize|  int    |  GLX_ACCUM_RED_SIZE  |
+   |___________________|____________________|_________|______________________|
+   | GLwNaccumGreenSize|  GLwCAccumColorSize|  int    |  GLX_ACCUM_GREEN_SIZE|
+   |___________________|____________________|_________|______________________|
+   | GLwNaccumBlueSize |  GLwCAccumColorSize|  int    |  GLX_ACCUM_BLUE_SIZE |
+   |___________________|____________________|_________|______________________|
+   | GLwNaccumAlphaSize|  GLwCAccumAlphaSize|  int    |  GLX_ACCUM_ALPHA_SIZE|
+   |___________________|____________________|_________|______________________|
+
+
+     The following table lists other resources of the GLwDrawingArea widget.
+     each of these will be described subsequently.  The codes in the access
+     column indicate if the given resource can be set at creation time (C),
+     set by using XtSetValues (S), retrieved by using XtGetValues (G), or is
+     not applicable (N/A).
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        Page 3
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+   Name                      Class                   Type             Def    Acc
+   _____________________________________________________________________________
+   GLwNallocateBackground    GLwCAllocateColors      Boolean          F      CG
+   GLwNallocateOtherColors   GLwCAllocateColors      Boolean          F      CG
+   GLwNattribList            GLwCAttribList          int *            NULL   CG
+   GLwNexposeCallback        GLwCCallback            XtCallbackList   NULL   C
+   GLwNginitCallback         GLwCCallback            XtCallbackList   NULL   C
+   GLwNinputCallback         GLwCCallback            XtCallbackList   NULL   C
+   GLwNinstallBackground     GLwCInstallBackground   Boolean          T      CG
+   GLwNinstallColormap       GLwCInstallColormap     Boolean          T      CG
+   GLwNresizeCallback        GLwCCallback            XtCallbackList   NULL   C
+   GLwNvisualInfo            GLwCVisualInfo          XVisualInfo*     NULL   CG
+
+
+     GLwNallocateBackground
+          If TRUE, the background pixel and pixmap will be allocated if
+          appropriate using the newly calculated colormap and visual.  If
+          FALSE, they will retain values calculated using the parent's
+          colormap and visual.  Applications which wish to have X clear their
+          background for them will usually set this to TRUE.  Applications
+          clearing their own background will often set this to FALSE, although
+          they may set this to TRUE if they query the background for their own
+          use.  One reason to leave this resource FALSE is that if color index
+          mode is in use this avoid using up a pixel from the newly allocated
+          colormap.  Also, on hardware that supports only one colormap, the
+          application may need to do more careful color allocation to avoid
+          flashing between the openGL colormap and the default X colormap.
+          (Note that because of the way Xt works, the background colors are
+          originally calculated using the default colormap; if this resource
+          is set they can be recalculated correctly.  If a colormap was
+          explicitly supplied to the widget rather than being dynamically
+          calculated, these resources are always calculated using that
+          colormap.)
+
+     GLwNallocateOtherColors
+          This is similar to GLwNallocateBackground, but allocates other
+          colors normally allocated by widgets.  Although the GLwDrawingArea
+          and GLwMDrawingArea widget do not make use of these colors the
+          application may choose to query them.  For the non-Motif
+          GLwDrawingArea widget there are no other colors allocated, so this
+          resource is a no-op.  For the Motif GLwMDrawingArea are widget, the
+          XmPrimitive resources XmNforeground, XmNhighlightColor, and
+          XmNhighlightPixmap are calculated.
+
+     GLwNattribList
+          Contains the list of attributes suitable for a call to
+          glXChooseVisual.  If this resource is NULL, it is calculated based
+          on the attribute resources.  If it is not NULL, the attribute
+          resources are ignored.
+
+
+
+
+
+
+                                                                        Page 4
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+     GLwNexposeCallback
+          Specifies the list of callbacks that is called when the widget
+          receives an exposure event.  The callback reason is GLwCR_EXPOSE.
+          The callback structure also includes the exposure event.  The
+          application will generally want to redraw the scene.
+
+     GLwNginitCallback
+          Specifies the list of callbacks that is called when the widget is
+          first realized.  Since no OpenGL operations can be done before the
+          widget is realized, this callback can be used to perform any
+          appropriate OpenGL initialization such as creating a context.  The
+          callback reason is GLwCR_GINIT.
+
+     GLwNinputCallback
+          Specifies the list of callbacks that is called when the widget
+          receives a keyboard or mouse event.  By default, the input callback
+          is called on each key press and key release, on each mouse button
+          press and release, and whenever the mouse is moved while a button is
+          pressed.  However this can be changed by providing a different
+          translation table. The callback structure also includes the input
+          event.  The callback reason is GLwCR_INPUT.
+
+          The input callback is provided as a programming convenience, as it
+          provides a convenient way to catch all input events.  However, a
+          more modular program can often be obtained by providing specific
+          actions and translations in the application rather than using a
+          single catch all callback.  Use of explicit translations can also
+          provide for more customizability.
+
+     GLwNinstallBackground
+          If set to TRUE, the background is installed on the window.  If set
+          to FALSE, the window has no background.  This resource has no effect
+          unless GLwNallocateBackground is also TRUE.
+
+     GLwNinstallColormap
+          If set to TRUE, the widget will call XSetWMColormapWindows to tell
+          the window manager to install the colormap when the window's shell
+          has focus.  If set to FALSE, this will not be called.  For
+          applications with multiple GLwDrawingAreas sharing a single
+          colormap, it is most efficient to set this resource to TRUE for
+          exactly one GLwDrawingArea with each colormap.  If an application
+          needs additional control over the order of colormaps, this resource
+          can be set to FALSE, with the application calling
+          XSetWMColormapWindows explicitly.
+
+     GLwNresizeCallback
+          Specifies the list of callbacks that is called when the
+          GLwDrawingArea is resized.  The callback reason is GLwCR_RESIZE.
+
+     GLwNvisualInfo
+          Contains a pointer to the window's visual info structure.  If NULL,
+          the visualInfo is calculated at widget creation time based on the
+
+
+
+                                                                        Page 5
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+          GLwNattributeList resource (which is itself calculated from the
+          various resources).  If GLwNvisualInfo is not NULL the
+          GLwNattributList and the attribute resources are ignored.
+
+
+   Inherited Resources
+     Both GLwDrawingArea and GLwMDrawingArea inherit behavior and
+      resources from the core superclass.  Other than the behavior of the
+     colormap and background resources described previously, all defaults are
+     the same as for core.
+
+     In addition, the Motif version GLwMDrawingArea also inherits from
+     XmPrimitive.  The behavior of the color resources has been described
+     previously.  The TraversalOn resource is disabled for this widget, but if
+     keyboard input is required it should be enabled.  (Also, the application
+     should call XmProcessTraversal(widget, XmTRAVERSE_CURRENT) whenever mouse
+     button 1 is clicked in the widget.  This is similar to the requirements
+     of the Motif Drawing area.)  Because Motif gets confused by having
+     multiple visuals in one top level shell, XmNhighlightOnEnter has been
+     disabled, and XmNhighlightThickness has been set to 0.
+
+   Callback Information
+     A pointer to the following structure is passed to each callback:
+
+     typedef struct
+     {
+       int      reason;
+       XEvent   * event;
+       Dimensionwidth, height;
+     } GLwDrawingAreaCallbackStruct;
+
+
+     reason Indicates why the callback was invoked.  Appropriate values are
+            stated in the above resource descriptions.  For Motif programmers,
+            the values GLwCR_EXPOSE, GLwCR_RESIZE, and GLwCR_INPUT are equal
+            to XmCR_EXPOSE, XmCR_RESIZE, and XmCR_INPUT respectively.
+            GLwCR_GINIT does not have a Motif equivalent.
+
+     event  Points to the XEvent that triggered the callback.  This is NULL
+            for GLwNginitCallback and GLwNresizeCallback.
+
+     width and height
+            Are set to the width and height of the window.
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        Page 6
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+   Translations
+     GLwDrawingArea has the translations listed below.
+
+     <KeyDown>:     glwInput()
+     <KeyUp>:       glwInput()
+     <BtnDown>:     glwInput()
+     <BtnUp>:       glwInput()
+     <BtnMotion>:   glwInput()
+
+     GLwMDrawingArea has the following additional translation:
+
+     <Key>osfHelp:  PrimitiveHelp()
+
+     An application wishing to catch other events than these defaults can do
+     so by installing a different translation table.
+
+
+
+   Action Routines
+     The GLwDrawingArea has the following action routine:
+
+     glwInput():
+          Called whenever one of the above translations specifies that input
+          has occurred.  Its sole purpose is to call the input callback.
+
+
+INITIALIZATION
+     When the widget is initially created (e.g. through XtCreateWidget(3X))
+     the associated window is not actually created.  Instead, window creation
+     is delayed until the widget is realized.  However, glXchooseVisual is
+     called immediately, so information based on its results is available.
+
+     Between the time the widget is created and it is realized, the following
+     apply:
+
+     o    No OpenGL operations can be done to the window
+
+     o    No resize callbacks are generated.
+
+     o    The normal window is available (XtWindow returns NULL).
+
+     o    GLwDrawingAreaMakeCurrent (and glXMakeCurrent) should not be called.
+
+     When the widget is realized, the following actions take place:
+
+     o    The window is created.
+
+     o    The ginit callback is called.  The user may use this callback to
+          perform any needed OpenGL initialization to the window.
+
+
+
+
+
+
+                                                                        Page 7
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+NOTES
+     When using the input callback to receive keyboard input, the keycode in
+     the event must be converted to a KeySym.  Use XLookupKeysym(3X) or
+     XLookupString(3X) to do the conversion.  Keyboard input can also be dealt
+     using translations, in which case no such conversion is required.
+
+     Motif programmers should keep in mind that OSF uses virtual bindings and
+     replaces some of the key bindings.  As a common example, if the ESC key
+     is to be used to exit the program (as it often is in GL programs), the
+     translation should specify <key>osfCancel instead of <key>Escape.
+
+     Motif programmers may also create a GLwMDrawingArea widget with the Motif
+     style GLwCreateMDrawingArea.
+
+
+EXAMPLE
+     Here are some code fragments that create a GLwDrawingArea widget, and
+     manage the appropriate callbacks.
+
+
+        #include <X11/GLW/GLwDrawingArea.h>
+        static GLXContext glx_context;  /* assume only one context */
+        . . .
+
+        main()
+        {
+            Arg args[10];
+            int n;
+
+            Widget parent;/* The parent of the gl widget */
+            Widget glw;/* The GLwDrawingArea widget          */
+            . . .
+
+            /* Create the widget using RGB mode.  This can also be set
+             * in an X Defaults file
+             */
+            n = 0;
+            XtSetArg(args[n], GLwNrgba, TRUE); n++;
+            glw = XtCreateManagedWidget("glw", GLwDrawingAreaWidgetClass,
+                       parent, args, n);
+            XtAddCallback(glw, GLwNexposeCallback, exposeCB, 0);
+            XtAddCallback(glw, GLwNresizeCallback, resizeCB, 0);
+            XtAddCallback(glw, GLwNginitCallback, ginitCB, 0);
+            /* Also add input callback if needed */
+            . . .
+        }
+
+        static void
+        exposeCB(Widget w, XtPointer client_data,
+                  (GLwDrawingAreaCallbackStruct *)call_data)
+        {
+            GLwDrawingAreaMakeCurrent (w, glx_context);
+
+
+
+                                                                        Page 8
+
+
+
+
+
+
+GLwDrawingArea(3X)                                          GLwDrawingArea(3X)
+
+
+
+            /* redraw the display */
+        }
+
+        static void
+        resizeCB(Widget w, XtPointer client_data,
+                  (GLwDrawingAreaCallbackStruct *)call_data)
+        {
+            GLwDrawingAreaMakeCurrent (w, glx_context);
+            /* perform any resize actions */
+        }
+
+        static void
+        ginitCB(Widget w, XtPointer client_data,
+                  (GLwDrawingAreaCallbackStruct *)call_data)
+        {
+            Arg args[1];
+            XVisualInfo *vi;
+
+            XtSetArg(args[0], GLwNvisualInfo, &vi);
+            XtGetValues(w, args, 1);
+
+            /* create a visual context */
+            glx_context = glXCreateContext(XtDisplay(w), vi, 0, GL_FALSE);
+            GLwDrawingAreaMakeCurrent (w, glx_context);
+            /* Perform any necessary graphics initialization.*/
+        }
+
+
+     The Motif program need only differ by including GLwMDrawingArea.h instead
+     of GLwDrawingArea.h and by creating a widget of type
+     GLwMDrawingAreaWidgetClass instead of GLwDrawingAreaWidgetClass.  As an
+     alternative, the Motif program could use GLwCreateMDraw(3X) instead.
+
+
+WARNINGS
+     If a GLwDrawingArea widget is created as a child of an already realized
+     widget, the GLwDrawingArea widget will be created immediately, without
+     giving the user an opportunity to add the ginit callback.  In such a
+     case, initialization should be done immediately after creating the widget
+     rather than by using the callback.
+
+     If the non-Motif GLwDrawingArea widget is used in a Motif program and
+     keyboard traversal is attempted, the behavior is undefined if the user
+     traverses into the GLwDrawingArea widget.
+
+SEE ALSO
+     glXChooseVisual, GLwDrawingAreaMakeCurrent, glXMakeCurrent,
+     GLwDrawingAreaSwapBuffers GLwCreateMDraw, Core(3X), XmPrimitive(3X),
+     VirtualBindings(3X), Gflush(3G), XSetWMColormapWindows(3X11) and the
+     OpenGL spec.
+
+
+
+
+
+                                                                        Page 9
+
+
+
+

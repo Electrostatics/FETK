@@ -1,0 +1,33 @@
+==============================================================================
+The PUNC ChangeLog and the PUNC TODO List
+
+This file written and maintained by Michael Holst (mholst@math.ucsd.edu)
+rcsid="$Id: todo.txt,v 1.7 2006/06/12 22:51:59 mholst Exp $"
+==============================================================================
+
+
+The PUNC ChangeLog
+------------------
+
+Fri Jun  2 23:11:20 PDT 2006 Michael Holst
+
+ * PUNC gets named; separation from MALOC/MC as LA Framework         060206
+
+The PUNC TODO List
+------------------
+
+This is the PUNC "TODO" list, basically a list of known problems that need
+to be fixed, or desirable features that I (or someone else) would like to
+add to PUNC.  The list is divided into sublists, according to which primary 
+component of PUNC the task involves hacking into.  The column on the left
+side of each sublist refers to which state the task is currently in:
+
+  o <Open>        ==> It is not completed, and no one is working on it yet.
+  - <In Progress> ==> Someone is working on it, but it is not done.
+  x <Completed>   ==> The task has been completed and the code has been tested.
+
+For the "in progress" tasks, the name of the person working on it (usually me)
+will usually be listed somewhere in the description of the task.
+
+  -michael holst
+

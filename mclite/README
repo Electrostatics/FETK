@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% MCLite = < MC-Lite >
+%%% Copyright (C) 1994-- Michael Holst
+%%% 
+%%% This library is free software; you can redistribute it and/or
+%%% modify it under the terms of the GNU Lesser General Public
+%%% License as published by the Free Software Foundation; either
+%%% version 2.1 of the License, or (at your option) any later version.
+%%% 
+%%% This library is distributed in the hope that it will be useful,
+%%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+%%% Lesser General Public License for more details.
+%%% 
+%%% You should have received a copy of the GNU Lesser General Public
+%%% License along with this library; if not, write to the Free Software
+%%% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+%%% 
+%%% rcsid="$Id: README,v 1.4 2010/08/09 19:01:45 fetk Exp $"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Here is what you need to do to access the online MCLite documentation:
+
+    1. Start MATLAB (by typing "matlab")
+
+    2. Initialize MCLite (by typing "setpath")
+
+    3. List the MCLite help topics in MATLAB (by typing "help")
+
+    4. Read the MCLite overview in MATLAB (by typing "help mclite")
+
+Here is what you need to do to use MCLite with MATLAB's graphics:
+
+    1. Edit the MCLite driver "go.m" to adjust any settings you want.
+
+    2. Start MATLAB (by typing "matlab")
+
+    3. Initialize MCLite (by typing "setpath")
+
+    4. Start the MCLite driver by typing "go"
+
+Here is what you need to do to use MCLite with Geomview graphics:
+
+    1. Start Geomview listening to a UNIX domain socket by typing:
+
+              geomview -Mcs 11
+
+       You must have previously installed Geomview on your machine; it is
+       available from the University of Minnesota's Geometry Center site:
+
+              http://www.geom.umn.edu/
+
+    2. Make sure you have the binary "mcbridge" in the "work" subdirectory;
+       it can be downloaded from the same site that contains MCLite:
+
+              http://www.fetk.org/
+
+    3. Edit the MCLite driver "go.m" and set "socktype" to 0 (for UNIX sockets)
+       (Also make sure that the socket display settings are enabled.)
+
+    4. Start MATLAB (by typing "matlab")
+
+    5. Initialize MCLite (by typing "setpath")
+
+    6. Start the MCLite driver by typing "go"
+
+Here is what you need to do to use MCLite with MCsg graphics on the same or
+on a remote machine:
+
+    1. Start MCsg listening to an INET socket (on the workstation in front
+       of you) by typing:
+
+              ./mcsg -Mci 11
+
+       For this to work, MCsg must be in the "work" subdirectory or in some
+       directory in your path.  MCsg can be downloaded from the
+       same site that contains MCLite:
+
+              http://www.fetk.org/
+
+    2. Make sure you have the binary "mcbridge" in the "work" subdirectory
+       (or some directory in your path).  MCbridge can be downloaded from the
+       same site that contains MCLite:
+
+              http://www.fetk.org/
+
+    3. Edit the MCLite driver "go.m" and set "socktype" to 1 (for INET sockets)
+       (Also make sure that the socket display settings are enabled.)
+
+    4. Start MATLAB (by typing "matlab", possibly on a remote machine)
+
+    5. Initialize MCLite (by typing "setpath")
+
+    6. Start the MCLite driver by typing "go"
+

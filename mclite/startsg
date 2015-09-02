@@ -1,0 +1,8 @@
+#! /bin/sh
+#
+# Author:   Michael Holst
+# rcsid="$Id: startsg,v 1.1.1.1 2007/04/27 08:28:05 hrg Exp $"
+
+mcsg -Mci 11 &
+mcsg -Mci 12 &
+

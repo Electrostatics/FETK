@@ -1,0 +1,373 @@
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: x,v 1.5 2010/08/12 05:16:43 fetk Exp $"
+### ##########################################################################
+
+##############################################################################
+# File:     rd0.mcsh (1 processor)
+#
+# Purpose:  Adaptive refinement test MC-shell script (displacement).
+#
+# Notes:    This one works e.g. for 2D/3D bar, also UCSD domain (I think).
+#
+# rcsid="$Id: x,v 1.5 2010/08/12 05:16:43 fetk Exp $"
+##############################################################################
+
+io
+
+# basic setup
+set FKEY 0
+set GVAL 1.0
+
+# adaptivity
+set ETOL 3.0e-1
+set AKEY 0
+set BKEY 0
+set RKEY 0
+set RCOL -1
+
+# solver
+set NKEY 0
+set LKEY 1
+set GUES 2
+set LMAX 5000
+set NMAX 20
+set LTOL 1.0e-7
+
+# write/plot
+set FKEY 0
+set GVAL 1.0
+
+##############################################################################
+# initialization
+##############################################################################
+
+# read-plotmesh-solve-plotsol-pause
+read
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+##############################################################################
+# the rest is "estimate-refine-plotmesh-solve-plotsol-pause"
+##############################################################################
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+

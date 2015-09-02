@@ -1,0 +1,108 @@
+#!/bin/bash
+
+### ######################################################################
+### Shell script for cleaning up after build_examples
+###
+### rcsid="$Id: clean_examples,v 1.8 2008/11/21 23:04:39 fetk Exp $"
+### ######################################################################
+
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    born)
+     MODE="${1}"
+    ;;
+    dynamics) 
+     MODE="$1"
+    ;;
+    elastic) 
+     MODE="$1" 
+    ;;
+    hb)
+     MODE="$1"
+    ;;
+    simple)
+     MODE="$1"
+    ;;
+    simpleMCsh)
+     MODE="$1"
+    ;;
+    test)
+     MODE="$1"
+    ;;
+    testLL)
+     MODE="$1"
+    ;;
+    all)
+     MODE="$1"
+    ;;
+    -fetkroot*)
+     FETK_ROOT=`echo $1 | sed -e "s/-fetkroot=//i"`
+     echo "FETK_ROOT=${FETK_ROOT}"
+    ;;
+    *-help)
+     echo "USAGE: $0 [FLAGS] [MODULE]"
+     echo ""
+     echo "MODULES: born dynamics elastic hb simple simpleMCsh test testLL all"
+     echo ""
+     echo "FLAGS:  -fetkroot=PATH  Sets the path to the root fetk dir"
+     echo "                        Default option is the root of this script"
+     exit
+    ;;
+    -*) 
+     FLAGS="$FLAGS $1" 
+     echo "UNKNOWN FLAG: $1"
+    ;;
+    *)
+     OTHER="$1"
+     echo "UNKNOWN OPTION: $1" 
+    ;;
+   esac
+   shift
+done
+
+SCRIPTDIR=`pwd`/`dirname $0`
+
+if [ "$MODE" = "" ]
+then
+  MODE=all
+  echo "No mode specified, cleaning $MODE ..."
+fi
+
+if [ "${FETK_ROOT}" = "" ]
+then
+  pushd $SCRIPTDIR/../. > /dev/null
+  FETK_ROOT=`pwd`
+  popd > /dev/null
+  echo "No fetkroot specified, trying ${FETK_ROOT} ..."
+fi
+
+FETK_ARCH=`. ${FETK_ROOT}/maloc/config/config.guess`
+
+echo "########## CLEAN ENVIRONMENT ###########"
+echo ""
+echo "FETK_ROOT      = ${FETK_ROOT}"
+echo "CLEAN_ARCH     = ${FETK_ARCH}"
+echo "MODULES        = ${MODE}"
+echo ""
+echo "Press enter to continue, or ctrl-c to break"
+read RESPONSE
+
+for DIR in born dynamics elastic hb simple simpleMCsh test testLL
+do
+  if [ "${MODE}" == "${DIR}" -o "${MODE}" == "all" ]
+  then
+    echo "Cleaning ${DIR} ... "
+    pushd ${FETK_ROOT}/mc/examples/${DIR}
+    MAKEFILE="Makefile.${FETK_ARCH}"
+    if [ -f "${MAKEFILE}" ]
+    then
+      gmake -f ${MAKEFILE} clean
+      rm -f ${MAKEFILE}
+    else
+      echo "  Nothing to clean here."
+    fi
+    popd
+  fi
+done
+

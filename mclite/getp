@@ -1,0 +1,15 @@
+#! /bin/sh
+#
+# Purpose:  Get a set of problem definition files from the PDE library.
+#
+# Author:   Michael Holst
+# rcsid="$Id: getp,v 1.1.1.1 2007/04/27 08:28:04 hrg Exp $"
+
+cp lib/pde/fu_$1.m      fu.m
+cp lib/pde/fu_v_$1.m    fu_v.m
+cp lib/pde/dfu_wv_$1.m  dfu_wv.m
+cp lib/pde/u_d_$1.m     u_d.m
+cp lib/pde/u_t_$1.m     u_t.m
+cp lib/pde/rho_$1.m     rho.m
+cp lib/pde/mcin_$1.m    mcin.m
+

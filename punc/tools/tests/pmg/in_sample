@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%% misc. input options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        33 nx        x-direction mesh points (including boundaries)
+        33 ny        y-direction mesh points (including boundaries)
+        33 nz        z-direction mesh points (including boundaries)
+  1.00e-09 errtol    error tolerance desired
+        10 itmax     maximum number of iterations
+         1 istop     stop crit (0=res, 1=relr, 2=dif, 3=errc, 4=errd, 5=aerrd)
+         2 iinfo     runtime status messages (0=no, 1=some, 2=lots, 3=more)
+         0 ipkey     problem setup option (specific to problem)
+         0 key       print solution to ascii file (0=no, 1=yes)
+         0 iperf     analysis (0=no, 1=kappa(A), 2=rho(M), 3=1+2)
+
+%%%%%%%%%%%%%% method options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+         2 meth      (0=cgmg, 1=new, 2=mg, 3=cg, 4=sor, 5=rbgs, 6=wj, 7=rich)
+         0 nonlin    (0=linear, 1=nonlinear, 2=linear-then-nonlinear)
+         0 mgkey     method (0=variable v-cycle, 1=nested iteration)
+         4 nlev      number of mesh levels to use
+         2 nu1       num of pre-smoothings
+         2 nu2       num of post-smoothings
+         0 mgsmoo    smoothing (0=wjac, 1=gsrb, 2=sor, 3=rich, 4=cghs)
+         0 mgprol    prolongation (0=trilinear, 1=op-based, 2=mod-op-based)
+         0 mgcoar    coarse equations (0=stan, 1=harm, 2=galerkin)
+         0 mgsolv    coarse equation solver (0=cghs, 1=banded linpack)
+         0 mgdisc    discretization (0=fv, 1=fe)
+  8.00e-01 omegal    linear relaxation parameter
+  9.00e-01 omegan    nonlinear relaxation parameter
+         3 ipcon     prec flag (0=diag, 1=iccg, 2=iccgdw, 3=miccgdw, 4=none)
+
+%%%%%%%%%%%%%% notes (file not read below ipcon field) %%%%%%%%%%%%%%%%%%%%%
+
+  8.00e-01 omegal    linear relaxation parameter
+  9.00e-01 omegal    linear relaxation parameter
+  1.91e+00 omegal    linear relaxation parameter
+
+  8.00e-01 omegan    nonlinear relaxation parameter
+  9.00e-01 omegan    nonlinear relaxation parameter
+  1.91e+00 omegan    nonlinear relaxation parameter
+
+

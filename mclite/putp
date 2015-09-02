@@ -1,0 +1,15 @@
+#! /bin/sh
+#
+# Purpose:  Put a set of problem definition files into the PDE library.
+#
+# Author:   Michael Holst
+# rcsid="$Id: putp,v 1.1.1.1 2007/04/27 08:28:05 hrg Exp $"
+
+cp fu.m      lib/pde/fu_$1.m
+cp fu_v.m    lib/pde/fu_v_$1.m
+cp dfu_wv.m  lib/pde/dfu_wv_$1.m
+cp u_d.m     lib/pde/u_d_$1.m
+cp u_t.m     lib/pde/u_t_$1.m
+cp rho.m     lib/pde/rho_$1.m
+cp mcin.m    lib/pde/mcin_$1.m
+

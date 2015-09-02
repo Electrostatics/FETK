@@ -1,0 +1,40 @@
+#! /bin/sh
+
+files=`find ./maloc`;
+
+for f in ${files}; do
+    if [ -f $f ]; then
+
+        echo "*** Processing <${f}> ***"
+
+        cat $f | sed -e "s.Copyright (C) 1994--2008  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (C) 1994--2008 Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (C) 1994-2010  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+
+        cat $f | sed -e "s.Copyright (C) 1994-2010  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (C) 1994-2006  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (c) 1994-2006  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (C) 1994--2006  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (c) 1994--2006  Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s/Copyright (c) 1994-2006.  Michael Holst/Copyright (C) 1994-- Michael Holst/g" > tmpxyz
+        mv tmpxyz $f
+
+        cat $f | sed -e "s.Copyright (C) 2007-2010 -- Michael Holst.Copyright (C) 1994-- Michael Holst.g" > tmpxyz
+        mv tmpxyz $f
+
+    fi
+done

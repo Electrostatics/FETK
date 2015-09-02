@@ -1,0 +1,57 @@
+==============================================================================
+The SG ChangeLog and the SG TODO List
+
+This file written and maintained by Michael Holst (mholst@math.ucsd.edu)
+rcsid="$Id: todo.txt,v 1.1 2002/10/02 18:02:04 mholst Exp $"
+==============================================================================
+
+
+The SG ChangeLog
+----------------
+
+Thu Aug 10 10:01:33 PDT 2000  Michael Holst
+
+ * Fixed autoconf of VNM for -lnsl and -lsocket on Solaris boxes     080100
+ * Improved OpenGL autoconf setup for SG                             060100
+
+Wed Apr  5 17:54:25 PDT 2000  Michael Holst
+
+ * Improved Motif autoconf setup for SG                              033000
+ * Completely removed the old (but lovable) "mk" build scripts       030100
+ * Much improved the GNU Autoconf/automake setup                     021500
+ * Added preliminary GNU Autoconf/automake configuration             010100
+
+Sat Jan  1 00:00:01 PDT 2000  Michael Holst
+
+ * See the MC ChangeLog for early SG development history. SG
+   was originally completely integrated with MC as a single binary.
+   The split into two separate binaries called "mcsh" for pure number
+   crunching and "sg" for OpenGL graphics, communicating together
+   via pipes, UNIX domain sockets, and INET sockets, occured in Fall
+   1997 and Spring 1998.
+
+Fri Oct  1 00:00:01 PDT 1993  Michael Holst
+
+ * (I move from University of Illinois to Caltech Applied Math:      100193)
+
+
+The SG TODO List
+----------------
+
+This is the SG "TODO" list, basically a list of known problems that need
+to be fixed, or desirable features that I (or someone else) would like to
+add to SG.  The list is divided into sublists, according to which primary 
+component of SG the task involves hacking into.  The column on the left side
+of each sublist refers to which state the task is currently in:
+
+  o <Open>        ==> It is not completed, and no one is working on it yet.
+  - <In Progress> ==> Someone is working on it, but it is not done.
+  x <Completed>   ==> The task has been completed and the code has been tested.
+
+For the "in progress" tasks, the name of the person working on it (usually me)
+will usually be listed somewhere in the description of the task.
+
+  -michael holst
+
+o  Fix various problems
+

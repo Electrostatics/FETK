@@ -1,0 +1,98 @@
+#!./mcsh
+
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: runme-graphics,v 1.3 2010/08/12 05:16:38 fetk Exp $"
+### ##########################################################################
+
+##############################################################################
+# File:     runexample (interactive)
+# Purpose:  Backward Euler time-stepping
+# Authors:  Kaihsu Tai, Stephen Bond, Michael Holst
+# rcsid="$Id: runme-graphics,v 1.3 2010/08/12 05:16:38 fetk Exp $"
+##############################################################################
+
+set ISKEY file
+set IFNAM mcin.m
+set ISNAM 0
+set IHVAL unix
+
+set LMAX 1000
+set LTOL 1e-10
+
+# write/plot
+set FKEY 0
+set GVAL 1.0
+
+#sockm # SOCKET #
+
+qread
+qinit
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+mark
+refine
+qinit
+
+set TMETH 0
+set TSTEP 0.04
+set NSTEP 1000
+set PTYPE 1         # SOCKET # 1=GV
+set PFREQ 25
+set EFREQ 5 
+set PDETY 1
+set EKEYT 2
+
+set OSKEY inet      # SOCKET #
+set OSFMT xdr       # SOCKET #
+set OHVAL localhost # SOCKET #
+
+set OSNAM 0         # SOCKET #
+writeoff            # SOCKET #
+pause               # SOCKET #
+
+set OSNAM 1         # SOCKET #
+
+qstep

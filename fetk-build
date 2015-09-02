@@ -1,0 +1,527 @@
+#! /bin/bash
+#############################################################################
+### FETK = < The Finite Element ToolKit >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: fetk-build,v 1.15 2010/12/08 17:46:54 fetk Exp $"
+### ##########################################################################
+
+## ###########################################################################
+## File:    FETK-build
+##
+## Purpose: Build and install one or multiple FETK libraries.
+##
+## Author:  Michael Holst (and SB and/or NB; based on tools/build-fetk)
+##
+##  rcsid="$Id: fetk-build,v 1.15 2010/12/08 17:46:54 fetk Exp $"
+## ###########################################################################
+
+##############################################################################
+# Required UNIX support tools for this shell script
+SH="sh"
+PWD="pwd"
+SED="sed"
+AWK="awk"
+TOUCH="touch"
+
+##############################################################################
+# Bail out early
+startBuild() {
+    echo ""
+    echo "---------------------- FETK-BUILD: STARTING ----------------------"
+}
+
+##############################################################################
+# Print usage menu
+printUsage() {
+    echo ""
+    echo "usage: ${0} [FETK_FLAGS] [FETK_MODULES]"
+    echo ""
+    echo "    FETK_MODULES:  maloc  punc  mc  gamer  sg  all  clean"
+    echo ""
+    echo "    FETK_FLAGS:  --pansi      Enables strict checking for ANSI/ISO C"
+    echo "                              (will break SG on MacOSX machines)"
+    echo ""
+    echo "                 --enable-*   Enable other module-specific options"
+    echo ""
+}
+
+##############################################################################
+# Bail out early
+stopBuild() {
+    echo "---------------------- FETK-BUILD: STOPPING ----------------------"
+    echo ""
+    exit
+}
+
+##############################################################################
+# Build MALOC
+buildMALOC() {
+    # library
+    echo "Building maloc library ... "
+    mkdir -p ${FETK_ROOT}/maloc/${FETK_ARCH}
+    pushd ${FETK_ROOT}/maloc/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS}
+    ${FETK_MAKE} install
+    popd
+    # tools
+    echo "Building maloc tools ... "
+    mkdir -p ${FETK_ROOT}/maloc/tools/${FETK_ARCH}
+    pushd ${FETK_ROOT}/maloc/tools/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+}
+
+##############################################################################
+# Build PUNC
+buildPUNC() {
+    # library
+    echo "Building punc library ... "
+#   FETK_FLAGS_XTRA="--enable-vf2cforce --enable-blasforce --enable-lapackforce --enable-amdforce --enable-umfpackforce --enable-superluforce --enable-arpackforce --enable-cgcodeforce --enable-pmgforce "
+    FETK_FLAGS_XTRA="--enable-vf2cforce --enable-blasforce --enable-amdforce --enable-umfpackforce --enable-superluforce"
+    mkdir -p ${FETK_ROOT}/punc/${FETK_ARCH}
+  pushd ${FETK_ROOT}/punc/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} ${FETK_FLAGS_XTRA} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+#    if [ -f "src/superlu/Makefile" ]; then
+#      sed -i -e 's/-g -O2/-g/g' src/superlu/Makefile
+#    fi
+    ${FETK_MAKE} install
+    popd
+    # tools
+#   echo "Building punc tools ... "
+#   mkdir -p ${FETK_ROOT}/punc/tools/${FETK_ARCH}
+#   pushd ${FETK_ROOT}/punc/tools/${FETK_ARCH}
+#   ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS}
+#   ${FETK_MAKE} install
+#   popd
+}
+
+##############################################################################
+# Build MC
+buildMC() {
+    # library
+    echo "Building mc library ... "
+    mkdir -p ${FETK_ROOT}/mc/${FETK_ARCH}
+    pushd ${FETK_ROOT}/mc/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools - Swig-Python wrapper
+    echo "Building mc python interface - swig ... "
+    mkdir -p ${FETK_ROOT}/mc/swig/${FETK_ARCH}
+    pushd ${FETK_ROOT}/mc/swig/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools
+    echo "Building mc tools ... "
+    mkdir -p ${FETK_ROOT}/mc/tools/${FETK_ARCH}
+    pushd ${FETK_ROOT}/mc/tools/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+}
+
+##############################################################################
+# Build GAMER
+buildGAMER() {
+    # library
+    echo "Building gamer library ... "
+    mkdir -p ${FETK_ROOT}/gamer/${FETK_ARCH}
+    pushd ${FETK_ROOT}/gamer/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools - Swig-Python wrapper
+    echo "Building gamer python interface - swig ... "
+    mkdir -p ${FETK_ROOT}/gamer/swig/${FETK_ARCH}
+    pushd ${FETK_ROOT}/gamer/swig/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools - GenerateMesh
+    echo "Building gamer tools - GenerateMesh ... "
+    mkdir -p ${FETK_ROOT}/gamer/tools/GenerateMesh/${FETK_ARCH}
+    pushd ${FETK_ROOT}/gamer/tools/GenerateMesh/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools - ImproveSurfMesh
+    echo "Building gamer tools - ImproveSurfMesh ... "
+    mkdir -p ${FETK_ROOT}/gamer/tools/ImproveSurfMesh/${FETK_ARCH}
+    pushd ${FETK_ROOT}/gamer/tools/ImproveSurfMesh/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools - MolecularMesh
+    echo "Building gamer tools - MolecularMesh ... "
+    mkdir -p ${FETK_ROOT}/gamer/tools/MolecularMesh/${FETK_ARCH}
+    pushd ${FETK_ROOT}/gamer/tools/MolecularMesh/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+}
+
+##############################################################################
+# Build SG
+buildSG() {
+    # library
+    echo "Building sg library ... "
+    mkdir -p ${FETK_ROOT}/sg/${FETK_ARCH}
+    pushd ${FETK_ROOT}/sg/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+    # tools
+    echo "Building sg tools ... "
+    mkdir -p ${FETK_ROOT}/sg/tools/${FETK_ARCH}
+    pushd ${FETK_ROOT}/sg/tools/${FETK_ARCH}
+    ../configure --prefix=${FETK_PREFIX} ${FETK_FLAGS} FETK_LIBRARY=${FETK_LIBRARY} FETK_INCLUDE=${FETK_INCLUDE}
+    ${FETK_MAKE} install
+    popd
+}
+
+##############################################################################
+# Build FETK Environment
+#
+# Below is the complete list of environment variables that the
+# FETK build environment uses, with some example settings on a MacPro.
+# Other than the variables set above, it is usually better to set
+# the rest below in your .bashrc or .profile, and then just let this
+# script inherit these settings from your environment.
+##############################################################################
+buildENVIRONMENT() {
+#######################################
+# FETK_MODULES="maloc"
+# FETK_FLAGS="--disable-triplet --enable-pansi"
+# FETK_MAKE=`which make`
+# FETK_ROOT=`pwd`
+# FETK_ARCH=`. ${FETK_ROOT}/maloc/config/config.guess`
+# FETK_PREFIX=${FETK_ROOT}/build/${FETK_ARCH}
+# FETK_ENV=${FETK_PREFIX}/fetk-env
+#######################################
+# FETK_INCLUDE=${FETK_PREFIX}/include
+# FETK_LIBRARY=${FETK_PREFIX}/lib
+# FETK_BIN=${FETK_PREFIX}/bin
+# FETK_DOC=${FETK_PREFIX}/doc
+#######################################
+# FETK_RL_INCLUDE="/sw/include"
+# FETK_RL_LIBRARY="/sw/lib"
+# FETK_MPI_INCLUDE="/usr/local/mpich/include"
+# FETK_MPI_LIBRARY="/usr/local/mpich/lib"
+# FETK_GL_INCLUDE="/usr/X11R6/include"
+# FETK_GL_LIBRARY="/usr/X11R6/lib"
+# FETK_GLU_INCLUDE="/usr/X11R6/include"
+# FETK_GLU_LIBRARY="/usr/X11R6/lib"
+FETK_GLW_INCLUDE="${FETK_INCLUDE}"
+FETK_GLW_LIBRARY="${FETK_LIBRARY}"
+# FETK_MOTIF_INCLUDE="/sw/include"
+# FETK_MOTIF_LIBRARY="/sw/lib"
+# FETK_VF2C_INCLUDE="${FETK_INCLUDE}"
+# FETK_VF2C_LIBRARY="${FETK_LIBRARY}"
+# FETK_BLAS_INCLUDE="${FETK_INCLUDE}"
+# FETK_BLAS_LIBRARY="${FETK_LIBRARY}"
+# FETK_LAPACK_INCLUDE="${FETK_INCLUDE}"
+# FETK_LAPACK_LIBRARY="${FETK_LIBRARY}"
+# FETK_AMD_INCLUDE="${FETK_INCLUDE}"
+# FETK_AMD_LIBRARY="${FETK_LIBRARY}"
+# FETK_UMFPACK_INCLUDE="${FETK_INCLUDE}"
+# FETK_UMFPACK_LIBRARY="${FETK_LIBRARY}"
+# FETK_SUPERLU_INCLUDE="${FETK_INCLUDE}"
+# FETK_SUPERLU_LIBRARY="${FETK_LIBRARY}"
+# FETK_UMFPACK_INCLUDE="${FETK_INCLUDE}"
+# FETK_UMFPACK_LIBRARY="${FETK_LIBRARY}"
+# FETK_ARPACK_INCLUDE="${FETK_INCLUDE}"
+# FETK_ARPACK_LIBRARY="${FETK_LIBRARY}"
+# FETK_CGCODE_INCLUDE="${FETK_INCLUDE}"
+# FETK_CGCODE_LIBRARY="${FETK_LIBRARY}"
+# FETK_PMG_INCLUDE="${FETK_INCLUDE}"
+# FETK_PMG_LIBRARY="${FETK_LIBRARY}"
+#######################################
+}
+
+##############################################################################
+# Verify FETK Environment
+#
+# We also create a "replay" file for recreating the build environment later.
+##############################################################################
+verifyENVIRONMENT() {
+echo "#! /bin/bash"                                           >  ${FETK_ENV}
+echo "### ############################################## ###" >> ${FETK_ENV}
+echo "### FETK ENVIRONMENT (AUTOGENERATED BY FETK-BUILD) ###" >> ${FETK_ENV}
+echo "### ############################################## ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "### FETK CONFIGURATION                             ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "FETK_MODULES=\"${FETK_MODULES}\""                       >> ${FETK_ENV}
+echo "FETK_MAKE=\"${FETK_MAKE}\""                             >> ${FETK_ENV}
+echo "FETK_FLAGS=\"${FETK_FLAGS}\""                           >> ${FETK_ENV}
+echo "FETK_ROOT=${FETK_ROOT}"                                 >> ${FETK_ENV}
+echo "FETK_ARCH=${FETK_ARCH}"                                 >> ${FETK_ENV}
+echo "FETK_PREFIX=${FETK_PREFIX}"                             >> ${FETK_ENV}
+echo "FETK_ENV=${FETK_ENV}"                                   >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "### FETK HEADER, LIBRARY, BIN, DOC LOCATIONS       ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "FETK_INCLUDE=${FETK_INCLUDE}"                           >> ${FETK_ENV}
+echo "FETK_LIBRARY=${FETK_LIBRARY}"                           >> ${FETK_ENV}
+echo "FETK_BIN=${FETK_BIN}"                                   >> ${FETK_ENV}
+echo "FETK_DOC=${FETK_DOC}"                                   >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "### SUPPORTING HEADER AND LIBRARY LOCATIONS        ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "FETK_RL_INCLUDE=${FETK_RL_INCLUDE}"                     >> ${FETK_ENV}
+echo "FETK_RL_LIBRARY=${FETK_RL_LIBRARY}"                     >> ${FETK_ENV}
+echo "FETK_MPI_INCLUDE=${FETK_MPI_INCLUDE}"                   >> ${FETK_ENV}
+echo "FETK_MPI_LIBRARY=${FETK_MPI_LIBRARY}"                   >> ${FETK_ENV}
+echo "FETK_GL_INCLUDE=${FETK_GL_INCLUDE}"                     >> ${FETK_ENV}
+echo "FETK_GL_LIBRARY=${FETK_GL_LIBRARY}"                     >> ${FETK_ENV}
+echo "FETK_GLU_INCLUDE=${FETK_GLU_INCLUDE}"                   >> ${FETK_ENV}
+echo "FETK_GLU_LIBRARY=${FETK_GLU_LIBRARY}"                   >> ${FETK_ENV}
+echo "FETK_GLW_INCLUDE=${FETK_GLW_INCLUDE}"                   >> ${FETK_ENV}
+echo "FETK_GLW_LIBRARY=${FETK_GLW_LIBRARY}"                   >> ${FETK_ENV}
+echo "FETK_MOTIF_INCLUDE=${FETK_MOTIF_INCLUDE}"               >> ${FETK_ENV}
+echo "FETK_MOTIF_LIBRARY=${FETK_MOTIF_LIBRARY}"               >> ${FETK_ENV}
+echo "FETK_VF2C_INCLUDE=${FETK_VF2C_INCLUDE}"                 >> ${FETK_ENV}
+echo "FETK_VF2C_LIBRARY=${FETK_VF2C_LIBRARY}"                 >> ${FETK_ENV}
+echo "FETK_BLAS_INCLUDE=${FETK_BLAS_INCLUDE}"                 >> ${FETK_ENV}
+echo "FETK_BLAS_LIBRARY=${FETK_BLAS_LIBRARY}"                 >> ${FETK_ENV}
+echo "FETK_LAPACK_INCLUDE=${FETK_LAPACK_INCLUDE}"             >> ${FETK_ENV}
+echo "FETK_LAPACK_LIBRARY=${FETK_LAPACK_LIBRARY}"             >> ${FETK_ENV}
+echo "FETK_AMD_INCLUDE=${FETK_AMD_INCLUDE}"                   >> ${FETK_ENV}
+echo "FETK_AMD_LIBRARY=${FETK_AMD_LIBRARY}"                   >> ${FETK_ENV}
+echo "FETK_UMFPACK_INCLUDE=${FETK_UMFPACK_INCLUDE}"           >> ${FETK_ENV}
+echo "FETK_UMFPACK_LIBRARY=${FETK_UMFPACK_LIBRARY}"           >> ${FETK_ENV}
+echo "FETK_SUPERLU_INCLUDE=${FETK_SUPERLU_INCLUDE}"           >> ${FETK_ENV}
+echo "FETK_SUPERLU_LIBRARY=${FETK_SUPERLU_LIBRARY}"           >> ${FETK_ENV}
+echo "FETK_UMFPACK_INCLUDE=${FETK_UMFPACK_INCLUDE}"           >> ${FETK_ENV}
+echo "FETK_UMFPACK_LIBRARY=${FETK_UMFPACK_LIBRARY}"           >> ${FETK_ENV}
+echo "FETK_ARPACK_INCLUDE=${FETK_ARPACK_INCLUDE}"             >> ${FETK_ENV}
+echo "FETK_ARPACK_LIBRARY=${FETK_ARPACK_LIBRARY}"             >> ${FETK_ENV}
+echo "FETK_CGCODE_INCLUDE=${FETK_CGCODE_INCLUDE}"             >> ${FETK_ENV}
+echo "FETK_CGCODE_LIBRARY=${FETK_CGCODE_LIBRARY}"             >> ${FETK_ENV}
+echo "FETK_PMG_INCLUDE=${FETK_PMG_INCLUDE}"                   >> ${FETK_ENV}
+echo "FETK_PMG_LIBRARY=${FETK_PMG_LIBRARY}"                   >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "### EXPORTS                                        ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "export FETK_MODULES FETK_MAKE FETK_FLAGS"               >> ${FETK_ENV}
+echo "export FETK_ROOT FETK_ARCH FETK_PREFIX FETK_ENV"        >> ${FETK_ENV}
+echo "export FETK_INCLUDE FETK_LIBRARY FETK_BIN FETK_DOC"     >> ${FETK_ENV}
+echo "export FETK_RL_INCLUDE FETK_RL_LIBRARY"                 >> ${FETK_ENV}
+echo "export FETK_MPI_INCLUDE FETK_MPI_LIBRARY"               >> ${FETK_ENV}
+echo "export FETK_GL_INCLUDE FETK_GL_LIBRARY"                 >> ${FETK_ENV}
+echo "export FETK_GLU_INCLUDE FETK_GLU_LIBRARY"               >> ${FETK_ENV}
+echo "export FETK_GLW_INCLUDE FETK_GLW_LIBRARY"               >> ${FETK_ENV}
+echo "export FETK_MOTIF_INCLUDE FETK_MOTIF_LIBRARY"           >> ${FETK_ENV}
+echo "export FETK_VF2C_INCLUDE FETK_VF2C_LIBRARY"             >> ${FETK_ENV}
+echo "export FETK_BLAS_INCLUDE FETK_BLAS_LIBRARY"             >> ${FETK_ENV}
+echo "export FETK_LAPACK_INCLUDE FETK_LAPACK_LIBRARY"         >> ${FETK_ENV}
+echo "export FETK_AMD_INCLUDE FETK_AMD_LIBRARY"               >> ${FETK_ENV}
+echo "export FETK_UMFPACK_INCLUDE FETK_UMFPACK_LIBRARY"       >> ${FETK_ENV}
+echo "export FETK_SUPERLU_INCLUDE FETK_SUPERLU_LIBRARY"       >> ${FETK_ENV}
+echo "export FETK_UMFPACK_INCLUDE FETK_UMFPACK_LIBRARY"       >> ${FETK_ENV}
+echo "export FETK_ARPACK_INCLUDE FETK_ARPACK_LIBRARY"         >> ${FETK_ENV}
+echo "export FETK_CGCODE_INCLUDE FETK_CGCODE_LIBRARY"         >> ${FETK_ENV}
+echo "export FETK_PMG_INCLUDE FETK_PMG_LIBRARY"               >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo "### END                                            ###" >> ${FETK_ENV}
+echo "### ---------------------------------------------- ###" >> ${FETK_ENV}
+echo ""                                                       >> ${FETK_ENV}
+chmod u+x ${FETK_ENV}
+cat ${FETK_ENV}
+echo "Press enter to continue, or ctrl-c to break"
+read RESPONSE
+}
+
+##############################################################################
+# Main Body of this Script
+startBuild
+
+#######################################
+# Main Script (FETK_MODULES and FETK_FLAGS override/extended via command line)
+FETK_MODULES=""
+FETK_FLAGS="--disable-triplet"
+FETK_MAKE=`which make`
+FETK_ROOT=`pwd`
+
+#######################################
+# Process the commandline arguments
+while [ ${#} -gt 0 ]; do
+  case "${1}" in
+    clean)
+     FETK_MODULES="clean"
+     echo "CLEANING"
+    ;;
+    maloc)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BMALOC=1
+    ;;
+    punc)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BPUNC=1
+    ;;
+    mc)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BMC=1
+    ;;
+    gamer)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BGAMER=1
+    ;;
+    sg)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BSG=1
+    ;;
+    all)
+     FETK_MODULES="${FETK_MODULES} ${1}"
+     BALL=1
+    ;;
+    --pansi)
+     FETK_FLAGS="${FETK_FLAGS} --enable-pansi"
+    ;;
+    --enable*)
+     FETK_FLAGS="${FETK_FLAGS} ${1}"
+    ;;
+    *)
+     printUsage
+     stopBuild
+    ;;
+  esac
+  shift
+done
+
+#######################################
+# Default to all modules
+if [ "${FETK_MODULES}" = "" ]; then
+    printUsage
+    stopBuild
+fi
+
+#######################################
+# Create build directory
+if [ ! -d "${FETK_ROOT}/build" ]; then
+    echo "Install dir missing, creating <${FETK_ROOT}/build> ..."
+    mkdir -p ${FETK_ROOT}/build
+fi
+
+#######################################
+# Use MALOC to determine the architecture
+FETK_ARCH=`. ${FETK_ROOT}/maloc/config/config.guess`
+echo "Detected a build arch of <${FETK_ARCH}> ..."
+
+#######################################
+# Create architecture-specific build directory
+FETK_PREFIX=${FETK_ROOT}/build/${FETK_ARCH}
+echo "Setting <FETK_PREFIX=${FETK_PREFIX}> ..."
+if [ ! -d "${FETK_PREFIX}" ]; then
+    echo "Install dir missing, creating <${FETK_PREFIX}> ..."
+    mkdir -p ${FETK_PREFIX}
+fi
+
+#######################################
+# Set the FETK environment variable "replay" file
+FETK_ENV=${FETK_PREFIX}/fetk-env
+echo "Setting <FETK_ENV=${FETK_ENV}> ..."
+
+#######################################
+# Set the FETK install INCLUDE directory
+FETK_INCLUDE=${FETK_PREFIX}/include
+echo "Setting <FETK_INCLUDE=${FETK_INCLUDE}> ..."
+if [ ! -d "${FETK_INCLUDE}" ]; then
+    echo "Install include dir missing, creating <${FETK_INCLUDE}> ..."
+    mkdir -p ${FETK_INCLUDE}
+fi
+
+#######################################
+# Set the FETK install LIB directory
+FETK_LIBRARY=${FETK_PREFIX}/lib
+echo "Setting <FETK_LIBRARY=${FETK_LIBRARY}> ..."
+if [ ! -d "${FETK_LIBRARY}" ]; then
+    echo "Install lib dir missing, creating (${FETK_LIBRARY}> ..."
+    mkdir -p ${FETK_LIBRARY}
+fi
+
+#######################################
+# Set the FETK install BIN directory
+FETK_BIN=${FETK_PREFIX}/bin
+echo "Setting <FETK_BIN=${FETK_BIN}> ..."
+if [ ! -d "${FETK_BIN}" ]; then
+    echo "Install bin dir missing, creating (${FETK_BIN}> ..."
+    mkdir -p ${FETK_BIN}
+fi
+
+#######################################
+# Set the FETK install DOC directory
+FETK_DOC=${FETK_PREFIX}/doc
+echo "Setting <FETK_DOC=${FETK_DOC}> ..."
+if [ ! -d "${FETK_DOC}" ]; then
+    echo "Install doc dir missing, creating (${FETK_DOC}> ..."
+    mkdir -p ${FETK_DOC}
+fi
+
+#######################################
+# Build the FETK environment
+buildENVIRONMENT
+
+#######################################
+### Deal with clean
+if [ "${FETK_MODULES}" = "clean" ]; then
+    rm -rf ${FETK_ROOT}/maloc/${FETK_ARCH}
+    rm -rf ${FETK_ROOT}/punc/${FETK_ARCH}
+    rm -rf ${FETK_ROOT}/mc/${FETK_ARCH}
+    rm -rf ${FETK_ROOT}/gamer/${FETK_ARCH}
+    rm -rf ${FETK_ROOT}/sg/${FETK_ARCH}
+    rm -rf ${FETK_ROOT}/build
+    stopBuild
+fi
+
+#######################################
+# Verify the FETK environment and create "replay" file
+verifyENVIRONMENT
+
+#######################################
+# Build the actual modules
+
+### Build MALOC
+if [ "${BMALOC}" == "1" -o "${BALL}" == "1" ]; then
+    buildMALOC
+fi
+
+### Build PUNC
+if [ "${BPUNC}" == "1" -o "${BALL}" == "1" ]; then
+    buildPUNC
+fi
+
+### Build MC
+if [ "${BMC}" == "1" -o "${BALL}" == "1" ]; then
+    buildMC
+fi
+
+### Build GAMER
+if [ "${BGAMER}" = "1" -o "${BALL}" = "1" ]; then
+    buildGAMER
+fi
+
+### Build SG
+if [ "${BSG}" = "1" -o "${BALL}" = "1" ]; then
+    buildSG
+fi
+
+stopBuild
+

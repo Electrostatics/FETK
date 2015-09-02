@@ -1,0 +1,193 @@
+### ##########################################################################
+### MC = < Manifold Code >
+### Copyright (C) 1994-- Michael Holst
+###
+### This library is free software; you can redistribute it and/or
+### modify it under the terms of the GNU Lesser General Public
+### License as published by the Free Software Foundation; either
+### version 2.1 of the License, or (at your option) any later version.
+###
+### This library is distributed in the hope that it will be useful,
+### but WITHOUT ANY WARRANTY; without even the implied warranty of
+### MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+### Lesser General Public License for more details.
+###
+### You should have received a copy of the GNU Lesser General Public
+### License along with this library; if not, write to the Free Software
+### Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+###
+### rcsid="$Id: rd3.mcsh,v 1.3 2010/08/12 05:17:09 fetk Exp $"
+### ##########################################################################
+
+##############################################################################
+# File:     rd3.mcsh (1 processor)
+#
+# Purpose:  Adaptive refinement test MC-shell script (displacement).
+#
+# Notes:    This one works well for SIAM domain.
+#           This is the script used for generating the single CPU plots
+#           for the SIAM Review SIGEST paper.  Note that the ETOL parameter
+#           is set differently from that used to generate the subdomain
+#           solutions on the cluster.  This is because I wanted to be able
+#           to show the error indicator picking up the high strains via the
+#           residual; without setting a larger ETOL here we would never see
+#           local refinement on a single processor.
+#
+#           Here is the output from memchk at the end of the run:
+#
+# mholst@bushido<linux+MCsh>% memchk
+# mc_vertex  = 7754;
+# mc_simplex = 32503;
+# mc_memory  = [
+# % ----------------------------------------------------------------------------
+# %  Footprint        Areas       Malloc         Free    Highwater   Class
+# % ----------------------------------------------------------------------------
+#            0            0       122924       122924        31016 % Gem
+#       344064            3       344064            0       344064 % Vset:VV
+#        16384            1      3342336      3325952      1277952 % Vset:EE
+#      1589248            9      1589248            0      1589248 % Vset:SS
+#        16384            1       327680       311296        49152 % Vset:SQ0
+#        16384            1       278528       262144        49152 % Vset:SQ1
+#            0            0            0            0            0 % AM
+#     22935136          105     37284944     14349808     36434840 % Alg:5
+#     11350972          105     18411276      7060304     17975196 % Alg:4
+#      5278972          105      8582108      3303136      8373020 % Alg:3
+#      2417884          105      3947124      1529240      3842736 % Alg:2
+#      1123180          105      1830564       707384      1778592 % Alg:1
+#       612448          105      1043000       430552      1012412 % Alg:0
+#       498352          625      1063252       564900       498416 % MISC
+# % ----------------------------------------------------------------------------
+#     52038327         1483    100420899     48382572     65538095 % TOTAL
+# % ----------------------------------------------------------------------------
+# ];
+# Gem_memChkMore: Geometry memory usage
+#      7754 VV ; 40 bytes/VV =   310160 bytes[   344064:t=   327680:b+ 16384:o]
+#         0 EE ; 28 bytes/EE =        0 bytes[    16384:t=        0:b+ 16384:o]
+#     32503 SS ; 48 bytes/SS =  1560144 bytes[  1589248:t=  1572864:b+ 16384:o]
+#         0 Q0 ;  4 bytes/Q0 =        0 bytes[    16384:t=        0:b+ 16384:o]
+#         0 Q1 ;  4 bytes/Q0 =        0 bytes[    16384:t=        0:b+ 16384:o]
+#                     TOTALS =  1870304 bytes[  1982464:t=  1900544:b+ 81920:o]
+# mholst@bushido<linux+MCsh>% 
+#
+# rcsid="$Id: rd3.mcsh,v 1.3 2010/08/12 05:17:09 fetk Exp $"
+##############################################################################
+
+# basic setup
+io
+set FKEY 1
+set GVAL 1.0
+set GVLO 4x1
+set OSFMT xdr
+
+# adaptivity
+set ETOL 1.0e0
+set BKEY 1
+set AKEY 2
+set RKEY 0
+set RCOL -1
+
+# solver
+set NKEY 0
+set LKEY 3
+set GUES 0
+set LMAX 5000
+set NMAX 20
+set LTOL 1.0e-7
+
+# partition
+set PPOW 4
+set PKEY 1
+set PWHT 0
+
+# write/plot
+set PVEC -1 
+set CKEY 1
+set DKEY -1
+set OHVAL localhost
+
+##############################################################################
+# initialization
+##############################################################################
+
+# read-plotmesh-solve-plotsol-pause
+read
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+##############################################################################
+# EVERYONE: solve-estimate-partition
+##############################################################################
+
+estimate
+part
+writeoff
+
+##############################################################################
+# the rest is "estimate-refine-plotmesh-solve-plotsol-pause"
+##############################################################################
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# estimate-refine-plotmesh-solve-plotsol-pause
+estimate
+refine
+set OSNAM 0
+writeoff
+lsolve
+set OSNAM 1
+writeoffdis
+pause
+
+# NOTE: Final step can be done by SuperLU in 3GB, but SG can't PS plot it...
+# estimate-refine-plotmesh-solve-plotsol-pause
+# estimate
+# refine
+# set OSNAM 0
+# writeoff
+# lsolve
+# set OSNAM 1
+# writeoffdis
+# pause
+

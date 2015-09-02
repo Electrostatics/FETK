@@ -1,0 +1,24 @@
+==============================================================================
+VF2C ( Our tweaked version of libf2c ) Library
+
+These sources were the latest in the fink repository (f2c-20060506).
+
+These sources should be "prepared" on each architecture before
+a build of libf2c by running:
+
+    cc -o xsum xsum.c
+    export PATH=".:${PATH}"
+    make -f makefile.u check
+    make -f makefile.u hadd
+    make -f makefile.u signal1.h
+    make -f makefile.u sysdep1.h
+    make -f makefile.u arith.h
+
+Even after this preparation, there may be some hand-tweaking required.
+Please read carefully both the README file and one of the makefile
+examples such as makefile.u.
+
+This file written and maintained by Michael Holst (mholst@math.ucsd.edu)
+rcsid="$Id: README.fetk,v 1.2 2006/06/06 05:42:01 mholst Exp $"
+==============================================================================
+

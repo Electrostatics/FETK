@@ -1,0 +1,161 @@
+==============================================================================
+The MC ChangeLog and the MC TODO List
+
+This file written and maintained by Michael Holst (mholst@math.ucsd.edu)
+rcsid="$Id: todo.txt,v 1.1 2002/10/02 16:18:23 mholst Exp $"
+==============================================================================
+
+
+The MC ChangeLog
+----------------
+
+ * Began cleanup for first general release                           060501
+
+Tue Jun  5 08:02:31 PDT 2001  Michael Holst
+
+ * Improved MPI autoconf setup for MC (and MCX, also SG)             050101
+ * Package restructuring; separation of "MC" and "MALOC"             010101
+ * Package restructuring; separation of "MC" and "MCX"               092500
+ * Removed all PBE-specific support (provided now externally)        050100
+
+Wed Apr  5 17:54:25 PDT 2000  Michael Holst
+
+ * Improved MPI and Efence autoconf setup for MC                     032500
+ * Completely removed the old (but lovable) "mk" build scripts       030100
+ * Much improved the GNU Autoconf/automake setup                     021500
+ * Added preliminary GNU Autoconf/automake configuration             010100
+
+Sat Jan  1 00:00:01 PDT 2000  Michael Holst
+
+ * Buffer and stdio additions to the vio socket library              100199
+ * More work on Oracle and Vmpi classes for Bank-Holst algorithm     090199
+ * (Missing development time...tenure case preparation... :(         080199)
+ * XDR (binary format) additions to the vio socket library           070199
+ * Complete support for general element types in linear algebra      030199
+ * Added symbolic assembly for getting nonzero structure             010199
+
+Fri Jan  1 00:00:01 PDT 1999  Michael Holst
+
+ * CHANGED VERTEX-ORDERING IN ALL 3D TET MESH FILES TO INSIDE-VIEW!: 101298
+ * Obtained high-order tri/tet cubature rules from Ron Cools:        101298
+ * Designed a much more general master element: lin/quad/cubic/etc:  101298
+ * New internal matrix datastructures to fix multilevel and newton:  100598
+ * Sparse triple-matrix products for Algebraic/Galerkin coarsening:  100598
+ * Move to block-wise YSMP-reb/YSMP-row/YSMP/col matrix storage:     100198
+ * Fix bilinear form symmetries and the resulting matrix assembly:   092598
+ * Global YSMP-col matrix conversion for SuperLU:                    092098
+ * Added SuperLU as MC's coarse problem solver:                      092098
+ * Add simplex "type" for different materials, inherited in refine:  091598
+ * Use value ranges for diri/neu/robin/int vertices/faces:           091598
+ * Rechecked and simplified the GR constraint problem definition:    091598
+ * CVS-add new "Alg_fe2fd"; email of 7-16-98                         091098
+ * (I move from UC Irvine Mathematics to UC San Diego Mathematics:   090198)
+
+Tue Sept 1 00:00:01 PDT 1998  Michael Holst
+
+ * More bash-like features added to MC-shell (e.g., job control):    090198
+ * Oracle and Vmpi classes support for Bank/Holst parallel alg:      081598
+ * General file/pipe/unix-socket/inet-socket i/o layer complete:     080198
+ * Fixed socket I/O bug; MC can now talk to another MC via sockets:  070198
+ * INET-to-UNIX socket bridge; MC(shell) talks to remote Geomview:   060198
+ * Wrote the MC-shell "mc" -- a REALLY cool MC interface:            050198
+ * Rewrote Vgl to take input via UNIX domain sockets like Geomview:  040198
+ * Built a Socket I/O layer to talk to Geomview:                     030198
+ * Removed Window-system code from Vnm/Vgm/Vmc (isolated in Vgl):    020198
+ * Rewrote Vgl to look/act/feel like a Geomview clone                010198
+ * Fixed a mistake in the GR problem definition file:                110197
+ * Reworked the PDE problem representation again (VERY simple now):  091897
+ * Fixed a new bug the PDE problem definition/representation:        090797
+ * (I move from Caltech Applied Math to UC Irvine Mathematics:       090197)
+
+Mon Sept 1 00:00:01 PDT 1997  Michael Holst
+
+ * Reworked the PDE problem definition/representation (simpler):     080197
+ * Removed OS/2 port from Vnm (maintain now only UNIX/X and Win32):  071597
+ * Removed a nearly working OpenStep port from Vnm:                  071597
+ * Added a nearly working OpenStep port to Vnm:                      062997
+ * Restructured the three layers:  Vnm, Vgm, Vmc:                    062897
+ * Separated Vnm into two layers, Vnm (base) and Vgm (geometry):     061597
+ * Removed troublesome C++ layer; entire code is now ANSI C:         052797
+ * Restructing of C/C++ layers, general serious rewrite begins:      052497
+ * Package layout restructuring, first shot at documentation:        052097
+
+Thu May  1 00:00:01 PDT 1997  Michael Holst
+
+ * Improvements to OpenGL (Vnm) layer (UNIX/X and Win32):            040197
+ * Improvement in linear and nonlinear solvers in MC:                030197
+ * Manifold abstraction of domain, name change to "MC", v0.1:        013197
+ * Major improvement in the error estimator:                         120197
+ * Abstraction of forms for extremely general operators:             102196
+ * Total rewrite based on move to vertex/simplex structures:         080196
+ * Total rewrite based on adaptive bisection refinement:             070496
+ * Nonlinear coupled systems (can do nonlinear elasticity now):      040196
+ * Added nonlinearity capbility (can do Poisson-Boltzmann now):      020196
+ * Added system capability (can do linear elasticity now):           120195
+ * Uniform simplex refinement completed (quad-/octa-section):        081195
+ * Added OpenGL (Vnm in ANSI C) layer for UNIX/X,Win32,OS/2 etc:     060195
+
+Mon May  1 00:00:01 PDT 1995  Michael Holst
+
+ * Dim-independent (2D/3D) Simplex C++ code done (no adapt/refine):  050195
+ * Begin work on a more serious 2D *AND* 3D simplex C++ code:        040195
+ * 2D C++ version written, same capability as the MATLAB code:       123194
+ * Added linear elasticity (linear systems) to 2D FEM MATLAB code:   063194
+ * MATLAB Prototype linear scalar 2D FEM implementation done:        013194
+ * MC is born, my first few months in LA (scary place):              010194
+
+Fri Oct  1 00:00:01 PDT 1993  Michael Holst
+
+ * (I move from University of Illinois to Caltech Applied Math:      100193)
+
+
+The MC TODO List
+----------------
+
+This is the MC "TODO" list, basically a list of known problems that need
+to be fixed, or desirable features that I (or someone else) would like to
+add to MC.  The list is divided into sublists, according to which primary 
+component of MC the task involves hacking into.  The column on the left side
+of each sublist refers to which state the task is currently in:
+
+  o <Open>        ==> It is not completed, and no one is working on it yet.
+  - <In Progress> ==> Someone is working on it, but it is not done.
+  x <Completed>   ==> The task has been completed and the code has been tested.
+
+For the "in progress" tasks, the name of the person working on it (usually me)
+will usually be listed somewhere in the description of the task.
+
+  -michael holst
+
+----------<MC Geometry TODO List>---------------------------------------------
+-  Complete the abstraction of coordinate system for true manifolds (Mike)
+o  Deal with 64-bit pointers in geometry --> move to 32-bit int names (Mike)
+
+----------<MC Finite Element Approximation TODO List>-------------------------
+-  General simplex element -- for high-order elems, error estim, etc (Mike)
+-  Error estimator using the new general element (Mike)
+-  Quadratic elements using the new general element (Mike)
+-  Mixed FEM using the new general element
+o  Mortar elements for the new parallel algorithm
+
+----------<MC Solver TODO List>-----------------------------------------------
+o  Mesh agglomeration/aggregation algorithms for both 2D and 3D
+o  Mesh decimation algorithms for both 2D and 3D
+o  Fix prolongation operator bug occuring w/ multiply refined edges
+o  Implement a BPX-like algorithm as a multiplicative MG alternative
+o  Finish the pseudo-arclength and homotopy codes
+
+----------<MC-shell TODO List>------------------------------------------------
+x  Fix vg socket read bug that kills both vg and mc once in a while
+o  Bash-like job control, environ variables, control (if-else, for, etc)
+
+----------<Parallel Computing TODO List>--------------------------------------
+-  Incorporation of error estimator into inertial/spectral bisection (Mike)
+x  BINARY I/O pipe to/from MC/Geomview/vg/GMV
+
+----------<Geometry/Physics/Biology Application TODO List>--------------------
+-  Set up nonlinear Poisson-Boltzmann using Bashford's SolAccVol (Mike)
+o  Check the GR constraint linearization operator definition
+o  Fix second nonlinear elasticity problem using deformation formulation
+o  Set up an interesting geometry problem
+

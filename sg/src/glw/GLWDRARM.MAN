@@ -1,0 +1,67 @@
+
+
+
+GLwDrawingAreaMakeCurrent(3X)                    GLwDrawingAreaMakeCurrent(3X)
+
+
+
+NAME
+     GLwDrawingAreaMakeCurrent - Make the current GLwDrawingArea current.
+
+
+SYNOPSIS
+     #include <GL/GLwDraw.h>
+     void GLwDrawingAreaMakeCurrent(w, ctx)
+          Widget w;
+          GLXContext ctx;
+
+DESCRIPTION
+     GLwDrawingAreaMakeCurrent is a front end to glXMakeCurrent, however
+     instead of passing in a Display and a Window, a Widget is passed in.
+
+SEE ALSO
+     GLwMDrawingArea, glXMakeCurrent.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        Page 1
+
+
+
+
