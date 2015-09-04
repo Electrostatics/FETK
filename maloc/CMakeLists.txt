@@ -255,15 +255,14 @@ if(NOT WIN32)
     list(APPEND MALOC_REQUIRED_HEADERS "netdb.h")
 endif()
 
-CHECK_INCLUDE_FILES("rpc/xdr.h" HAVE_RPC_XDR_H)
+CHECK_INCLUDE_FILES("rpc/rpc.h" HAVE_RPC_RPC_H)
 if(NOT HAVE_RPC_XDR_H)
-    message(WARNING "Missing/invalid rpc/xdr.h header.  XDR support disabled")
+    message(WARNING "Missing/invalid rpc/rpc.h header.  XDR support disabled")
     set(HAVE_XDR NO)
 else()
-    list(APPEND MALOC_REQUIRED_HEADERS "rpc/xdr.h")
+    list(APPEND MALOC_REQUIRED_HEADERS "rpc/rpc.h")
     set(HAVE_XDR YES)
 endif()
-
 
 
 ################################################################################

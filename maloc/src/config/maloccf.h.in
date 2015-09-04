@@ -109,8 +109,8 @@
 /* Do I have readline.h header? */
 #cmakedefine HAVE_READLINE_READLINE_H
 
-/* Define to 1 if you have the <rpc/xdr.h> header file. */
-#cmakedefine HAVE_RPC_XDR_H
+/* Define to 1 if you have the <rpc/rpc.h> header file. */
+#cmakedefine HAVE_RPC_RPC_H
 
 /* Define to 1 if you have the <netinet/in.h> header file. */
 #cmakedefine HAVE_NETINET_IN_H
