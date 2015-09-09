@@ -1313,6 +1313,41 @@ VPUBLIC void Vio_connectFree(Vio *thee)
 
 /*
  * ***************************************************************************
+ * Routine:  Vio_findNewline
+ *
+ * Purpose:  finds the new line char if any from current position in iobuffer
+ *
+ * Author:   Juan Brandi
+ * ***************************************************************************
+ */
+VPUBLIC int Vio_findNewLine(Vio *thee){
+
+	char nullChar = '\n';
+	int pntr = asc_getpos((ASC*)thee->axdr);
+	int isNewline = 0;
+
+	if(thee == VNULL){
+		Vnm_print(2, "Vio_findNewLine:  Got NULL pointer!\n");
+		return isNewline;
+	}
+
+	char *buf;
+	buf = thee->ioBuffer;
+
+	while(pntr < thee->ioBufferLen && isNewline == 0){
+		if(memcmp(&buf[pntr], &nullChar,sizeof(char)) == 0){
+			asc_setpos((ASC*)thee->axdr, pntr);
+			isNewline = 1;
+		}
+		pntr++;
+	}
+
+	return isNewline;
+
+}
+
+/*
+ * ***************************************************************************
  * Routine:  Vio_scanf
  *
  * Purpose:  Mimic "scanf" from an arbitrary Vio device.
@@ -1984,6 +2019,7 @@ VPRIVATE int asc_string(ASC *thee, char **sval, int size)
     if (thee->mode == ASC_DECODE) {
         VJMPERR1( VNULL != asc_getToken(thee, tok, VMAX_BUFSIZE) );
         sscanf(tok,"%s",(*sval));
+        //memcpy((*sval), tok, strlen(tok));
     } else if (thee->mode == ASC_ENCODE) {
         sprintf(tok,"%s\n",*sval);
         len = strlen(tok);
