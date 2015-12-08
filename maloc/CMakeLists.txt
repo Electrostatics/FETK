@@ -318,7 +318,7 @@ endif()
 # Handle conditional building with MPI Support                                 #
 ################################################################################
 
-option(ENABLE_MPI "Enable MPI parallelism" ON)
+option(ENABLE_MPI "Enable MPI parallelism" OFF)
 
 if(ENABLE_MPI)
     if(NOT ENABLE_DEBUG)
