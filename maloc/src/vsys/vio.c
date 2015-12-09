@@ -71,11 +71,15 @@ VEMBED(rcsid="$Id: vio.c,v 1.32 2010/08/12 05:40:30 fetk Exp $")
 #   include <netdb.h>
 #endif
 
+
 #if defined(HAVE_RPC_RPC_H)
 #   include <rpc/rpc.h>
 #elif defined(HAVE_RPC_H)
 #   include <rpc.h>
 #endif
+
+
+/*#include <rpc/rpc.h>*/
 
 #if defined(HAVE_WINSOCK_H)
 #   include <winsock.h>
