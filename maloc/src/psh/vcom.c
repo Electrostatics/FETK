@@ -62,8 +62,10 @@ VEMBED(rcsid="$Id: vcom.c,v 1.25 2010/08/12 05:40:21 fetk Exp $")
 VPUBLIC int Vcom_init(int *argc, char ***argv)
 {
 #if defined(HAVE_MPI_H)
+printf("YES\n");
     return (MPI_SUCCESS == MPI_Init(argc,argv));
 #else
+printf("NO\n");
     return 1;
 #endif
 }
@@ -100,6 +102,7 @@ VPUBLIC int Vcom_finalize(void)
 VPUBLIC Vcom* Vcom_ctor(int commtype)
 {
     int rc;
+printf("hello?\n");
     Vcom *thee = VNULL;
 
     /* Set up the structure */
@@ -108,7 +111,7 @@ VPUBLIC Vcom* Vcom_ctor(int commtype)
     
     /* Call the real constructor */
     rc = Vcom_ctor2(thee, commtype);
-
+printf("vcom bitches!  %d\n", rc);
     /* Destroy the guy if something went wrong */
     if (rc == 0) {
         Vmem_free( VNULL, 1, sizeof(Vcom_core), (void**)&(thee->core) );
@@ -150,11 +153,12 @@ VPUBLIC int Vcom_ctor2(Vcom *thee, int commtype)
         thee->type = commtype;
 
 #if defined(HAVE_MPI_H)
-
+printf("yay!\n");
         /* Start up MPI */
         rc = MPI_Initialized(&dummy);
         if (rc != MPI_SUCCESS) {
             MPI_Error_string(rc, estr, &elen);
+printf("Error!  %s\n", estr);
             Vnm_print(2, "Vcom_ctor2: MPI_Init returned error: %s\n", 
               estr);
             return 0;
@@ -164,6 +168,7 @@ VPUBLIC int Vcom_ctor2(Vcom *thee, int commtype)
         rc = MPI_Comm_size(MPI_COMM_WORLD, &(thee->mpi_size));
         if (rc != MPI_SUCCESS) {
             MPI_Error_string(rc, estr, &elen);
+printf("Another error!  %s\n", estr);
             Vnm_print(2, "Vcom_ctor2: MPI_Comm_size returned error: %s\n", 
               estr);
             return 0;
@@ -173,6 +178,7 @@ VPUBLIC int Vcom_ctor2(Vcom *thee, int commtype)
         rc = MPI_Comm_rank(MPI_COMM_WORLD, &(thee->mpi_rank));
         if (rc != MPI_SUCCESS) {
             MPI_Error_string(rc, estr, &elen);
+printf("Yikes!!  %s\n", estr);
             Vnm_print(2, "Vcom_ctor2: MPI_Comm_rank returned error: %s\n", 
               estr);
             return 0;
@@ -185,6 +191,7 @@ VPUBLIC int Vcom_ctor2(Vcom *thee, int commtype)
         Vnm_setIoTag(thee->mpi_rank, thee->mpi_size);
 
         /* Some i/o */
+printf("Woot!  %d of %d is g2g.\n", thee->mpi_rank, thee->mpi_size);
         Vnm_print(2,"Vcom_ctor2: process %d of %d is ALIVE!\n",
             thee->mpi_rank, thee->mpi_size);
 
@@ -192,6 +199,7 @@ VPUBLIC int Vcom_ctor2(Vcom *thee, int commtype)
         break;
 
 #else  /* defined(HAVE_MPI_H) */
+printf("WTF!!\n");
 
         /* this might not be an error if this is a sequential code... */
         rc = 1;

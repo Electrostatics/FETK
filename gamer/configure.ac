@@ -287,7 +287,7 @@ if test -n "${maloc_found}"; then
     AC_CHECK_LIB(maloc,maloc_link,
         [maloc_found="yes";maloc_lib="${maloc_lib_path}-lmaloc"],
         [maloc_found="";maloc_lib=""],
-        [${maloc_lib_path}-lmaloc ${rl_lib} ${liberty_lib} ${socket_lib} ${nsl_lib} ${thread_lib} ${math_lib} ${zfence_lib} ${profile_lib}])
+        [${maloc_lib_path}-lmaloc ${rl_lib} ${liberty_lib} ${socket_lib} ${nsl_lib} ${thread_lib} ${math_lib} ${zfence_lib} ${profile_lib} ${mpi_lib}])
 fi
 if test -z "${maloc_found}"; then
     AC_MSG_ERROR([MALOC libraries OR headers missing ...EXITING ON ERROR])
