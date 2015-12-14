@@ -458,6 +458,9 @@ void dispose_redirects (REDIRECT *list)
 	case r_err_and_out:
 	case r_input_output:
 	case r_output_force:
+	case r_duplicating_input:
+	case r_duplicating_output:
+	case r_close_this:
 	case r_duplicating_input_word:
 	case r_duplicating_output_word:
 	  dispose_word (t->redirectee.filename);
