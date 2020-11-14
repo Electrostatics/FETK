@@ -33,3 +33,6 @@
 
 # Editor cruft
 *.swp
+
+# Doxygen generated files
+*.dox
