@@ -1,0 +1,55 @@
+name: Testing
+
+on:
+  push:
+    branches: [ '*.build', cmake-and-ghactions ]
+  pull_request:
+    branches: '*'
+
+  workflow_dispatch:
+
+jobs:
+
+  test_macos:
+    runs-on: macos-10.15
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Install dependencies
+        run: |
+          brew install \
+            cmake
+      - name: Configure
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+      - name: Build
+        run: |
+          cd build
+          make install
+
+          
+  test_linux:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+            build-essential \
+            cmake
+      - name: Configure
+        run: |
+          export CC=gcc
+          mkdir build
+          cd build
+          cmake ..
+      - name: Build
+        run: |
+          cd build
+          make install
