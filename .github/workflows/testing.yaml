@@ -26,10 +26,10 @@ jobs:
           mkdir build
           cd build
           cmake ..
-      - name: Build
-        run: |
-          cd build
-          make install
+#      - name: Build
+#        run: |
+#          cd build
+#          make install
 
           
   test_linux:
@@ -49,7 +49,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-      - name: Build
-        run: |
-          cd build
-          make install
+#      - name: Build
+#        run: |
+#          cd build
+#          make install
