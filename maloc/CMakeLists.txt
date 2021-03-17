@@ -1,4 +1,5 @@
-cmake_minimum_required (VERSION 3.1)
+# Minimum version: 3.7.1 required by CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
+cmake_minimum_required (VERSION 3.7.1)
 
 ################################################################################
 # TODO:
@@ -30,18 +31,18 @@ cmake_minimum_required (VERSION 3.1)
 #include(CheckTypeSize)
 #include(ExternalProject)
 
-#set(MALOC_VERSION "1.0.1")
-#set(FETK_VERSION "1.0.0")
-#set(PACKAGE_NAME "maloc")
-#set(PACKAGE_TARNAME "maloc")
-#set(PACKAGE_VERSION "1.0")
-#set(PACKAGE_STRING "maloc 1.0")
-#set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
-
 project(maloc 
         VERSION 1.0.1
         LANGUAGES C
 )
+
+set(MALOC_VERSION ${maloc_VERSION})
+set(FETK_VERSION ${FETK_VERSION})
+set(PACKAGE_NAME ${PROJECT_NAME})
+set(PACKAGE_TARNAME ${PROJECT_NAME})
+set(PACKAGE_VERSION "${maloc_VERSION_MAJOR}.${maloc_VERSION_MINOR}")
+set(PACKAGE_STRING "${PROJECT_NAME} ${PACKAGE_VERSION}")
+set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
 
 ################################################################################
