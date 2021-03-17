@@ -19,8 +19,8 @@ macro(add_items TYPE)
     file(
         RELATIVE_PATH
         PATH
-		#"${CMAKE_SOURCE_DIR}/src"
-		"${MALOC_ROOT}/src"
+		"${CMAKE_SOURCE_DIR}/src"
+		#"${MALOC_ROOT}/src"
 		"${CMAKE_CURRENT_SOURCE_DIR}"
     )
     
@@ -44,11 +44,21 @@ macro(add_items TYPE)
 endmacro()
 
 
-include_directories(${MALOC_ROOT}/src)
-include_directories(${MALOC_ROOT}/src/base)
-include_directories(${MALOC_ROOT}/src/psh)
-include_directories(${MALOC_ROOT}/src/vsh)
-include_directories(${MALOC_ROOT}/src/vsys)
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/base)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/psh)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vsh)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/vsys)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/config/maloccf.h.in
+    ${CMAKE_CURRENT_BINARY_DIR}/maloccf.h
+)
+add_items(
+    INTERNAL_HEADERS
+    maloccf.h
+)
+
 
 add_subdirectory(base)
 add_subdirectory(psh)
@@ -60,13 +70,8 @@ message(STATUS "With external headers: ${EXTERNAL_HEADERS}")
 message(STATUS "With internal headers: ${INTERNAL_HEADERS}")
 
 add_library(maloc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
-target_link_libraries(maloc ${MALOC_LIBS})
+target_link_libraries(maloc ${MALOC_EXT_LIBS})
 
-configure_file(
-    ${MALOC_ROOT}/src/config/maloccf.h.in
-    ${MALOC_ROOT}/src/maloccf.h
-    )
-    
-INSTALL(FILES ${EXTERNAL_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
-INSTALL(TARGETS maloc DESTINATION ${LIBRARY_INSTALL_DIR})
+INSTALL(FILES ${EXTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+INSTALL(TARGETS maloc DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
