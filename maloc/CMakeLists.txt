@@ -50,6 +50,11 @@ project(maloc
 
 message(STATUS "Setting project paths")
 
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE PATH "Install prefix" FORCE)
+endif()
+message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
+
 set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
 include(GNUInstallDirs)
 
