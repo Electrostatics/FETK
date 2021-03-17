@@ -295,7 +295,7 @@ try_compile(
     HAVE_EMBED
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src/config/embed_test.c
-    )
+)
 
 # TODO: Determine if the EMBED macro is even used
 
@@ -344,44 +344,44 @@ endif()
 # Handle library checks for embedded unix environments in windows              #
 ################################################################################
 
-if(MINGW)
-    message(STATUS "Checking for wsock32 in MinGW environment")
-    find_library(
-        MINGW_WSOCK32
-        NAMES wsock32
-        PATHS ${SYS_LIBPATHS}
-        DOC   "The wsock32 library"
-        )
+#if(MINGW)
+#    message(STATUS "Checking for wsock32 in MinGW environment")
+#    find_library(
+#        MINGW_WSOCK32
+#        NAMES wsock32
+#        PATHS ${SYS_LIBPATHS}
+#        DOC   "The wsock32 library"
+#        )
+#
+#    if(MINGW_WSOCK32)
+#        message(STATUS "The wsock32 library was found: ${MINGW_HAS_WSOCK32}")
+#    else()
+#        message(FATAL_ERROR "The wsock32 library was not fond")
+#    endif()
+#endif()
 
-    if(MINGW_WSOCK32)
-        message(STATUS "The wsock32 library was found: ${MINGW_HAS_WSOCK32}")
-    else()
-        message(FATAL_ERROR "The wsock32 library was not fond")
-    endif()
-endif()
 
 
-
-if(CYGWIN)
-    message(STATUS "Checking for wsock32 in Cygwin environment")
-    find_library(
-        CYGWIN_WSOCK32
-        NAMES wsock32
-        PATHS ${SYS_LIBPATHS}
-        DOC   "The wsock32 library"
-        )
-
-    if(CYGWIN_WSOCK32)
-        message(STATUS "The wsock32 library was found: ${CYGWIN_WSOCK32}")
-        list(APPEND MALOC_LIBS ${CYGWIN_WSOCK32})
-    else()
-        message(FATAL_ERROR "The wsock32 library was not fond")
-    endif()
-
-    set(MSDOS 1)
-    set(WIN32 1)
-    set(HAVE_CYGWIN 1)
-endif()
+#if(CYGWIN)
+#    message(STATUS "Checking for wsock32 in Cygwin environment")
+#    find_library(
+#        CYGWIN_WSOCK32
+#        NAMES wsock32
+#        PATHS ${SYS_LIBPATHS}
+#        DOC   "The wsock32 library"
+#        )
+#
+#    if(CYGWIN_WSOCK32)
+#        message(STATUS "The wsock32 library was found: ${CYGWIN_WSOCK32}")
+#        list(APPEND MALOC_LIBS ${CYGWIN_WSOCK32})
+#    else()
+#        message(FATAL_ERROR "The wsock32 library was not fond")
+#    endif()
+#
+#    set(MSDOS 1)
+#    set(WIN32 1)
+#    set(HAVE_CYGWIN 1)
+#endif()
 
 if(NOT CYGWIN AND NOT MINGW AND WIN32)
     ADD_DEFINITIONS("/D _CRT_SECURE_NO_WARNINGS")
