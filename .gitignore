@@ -36,3 +36,7 @@
 
 # Doxygen generated files
 *.dox
+
+# Build directories
+build*/
+*/build*/
