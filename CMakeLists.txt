@@ -1,0 +1,15 @@
+# Minimum version: 3.7.1 required by CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
+cmake_minimum_required (VERSION 3.7.1)
+
+# Parse the VERSION file
+file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/VERSION VERSION_STRING)
+string(REPLACE " " ";" VERSION_LIST ${VERSION_STRING})
+list(GET VERSION_LIST 0 _PROJECT)
+list(GET VERSION_LIST 2 _VERSION)
+
+project(${_PROJECT}
+        VERSION ${_VERSION}
+        LANGUAGES C
+)
+
+message(STATUS "project: ${PROJECT_NAME} ${PROJECT_VERSION}")
