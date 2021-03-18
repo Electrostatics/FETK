@@ -306,10 +306,7 @@ try_compile(
 # Handle conditional debug building                                            #
 ################################################################################
 
-option(ENABLE_DEBUG "Enable debugging mode" OFF)
-
-if(ENABLE_DEBUG)
-    set(CMAKE_BUILD_TYPE Debug)
+if(${CMAKE_BUILD_TYPE} STREQUAL "DEBUG")
     set(DEBUG 1)
     set(HAVE_DEBUG 1)
     message(STATUS "Debugging compilation enabled")
