@@ -12,4 +12,3 @@ project(${_PROJECT}
         LANGUAGES C
 )
 
-message(STATUS "project: ${PROJECT_NAME} ${PROJECT_VERSION}")
