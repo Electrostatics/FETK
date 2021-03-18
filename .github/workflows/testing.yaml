@@ -26,10 +26,10 @@ jobs:
           mkdir build
           cd build
           cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+      - name: Build
+        run: |
+          cd build
+          make install
 
           
   test_linux:
@@ -49,10 +49,10 @@ jobs:
           mkdir build
           cd build
           cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+      - name: Build
+        run: |
+          cd build
+          make install
 
   test_windows:
     runs-on: windows-2019
@@ -71,7 +71,7 @@ jobs:
           mkdir build
           cd build
           cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+      - name: Build
+        run: |
+          cd build
+          make install
