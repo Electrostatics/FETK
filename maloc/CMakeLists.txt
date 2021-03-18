@@ -294,8 +294,8 @@ endif()
 
 try_compile(
     HAVE_EMBED
-    ${CMAKE_BINARY_DIR}
-    ${CMAKE_SOURCE_DIR}/src/config/embed_test.c
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/config/embed_test.c
 )
 
 # TODO: Determine if the EMBED macro is even used
