@@ -57,6 +57,8 @@ jobs:
   test_windows:
     runs-on: windows-2019
     steps:
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
 #      - name: Install dependencies
@@ -70,7 +72,14 @@ jobs:
 
           mkdir build
           cd build
-          cmake ..
+          cmake --config Release \
+                -DCMAKE_BUILD_TYPE=Release \
+                -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+                -DBUILD_TESTING=ON -DENABLE_TESTS=ON \
+                -DBUILD_SHARED_LIBS=OFF \
+                -DENABLE_VERBOSE_DEBUG=ON \
+                -G "Visual Studio 16 2019" \
+                -A x64 ..
       - name: Build
         run: |
           cd build
