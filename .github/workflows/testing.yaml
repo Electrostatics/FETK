@@ -2,11 +2,9 @@ name: Testing
 
 on:
   push:
-    branches: [ '*.build' ]
+    branches: [ master, '*.build' ]
   pull_request:
-    branches: '*'
 
-  workflow_dispatch:
 
 jobs:
 
@@ -70,7 +68,7 @@ jobs:
       - name: Configure
         run: |
 
-          mkdir build
+          mkdir -p build/Release
           cd build
           cmake --config Release \
                 -DCMAKE_BUILD_TYPE=Release \
@@ -83,4 +81,4 @@ jobs:
       - name: Build
         run: |
           cd build
-          make install
+          cmake --build . --config Release --parallel 1 --target install -- /m:1 /logger:%MSBuildLogger%
