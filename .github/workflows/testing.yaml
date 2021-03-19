@@ -74,4 +74,4 @@ jobs:
       - name: Build
         run: |
           cd build
-          cmake --build . --config Release --parallel 1 --target install -- /m:1 /logger:%MSBuildLogger%
+          cmake --build . --config Release --parallel 1 --target install
