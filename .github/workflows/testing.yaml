@@ -9,7 +9,7 @@ on:
 jobs:
 
   test_macos:
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:
       - name: Checkout the repo 
         uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
           
   test_linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
         uses: actions/checkout@v2
@@ -68,16 +68,9 @@ jobs:
       - name: Configure
         run: |
 
-          mkdir -p build/Release
+          mkdir -p build\Release
           cd build
-          cmake --config Release \
-                -DCMAKE_BUILD_TYPE=Release \
-                -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-                -DBUILD_TESTING=ON -DENABLE_TESTS=ON \
-                -DBUILD_SHARED_LIBS=OFF \
-                -DENABLE_VERBOSE_DEBUG=ON \
-                -G "Visual Studio 16 2019" \
-                -A x64 ..
+          cmake --config Release -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -G "Visual Studio 16 2019" -A x64 ..
       - name: Build
         run: |
           cd build
