@@ -25,12 +25,6 @@ cmake_minimum_required (VERSION 3.7.1)
 # [ ] Windows 7 i386
 ################################################################################
 
-#include(CheckIncludeFiles)
-#include(CheckFunctionExists)
-#include(CheckSymbolExists)
-#include(CheckTypeSize)
-#include(ExternalProject)
-
 project(maloc 
         VERSION 1.0.1
         LANGUAGES C
@@ -58,43 +52,6 @@ message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
 
 set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
 include(GNUInstallDirs)
-
-#set(MALOC_ROOT ${PROJECT_SOURCE_DIR})
-#set(EXECUTABLE_OUTPUT_PATH ${MALOC_ROOT}/bin)
-#set(LIBRARY_OUTPUT_PATH ${MALOC_ROOT}/lib)
-#set(MALOC_BINARY ${EXECUTABLE_OUTPUT_PATH}/maloc)
-
-#set(INCLUDE_INSTALL_DIR include/maloc)
-#set(LIBRARY_INSTALL_DIR lib)
-#set(EXECUTABLE_INSTALL_DIR bin)
-
-
-################################################################################
-# Set up temporary files and directories                                       #
-################################################################################
-
-#file(MAKE_DIRECTORY ${EXECUTABLE_OUTPUT_PATH}/temp)
-
-
-
-################################################################################
-# Set the lookup paths for external library dependencies                       #
-################################################################################
-
-#message(STATUS "Setting lookup paths for headers and libraries")
-
-#set(SYS_INCPATHS "${CMAKE_INCLUDE_PATH}")
-#list(APPEND SYS_INCPATHS /usr/include)
-#list(APPEND SYS_INCPATHS /usr/local/include)
-#include_directories(${SYS_INCPATHS})
-
-#set(SYS_LIBPATHS "")
-#list(APPEND SYS_LIBPATHS /usr/lib)
-#list(APPEND SYS_LIBPATHS /usr/local/lib)
-#list(APPEND SYS_LIBPATHS /lib/x86_64-linux-gnu)
-
-#set(MALOC_LIBS)
-
 
 
 ################################################################################
@@ -128,10 +85,10 @@ endif()
 #    list(APPEND MALOC_EXT_LIBS ${NSL_LIBRARY})
 #endif()
 
-#find_library(SOCKET_LIBRARY "socket" REQUIRED)
-#if(SOCKET_LIBRARY)
-#    list(APPEND MALOC_EXT_LIBS ${SOCKET_LIBRARY})
-#endif()
+find_library(SOCKET_LIBRARY "socket" REQUIRED)
+if(SOCKET_LIBRARY)
+    list(APPEND MALOC_EXT_LIBS ${SOCKET_LIBRARY})
+endif()
 
 #find_package(Threads REQUIRED)
 #if(TARGET Threads::Threads)
