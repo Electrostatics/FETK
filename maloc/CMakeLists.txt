@@ -110,15 +110,6 @@ if(ENABLE_READLINE)
     endif()
 endif()
 
-#option(ENABLE_EFENCE "Enable the electric fence library" OFF)
-#if(ENABLE_EFENCE)
-#    message(STATUS "Checking for efence library")
-#    find_library(EFENCE_LIBRARY "efence" REQUIRED)
-#    if(EFENCE_LIBRARY)
-#        list(APPEND MALOC_EXT_LIBS ${EFENCE_LIBRARY})
-#    endif()
-#endif()
-
 
 
 ################################################################################
