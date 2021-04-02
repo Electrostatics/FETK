@@ -109,6 +109,9 @@
 /* Define to 1 if you have the <rpc/rpc.h> header file. */
 #cmakedefine HAVE_RPC_RPC_H 1
 
+/* Define to 1 if you have the <rpc.h> header file. */
+#cmakedefine HAVE_RPC_H 1
+
 /* Define to 1 if you have the <netinet/in.h> header file. */
 #cmakedefine HAVE_NETINET_IN_H 1
 
@@ -177,10 +180,6 @@
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 #cmakedefine size_t @size_t@
-
-/* Define to 1 if the secure warnings on windows should be disabled */
-#cmakedefine _CRT_SECURE_NO_DEPRECATE 1
-#cmakedefine _CRT_NONSTDC_NO_DEPRECATE 1
 
 
 /*
