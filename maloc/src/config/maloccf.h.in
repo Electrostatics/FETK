@@ -62,97 +62,97 @@
 
 
 /* Does accept() use unsigned int? */
-#cmakedefine ACCEPT_USES_UINT 1
+#cmakedefine ACCEPT_USES_UINT
 
 /* Does accept() use unsigned long? */
-#cmakedefine ACCEPT_USES_ULONG 1
+#cmakedefine ACCEPT_USES_ULONG
 
-/* Define to 1 if you have the <arpa/inet.h> header file. */
-#cmakedefine HAVE_ARPA_INET_H 1
+/* Define if you have the <arpa/inet.h> header file. */
+#cmakedefine HAVE_ARPA_INET_H
 
 /* Do I compile as a debug version? */
-#cmakedefine HAVE_DEBUG 1
+#cmakedefine HAVE_DEBUG
 
-/* Define to 1 if you have the <dlfcn.h> header file. */
-#cmakedefine HAVE_DLFCN_H 1
+/* Define if you have the <dlfcn.h> header file. */
+#cmakedefine HAVE_DLFCN_H
 
 /* Does EMBED macro for embedding rcsid symbols into binaries work? */
-#cmakedefine HAVE_EMBED 1
+#cmakedefine HAVE_EMBED
 
-/* Define to 1 if you have the <fcntl.h> header file. */
-#cmakedefine HAVE_FCNTL_H 1
+/* Define if you have the <fcntl.h> header file. */
+#cmakedefine HAVE_FCNTL_H
 
 /* Do I have the getcwd routine? */
-#cmakedefine HAVE_GETCWD 1
+#cmakedefine HAVE_GETCWD
 
-/* Define to 1 if you have the <inttypes.h> header file. */
-#cmakedefine HAVE_INTTYPES_H 1
+/* Define if you have the <inttypes.h> header file. */
+#cmakedefine HAVE_INTTYPES_H
 
-/* Define to 1 if you have the <memory.h> header file. */
-#cmakedefine HAVE_MEMORY_H 1
+/* Define if you have the <memory.h> header file. */
+#cmakedefine HAVE_MEMORY_H
 
 /* Do I have MPI header? */
-#cmakedefine HAVE_MPI_H 1
+#cmakedefine HAVE_MPI_H
 
-/* Define to 1 if you have the <netdb.h> header file. */
-#cmakedefine HAVE_NETDB_H 1
+/* Define if you have the <netdb.h> header file. */
+#cmakedefine HAVE_NETDB_H
 
 /* Do I have the O_NONBLOCK macro? */
-#cmakedefine HAVE_O_NONBLOCK 1
+#cmakedefine HAVE_O_NONBLOCK
 
 /* Do I have history.h header? */
-#cmakedefine HAVE_READLINE_HISTORY_H 1
+#cmakedefine HAVE_READLINE_HISTORY_H
 
 /* Do I have readline.h header? */
-#cmakedefine HAVE_READLINE_READLINE_H 1
+#cmakedefine HAVE_READLINE_READLINE_H
 
-/* Define to 1 if you have the <rpc/rpc.h> header file. */
-#cmakedefine HAVE_RPC_RPC_H 1
+/* Define if you have the <rpc/rpc.h> header file. */
+#cmakedefine HAVE_RPC_RPC_H
 
-/* Define to 1 if you have the <rpc.h> header file. */
-#cmakedefine HAVE_RPC_H 1
+/* Define if you have the <rpc.h> header file. */
+#cmakedefine HAVE_RPC_H
 
-/* Define to 1 if you have the <netinet/in.h> header file. */
-#cmakedefine HAVE_NETINET_IN_H 1
+/* Define if you have the <netinet/in.h> header file. */
+#cmakedefine HAVE_NETINET_IN_H
 
-/* Define to 1 if you have the <stdint.h> header file. */
-#cmakedefine HAVE_STDINT_H 1
+/* Define if you have the <stdint.h> header file. */
+#cmakedefine HAVE_STDINT_H
 
-/* Define to 1 if you have the <stdlib.h> header file. */
-#cmakedefine HAVE_STDLIB_H 1
+/* Define if you have the <stdlib.h> header file. */
+#cmakedefine HAVE_STDLIB_H
 
-/* Define to 1 if you have the <strings.h> header file. */
-#cmakedefine HAVE_STRINGS_H 1
+/* Define if you have the <strings.h> header file. */
+#cmakedefine HAVE_STRINGS_H
 
-/* Define to 1 if you have the <string.h> header file. */
-#cmakedefine HAVE_STRING_H 1
+/* Define if you have the <string.h> header file. */
+#cmakedefine HAVE_STRING_H
 
-/* Define to 1 if you have the <sys/socket.h> header file. */
-#cmakedefine HAVE_SYS_SOCKET_H 1
+/* Define if you have the <sys/socket.h> header file. */
+#cmakedefine HAVE_SYS_SOCKET_H
 
-/* Define to 1 if you have the <sys/stat.h> header file. */
-#cmakedefine HAVE_SYS_STAT_H 1
+/* Define if you have the <sys/stat.h> header file. */
+#cmakedefine HAVE_SYS_STAT_H
 
-/* Define to 1 if you have the <sys/times.h> header file. */
-#cmakedefine HAVE_SYS_TIMES_H 1
+/* Define if you have the <sys/times.h> header file. */
+#cmakedefine HAVE_SYS_TIMES_H
 
-/* Define to 1 if you have the <sys/time.h> header file. */
-#cmakedefine HAVE_SYS_TIME_H 1
+/* Define if you have the <sys/time.h> header file. */
+#cmakedefine HAVE_SYS_TIME_H
 
-/* Define to 1 if you have the <sys/types.h> header file. */
-#cmakedefine HAVE_SYS_TYPES_H 1
+/* Define if you have the <sys/types.h> header file. */
+#cmakedefine HAVE_SYS_TYPES_H
 
-/* Define to 1 if you have the <sys/un.h> header file. */
-#cmakedefine HAVE_SYS_UN_H 1
+/* Define if you have the <sys/un.h> header file. */
+#cmakedefine HAVE_SYS_UN_H
 
-/* Define to 1 if you have <sys/wait.h> that is POSIX.1 compatible. */
-#cmakedefine HAVE_SYS_WAIT_H 1
+/* Define if you have <sys/wait.h> that is POSIX.1 compatible. */
+#cmakedefine HAVE_SYS_WAIT_H
 
-/* Define to 1 if you have the <unistd.h> header file. */
-#cmakedefine HAVE_UNISTD_H 1
+/* Define if you have the <unistd.h> header file. */
+#cmakedefine HAVE_UNISTD_H
 
 /* Do I have the XDR datastructure in the RPC package? */
-#cmakedefine HAVE_XDR 1
+#cmakedefine HAVE_XDR
 
 /* Define to the full name of this package. */
 #cmakedefine PACKAGE_NAME @PACKAGE_NAME@
@@ -166,11 +166,11 @@
 /* Define to the version of this package. */
 #cmakedefine PACKAGE_VERSION @PACKAGE_VERSION@
 
-/* Define to 1 if the `S_IS*' macros in <sys/stat.h> do not work properly. */
-#cmakedefine STAT_MACROS_BROKEN 1
+/* Define if the `S_IS*' macros in <sys/stat.h> do not work properly. */
+#cmakedefine STAT_MACROS_BROKEN
 
-/* Define to 1 if you have the ANSI C header files. */
-#cmakedefine STDC_HEADERS 1
+/* Define if you have the ANSI C header files. */
+#cmakedefine STDC_HEADERS
 
 /* Define to `int' if <sys/types.h> does not define. */
 #cmakedefine mode_t @mode_t@
@@ -196,19 +196,19 @@
 #       define HAVE_WIN32
 
         /* Deal with some basic problems with UNIX/WIN32 compatibility */
-#       define HAVE_O_NONBLOCK 1
-#       define HAVE_MODE_T 1
+#       define HAVE_O_NONBLOCK
+#       define HAVE_MODE_T
 
         /* WATCOM does STAT macros right; Microsoft does not */
 #       if !defined(__WATCOMC__)
-#           define STAT_MACROS_BROKEN 1
+#           define STAT_MACROS_BROKEN
 #       endif
 
         /* Required headers that exist only in WIN32 (non-CygWin) */
-#       define HAVE_DIRECT_H 1
-#       define HAVE_PROCESS_H 1
-#       define HAVE_WINSOCK_H 1
-#       define HAVE_IO_H 1
+#       define HAVE_DIRECT_H
+#       define HAVE_PROCESS_H
+#       define HAVE_WINSOCK_H
+#       define HAVE_IO_H
 
 #   endif
 #endif
