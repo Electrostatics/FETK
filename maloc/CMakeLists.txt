@@ -85,7 +85,7 @@ endif()
 #    list(APPEND MALOC_EXT_LIBS ${NSL_LIBRARY})
 #endif()
 
-find_library(SOCKET_LIBRARY "socket" REQUIRED)
+find_library(SOCKET_LIBRARY "socket")
 if(SOCKET_LIBRARY)
     list(APPEND MALOC_EXT_LIBS ${SOCKET_LIBRARY})
 endif()
