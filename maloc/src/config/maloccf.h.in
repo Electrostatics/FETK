@@ -169,9 +169,6 @@
 /* Define to 1 if you have the ANSI C header files. */
 #cmakedefine STDC_HEADERS 1
 
-/* MSDOS Macro for Cygwin and icl - obsolete */
-#cmakedefine MSDOS 1
-
 /* Define to `int' if <sys/types.h> does not define. */
 #cmakedefine mode_t @mode_t@
 
