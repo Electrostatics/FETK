@@ -2,16 +2,14 @@ name: Testing
 
 on:
   push:
-    branches: [ '*.build' ]
+    branches: [ master, '*.build' ]
   pull_request:
-    branches: '*'
 
-  workflow_dispatch:
 
 jobs:
 
   test_macos:
-    runs-on: macos-10.15
+    runs-on: macos-latest
     steps:
       - name: Checkout the repo 
         uses: actions/checkout@v2
@@ -26,14 +24,14 @@ jobs:
           mkdir build
           cd build
           cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+      - name: Build
+        run: |
+          cd build
+          make install
 
           
   test_linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
         uses: actions/checkout@v2
@@ -49,29 +47,24 @@ jobs:
           mkdir build
           cd build
           cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+      - name: Build
+        run: |
+          cd build
+          make install
 
   test_windows:
     runs-on: windows-2019
     steps:
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
-#      - name: Install dependencies
-#        run: |
-#          sudo apt-get update
-#          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
-#            build-essential \
-#            cmake
       - name: Configure
         run: |
-
-          mkdir build
+          mkdir -p build\Release
           cd build
-          cmake ..
-#      - name: Build
-#        run: |
-#          cd build
-#          make install
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -G "Visual Studio 16 2019" -A x64 ..
+      - name: Build
+        run: |
+          cd build
+          cmake --build . --config Release --parallel 1 --target install
