@@ -1,17 +1,21 @@
 # Minimum version: 3.7.1 required by CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
 cmake_minimum_required (VERSION 3.7.1)
 
-# Include the common FETK CMake utilities
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
-include(FETKBuildFunctions)
 
 project(punc 
         VERSION 0.0.0
         LANGUAGES C
 )
 
+# Include the common FETK CMake utilities
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
+include(FETKBuildFunctions)
+
+
 # Set essential variables and paths for the project
 set_basic_vars_and_paths()
+set(PUNC_VERSION ${punc_VERSION})
+
 
 
 # check for libraries
