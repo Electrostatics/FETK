@@ -4,7 +4,15 @@
 # Created: Apr 6, 2021
 
 
-set(BUILD_SHARED_LIBRARIES OFF)
+# Determine if this is a standalone build or not
+set(FETK_STANDALONE FALSE CACHE INTERNAL "Flag for whether or not this is a stand-alone build")
+if(${CMAKE_SOURCE_DIR} STREQUAL ${PROJECT_SOURCE_DIR})
+    set(FETK_STANDALONE TRUE)
+    
+
+
+
+endif()
 
 
 ################################################################################
@@ -19,13 +27,11 @@ macro(set_basic_vars_and_paths)
     ################################################################################
     # Set package variables
     ################################################################################
-    
 
-    set(PUNC_VERSION ${maloc_VERSION})
     set(FETK_VERSION ${FETK_VERSION})
     set(PACKAGE_NAME ${PROJECT_NAME})
     set(PACKAGE_TARNAME ${PROJECT_NAME})
-    set(PACKAGE_VERSION "${punc_VERSION_MAJOR}.${punc_VERSION_MINOR}")
+    set(PACKAGE_VERSION "${${PROJECT_NAME}_VERSION_MAJOR}.${${PROJECT_NAME}_VERSION_MINOR}")
     set(PACKAGE_STRING "${PROJECT_NAME} ${PACKAGE_VERSION}")
     set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
