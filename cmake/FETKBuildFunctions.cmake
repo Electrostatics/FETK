@@ -49,6 +49,28 @@ macro(set_basic_vars_and_paths)
 
     set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
     include(GNUInstallDirs)
+
+
+    ################################################################################
+    # Other options and settings
+    ################################################################################
+
+    set(BUILD_SHARED_LIBRARIES OFF)
+
+
+    ################################################################################
+    # Enable ansi pedantic compiling
+    ################################################################################
+
+    option(ENABLE_PEDANTIC "Enable the pedantic ansi compilation" OFF)
+
+    if(ENABLE_PEDANTIC)
+        add_compile_options("-Wall -pedantic -ansi")
+        message(STATUS "Pedantic compilation enabled")
+    endif()
+
+
+
 endmacro()
 
 
