@@ -4,6 +4,9 @@
 # configure aaa_inc/punccf.h.in
 
 # optional build of vf2c
+if(BUILD_VF2C)
+    add_subdirectory(vf2c)
+endif()
 
 # optional build of blas
 

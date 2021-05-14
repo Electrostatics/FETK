@@ -37,6 +37,7 @@ set(PUNC_VERSION ${punc_VERSION})
 # electric fence library (?)
 
 # vf2c library (build or find)
+set(BUILD_VF2C ON)
 
 # blas library (build or find)
 
@@ -61,3 +62,8 @@ set(PUNC_VERSION ${punc_VERSION})
 # maloc library
 
 
+################################################################################
+# Build PUNC
+################################################################################
+
+add_subdirectory(src)
