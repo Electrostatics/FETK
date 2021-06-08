@@ -1,8 +1,9 @@
 # Minimum version: 3.7.1 required by CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
 cmake_minimum_required (VERSION 3.7.1)
 
+message(NOTICE "Configuring build for PUNC")
 
-project(punc 
+project(punc
         VERSION 0.0.0
         LANGUAGES C
 )
@@ -60,6 +61,16 @@ set(BUILD_VF2C ON)
 # build seems disabled
 
 # maloc library
+if(NOT TARGET maloc)
+    message(FATAL_ERROR "Maloc target not found")
+endif()
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/base
+    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/psh
+    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
+    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
+)
+list(APPEND PUNC_INT_LIBS maloc)
 
 
 ################################################################################

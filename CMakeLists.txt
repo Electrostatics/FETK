@@ -50,7 +50,7 @@ if(BUILD_MALOC)
 endif()
 
 if(BUILD_PUNC)
-#    add_subdirectory(punc)
+    add_subdirectory(punc)
 endif()
 
 if(BUILD_GAMER)
