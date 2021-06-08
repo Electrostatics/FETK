@@ -8,7 +8,7 @@
 set(FETK_STANDALONE FALSE CACHE INTERNAL "Flag for whether or not this is a stand-alone build")
 if(${CMAKE_SOURCE_DIR} STREQUAL ${PROJECT_SOURCE_DIR})
     set(FETK_STANDALONE TRUE)
-    
+
 
 
 
@@ -117,7 +117,7 @@ endmacro()
 #           = EXTERNAL HEADERS
 #   ITEMS: space-separated list of files (relative or absolute paths)
 ################################################################################
-macro(add_build_items TYPE)
+macro(add_build_items)
 
     set(oneValueArgs TYPE)
     set(multiValueArgs ITEMS)
@@ -136,18 +136,18 @@ macro(add_build_items TYPE)
             "Was ${ABI_TYPE}."
         )
     endif()
-    
+
     # Add each item successively
     foreach(ITEM ${ABI_ITEMS})
         get_filename_component(ITEM_PATH ${ITEM} ABSOLUTE)
-        
+
         # Add the item to the appropriately typed list
-        list(APPEND ${ABS_TYPE} "${ITEM_PATH}")
+        list(APPEND ${ABI_TYPE} "${ITEM_PATH}")
     endforeach()
-    
+
     # If this folder is not the library-build directory, push the updated item list to the parent scope
     if(NOT LIB_BUILD_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-        set(${ABS_TYPE} ${${ABS_TYPE}} PARENT_SCOPE)
+        set(${ABI_TYPE} ${${ABI_TYPE}} PARENT_SCOPE)
     endif()
 
 endmacro()
