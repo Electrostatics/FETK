@@ -37,28 +37,48 @@ set(PUNC_VERSION ${punc_VERSION})
 
 # electric fence library (?)
 
+##########
+# Here are the libraries that can be built by PUNC
+##########
+
 # vf2c library (build or find)
 set(BUILD_VF2C ON)
+# eigen's find for liblapack seems to have f2c find: https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindLAPACK.cmake
+# need to include headers in punc subdirectory
 
 # blas library (build or find)
+# cmake has FindBLAS
 
 # lapack library (build or find)
 # build seems disabled
+# cmake has FindLAPACK
 
 # amd library (build or find)
+# this includes finding amd: https://ceres-solver.googlesource.com/ceres-solver/+/master/cmake/FindSuiteSparse.cmake
 
 # umfpack library (build or find)
+# https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
 
 # superlu library (build or find)
+# https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindSuperLU.cmake
 
 # arpack library (build or find)
-# build seems disabled
+# check for installed version is disabled in autoconf
+# https://github.com/sidch/CMake/blob/master/Modules/FindARPACK.cmake
 
 # cgcode library (build or find)
-# build seems disabled
+# check for installed version is disabled in autoconf
+# doesn't seem to exist in ubuntu package repository
+# probably need to build
 
 # pmg library (build or find)
-# build seems disabled
+# check for installed version is disabled in autoconf
+# doesn't seem to exist in ubuntu package repository
+# probably need to build
+
+##########
+# End of PUNC libraries
+##########
 
 # maloc library
 if(NOT TARGET maloc)
