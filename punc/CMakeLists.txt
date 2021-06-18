@@ -3,9 +3,10 @@ cmake_minimum_required (VERSION 3.7.1)
 
 message(NOTICE "Configuring build for PUNC")
 
+# CXX is included as an enabled language because the SuperLU checks require it
 project(punc
         VERSION 0.0.0
-        LANGUAGES C
+        LANGUAGES C CXX
 )
 
 # Include the common FETK CMake utilities
@@ -46,12 +47,36 @@ set(BUILD_VF2C ON)
 # eigen's find for liblapack seems to have f2c find: https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindLAPACK.cmake
 # need to include headers in punc subdirectory
 
-# blas library (build or find)
+# BLAS library [done]
 # cmake has FindBLAS
+# this works in docker with apt-get installed blas
+set( BLA_STATIC ON ) # use static linkage
+find_package( BLAS REQUIRED )
+if( BLAS_FOUND )
+    message( STATUS "##### Found BLAS" )
+    # docker: see this
+endif()
+if( TARGET BLAS::BLAS )
+    message( STATUS "##### Found BLAS::BLAS target" )
+    # docker: do not see this
+endif()
 
-# lapack library (build or find)
+# lapack library (build or find) [error]
 # build seems disabled
 # cmake has FindLAPACK
+# tested in docker with apt-get installed liblapack-dev; got an error:
+# -- Looking for cheev_ - not found
+# CMake Error at /usr/share/cmake-3.16/Modules/FindLAPACK.cmake:423 (message):
+#   A required library with LAPACK API not found.  Please specify library
+#   location.
+#set( BLA_STATIC ON ) # use static linkage
+#find_package( LAPACK REQUIRED )
+if( LAPACK_FOUND )
+    message( STATUS "##### Found LAPACK" )
+endif()
+if( TARGET LAPACK::LAPACK )
+    message( STATUS "##### Found LAPACK::LAPACK target" )
+endif()
 
 # amd library (build or find)
 # this includes finding amd: https://ceres-solver.googlesource.com/ceres-solver/+/master/cmake/FindSuiteSparse.cmake
@@ -59,12 +84,20 @@ set(BUILD_VF2C ON)
 # umfpack library (build or find)
 # https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
 
-# superlu library (build or find)
+# SuperLU library [done]
 # https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindSuperLU.cmake
+find_package( SuperLU REQUIRED )
+if( SUPERLU_VERSION_OK )
+    message( STATUS "##### Found SuperLU" )
+endif()
 
 # arpack library (build or find)
 # check for installed version is disabled in autoconf
 # https://github.com/sidch/CMake/blob/master/Modules/FindARPACK.cmake
+find_package( ARPACK REQUIRED )
+if( ARPACK_FOUND )
+    message( STATUS "##### Found ARPACK" )
+endif()
 
 # cgcode library (build or find)
 # check for installed version is disabled in autoconf
