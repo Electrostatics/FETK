@@ -61,7 +61,7 @@ if( TARGET BLAS::BLAS )
     # docker: do not see this
 endif()
 
-# lapack library (build or find) [error]
+# lapack library [error]
 # build seems disabled
 # cmake has FindLAPACK
 # tested in docker with apt-get installed liblapack-dev; got an error:
@@ -69,8 +69,8 @@ endif()
 # CMake Error at /usr/share/cmake-3.16/Modules/FindLAPACK.cmake:423 (message):
 #   A required library with LAPACK API not found.  Please specify library
 #   location.
-#set( BLA_STATIC ON ) # use static linkage
-#find_package( LAPACK REQUIRED )
+set( BLA_STATIC ON ) # use static linkage
+find_package( LAPACK REQUIRED )
 if( LAPACK_FOUND )
     message( STATUS "##### Found LAPACK" )
 endif()
@@ -78,20 +78,28 @@ if( TARGET LAPACK::LAPACK )
     message( STATUS "##### Found LAPACK::LAPACK target" )
 endif()
 
-# amd library (build or find)
-# this includes finding amd: https://ceres-solver.googlesource.com/ceres-solver/+/master/cmake/FindSuiteSparse.cmake
+# AMD library [done]
+# adapted from https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
+find_package( AMD REQUIRED )
+if( AMD_FOUND )
+    message( STATUS "##### Found AMD" )
+endif()
 
-# umfpack library (build or find)
+# UMFPACK library [done]
 # https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
+find_package( UMFPACK REQUIRED )
+if( UMFPACK_FOUND )
+    message( STATUS "##### Found UMFPACK" )
+endif()
 
 # SuperLU library [done]
 # https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindSuperLU.cmake
 find_package( SuperLU REQUIRED )
-if( SUPERLU_VERSION_OK )
+if( SuperLU_FOUND )
     message( STATUS "##### Found SuperLU" )
 endif()
 
-# arpack library (build or find)
+# ARPACK library [done]
 # check for installed version is disabled in autoconf
 # https://github.com/sidch/CMake/blob/master/Modules/FindARPACK.cmake
 find_package( ARPACK REQUIRED )
