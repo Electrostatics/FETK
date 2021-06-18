@@ -11,8 +11,8 @@ setup_for_build()
 
 # optional build of vf2c
 if(BUILD_VF2C)
-#    include_directories(vf2c)
-#    add_subdirectory(vf2c)
+    include_directories(vf2c vf2c/punc)
+    add_subdirectory(vf2c)
 endif()
 
 # optional build of blas

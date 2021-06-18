@@ -1,6 +1,6 @@
 # CMakeLists.txt for vf2c
 # Author: N.S. Oblath
-# 
+#
 # Builds vf2c library
 
 message(STATUS "Building vf2c")
@@ -12,8 +12,17 @@ setup_for_build()
 
 # Add header files
 add_build_items(
+    TYPE EXTERNAL_HEADERS
+    ITEMS punc/varpack.h
+          punc/vblas.h
+          punc/vcgcode.h
+          punc/vlapack.h
+          punc/vpmg.h
+)
+
+add_build_items(
     TYPE INTERNAL_HEADERS
-    ITEMS f2c.h blah.h blahblah.h
+    ITEMS f2c.h fio.h fmt.h fp.h lio.h rawio.h signal1.h sysdep1.h
 )
 
 # Add source files
@@ -55,3 +64,9 @@ add_build_items(
 message(STATUS "internal headers: ${INTERNAL_HEADERS}")
 message(STATUS "external headers: ${EXTERNAL_HEADERS}")
 message(STATUS "sources: ${SOURCES}")
+
+add_library(vf2c ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
+target_link_libraries(vf2c ${MALOC_EXT_LIBS})
+
+install(FILES ${EXTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(TARGETS vf2c DESTINATION ${CMAKE_INSTALL_LIBDIR})
