@@ -114,10 +114,11 @@ endif()
 # probably need to build
 set(BUILD_CGCODE ON)
 
-# pmg library (build or find)
+# pmg library [done]
 # check for installed version is disabled in autoconf
 # doesn't seem to exist in ubuntu package repository
 # probably need to build
+set(BUILD_PMG ON)
 
 ##########
 # End of PUNC libraries

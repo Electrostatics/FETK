@@ -16,40 +16,40 @@ if(BUILD_VF2C)
 endif()
 
 # optional build of blas
-if(BUILD_BLAS)
-    include_directories(blas)
-    add_subdirectory(blas)
-endif()
+#if(BUILD_BLAS)
+#    include_directories(blas)
+#    add_subdirectory(blas)
+#endif()
 
 # optional build of lapack
-if(BUILD_LAPACK)
-    include_directories(lapack)
-    add_subdirectory(lapack)
-endif()
+#if(BUILD_LAPACK)
+#    include_directories(lapack)
+#    add_subdirectory(lapack)
+#endif()
 
 # optional build of amd
-if(BUILD_AMD)
-    include_directories(amd)
-    add_subdirectory(amd)
-endif()
+#if(BUILD_AMD)
+#    include_directories(amd)
+#    add_subdirectory(amd)
+#endif()
 
 # optional build of umfpack
-if(BUILD_UMFPACK)
-    include_directories(umfpack)
-    add_subdirectory(umfpack)
-endif()
+#if(BUILD_UMFPACK)
+#    include_directories(umfpack)
+#    add_subdirectory(umfpack)
+#endif()
 
 # optional build of superlu
-if(BUILD_SUPERLU)
-    include_directories(superlu)
-    add_subdirectory(superlu)
-endif()
+#if(BUILD_SUPERLU)
+#    include_directories(superlu)
+#    add_subdirectory(superlu)
+#endif()
 
 # optional build of arpack
-if(BUILD_ARPACK)
-    include_directories(arpack)
-    add_subdirectory(arpack)
-endif()
+#if(BUILD_ARPACK)
+#    include_directories(arpack)
+#    add_subdirectory(arpack)
+#endif()
 
 # optional build of cgcode
 if(BUILD_CGCODE)
@@ -59,7 +59,7 @@ endif()
 
 # optional build of pmg
 if(BUILD_PMG)
-include_directories()
+    include_directories(pmg)
     add_subdirectory(pmg)
 endif()
 
