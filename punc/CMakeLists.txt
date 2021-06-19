@@ -44,22 +44,10 @@ set(PUNC_VERSION ${punc_VERSION})
 
 # vf2c library [done]
 set(BUILD_VF2C ON)
-# eigen's find for liblapack seems to have f2c find: https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindLAPACK.cmake
-# need to include headers in punc subdirectory
 
 # BLAS library [done]
-# cmake has FindBLAS
-# this works in docker with apt-get installed blas
 set( BLA_STATIC ON ) # use static linkage
 find_package( BLAS REQUIRED )
-if( BLAS_FOUND )
-    message( STATUS "##### Found BLAS" )
-    # docker: see this
-endif()
-if( TARGET BLAS::BLAS )
-    message( STATUS "##### Found BLAS::BLAS target" )
-    # docker: do not see this
-endif()
 
 # lapack library [error]
 # build seems disabled
@@ -80,44 +68,33 @@ set( BLA_VENDOR OpenBLAS )
 #endif()
 
 # AMD library [done]
-# adapted from https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
 find_package( AMD REQUIRED )
 if( AMD_FOUND )
     message( STATUS "##### Found AMD" )
 endif()
 
 # UMFPACK library [done]
-# https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
 find_package( UMFPACK REQUIRED )
 if( UMFPACK_FOUND )
     message( STATUS "##### Found UMFPACK" )
 endif()
 
 # SuperLU library [done]
-# https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindSuperLU.cmake
 find_package( SuperLU REQUIRED )
 if( SuperLU_FOUND )
     message( STATUS "##### Found SuperLU" )
 endif()
 
 # ARPACK library [done]
-# check for installed version is disabled in autoconf
-# https://github.com/sidch/CMake/blob/master/Modules/FindARPACK.cmake
 find_package( ARPACK REQUIRED )
 if( ARPACK_FOUND )
     message( STATUS "##### Found ARPACK" )
 endif()
 
 # cgcode library [done]
-# check for installed version is disabled in autoconf
-# doesn't seem to exist in ubuntu package repository
-# probably need to build
 set(BUILD_CGCODE ON)
 
 # pmg library [done]
-# check for installed version is disabled in autoconf
-# doesn't seem to exist in ubuntu package repository
-# probably need to build
 set(BUILD_PMG ON)
 
 ##########
