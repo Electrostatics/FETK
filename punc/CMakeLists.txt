@@ -42,7 +42,7 @@ set(PUNC_VERSION ${punc_VERSION})
 # Here are the libraries that can be built by PUNC
 ##########
 
-# vf2c library (build or find)
+# vf2c library [done]
 set(BUILD_VF2C ON)
 # eigen's find for liblapack seems to have f2c find: https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindLAPACK.cmake
 # need to include headers in punc subdirectory
@@ -70,13 +70,14 @@ endif()
 #   A required library with LAPACK API not found.  Please specify library
 #   location.
 set( BLA_STATIC ON ) # use static linkage
-find_package( LAPACK REQUIRED )
-if( LAPACK_FOUND )
-    message( STATUS "##### Found LAPACK" )
-endif()
-if( TARGET LAPACK::LAPACK )
-    message( STATUS "##### Found LAPACK::LAPACK target" )
-endif()
+set( BLA_VENDOR OpenBLAS )
+#find_package( LAPACK REQUIRED )
+#if( LAPACK_FOUND )
+#    message( STATUS "##### Found LAPACK" )
+#endif()
+#if( TARGET LAPACK::LAPACK )
+#    message( STATUS "##### Found LAPACK::LAPACK target" )
+#endif()
 
 # AMD library [done]
 # adapted from https://gitlab.com/libeigen/eigen/-/blob/master/cmake/FindUMFPACK.cmake
@@ -107,10 +108,11 @@ if( ARPACK_FOUND )
     message( STATUS "##### Found ARPACK" )
 endif()
 
-# cgcode library (build or find)
+# cgcode library [done]
 # check for installed version is disabled in autoconf
 # doesn't seem to exist in ubuntu package repository
 # probably need to build
+set(BUILD_CGCODE ON)
 
 # pmg library (build or find)
 # check for installed version is disabled in autoconf
