@@ -15,42 +15,6 @@ if(BUILD_VF2C)
     add_subdirectory(vf2c)
 endif()
 
-# optional build of blas
-#if(BUILD_BLAS)
-#    include_directories(blas)
-#    add_subdirectory(blas)
-#endif()
-
-# optional build of lapack
-#if(BUILD_LAPACK)
-#    include_directories(lapack)
-#    add_subdirectory(lapack)
-#endif()
-
-# optional build of amd
-#if(BUILD_AMD)
-#    include_directories(amd)
-#    add_subdirectory(amd)
-#endif()
-
-# optional build of umfpack
-#if(BUILD_UMFPACK)
-#    include_directories(umfpack)
-#    add_subdirectory(umfpack)
-#endif()
-
-# optional build of superlu
-#if(BUILD_SUPERLU)
-#    include_directories(superlu)
-#    add_subdirectory(superlu)
-#endif()
-
-# optional build of arpack
-#if(BUILD_ARPACK)
-#    include_directories(arpack)
-#    add_subdirectory(arpack)
-#endif()
-
 # optional build of cgcode
 if(BUILD_CGCODE)
     include_directories(cgcode)
