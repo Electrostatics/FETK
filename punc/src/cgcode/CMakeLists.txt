@@ -36,9 +36,9 @@ add_build_items(
         d1mach.c dratqr.c depsln.c
 )
 
-message(STATUS "internal headers: ${INTERNAL_HEADERS}")
-message(STATUS "external headers: ${EXTERNAL_HEADERS}")
-message(STATUS "sources: ${SOURCES}")
+#message(STATUS "internal headers: ${INTERNAL_HEADERS}")
+#message(STATUS "external headers: ${EXTERNAL_HEADERS}")
+#message(STATUS "sources: ${SOURCES}")
 
 add_library(cgcode ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 #target_link_libraries(cgcode ${MALOC_EXT_LIBS})

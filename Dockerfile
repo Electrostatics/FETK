@@ -1,5 +1,7 @@
 FROM ubuntu:20.04 as fetk_base
 
+SHELL ["/bin/bash", "-c"]
+
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         build-essential \
@@ -14,6 +16,10 @@ RUN apt-get update && \
         libsuperlu-dev \
         libf2c2-dev \
         libsuitesparse-dev
+
+##################################
+
+FROM fetk_base
 
 COPY cmake /src/cmake
 COPY gamer /src/gamer

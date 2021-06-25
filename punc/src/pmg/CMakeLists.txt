@@ -28,9 +28,9 @@ add_build_items(
     ITEMS buildAd.c buildBd.c buildGd.c buildPd.c cgd.c cgmgd.c cgmgdrvd.c gsd.c matvecd.c mblasd.c mgcsd.c mgdrvd.c mgfasd.c mgsubd.c mikpckd.c mlinpckd.c ncgd.c ncgdrvd.c newdrvd.c newtond.c ngsd.c ngsdrvd.c ninterpd.c nrchd.c nrchdrvd.c nsmoothd.c nsord.c nsordrvd.c nwjd.c nwjdrvd.c powerd.c rchd.c smoothd.c sord.c wjd.c
 )
 
-message(STATUS "internal headers: ${INTERNAL_HEADERS}")
-message(STATUS "external headers: ${EXTERNAL_HEADERS}")
-message(STATUS "sources: ${SOURCES}")
+#message(STATUS "internal headers: ${INTERNAL_HEADERS}")
+#message(STATUS "external headers: ${EXTERNAL_HEADERS}")
+#message(STATUS "sources: ${SOURCES}")
 
 add_library(pmg ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 #target_link_libraries(pmg ${MALOC_EXT_LIBS})

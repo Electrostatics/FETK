@@ -61,9 +61,9 @@ add_build_items(
         main.c
 )
 
-message(STATUS "internal headers: ${INTERNAL_HEADERS}")
-message(STATUS "external headers: ${EXTERNAL_HEADERS}")
-message(STATUS "sources: ${SOURCES}")
+#message(STATUS "internal headers: ${INTERNAL_HEADERS}")
+#message(STATUS "external headers: ${EXTERNAL_HEADERS}")
+#message(STATUS "sources: ${SOURCES}")
 
 add_library(vf2c ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(vf2c ${MALOC_EXT_LIBS})
