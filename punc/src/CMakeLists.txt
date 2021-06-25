@@ -1,5 +1,5 @@
 ##########
-# CMakeLists.txt for FETK/punc/srcdir
+# CMakeLists.txt for FETK/punc/src
 ##########
 
 # Initial setup for build
@@ -46,9 +46,9 @@ add_build_items(
 
 add_subdirectory(base)
 
-message(STATUS "With sources: ${SOURCES}")
-message(STATUS "With external headers: ${EXTERNAL_HEADERS}")
-message(STATUS "With internal headers: ${INTERNAL_HEADERS}")
+#message(STATUS "With sources: ${SOURCES}")
+#message(STATUS "With external headers: ${EXTERNAL_HEADERS}")
+#message(STATUS "With internal headers: ${INTERNAL_HEADERS}")
 
 add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})

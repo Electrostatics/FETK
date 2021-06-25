@@ -19,6 +19,13 @@ set_basic_vars_and_paths()
 set(PUNC_VERSION ${punc_VERSION})
 
 
+################################################################################
+# Check for necessary headers and types
+################################################################################
+
+header_and_type_checks()
+
+
 
 # check for libraries
 
@@ -38,9 +45,9 @@ set(PUNC_VERSION ${punc_VERSION})
 
 # electric fence library (?)
 
-##########
+################################################################################
 # Here are the libraries that can be built by PUNC
-##########
+################################################################################
 
 # vf2c library [done]
 set(BUILD_VF2C ON)
@@ -69,27 +76,15 @@ set( BLA_VENDOR OpenBLAS )
 
 # AMD library [done]
 find_package( AMD REQUIRED )
-if( AMD_FOUND )
-    message( STATUS "##### Found AMD" )
-endif()
 
 # UMFPACK library [done]
 find_package( UMFPACK REQUIRED )
-if( UMFPACK_FOUND )
-    message( STATUS "##### Found UMFPACK" )
-endif()
 
 # SuperLU library [done]
 find_package( SuperLU REQUIRED )
-if( SuperLU_FOUND )
-    message( STATUS "##### Found SuperLU" )
-endif()
 
 # ARPACK library [done]
 find_package( ARPACK REQUIRED )
-if( ARPACK_FOUND )
-    message( STATUS "##### Found ARPACK" )
-endif()
 
 # cgcode library [done]
 set(BUILD_CGCODE ON)
@@ -97,9 +92,9 @@ set(BUILD_CGCODE ON)
 # pmg library [done]
 set(BUILD_PMG ON)
 
-##########
-# End of PUNC libraries
-##########
+################################################################################
+# Ensure we have the MALOC library
+################################################################################
 
 # maloc library
 if(NOT TARGET maloc)
