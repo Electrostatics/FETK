@@ -65,6 +65,7 @@ macro(set_basic_vars_and_paths)
             set(DEBUG 1)
             set(HAVE_DEBUG 1)
             message(STATUS "Debugging compilation enabled")
+            add_definitions(-DHAVE_DEBUG)
         endif()
 
     else( FETK_STANDALONE )
