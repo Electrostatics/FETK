@@ -18,7 +18,12 @@ jobs:
       - name: Install dependencies
         run: |
           brew install \
-            cmake
+            cmake \
+            arpack \
+            openblas \
+            lapack \
+            superlu \
+            suite-sparse
       - name: Configure
         run: |
           mkdir build
@@ -40,7 +45,13 @@ jobs:
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
             build-essential \
-            cmake
+            cmake \
+            libarpack2-dev \
+            libblas-dev \
+            liblapack-dev \
+            libsuperlu-dev \
+            libf2c2-dev \
+            libsuitesparse-dev
       - name: Configure
         run: |
           export CC=gcc
@@ -59,11 +70,18 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          vcpkg install blas
+          vcpkg install clapack
+          vcpkg install superlu
+          vcpkg install suitesparse
+          vcpkg integrate install
       - name: Configure
         run: |
           mkdir -p build\Release
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -G "Visual Studio 16 2019" -A x64 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
       - name: Build
         run: |
           cd build
