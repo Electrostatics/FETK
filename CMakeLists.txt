@@ -67,7 +67,7 @@ endif()
 # SG would go here
 
 if(BUILD_MC)
-#    add_subdirectory(mc)
+    add_subdirectory(mc)
 endif()
 
 

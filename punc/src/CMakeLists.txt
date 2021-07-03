@@ -45,6 +45,9 @@ add_build_items(
 )
 
 add_subdirectory(base)
+add_subdirectory(amd) # for public headers only
+add_subdirectory(superlu) # for public headers only
+add_subdirectory(umfpack) # for public headers only
 
 #message(STATUS "With sources: ${SOURCES}")
 #message(STATUS "With external headers: ${EXTERNAL_HEADERS}")

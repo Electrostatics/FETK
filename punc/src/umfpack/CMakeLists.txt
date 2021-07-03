@@ -1,0 +1,38 @@
+add_build_items(
+    TYPE EXTERNAL_HEADERS
+    ITEMS 
+        punc/umfpack_col_to_triplet.h
+        punc/umfpack_defaults.h
+        punc/umfpack_free_numeric.h
+        punc/umfpack_free_symbolic.h
+        punc/umfpack_get_determinant.h
+        punc/umfpack_get_lunz.h
+        punc/umfpack_get_numeric.h
+        punc/umfpack_get_symbolic.h
+        punc/umfpack_global.h
+        punc/umfpack_load_numeric.h
+        punc/umfpack_load_symbolic.h
+        punc/umfpack_numeric.h
+        punc/umfpack_qsymbolic.h
+        punc/umfpack_report_control.h
+        punc/umfpack_report_info.h
+        punc/umfpack_report_matrix.h
+        punc/umfpack_report_numeric.h
+        punc/umfpack_report_perm.h
+        punc/umfpack_report_status.h
+        punc/umfpack_report_symbolic.h
+        punc/umfpack_report_triplet.h
+        punc/umfpack_report_vector.h
+        punc/umfpack_save_numeric.h
+        punc/umfpack_save_symbolic.h
+        punc/umfpack_scale.h
+        punc/umfpack_solve.h
+        punc/umfpack_symbolic.h
+        punc/umfpack_tictoc.h
+        punc/umfpack_timer.h
+        punc/umfpack_transpose.h
+        punc/umfpack_triplet_to_col.h
+        punc/umfpack_wsolve.h
+        punc/umfpack.h
+        punc/vumfpack.h
+)

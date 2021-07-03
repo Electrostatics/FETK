@@ -58,6 +58,11 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/psh
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
+    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/base
+    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd
+    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/superlu
+    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/umfpack
 )
 list(APPEND MC_INT_LIBS maloc)
 
