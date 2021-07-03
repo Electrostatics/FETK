@@ -18,7 +18,12 @@ jobs:
       - name: Install dependencies
         run: |
           brew install \
-            cmake
+            cmake \
+            arpack \
+            openblas \
+            lapack \
+            superlu \
+            suite-sparse
       - name: Configure
         run: |
           mkdir build
@@ -40,7 +45,13 @@ jobs:
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
             build-essential \
-            cmake
+            cmake \
+            libarpack2-dev \
+            libblas-dev \
+            liblapack-dev \
+            libsuperlu-dev \
+            libf2c2-dev \
+            libsuitesparse-dev
       - name: Configure
         run: |
           export CC=gcc
