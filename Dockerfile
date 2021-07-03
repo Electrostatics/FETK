@@ -5,17 +5,15 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         build-essential \
-        cmake && \
-    mkdir /src
-
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        cmake \
         libarpack2-dev \
         libblas-dev \
         liblapack-dev \
         libsuperlu-dev \
         libf2c2-dev \
-        libsuitesparse-dev
+        libsuitesparse-dev \
+        && \
+    mkdir /src
 
 ##################################
 
