@@ -12,6 +12,13 @@ project(${_PROJECT}
         LANGUAGES C
 )
 
+# Include the common FETK CMake utilities
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+include(FETKBuildFunctions)
+
+# Set essential variables and paths for the project
+set_basic_vars_and_paths()
+
 
 ########
 # Options for modules to build
@@ -50,7 +57,7 @@ if(BUILD_MALOC)
 endif()
 
 if(BUILD_PUNC)
-#    add_subdirectory(punc)
+    add_subdirectory(punc)
 endif()
 
 if(BUILD_GAMER)

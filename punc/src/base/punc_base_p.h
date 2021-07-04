@@ -34,8 +34,7 @@
 #ifndef _PUNC_BASE_P_H_
 #define _PUNC_BASE_P_H_
 
-#include <punc/punc_base.h>
+#include "punc/punc_base.h"
 #include "punccf.h"
 
 #endif /* _PUNC_BASE_P_H_ */
-
