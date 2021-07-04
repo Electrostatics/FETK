@@ -61,7 +61,7 @@ if(BUILD_PUNC)
 endif()
 
 if(BUILD_GAMER)
-#    add_subdirectory(gamer)
+    add_subdirectory(gamer)
 endif()
 
 # SG would go here
