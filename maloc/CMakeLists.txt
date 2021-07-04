@@ -25,45 +25,41 @@ cmake_minimum_required (VERSION 3.7.1)
 # [ ] Windows 7 i386
 ################################################################################
 
+message(NOTICE "Configuring build for MALOC")
+
 project(maloc 
         VERSION 1.0.1
         LANGUAGES C
 )
 
+# Include the common FETK CMake utilities
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
+include(FETKBuildFunctions)
+
+
+# Set essential variables and paths for the project
+set_basic_vars_and_paths()
 set(MALOC_VERSION ${maloc_VERSION})
-set(FETK_VERSION ${FETK_VERSION})
-set(PACKAGE_NAME ${PROJECT_NAME})
-set(PACKAGE_TARNAME ${PROJECT_NAME})
-set(PACKAGE_VERSION "${maloc_VERSION_MAJOR}.${maloc_VERSION_MINOR}")
-set(PACKAGE_STRING "${PROJECT_NAME} ${PACKAGE_VERSION}")
-set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
 
 ################################################################################
-# Set project paths                                                            #
+# Check for necessary headers and types
 ################################################################################
 
-message(STATUS "Setting project paths")
-
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE PATH "Install prefix" FORCE)
-endif()
-message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
-
-set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
-include(GNUInstallDirs)
+header_and_type_checks()
 
 
 ################################################################################
-# Enable ansi pedantic compiling                                               #
+# Handle conditional availability of macro embedding                           #
 ################################################################################
 
-option(ENABLE_PEDANTIC "Enable the pedantic ansi compilation" OFF)
+try_compile(
+    HAVE_EMBED
+    ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/config/embed_test.c
+)
 
-if(ENABLE_PEDANTIC)
-    ADD_DEFINITIONS("-Wall -pedantic -ansi")
-    message(STATUS "Pedantic compilation enabled")
-endif()
+# TODO: Determine if the EMBED macro is even used
 
 
 ################################################################################
@@ -109,157 +105,6 @@ if(ENABLE_READLINE)
         endif()
     endif()
 endif()
-
-
-
-################################################################################
-# Check for types and required headers                                         #
-################################################################################
-
-include(CheckTypeSize)
-
-set(CMAKE_EXTRA_INCLUDE_FILES stddef.h sys/stat.h sys/types.h)
-CHECK_TYPE_SIZE("mode_t" MODE_T)
-CHECK_TYPE_SIZE("pid_t" PID_T)
-CHECK_TYPE_SIZE("size_t" SIZE_T)
-set(CMAKE_EXTRA_INCLUDE_FILES)
-
-if(NOT HAVE_MODE_T)
-    set(mode_t "int")
-endif()
-
-if(NOT HAVE_PID_T)
-    set(pid_t "int")
-endif()
-
-if(NOT HAVE_SIZE_T)
-    set(size_t "unsigned int")
-endif()
-
-
-include(CheckIncludeFiles)
-
-CHECK_INCLUDE_FILES("stdlib.h;stdarg.h;string.h;float.h" STDC_HEADERS)
-if(NOT STDC_HEADERS)
-    message(FATAL_ERROR "Missing standard C headers")
-endif()
-
-
-if(NOT WIN32)
-    CHECK_INCLUDE_FILES("unistd.h" HAVE_UNISTD_H)
-    if(NOT HAVE_UNISTD_H)
-        message(FATAL_ERROR "Missing required unistd.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("sys/socket.h" HAVE_SYS_SOCKET_H)
-    if(NOT HAVE_SYS_SOCKET_H)
-        message(FATAL_ERROR "Missing required sys/socket.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("sys/time.h" HAVE_SYS_TIME_H)
-    if(NOT HAVE_SYS_TIME_H)
-        message(FATAL_ERROR "Missing required sys/time.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("sys/un.h" HAVE_SYS_UN_H)
-    if(NOT HAVE_SYS_UN_H)
-        message(FATAL_ERROR "Missing required sys/un.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("sys/wait.h" HAVE_SYS_WAIT_H)
-    if(NOT HAVE_SYS_WAIT_H)
-        message(FATAL_ERROR "Missing required sys/wait.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("netinet/in.h" HAVE_NETINET_IN_H)
-    if(NOT HAVE_NETINET_IN_H)
-        message(FATAL_ERROR "Missing required netinet/in.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("arpa/inet.h" HAVE_ARPA_INET_H)
-    if(NOT HAVE_ARPA_INET_H)
-        message(FATAL_ERROR "Missing required arpa/inet.h header")
-    endif()
-
-    CHECK_INCLUDE_FILES("netdb.h" HAVE_NETDB_H)
-    if(NOT HAVE_UNISTD_H)
-        message(FATAL_ERROR "Missing required netdb.h header")
-    endif()
-    list(APPEND MALOC_REQUIRED_HEADERS "netdb.h")
-endif()
-
-CHECK_INCLUDE_FILES("sys/stat.h" HAVE_SYS_STAT_H)
-if(NOT HAVE_SYS_STAT_H)
-    message(FATAL_ERROR "Missing required sys/stat.h header")
-endif()
-
-CHECK_INCLUDE_FILES("sys/types.h" HAVE_SYS_TYPES_H)
-if(NOT HAVE_SYS_TYPES_H)
-    message(FATAL_ERROR "Missing required sys/types.h header")
-endif()
-
-CHECK_INCLUDE_FILES("fcntl.h" HAVE_FCNTL_H)
-if(NOT HAVE_FCNTL_H)
-    message(FATAL_ERROR "Missing required rcntl.h header")
-endif()
-
-CHECK_INCLUDE_FILES("rpc/rpc.h" HAVE_RPC_RPC_H)
-if(NOT HAVE_RPC_RPC_H)
-    message(WARNING "Missing/invalid rpc/rpc.h header.  XDR support disabled")
-    set(HAVE_XDR NO)
-else()
-    list(APPEND MALOC_REQUIRED_HEADERS "rpc/rpc.h")
-    set(HAVE_XDR YES)
-endif()
-
-
-################################################################################
-# Check for a few required functions and symbols                               #
-################################################################################
-
-include(CheckFunctionExists)
-
-CHECK_FUNCTION_EXISTS(getcwd HAVE_GETCWD)
-
-if(NOT HAVE_GETCWD)
-    message(WARNING "The getcwd function was not found")
-endif()
-
-
-include(CheckSymbolExists)
-
-CHECK_SYMBOL_EXISTS(O_NONBLOCK "fcntl.h" HAVE_O_NONBLOCK)
-
-if(NOT HAVE_O_NONBLOCK)
-    message(WARNING "The O_NONBLOCK symbol was not found")
-endif()
-
-
-
-################################################################################
-# Handle conditional availability of macro embedding                           #
-################################################################################
-
-try_compile(
-    HAVE_EMBED
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/config/embed_test.c
-)
-
-# TODO: Determine if the EMBED macro is even used
-
-
-
-################################################################################
-# Handle conditional debug building                                            #
-################################################################################
-
-if(CMAKE_BUILD_TYPE STREQUAL "DEBUG")
-    set(DEBUG 1)
-    set(HAVE_DEBUG 1)
-    message(STATUS "Debugging compilation enabled")
-endif()
-
 
 
 ################################################################################

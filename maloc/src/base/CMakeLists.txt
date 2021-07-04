@@ -1,15 +1,18 @@
-add_items(
-    SOURCES
-    maloc_base.c
+add_build_items(
+    TYPE SOURCES
+    ITEMS 
+        maloc_base.c
 )
 
-add_items(
-    EXTERNAL_HEADERS
-    maloc/maloc.h
-    maloc/maloc_base.h
+add_build_items(
+    TYPE EXTERNAL_HEADERS
+    ITEMS 
+        maloc/maloc.h
+        maloc/maloc_base.h
 )
 
-add_items(
-    INTERNAL_HEADERS
-    maloc_base_p.h
+add_build_items(
+    TYPE INTERNAL_HEADERS
+    ITEMS 
+        maloc_base_p.h
 )
