@@ -79,6 +79,14 @@ jobs:
           vcpkg install superlu
           vcpkg install suitesparse
           vcpkg integrate install
+      - name: Cache vcpkg packages
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-vcpkg
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          path: |
+              C:\vcpkg
       - name: Configure
         run: |
           mkdir -p build\Release
