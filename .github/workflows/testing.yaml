@@ -80,13 +80,6 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          vcpkg install blas
-          vcpkg install clapack
-          vcpkg install superlu
-          vcpkg install suitesparse
-          vcpkg integrate install
       - name: Cache vcpkg packages
         uses: actions/cache@v2
         env:
@@ -95,9 +88,16 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}
           path: |
               C:\vcpkg
+      - name: Install dependencies
+        run: |
+          vcpkg install blas
+          vcpkg install clapack
+          vcpkg install superlu
+          vcpkg install suitesparse
+          vcpkg integrate install
       - name: Configure
         env:
-          CMAKE_PREFIX_PATH: 'C:\vcpkg\installed\x86-windows'
+          CMAKE_PREFIX_PATH: '${VCPKG_ROOT}/installed/x86-windows'
         run: |
           mkdir -p build\Release
           cd build
