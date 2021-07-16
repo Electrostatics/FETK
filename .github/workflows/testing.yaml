@@ -3,6 +3,7 @@ name: Testing
 on:
   push:
     branches: [ master, '*.build' ]
+    tags: ['*']
   pull_request:
 
   workflow_dispatch:
@@ -11,6 +12,7 @@ on:
 jobs:
 
   test_macos:
+    if: ${{ false }} # disable for now
     runs-on: macos-latest
     steps:
       - name: Checkout the repo 
@@ -45,7 +47,7 @@ jobs:
           make install
 
           
-  test_linux:
+  Linux:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
@@ -72,8 +74,21 @@ jobs:
         run: |
           cd build
           make install
+      - name: Generate Assets
+        if: startswith(github.ref, 'refs/tags/')
+        run: |
+          echo ${{ github.ref }} > test_file.txt 
+      - name: Release
+        if: startswith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: release.md
+          files: test_file.txt
 
   test_windows:
+    if: ${{ false }} # disable for now
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
