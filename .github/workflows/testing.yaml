@@ -21,7 +21,6 @@ jobs:
         include:
           - os: ubuntu-latest
             CMAKE_SYSTEM: Linux
-            CC: gcc
           - os: macos-latest
             CMAKE_SYSTEM: Darwin
 
@@ -47,7 +46,6 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           brew install \
-            cmake \
             arpack \
             openblas \
             lapack \
@@ -56,7 +54,6 @@ jobs:
 
       - name: Configure
         run: |
-          export CC=gcc
           mkdir build
           cd build
           cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
@@ -74,18 +71,17 @@ jobs:
           version_array=(`cat VERSION`)
           echo ${version_array[2]}
           echo ::set-output name=fetk-version::${version_array[2]}
-          echo ::set-output name=cmake-system::${CMAKE_SYSTEM}
         id: job-values
 
       - name: Generate Assets
         if: startswith(github.ref, 'refs/tags/')
         run: |
-          echo ${{ github.ref }} > test_file-${CMAKE_SYSTEM}.txt 
+          echo ${{ github.ref }} > test_file-${{ matrix.CMAKE_SYSTEM }}.txt 
           cd build
           make package
 
       - name: Is the package there?
-        run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ steps.job-values.outputs.cmake-system }}.tar.gz
+        run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
 
       - name: Release
         if: startsWith(github.ref, 'refs/tags/')
@@ -96,7 +92,7 @@ jobs:
           body_path: release.md
           files: |
             test_file.txt
-            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ steps.job-values.output.cmake-system }}.tar.gz
+            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
 
 
 
