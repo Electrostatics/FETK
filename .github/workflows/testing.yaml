@@ -82,6 +82,7 @@ jobs:
           make package
 
       - name: Is the package there?
+        if: startsWith(github.ref, 'refs/tags/')
         run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
 
       - name: Release
