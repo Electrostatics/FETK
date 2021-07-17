@@ -80,7 +80,7 @@ jobs:
           cat VERSION
           version_array=(`cat VERSION`)
           echo ${version_array[2]}
-          echo '::set-output name=version::${version_array[2]}'
+          echo ::set-output name=version::${version_array[2]}
         id: fetk-version
       - name: Generate Assets
 #        if: startswith(github.ref, 'refs/tags/')
