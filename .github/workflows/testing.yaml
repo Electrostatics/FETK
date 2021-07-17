@@ -74,10 +74,15 @@ jobs:
         run: |
           cd build
           make install
+      - name: Set the FETK version
+        run: echo '::set-output name=version::`cat /src/VERSION`'
+        id: fetk-version
       - name: Generate Assets
         if: startswith(github.ref, 'refs/tags/')
         run: |
           echo ${{ github.ref }} > test_file.txt 
+          cd build
+          make package
       - name: Release
         if: startswith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
@@ -85,7 +90,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           body_path: release.md
-          files: test_file.txt
+          files: |
+            test_file.txt
+            build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
 
   test_windows:
     if: ${{ false }} # disable for now
