@@ -11,6 +11,95 @@ on:
 
 jobs:
 
+  Build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        fail-fast: [false]
+        os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            CMAKE_SYSTEM: Linux
+            CC: gcc
+          - os: macos-latest
+            CMAKE_SYSTEM: Darwin
+
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Install linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+            build-essential \
+            cmake \
+            libarpack2-dev \
+            libblas-dev \
+            liblapack-dev \
+            libsuperlu-dev \
+            libf2c2-dev \
+            libsuitesparse-dev
+
+      - name: Install macOS dependencies
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install \
+            cmake \
+            arpack \
+            openblas \
+            lapack \
+            superlu \
+            suite-sparse
+
+      - name: Configure
+        run: |
+          export CC=gcc
+          mkdir build
+          cd build
+          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
+
+      - name: Build
+        run: |
+          cd build
+          make install
+
+      - name: Extract values
+        run: |
+          cat VERSION
+          version_array=(`cat VERSION`)
+          echo ${version_array[2]}
+          echo ::set-output name=fetk-version::${version_array[2]}
+          echo ::set-output name=cmake-system::${CMAKE_SYSTEM}
+        id: job-values
+
+      - name: Generate Assets
+        if: startswith(github.ref, 'refs/tags/')
+        run: |
+          echo ${{ github.ref }} > test_file-${CMAKE_SYSTEM}.txt 
+          cd build
+          make package
+
+      - name: Is the package there?
+        run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ steps.job-values.outputs.cmake-system }}.tar.gz
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: release.md
+          files: |
+            test_file.txt
+            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ steps.job-values.output.cmake-system }}.tar.gz
+
+
+
   test_macos:
     if: ${{ false }} # disable for now
     runs-on: macos-latest
@@ -48,6 +137,7 @@ jobs:
 
           
   Linux:
+    if: ${{ false }} #disable for now
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
@@ -69,8 +159,8 @@ jobs:
           export CC=gcc
           mkdir build
           cd build
-          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
-#          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
       - name: Build
         run: |
           cd build
@@ -83,7 +173,7 @@ jobs:
           echo ::set-output name=version::${version_array[2]}
         id: fetk-version
       - name: Generate Assets
-#        if: startswith(github.ref, 'refs/tags/')
+        if: startswith(github.ref, 'refs/tags/')
         run: |
           echo ${{ github.ref }} > test_file.txt 
           cd build

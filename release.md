@@ -1,6 +1,6 @@
 # FETK Release
 
-## Version: alpha_3
+## Version: alpha_4
 
 ## Release Notes
 
@@ -8,3 +8,4 @@
 * Added release.md
 * Added linux package build
 * Fixed build logic
+* Attempt to add macOS
