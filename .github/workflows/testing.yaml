@@ -69,20 +69,25 @@ jobs:
           export CC=gcc
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+          cmake -DCREATE_PACKAGE=TRUE ..
+#          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
       - name: Build
         run: |
           cd build
           make install
       - name: Set the FETK version
-        run: echo '::set-output name=version::`cat VERSION`'
+        run: |
+          cat VERSION
+          echo '::set-output name=version::`cat VERSION`'
         id: fetk-version
       - name: Generate Assets
-        if: startswith(github.ref, 'refs/tags/')
+#        if: startswith(github.ref, 'refs/tags/')
         run: |
           echo ${{ github.ref }} > test_file.txt 
           cd build
           make package
+      - name: Is the package there?
+        run: ls build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
       - name: Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
