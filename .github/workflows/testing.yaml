@@ -11,6 +11,7 @@ on:
 
 jobs:
 
+  # currently works for: linux and macos
   Build:
     runs-on: ${{ matrix.os }}
 
@@ -91,11 +92,11 @@ jobs:
         with:
           body_path: release.md
           files: |
-            test_file.txt
+            test_file-${{ matrix.CMAKE_SYSTEM }}.txt
             build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
 
 
-
+  # this is now deprecated in favor of the Build job
   test_macos:
     if: ${{ false }} # disable for now
     runs-on: macos-latest
@@ -132,6 +133,7 @@ jobs:
           make install
 
           
+  # this is now deprecated in favor of the Build job
   Linux:
     if: ${{ false }} #disable for now
     runs-on: ubuntu-latest
