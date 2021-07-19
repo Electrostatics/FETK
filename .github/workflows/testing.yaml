@@ -13,6 +13,7 @@ jobs:
 
   # currently works for: linux and macos
   Build:
+    if: ${{ false }} # disable for now
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -191,39 +192,40 @@ jobs:
             build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
 
   test_windows:
-    if: ${{ false }} # disable for now
+#    if: ${{ false }} # disable for now
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
-      - name: Cache vcpkg packages
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-vcpkg
-        with:
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-          path: |
-              C:\vcpkg
-      - name: Install dependencies
-        run: |
-          vcpkg install blas
-          vcpkg install clapack
-          vcpkg install superlu
-          vcpkg install suitesparse
-          vcpkg integrate install
+#      - name: Cache vcpkg packages
+#        uses: actions/cache@v2
+#        env:
+#          cache-name: cache-vcpkg
+#        with:
+#          key: ${{ runner.os }}-build-${{ env.cache-name }}
+#          path: |
+#              C:\vcpkg
+#      - name: Install dependencies
+#        run: |
+#          vcpkg install blas
+#          vcpkg install clapack
+#          vcpkg install superlu
+#          vcpkg install suitesparse
+#          vcpkg integrate install
       - name: Configure
-        env:
-          CMAKE_PREFIX_PATH: '${VCPKG_ROOT}/installed/x86-windows'
+#        env:
+#          CMAKE_PREFIX_PATH: '${VCPKG_ROOT}/installed/x86-windows'
         run: |
           mkdir -p build\Release
           cd build
           echo $CMAKE_PREFIX_PATH
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
+          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MC=OFF -DBUILD_GAMER=OFF -DBUILD_PUNC=OFF -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -G "Visual Studio 16 2019" -A x64 ..
+#          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+#      - name: Setup tmate session
+#        if: ${{ failure() }}
+#        uses: mxschmitt/action-tmate@v3
       - name: Build
         run: |
           cd build
