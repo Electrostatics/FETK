@@ -200,7 +200,8 @@ jobs:
       - name: Checkout the repo 
         uses: actions/checkout@v2
       - name: Cache vcpkg packages
-        uses: actions/cache@v2
+#        uses: actions/cache@v2
+        uses: pat-s/always-upload-cache@v2
         env:
           cache-name: cache-vcpkg-blas-clapack-superlu-suitesparse
         with:
