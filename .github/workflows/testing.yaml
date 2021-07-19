@@ -210,9 +210,9 @@ jobs:
       - name: Install dependencies
         run: |
           vcpkg install blas
-#          vcpkg install clapack
           vcpkg install superlu
           vcpkg install suitesparse
+#          vcpkg install clapack
 #          vcpkg integrate install  # this is for VS projects, which this build doesn't use
       - name: Configure
         env:
