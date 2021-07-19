@@ -27,6 +27,12 @@ if(BUILD_PMG)
     add_subdirectory(pmg)
 endif()
 
+# optional build of blas
+if(BUILD_BLAS)
+    include_directories(blas)
+    add_subdirectory(blas)
+endif()
+
 
 #####
 # Build and install punc

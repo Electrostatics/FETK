@@ -54,7 +54,12 @@ set(BUILD_VF2C ON)
 
 # BLAS library [done]
 set( BLA_STATIC ON ) # use static linkage
-find_package( BLAS REQUIRED )
+find_package( BLAS )
+if(NOT BLAS_FOUND)
+    set(BUILD_BLAS ON)
+else()
+    set(BUILD_BLAS OFF)
+endif()
 
 # lapack library [error]
 # build seems disabled
