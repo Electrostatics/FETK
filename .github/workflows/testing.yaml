@@ -210,7 +210,7 @@ jobs:
       - name: Install dependencies
         run: |
           vcpkg install blas
-          vcpkg install clapack
+#          vcpkg install clapack
           vcpkg install superlu
           vcpkg install suitesparse
 #          vcpkg integrate install  # this is for VS projects, which this build doesn't use
