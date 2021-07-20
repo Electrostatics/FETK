@@ -219,10 +219,11 @@ jobs:
 #          vcpkg install clapack
 #          vcpkg integrate install  # this is for VS projects, which this build doesn't use
       - name: Configure
-        env:
+#        env:
           # VCPKG_INSTALLATION_ROOT=C:\vcpkg
-          CMAKE_PREFIX_PATH: "${VCPKG_INSTALLATION_ROOT}/installed/x86-windows"
+#          CMAKE_PREFIX_PATH: "${VCPKG_INSTALLATION_ROOT}/installed/x86-windows"
         run: |
+          export CMAKE_PREFIX_PATH=${VCPKG_INSTALLATION_ROOT}/installed/x86-windows
           mkdir -p build\Release
           cd build
           echo $CMAKE_PREFIX_PATH
