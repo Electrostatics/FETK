@@ -54,7 +54,13 @@ set(BUILD_VF2C ON)
 
 # BLAS library [done]
 set( BLA_STATIC ON ) # use static linkage
-find_package( BLAS REQUIRED )
+set( BLA_VENDOR OpenBLAS )
+find_package( BLAS )
+if(NOT BLAS_FOUND)
+    set(BUILD_BLAS ON)
+else()
+    set(BUILD_BLAS OFF)
+endif()
 
 # lapack library [error]
 # build seems disabled
@@ -81,10 +87,20 @@ find_package( AMD REQUIRED )
 find_package( UMFPACK REQUIRED )
 
 # SuperLU library [done]
-find_package( SuperLU REQUIRED )
+find_package( SuperLU )
+if(NOT SuperLU_FOUND)
+    set(BUILD_SUPERLU ON)
+else()
+    set(BUILD_SUPERLU OFF)
+endif()
 
 # ARPACK library [done]
-find_package( ARPACK REQUIRED )
+find_package( ARPACK )
+if(NOT ARPACK_FOUND)
+    set(BUILD_ARPACK ON)
+else()
+    set(BUILD_ARPACK OFF)
+endif()
 
 # cgcode library [done]
 set(BUILD_CGCODE ON)

@@ -13,6 +13,7 @@ jobs:
 
   # currently works for: linux and macos
   Build:
+    if: ${{ false }} # disable for now
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -191,7 +192,7 @@ jobs:
             build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
 
   test_windows:
-    if: ${{ false }} # disable for now
+#    if: ${{ false }} # disable for now
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
@@ -199,28 +200,34 @@ jobs:
       - name: Checkout the repo 
         uses: actions/checkout@v2
       - name: Cache vcpkg packages
-        uses: actions/cache@v2
+#        uses: actions/cache@v2
+        uses: pat-s/always-upload-cache@v2
         env:
-          cache-name: cache-vcpkg
+          cache-name: cache-vcpkg-suitesparse
         with:
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-rev0
           path: |
-              C:\vcpkg
+              C:\vcpkg\scripts
+              C:\vcpkg\installed
+              C:\vcpkg\triplets
+              C:\vcpkg\versions
       - name: Install dependencies
         run: |
-          vcpkg install blas
-          vcpkg install clapack
-          vcpkg install superlu
           vcpkg install suitesparse
-          vcpkg integrate install
+#          vcpkg install blas  # this does not seem to install the necessary libraries that FindBLAS.cmake is looking for
+#          vcpkg install superlu  # this does not seem to install the necessary libraries that FindSuperLu.cmake is looking for
+#          vcpkg install clapack
+#          vcpkg integrate install  # this is for VS projects, which this build doesn't use
       - name: Configure
         env:
-          CMAKE_PREFIX_PATH: '${VCPKG_ROOT}/installed/x86-windows'
+          # VCPKG_INSTALLATION_ROOT=C:\vcpkg
+          CMAKE_PREFIX_PATH: ${VCPKG_INSTALLATION_ROOT}/installed/x86-windows
         run: |
           mkdir -p build\Release
           cd build
           echo $CMAKE_PREFIX_PATH
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+#          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
       - name: Setup tmate session
         if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3

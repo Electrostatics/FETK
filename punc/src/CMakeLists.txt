@@ -27,6 +27,23 @@ if(BUILD_PMG)
     add_subdirectory(pmg)
 endif()
 
+# optional build of blas
+if(BUILD_BLAS)
+    include_directories(blas)
+    add_subdirectory(blas)
+endif()
+
+# optional build of arpack
+if(BUILD_ARPACK)
+    include_directories(arpack)
+    add_subdirectory(arpack)
+endif()
+
+# optional build of superlu (actual build takes place below)
+if(BUILD_SUPERLU)
+    include_directories(superlu)
+endif()
+
 
 #####
 # Build and install punc
@@ -46,7 +63,7 @@ add_build_items(
 
 add_subdirectory(base)
 add_subdirectory(amd) # for public headers only
-add_subdirectory(superlu) # for public headers only
+add_subdirectory(superlu) # either for public headers only or for the library
 add_subdirectory(umfpack) # for public headers only
 
 #message(STATUS "With sources: ${SOURCES}")
