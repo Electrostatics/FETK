@@ -173,6 +173,8 @@ extern void    cFillRHS (trans_t, int, complex *, int, SuperMatrix *,
 extern void    cgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
                         SuperMatrix *, SuperLUStat_t*, int *);
 
+extern int ccopy_(int *, complex *, int *, complex *, int *);
+extern int caxpy_(int *, complex *, complex *, int *, complex *, int *);
 
 /*! \brief Driver related */
 

@@ -20,7 +20,10 @@ find_path(AMD_INCLUDES
   ufsparse
 )
 
-find_library(AMD_LIBRARIES amd PATHS $ENV{AMDDIR} ${LIB_INSTALL_DIR})
+find_library(AMD_LIBRARIES 
+  NAMES amd libamd 
+  PATHS $ENV{AMDDIR} ${LIB_INSTALL_DIR}
+)
 
 if(AMD_LIBRARIES AND NOT AMD_LIBDIR)
     get_filename_component(AMD_LIBDIR ${AMD_LIBRARIES} PATH)

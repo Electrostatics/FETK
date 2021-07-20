@@ -1,6 +1,6 @@
 # FETK Release
 
-## Version: alpha_4
+## Version: alpha_5
 
 ## Release Notes
 
@@ -9,3 +9,4 @@
 * Added linux package build
 * Fixed build logic
 * Attempt to add macOS
+* Attempt to add Windows
