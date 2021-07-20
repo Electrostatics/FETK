@@ -3,12 +3,103 @@ name: Testing
 on:
   push:
     branches: [ master, '*.build' ]
+    tags: ['*']
   pull_request:
+
+  workflow_dispatch:
 
 
 jobs:
 
+  # currently works for: linux and macos
+  Build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        fail-fast: [false]
+        os: [ubuntu-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            CMAKE_SYSTEM: Linux
+          - os: macos-latest
+            CMAKE_SYSTEM: Darwin
+
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Install linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+            build-essential \
+            cmake \
+            libarpack2-dev \
+            libblas-dev \
+            liblapack-dev \
+            libsuperlu-dev \
+            libf2c2-dev \
+            libsuitesparse-dev
+
+      - name: Install macOS dependencies
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew install \
+            arpack \
+            openblas \
+            lapack \
+            superlu \
+            suite-sparse
+
+      - name: Configure
+        run: |
+          mkdir build
+          cd build
+          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
+
+      - name: Build
+        run: |
+          cd build
+          make install
+
+      - name: Extract values
+        run: |
+          cat VERSION
+          version_array=(`cat VERSION`)
+          echo ${version_array[2]}
+          echo ::set-output name=fetk-version::${version_array[2]}
+        id: job-values
+
+      - name: Generate Assets
+        if: startswith(github.ref, 'refs/tags/')
+        run: |
+          echo ${{ github.ref }} > test_file-${{ matrix.CMAKE_SYSTEM }}.txt 
+          cd build
+          make package
+
+      - name: Is the package there?
+        if: startsWith(github.ref, 'refs/tags/')
+        run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: release.md
+          files: |
+            test_file-${{ matrix.CMAKE_SYSTEM }}.txt
+            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
+
+
+  # this is now deprecated in favor of the Build job
   test_macos:
+    if: ${{ false }} # disable for now
     runs-on: macos-latest
     steps:
       - name: Checkout the repo 
@@ -24,6 +115,14 @@ jobs:
             lapack \
             superlu \
             suite-sparse
+      - name: Cache homebrew packages
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-brew
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          path: |
+              /usr/local
       - name: Configure
         run: |
           mkdir build
@@ -35,7 +134,9 @@ jobs:
           make install
 
           
-  test_linux:
+  # this is now deprecated in favor of the Build job
+  Linux:
+    if: ${{ false }} #disable for now
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
@@ -57,19 +158,54 @@ jobs:
           export CC=gcc
           mkdir build
           cd build
-          cmake ..
+          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
       - name: Build
         run: |
           cd build
           make install
+      - name: Set the FETK version
+        run: |
+          cat VERSION
+          version_array=(`cat VERSION`)
+          echo ${version_array[2]}
+          echo ::set-output name=version::${version_array[2]}
+        id: fetk-version
+      - name: Generate Assets
+        if: startswith(github.ref, 'refs/tags/')
+        run: |
+          echo ${{ github.ref }} > test_file.txt 
+          cd build
+          make package
+      - name: Is the package there?
+        run: ls build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body_path: release.md
+          files: |
+            test_file.txt
+            build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
 
   test_windows:
+    if: ${{ false }} # disable for now
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
       - name: Checkout the repo 
         uses: actions/checkout@v2
+      - name: Cache vcpkg packages
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-vcpkg
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          path: |
+              C:\vcpkg
       - name: Install dependencies
         run: |
           vcpkg install blas
@@ -78,10 +214,16 @@ jobs:
           vcpkg install suitesparse
           vcpkg integrate install
       - name: Configure
+        env:
+          CMAKE_PREFIX_PATH: '${VCPKG_ROOT}/installed/x86-windows'
         run: |
           mkdir -p build\Release
           cd build
+          echo $CMAKE_PREFIX_PATH
           cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
       - name: Build
         run: |
           cd build
