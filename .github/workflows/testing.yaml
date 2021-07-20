@@ -203,16 +203,19 @@ jobs:
 #        uses: actions/cache@v2
         uses: pat-s/always-upload-cache@v2
         env:
-          cache-name: cache-vcpkg-blas-clapack-superlu-suitesparse
+          cache-name: cache-vcpkg-suitesparse
         with:
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-rev0
           path: |
-              C:\vcpkg
+              C:\vcpkg\scripts
+              C:\vcpkg\installed
+              C:\vcpkg\triplets
+              C:\vcpkg\versions
       - name: Install dependencies
         run: |
-          vcpkg install blas
-          vcpkg install superlu
           vcpkg install suitesparse
+#          vcpkg install blas  # this does not seem to install the necessary libraries that FindBLAS.cmake is looking for
+#          vcpkg install superlu  # this does not seem to install the necessary libraries that FindSuperLu.cmake is looking for
 #          vcpkg install clapack
 #          vcpkg integrate install  # this is for VS projects, which this build doesn't use
       - name: Configure
@@ -223,7 +226,7 @@ jobs:
           mkdir -p build\Release
           cd build
           echo $CMAKE_PREFIX_PATH
-          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_MC=OFF -DBUILD_GAMER=OFF -DBUILD_PUNC=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
 #          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DBUILD_TESTING=ON -DENABLE_TESTS=ON -DBUILD_SHARED_LIBS=OFF -DENABLE_VERBOSE_DEBUG=ON -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
       - name: Setup tmate session
         if: ${{ failure() }}
