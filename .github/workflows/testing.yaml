@@ -84,7 +84,7 @@ jobs:
           vcpkg install suitesparse
 
       - name: Configure
-        if: startsWith(matrix.os, 'ubuntu') || startsWith(os.matrix, 'macos')  # Linux and Mac only
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')  # Linux and Mac only
         run: |
           mkdir build
           cd build
@@ -103,7 +103,7 @@ jobs:
           cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
 
       - name: Build
-        if: startsWith(matrix.os, 'ubuntu') || startsWith(os.matrix, 'macos')  # Linux and Mac only
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')  # Linux and Mac only
         run: |
           cd build
           make install
