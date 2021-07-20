@@ -13,7 +13,7 @@ jobs:
 
   # currently works for: linux and macos
   Build:
-    if: ${{ false }} # disable for now
+#    if: ${{ false }} # disable for now
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -148,7 +148,7 @@ jobs:
 
   # this is now deprecated in favor of the Build job
   test_windows:
-#    if: ${{ false }} # disable for now
+    if: ${{ false }} # disable for now
     runs-on: windows-2019
     steps:
       - name: Add msbuild to PATH
