@@ -19,19 +19,43 @@ jobs:
     strategy:
       matrix:
         fail-fast: [false]
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
             CMAKE_SYSTEM: Linux
+            PACKAGE_TYPE: tar.gz
           - os: macos-latest
             CMAKE_SYSTEM: Darwin
+            PACKAGE_TYPE: tar.gz
+          - os: windows-latest
+            CMAKE_SYSTEM: Windows
+            PACKAGE_TYPE: zip
 
     steps:
+
+      - name: Add msbuild to PATH
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        uses: microsoft/setup-msbuild@v1.0.2
+
       - name: Checkout the repo 
         uses: actions/checkout@v2
 
+      - name: Cache vcpkg packages
+        uses: pat-s/always-upload-cache@v2  # performs caching even if the overall job fails
+#        uses: actions/cache@v2
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        env:
+          cache-name: cache-vcpkg-suitesparse
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-rev0
+          path: |
+              C:\vcpkg\scripts
+              C:\vcpkg\installed
+              C:\vcpkg\triplets
+              C:\vcpkg\versions
+
       - name: Install linux dependencies
-        if: matrix.os == 'ubuntu-latest'
+        if: startsWith(matrix.os, 'ubuntu')  # Linux only
         run: |
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
@@ -45,7 +69,7 @@ jobs:
             libsuitesparse-dev
 
       - name: Install macOS dependencies
-        if: matrix.os == 'macos-latest'
+        if: startsWith(matrix.os, 'macos')  # Mac only
         run: |
           brew install \
             arpack \
@@ -54,18 +78,41 @@ jobs:
             superlu \
             suite-sparse
 
+      - name: Install Window dependencies
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        run: |
+          vcpkg install suitesparse
+
       - name: Configure
+        if: ! startsWith(matrix.os, 'windows')  # Linux and Mac only (i.e. not Windows)
         run: |
           mkdir build
           cd build
-          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
-#          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
+#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
 #          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
 
+      - name: Configure
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        env:
+          CMAKE_PREFIX_PATH: ${VCPKG_INSTALLATION_ROOT}/installed/x86-windows
+        run: |
+          mkdir -p build\Release
+          cd build
+          echo $CMAKE_PREFIX_PATH
+          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+
       - name: Build
+        if: ! startsWith(matrix.os, 'windows')  # Linux and Mac only (i.e. not Windows)
         run: |
           cd build
           make install
+
+      - name: Build
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        run: |
+          cd build
+          cmake --build . --config Release --parallel 1 --target install
 
       - name: Extract values
         run: |
@@ -76,18 +123,18 @@ jobs:
         id: job-values
 
       - name: Generate Assets
-        if: startswith(github.ref, 'refs/tags/')
+        if: startswith(github.ref, 'refs/tags/')  # Tag/release only
         run: |
           echo ${{ github.ref }} > test_file-${{ matrix.CMAKE_SYSTEM }}.txt 
           cd build
           make package
 
-      - name: Is the package there?
-        if: startsWith(github.ref, 'refs/tags/')
-        run: ls build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
+      - name: Contents of the build dir
+        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
+        run: ls build
 
       - name: Release
-        if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -95,102 +142,11 @@ jobs:
           body_path: release.md
           files: |
             test_file-${{ matrix.CMAKE_SYSTEM }}.txt
-            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.tar.gz
+            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+
 
 
   # this is now deprecated in favor of the Build job
-  test_macos:
-    if: ${{ false }} # disable for now
-    runs-on: macos-latest
-    steps:
-      - name: Checkout the repo 
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-      - name: Install dependencies
-        run: |
-          brew install \
-            cmake \
-            arpack \
-            openblas \
-            lapack \
-            superlu \
-            suite-sparse
-      - name: Cache homebrew packages
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-brew
-        with:
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-          path: |
-              /usr/local
-      - name: Configure
-        run: |
-          mkdir build
-          cd build
-          cmake ..
-      - name: Build
-        run: |
-          cd build
-          make install
-
-          
-  # this is now deprecated in favor of the Build job
-  Linux:
-    if: ${{ false }} #disable for now
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repo 
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
-            build-essential \
-            cmake \
-            libarpack2-dev \
-            libblas-dev \
-            liblapack-dev \
-            libsuperlu-dev \
-            libf2c2-dev \
-            libsuitesparse-dev
-      - name: Configure
-        run: |
-          export CC=gcc
-          mkdir build
-          cd build
-          cmake -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} ..
-#          cmake -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=TRUE ..
-      - name: Build
-        run: |
-          cd build
-          make install
-      - name: Set the FETK version
-        run: |
-          cat VERSION
-          version_array=(`cat VERSION`)
-          echo ${version_array[2]}
-          echo ::set-output name=version::${version_array[2]}
-        id: fetk-version
-      - name: Generate Assets
-        if: startswith(github.ref, 'refs/tags/')
-        run: |
-          echo ${{ github.ref }} > test_file.txt 
-          cd build
-          make package
-      - name: Is the package there?
-        run: ls build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
-      - name: Release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body_path: release.md
-          files: |
-            test_file.txt
-            build/FETK-${{ steps.fetk-version.outputs.version }}-Linux.tar.gz
-
   test_windows:
 #    if: ${{ false }} # disable for now
     runs-on: windows-2019
