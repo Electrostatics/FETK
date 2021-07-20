@@ -221,7 +221,7 @@ jobs:
       - name: Configure
         env:
           # VCPKG_INSTALLATION_ROOT=C:\vcpkg
-          CMAKE_PREFIX_PATH: '${VCPKG_INSTALLATION_ROOT}/installed/x86-windows'
+          CMAKE_PREFIX_PATH: "${VCPKG_INSTALLATION_ROOT}/installed/x86-windows"
         run: |
           mkdir -p build\Release
           cd build
