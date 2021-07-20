@@ -34,6 +34,12 @@ option(BUILD_GAMER "Set to TRUE to include the Gamer module in the build" TRUE)
 
 option(BUILD_MC "Set to TRUE to include the MC module in the build" TRUE)
 
+########
+# Options
+########
+
+option(CREATE_PACKAGE "Use CPack to create an OS-dependent package" FALSE)
+
 
 ########
 # Logic for build dependencies
@@ -76,3 +82,20 @@ endif()
 ########
 
 # TODO
+
+
+########
+# Packaging
+########
+
+if(CREATE_PACKAGE)
+
+    if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+        set(CPACK_GENERATOR "TGZ")
+    elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+    elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    endif()
+
+    include(CPack)
+
+endif()

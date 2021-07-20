@@ -805,6 +805,23 @@ VEXTERNC int Aprx_markRefineFixed (Aprx *thee, int num2ref, int color);
 
 /**
  * @ingroup Aprx
+ * @brief   Selects a fixed number/fraction of simplicies to be refined.
+ * @author  Olen Korobkin, Michael Holst
+ * @note    Class Aprx: Non-inlineable methods (estim.c)
+ * @verbatim
+   This function is called by Aprx_markRefine. Returns 
+   number of marked elements.
+   @endverbatim
+ * @return  Number of marked elements
+ * @param   thee    Pointer to an Aprx allocated memory location
+ * @param   percentToRefine Percentage to refine
+ * @param   color   chart type of marked simplices
+ */
+VEXTERNC int Aprx_markRefineDorfler (Aprx *thee, double percentToRefine, int color); 
+
+
+/**
+ * @ingroup Aprx
  * @brief   Evaluate a finite element solution at a set of arbitrary points.
  * @author  Michael Holst
  * @note    Class Aprx: Non-inlineable methods (eval.c)

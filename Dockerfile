@@ -19,6 +19,9 @@ RUN apt-get update && \
 
 FROM fetk_base
 
+ARG CREATE_PACKAGE=FALSE
+ENV CREATE_PACKAGE=${CREATE_PACKAGE}
+
 COPY cmake /src/cmake
 COPY gamer /src/gamer
 COPY maloc /src/maloc
@@ -31,5 +34,6 @@ RUN cd /src && \
     export CC=gcc && \
     mkdir build && \
     cd build && \
-    cmake .. && \
-    make install
+    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} .. && \
+    make install && \
+    if [ "${CREATE_PACKAGE,,}" = true ]; then make package; fi
