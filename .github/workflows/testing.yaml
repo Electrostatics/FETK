@@ -118,8 +118,9 @@ jobs:
 
       - name: Extract values
         run: |
-          cat VERSION
-          version_array=(`cat VERSION`)
+          version=cat VERSION
+          echo $version
+          version_array=($version)
           echo ${version_array[2]}
           echo ::set-output name=fetk-version::${version_array[2]}
         id: job-values
