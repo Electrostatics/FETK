@@ -144,7 +144,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body_path: release.md
           files: |
-            test_file-${{ matrix.CMAKE_SYSTEM }}.txt
             build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+
+  Release:
+  
+    runs-on: ubuntu-latest
+
+    if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
+
+    steps:
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secretes.GITHUB_TOKEN }}
+        with:
+          body_path: release.md
