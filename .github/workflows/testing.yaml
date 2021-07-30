@@ -119,7 +119,7 @@ jobs:
 
       - name: Extract values
         run: |
-          version=cat VERSION
+          version="$(cat VERSION)"
           echo $version
           version_array=($version)
           echo ${version_array[2]}
