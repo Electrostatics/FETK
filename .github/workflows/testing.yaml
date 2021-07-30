@@ -155,6 +155,9 @@ jobs:
 
     steps:
 
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         env:
