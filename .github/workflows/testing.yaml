@@ -124,11 +124,12 @@ jobs:
           version_array=($version)
           echo ${version_array[2]}
           echo ::set-output name=fetk-version::${version_array[2]}
+        shell: bash
         id: job-values
 
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
+#      - name: Setup tmate session
+#        if: ${{ failure() }}
+#        uses: mxschmitt/action-tmate@v3
 
       - name: Generate Assets
         if: startswith(github.ref, 'refs/tags/')  # Tag/release only
