@@ -174,6 +174,10 @@ jobs:
           ls
           cat release.md
 
+      - name: Setup tmate session
+        if: ${{ success() }}
+        uses: mxschmitt/action-tmate@v3
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
