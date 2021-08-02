@@ -123,7 +123,9 @@ jobs:
           echo $version
           version_array=($version)
           echo ${version_array[2]}
+          version_stripped=`echo "${version_array[2]} | sed -e 's/-[A-Za-z0-9_-]*$//g'`
           echo ::set-output name=fetk-version::${version_array[2]}
+          echo ::set-output name=fetk-version-stripped:${version_stripped}
         shell: bash
         id: job-values
 
@@ -145,7 +147,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
-            build/FETK-${{ steps.job-values.outputs.fetk-version }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+            build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
 
   Release:
   
@@ -164,7 +166,9 @@ jobs:
           echo $version
           version_array=($version)
           echo ${version_array[2]}
+          version_stripped=`echo "${version_array[2]} | sed -e 's/-[A-Za-z0-9_-]*$//g'`
           echo ::set-output name=fetk-version::${version_array[2]}
+          echo ::set-output name=fetk-version-stripped:${version_stripped}
         shell: bash
         id: job-values
 
