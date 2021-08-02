@@ -1,6 +1,6 @@
 # FETK Changelog
 
-## alpha_8
+## v1.6.0-a8
 
 * Switch from release.md to changelog
 

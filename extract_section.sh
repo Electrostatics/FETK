@@ -25,9 +25,9 @@ if [ -z "$version" ]; then
     exit 1
 fi
 
-echo "Analyzing file $filename"
+#echo "Analyzing file $filename"
 header="## v${version}"
-echo "Section title: <${header}>"
+#echo "Section title: <${header}>"
 
 foundTitle=false
 while read line; do
