@@ -170,10 +170,10 @@ jobs:
 
       - name: Extract release text
         run: |
-          ./extract_section.sh -f CHANGELOG.md -t ${{ steps.job-values.outputs.fetk-version }}
+          ./extract_section.sh -f CHANGELOG.md -v ${{ steps.job-values.outputs.fetk-version }}
           ls
           cat release.md
-#          ./extract_section.sh -f CHANGELOG.md -t ${{ steps.job-values.outputs.fetk-version }} > release.md
+#          ./extract_section.sh -f CHANGELOG.md -v ${{ steps.job-values.outputs.fetk-version }} > release.md
 
       - name: Setup tmate session
         if: ${{ success() }}

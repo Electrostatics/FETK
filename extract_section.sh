@@ -1,10 +1,10 @@
 #! /bin/bash
 
-while getopts f:t: flag
+while getopts f:v: flag
 do
     case "${flag}" in
         f) filename=${OPTARG};;
-        t) title=${OPTARG};;
+        v) version=${OPTARG};;
     esac
 done
 
@@ -20,13 +20,13 @@ if [ ! -f $filename ]; then
 
 fi
 
-if [ -z "$title" ]; then
-    echo "Please specify a title using '-t'"
+if [ -z "$version" ]; then
+    echo "Please specify a version using '-v'"
     exit 1
 fi
 
 echo "analyzing file $filename"
-header="## ${title}"
+header="## v${version}"
 echo "checking for <${header}>"
 
 foundTitle=false
