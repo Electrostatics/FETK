@@ -25,18 +25,23 @@ if [ -z "$title" ]; then
     exit 1
 fi
 
+echo "analyzing file $filename"
+
 foundTitle=false
 while read line; do
     if [ "$foundTitle" == false ]; then
         if [[ $line = "## ${title}"* ]]; then
-            echo $line
+            echo "first line: $line"
             foundTitle=true
+        else
+            echo "pre-section line"
         fi
     else
         if [[ $line = '## '* ]]; then
+            echo "start of next section"
             break
         else
-            echo $line
+            echo "within section: $line"
         fi
     fi
 done <$filename
