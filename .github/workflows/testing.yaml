@@ -123,7 +123,7 @@ jobs:
           echo $version
           version_array=($version)
           echo ${version_array[2]}
-          version_stripped=`echo "${version_array[2]} | sed -e 's/-[A-Za-z0-9_-]*$//g'`
+          version_stripped=`echo "${version_array[2]}" | sed -e 's/-[A-Za-z0-9_-]*$//g'`
           echo ::set-output name=fetk-version::${version_array[2]}
           echo ::set-output name=fetk-version-stripped:${version_stripped}
         shell: bash
