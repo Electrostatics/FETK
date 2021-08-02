@@ -33,7 +33,7 @@ foundTitle=false
 while read line; do
     if [ "$foundTitle" == false ]; then
         if [[ "$line" =~ ^${header} ]]; then
-            echo $line"
+            echo "$line"
             foundTitle=true
         fi
     else
