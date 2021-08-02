@@ -26,11 +26,13 @@ if [ -z "$title" ]; then
 fi
 
 echo "analyzing file $filename"
+header="## ${title}"
+echo "checking for <${header}>"
 
 foundTitle=false
 while read line; do
     if [ "$foundTitle" == false ]; then
-        if [[ $line = "## ${title}"* ]]; then
+        if [[ "$line" =~ ^${header} ]]; then
             echo "first line: $line"
             foundTitle=true
         else
