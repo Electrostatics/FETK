@@ -25,25 +25,22 @@ if [ -z "$version" ]; then
     exit 1
 fi
 
-echo "analyzing file $filename"
+echo "Analyzing file $filename"
 header="## v${version}"
-echo "checking for <${header}>"
+echo "Section title: <${header}>"
 
 foundTitle=false
 while read line; do
     if [ "$foundTitle" == false ]; then
         if [[ "$line" =~ ^${header} ]]; then
-            echo "first line: $line"
+            echo $line"
             foundTitle=true
-        else
-            echo "pre-section line"
         fi
     else
         if [[ $line = '## '* ]]; then
-            echo "start of next section"
             break
         else
-            echo "within section: $line"
+            echo "$line"
         fi
     fi
 done <$filename
