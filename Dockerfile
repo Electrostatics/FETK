@@ -36,4 +36,4 @@ RUN cd /src && \
     cd build && \
     cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} .. && \
     make install && \
-    if [ "${CREATE_PACKAGE,,}" = true ]; then make package; fi
+    if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi

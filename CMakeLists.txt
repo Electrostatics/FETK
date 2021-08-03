@@ -6,6 +6,8 @@ file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/VERSION VERSION_STRING)
 string(REPLACE " " ";" VERSION_LIST ${VERSION_STRING})
 list(GET VERSION_LIST 0 _PROJECT)
 list(GET VERSION_LIST 2 _VERSION)
+# strip off any version suffix starting with a hyphen
+string(REGEX REPLACE "-[A-Za-z0-9_-]*$" "" _VERSION ${_VERSION})
 
 project(${_PROJECT}
         VERSION ${_VERSION}
@@ -93,7 +95,9 @@ if(CREATE_PACKAGE)
     if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
         set(CPACK_GENERATOR "TGZ")
     elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+        set(CPACK_GENERATOR "TGZ")
     elseif(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+        set(CPACK_GENERATOR "ZIP")
     endif()
 
     include(CPack)
