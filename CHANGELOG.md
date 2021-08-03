@@ -1,19 +1,11 @@
 # FETK Changelog
 
-## v1.6.0-a8
+## v1.6.0-pr0
 
-* Switch from release.md to changelog
+Aug 2, 2021
 
-## alpha_7
-
-* Added release to Linux workflow
-* Added release.md
-* Added linux package build
-* Fixed build logic
-* Attempt to add macOS
-* Attempt to add Windows
-* Successful builds on all three platforms
-* Separate release creation
+* Automated build and release on GitHub Actions
+* Platforms supported: Ubuntu, MacOS, Windows
 
 ## v1.5
  (12/07/2010): 
