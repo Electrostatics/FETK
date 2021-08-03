@@ -33,7 +33,7 @@ jobs:
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
       CMAKE_SYSTEM: ${{ matrix.CMAKE_SYSTEM }}
-      CREATE_PACKAGES: ${{ startsWith(github.ref, 'refs/tags/') }}
+      CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
 
     steps:
 
@@ -92,7 +92,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGES} ..
+          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
@@ -102,7 +102,8 @@ jobs:
           mkdir -p build/Release
           cd build
           echo $CMAKE_PREFIX_PATH
-          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${CREATE_PACKAGES} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+          echo "CREATE_PACKAGE: ${CREATE_PACKAGE}"
+          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
 #          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${{ startsWith(github.ref, 'refs/tags/') }} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
         shell: bash
 
@@ -131,14 +132,13 @@ jobs:
         id: job-values
 
       - name: Generate Assets
-        if: startswith(github.ref, 'refs/tags/')  # Tag/release only
+        #if: startswith(github.ref, 'refs/tags/')  # Tag/release only
         run: |
-          echo ${GITHUB_REF} > test_file-${CMAKE_SYSTEM}.txt 
           cd build
-          make package
+          cpack
 
       - name: Contents of the build dir
-        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
+        #if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
         run: ls build
 
       - name: Release
