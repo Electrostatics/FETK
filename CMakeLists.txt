@@ -2,8 +2,15 @@
 cmake_minimum_required (VERSION 3.7.1)
 
 # Parse the VERSION file
-file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/VERSION VERSION_STRING)
+# First, remove comments
+execute_process(
+    COMMAND "sed" "s/#.*//g" "${CMAKE_CURRENT_SOURCE_DIR}/VERSION"  
+    OUTPUT_FILE ${CMAKE_CURRENT_BINARY_DIR}/VERSION
+)
+file(STRINGS ${CMAKE_CURRENT_BINARY_DIR}/VERSION VERSION_STRING)
+# Turn the spaces into semicolons to create a list
 string(REPLACE " " ";" VERSION_LIST ${VERSION_STRING})
+# Extract the project name and version
 list(GET VERSION_LIST 0 _PROJECT)
 list(GET VERSION_LIST 2 _VERSION)
 # strip off any version suffix starting with a hyphen
