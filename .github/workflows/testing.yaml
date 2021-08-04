@@ -120,7 +120,7 @@ jobs:
 
       - name: Extract values
         run: |
-          sed -i 's/#.*//g' VERSION
+          sed -e 's/#.*//g' VERSION
           version="$(cat VERSION | xargs)"
           echo $version
           version_array=($version)
