@@ -149,39 +149,3 @@ jobs:
         with:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
-
-  Release:
-  
-    runs-on: ubuntu-latest
-
-    if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
-
-    steps:
-
-      - name: Checkout the repo 
-        uses: actions/checkout@v2
-
-      - name: Extract values
-        run: |
-          version="$(cat VERSION | xargs)"
-          echo $version
-          version_array=($version)
-          echo ${version_array[2]}
-          version_stripped=`echo "${version_array[2]}" | sed -e 's/-[A-Za-z0-9_-]*$//g'`
-          echo ::set-output name=fetk-version::${version_array[2]}
-          echo ::set-output name=fetk-version-stripped::${version_stripped}
-        shell: bash
-        id: job-values
-
-      - name: Extract release text
-        run: |
-          ./extract_section.sh -f CHANGELOG.md -v ${{ steps.job-values.outputs.fetk-version }} > release.md
-          cat release.md
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body_path: release.md
