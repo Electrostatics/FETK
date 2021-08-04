@@ -2,7 +2,7 @@ name: Build and Package
 
 on:
   push:
-    branches: [ master, release, nsoblath/issue_23 ]
+    branches: [ master, release ]
     tags: ['*']
   pull_request:
 
@@ -145,7 +145,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}

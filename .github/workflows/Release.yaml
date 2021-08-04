@@ -31,7 +31,7 @@ jobs:
       - name: Create tag
         uses: tvdias/github-tagger@v0.0.1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: "${{ secrets.RELEASE_TOKEN }}"
           tag: ${{ steps.job-values.outputs.fetk-version }}
 
       - name: Extract release text
@@ -42,7 +42,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           body_path: release.md
           tag_name: ${{ steps.job-values.outputs.fetk-version }}
