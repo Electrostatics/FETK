@@ -2,7 +2,7 @@ name: Tag and Release
 
 on:
   push:
-    branches: [ release, nsoblath/issue_23 ]
+    branches: [ release ]
 
   workflow_dispatch:
 
