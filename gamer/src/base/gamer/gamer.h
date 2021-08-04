@@ -1,7 +1,18 @@
-/*
- * ***************************************************************************
- * PUNC = < Portable Understructure for Numerical Computing >
- * Copyright (C) 1994-- Michael Holst
+/**
+ *  @file       gamer.h
+ *  @ingroup    global_gamer
+ *  @brief      The foundation header for GAMER.
+ *  @authors    Michael Holst
+ *  @note       This is the main header file for all of GAMER.
+ *              This is the only file that needs to be included in order to 
+ *              access the entire library.
+ *  @version    $Id: gamer.h,v 1.12 2010/08/12 05:43:09 fetk Exp $
+ *  
+ *  @attention
+ *  @verbatim
+ *
+ * GAMER = < Geometry-preserving Adaptive MeshER >
+ * Copyright (C) 1994-- Michael Holst and Zeyun Yu
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,25 +27,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * rcsid="$Id: punc_base_p.h,v 1.10 2010/08/12 05:52:18 fetk Exp $"
- * ***************************************************************************
+ * 
+ *  @endverbatim
  */
 
-/*
- * ***************************************************************************
- * File:     punc_base_p.h
- *
- * Purpose:  PRIVATE header.
- *
- * Author:   Michael Holst
- * ***************************************************************************
- */
 
-#ifndef _PUNC_BASE_P_H_
-#define _PUNC_BASE_P_H_
+#ifndef _GAMER_H_
+#define _GAMER_H_
 
-#include "punc/punc_base.h"
-#include "punccf.h"
+#include <gamer/gamer_base.h>
 
-#endif /* _PUNC_BASE_P_H_ */
+#include <gamer/triangle.h>
+#include <gamer/tetgen.h>
+#include <gamer/biom.h>
+
+#endif /* _GAMER_H_ */
+

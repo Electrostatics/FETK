@@ -173,6 +173,8 @@ extern void    zFillRHS (trans_t, int, doublecomplex *, int, SuperMatrix *,
 extern void    zgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
                         SuperMatrix *, SuperLUStat_t*, int *);
 
+extern int zcopy_(int *, doublecomplex *, int *, doublecomplex *, int *);
+extern int zaxpy_(int *, doublecomplex *, doublecomplex *, int *, doublecomplex *, int *);
 
 /*! \brief Driver related */
 

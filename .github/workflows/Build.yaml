@@ -1,0 +1,151 @@
+name: Build and Package
+
+on:
+  push:
+    branches: [ master ]
+    tags: ['*']
+  pull_request:
+
+  workflow_dispatch:
+
+
+jobs:
+
+  Build:
+
+    runs-on: ${{ matrix.os }}
+    if: "!contains(github.event.head_commit.message, 'noci')"
+
+    strategy:
+      matrix:
+        fail-fast: [false]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            CMAKE_SYSTEM: Linux
+            PACKAGE_TYPE: tar.gz
+          - os: macos-latest
+            CMAKE_SYSTEM: Darwin
+            PACKAGE_TYPE: tar.gz
+          - os: windows-latest
+            CMAKE_SYSTEM: win64
+            PACKAGE_TYPE: zip
+
+    env:
+      # job-wide environment variables to use in `run` commands to avoid command-injection risks
+      CMAKE_SYSTEM: ${{ matrix.CMAKE_SYSTEM }}
+      CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+
+    steps:
+
+      - name: Add msbuild to PATH
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Cache vcpkg packages
+        uses: pat-s/always-upload-cache@v2  # performs caching even if the overall job fails
+#        uses: actions/cache@v2
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        env:
+          cache-name: cache-vcpkg-suitesparse
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-rev0
+          path: |
+              C:\vcpkg\scripts
+              C:\vcpkg\installed
+              C:\vcpkg\triplets
+              C:\vcpkg\versions
+
+      - name: Install linux dependencies
+        if: startsWith(matrix.os, 'ubuntu')  # Linux only
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
+            build-essential \
+            cmake \
+            libarpack2-dev \
+            libblas-dev \
+            liblapack-dev \
+            libsuperlu-dev \
+            libf2c2-dev \
+            libsuitesparse-dev
+
+      - name: Install macOS dependencies
+        if: startsWith(matrix.os, 'macos')  # Mac only
+        run: |
+          brew install \
+            arpack \
+            openblas \
+            lapack \
+            superlu \
+            suite-sparse
+
+      - name: Install Window dependencies
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        run: |
+          vcpkg install suitesparse
+
+      - name: Configure for Mac and Linux
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')  # Linux and Mac only
+        run: |
+          mkdir build
+          cd build
+          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
+
+      - name: Configure for Windows
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        env:
+          CMAKE_PREFIX_PATH: ${VCPKG_INSTALLATION_ROOT}/installed/x86-windows
+        run: |
+          mkdir -p build/Release
+          cd build
+          echo $CMAKE_PREFIX_PATH
+          echo "CREATE_PACKAGE: ${CREATE_PACKAGE}"
+          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_PUNC=FALSE -DBUILD_GAMER=FALSE -DBUILD_MC=FALSE -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x64-windows-static -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A x64 ..
+        shell: bash
+
+      - name: Build on Mac and Linux
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')  # Linux and Mac only
+        run: |
+          cd build
+          make install
+
+      - name: Build on Windows
+        if: startsWith(matrix.os, 'windows')  # Windows only
+        run: |
+          cd build
+          cmake --build . --config Release --parallel 1 --target install
+
+      - name: Extract values
+        run: |
+          sed -e 's/#.*//g' VERSION
+          version="$(cat VERSION | xargs)"
+          echo $version
+          version_array=($version)
+          echo ${version_array[2]}
+          version_stripped=`echo "${version_array[2]}" | sed -e 's/-[A-Za-z0-9_-]*$//g'`
+          echo ::set-output name=fetk-version-stripped::${version_stripped}
+        shell: bash
+        id: job-values
+
+      - name: Generate Assets
+        if: startswith(github.ref, 'refs/tags/')  # Tag/release only
+        run: |
+          cd build
+          cpack
+
+      - name: Contents of the build dir
+        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
+        run: ls build
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/')  # Tag/release only
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          files: |
+            build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}

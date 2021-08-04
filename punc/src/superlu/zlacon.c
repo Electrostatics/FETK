@@ -12,6 +12,7 @@
 #include <math.h>
 #include "slu_Cnames.h"
 #include "slu_dcomplex.h"
+#include "slu_zdefs.h"
 
 /*! \brief
  *

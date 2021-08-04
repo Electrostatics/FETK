@@ -1,23 +1,18 @@
 add_build_items(
     TYPE SOURCES
     ITEMS 
-        vlex.c
-        vpars.c
-        vpup.c
-        vsh.c
-        vyacc.c
+        gamer_base.c
 )
 
 add_build_items(
     TYPE EXTERNAL_HEADERS
     ITEMS 
-        maloc/vsh.h
+        gamer/gamer.h
+        gamer/gamer_base.h
 )
 
 add_build_items(
     TYPE INTERNAL_HEADERS
     ITEMS 
-        vpup.h
-        vsh_p.h
-        vyacc.h
+        gamer_base_p.h
 )

@@ -1,23 +1,17 @@
 add_build_items(
     TYPE SOURCES
     ITEMS 
-        vlex.c
-        vpars.c
-        vpup.c
-        vsh.c
-        vyacc.c
+        mcsh.c 
 )
 
 add_build_items(
     TYPE EXTERNAL_HEADERS
     ITEMS 
-        maloc/vsh.h
+        mc/mcsh.h
 )
 
 add_build_items(
     TYPE INTERNAL_HEADERS
     ITEMS 
-        vpup.h
-        vsh_p.h
-        vyacc.h
+        mcsh_p.h
 )
