@@ -1,6 +1,6 @@
 # FETK Changelog
 
-## 1.6.0-rc1
+## 1.6.0
 
 Aug 4, 2021
 
