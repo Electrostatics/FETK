@@ -1,3 +1,22 @@
 
-FETK Version 1.6.0-pr0
+FETK Version 1.6.0-cr0
 
+###############################################################################################
+#
+# VERSION Conventions
+#
+# This file is used to supply CMake with the package name and version, 
+# and to give the build automation workflow the version.
+#
+# Please follow these conventions for compatibility with the text 
+# processing done on this file:
+#
+# 1. All text in a line following a # will be treated as a comment.
+# 
+# 2. The package and version specification must be in the following format:
+#
+#       [package name] Version [major version].[minor version].[patch version]-[suffix]
+#
+#    The suffix is optional, and will be removed before the version is passed to CMake.
+#
+###############################################################################################
