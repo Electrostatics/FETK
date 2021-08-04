@@ -26,14 +26,13 @@ if [ -z "$version" ]; then
 fi
 
 #echo "Analyzing file $filename"
-header="## v${version}"
+header="## ${version}"
 #echo "Section title: <${header}>"
 
 foundTitle=false
 while read line; do
     if [ "$foundTitle" == false ]; then
         if [[ "$line" =~ ^${header} ]]; then
-            echo "$line"
             foundTitle=true
         fi
     else
@@ -44,3 +43,7 @@ while read line; do
         fi
     fi
 done <$filename
+
+if [ "$foundTitle" == false ]; then
+    echo "[No changes were documented]"
+fi
