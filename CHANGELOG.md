@@ -1,9 +1,10 @@
 # FETK Changelog
 
-## 1.6.0-pr0
+## 1.6.0-rc1
 
-Aug 2, 2021
+Aug 4, 2021
 
+* Separated Release and Build workflows, and automated tag creation
 * Automated build and release on GitHub Actions
 * Platforms supported: Ubuntu, MacOS, Windows
 
