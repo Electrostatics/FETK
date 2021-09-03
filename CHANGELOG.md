@@ -1,5 +1,11 @@
 # FETK Changelog
 
+## [next release]
+
+[date]
+
+* Fixed install directories for include files
+
 ## 1.6.0
 
 Aug 4, 2021
