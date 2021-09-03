@@ -37,7 +37,6 @@ macro(set_basic_vars_and_paths)
         endif()
         message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
 
-        set(CMAKE_INSTALL_INCLUDEDIR include/${PROJECT_NAME})
         include(GNUInstallDirs)
 
         ################################################################################
@@ -82,6 +81,8 @@ macro(set_basic_vars_and_paths)
         set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
     endif( FETK_STANDALONE )
+
+    set(CMAKE_INSTALL_INCLUDEDIR "include/${PROJECT_NAME}")
 
 endmacro()
 
