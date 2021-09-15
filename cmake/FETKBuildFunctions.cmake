@@ -44,6 +44,7 @@ macro(set_basic_vars_and_paths)
         ################################################################################
 
         set(BUILD_SHARED_LIBRARIES OFF)
+        add_compile_options(-fPIC)
 
         ################################################################################
         # Enable ansi pedantic compiling
