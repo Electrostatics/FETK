@@ -1,8 +1,14 @@
 # FETK Changelog
 
-## [next release]
+## [next release] (suggested: 1.7.1)
 
 [date]
+
+* Added missing file `mc.h` to `mc/base`
+
+## 1.7.0
+
+Sept 3, 2021
 
 * Fixed install directories for include files
 
