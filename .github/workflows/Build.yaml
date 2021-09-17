@@ -30,11 +30,13 @@ jobs:
           - os: windows-latest
             CMAKE_SYSTEM: win64
             PACKAGE_TYPE: zip
+            WIN_DEPENDENCIES_RELEASE: v0.1.0
 
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
       CMAKE_SYSTEM: ${{ matrix.CMAKE_SYSTEM }}
       CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+      WIN_DEPENDENCIES_RELEASE: ${{ matrix.WIN_DEPENDENCIES_RELEASE }}
 
     steps:
 
@@ -44,20 +46,6 @@ jobs:
 
       - name: Checkout the repo 
         uses: actions/checkout@v2
-
-      - name: Cache vcpkg packages
-        uses: pat-s/always-upload-cache@v2  # performs caching even if the overall job fails
-#        uses: actions/cache@v2
-        if: startsWith(matrix.os, 'windows')  # Windows only
-        env:
-          cache-name: cache-vcpkg-suitesparse
-        with:
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-rev0
-          path: |
-              C:\vcpkg\scripts
-              C:\vcpkg\installed
-              C:\vcpkg\triplets
-              C:\vcpkg\versions
 
       - name: Install linux dependencies
         if: startsWith(matrix.os, 'ubuntu')  # Linux only
@@ -86,7 +74,16 @@ jobs:
       - name: Install Window dependencies
         if: startsWith(matrix.os, 'windows')  # Windows only
         run: |
-          vcpkg install suitesparse
+          choco install wget
+          wget https://github.com/nsoblath/apbs_dependencies/releases/download/${WIN_DEPENDENCIES_RELEASE}/apbs_dependencies_vcpkg.zip
+          7z x apbs_dependencies_vcpkg.zip
+          mkdir /c/vcpkg
+          mv apbs_dependencies_vcpkg/vcpkg/scripts /c/vcpkg/scripts
+          mv apbs_dependencies_vcpkg/vcpkg/scripts /c/vcpkg/installed
+          mv apbs_dependencies_vcpkg/vcpkg/scripts /c/vcpkg/triplets
+          mv apbs_dependencies_vcpkg/vcpkg/scripts /c/vcpkg/versions
+          ls /c/vcpkg
+        shell: bash
 
       - name: Configure for Mac and Linux
         if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')  # Linux and Mac only
