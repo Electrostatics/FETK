@@ -76,13 +76,7 @@ jobs:
         run: |
           choco install wget
           wget https://github.com/nsoblath/apbs_dependencies/releases/download/${WIN_DEPENDENCIES_RELEASE}/apbs_dependencies_vcpkg.zip
-          7z x apbs_dependencies_vcpkg.zip
-          ls
-          ls apbs_dependencies_vcpkg
-          mv apbs_dependencies_vcpkg/scripts /c/vcpkg/scripts
-          mv apbs_dependencies_vcpkg/installed /c/vcpkg/installed
-          mv apbs_dependencies_vcpkg/triplets /c/vcpkg/triplets
-          mv apbs_dependencies_vcpkg/versions /c/vcpkg/versions
+          7z x apbs_dependencies_vcpkg.zip -o/c/vcpkg
           ls /c/vcpkg
         shell: bash
 
