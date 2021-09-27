@@ -141,3 +141,7 @@ jobs:
         with:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+
+      - name: Setup tmate session
+        if: ${{ ! success() }}
+        uses: mxschmitt/action-tmate@v3
