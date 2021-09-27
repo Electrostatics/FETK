@@ -6,12 +6,12 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clascl_(char *type__, integer *kl, integer *ku, real *
-	cfrom, real *cto, integer *m, integer *n, complex *a, integer *lda, 
+	cfrom, real *cto, integer *m, integer *n, realcomplex *a, integer *lda, 
 	integer *info, ftnlen type_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, k1, k2, k3, k4;

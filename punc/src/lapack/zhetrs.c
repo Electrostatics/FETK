@@ -55,7 +55,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZHETRS solves a system of linear equations A*X = B with a complex */
+/*  ZHETRS solves a system of linear equations A*X = B with a realcomplex */
 /*  Hermitian matrix A using the factorization A = U*D*U**H or */
 /*  A = L*D*L**H computed by ZHETRF. */
 

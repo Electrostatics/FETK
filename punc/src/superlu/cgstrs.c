@@ -27,9 +27,9 @@
 /* 
  * Function prototypes 
  */
-void cusolve(int, int, complex*, complex*);
-void clsolve(int, int, complex*, complex*);
-void cmatvec(int, int, int, complex*, complex*, complex*);
+void cusolve(int, int, realcomplex*, realcomplex*);
+void clsolve(int, int, realcomplex*, realcomplex*);
+void cmatvec(int, int, int, realcomplex*, realcomplex*, realcomplex*);
 
 /*! \brief
  *
@@ -97,18 +97,18 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 #endif
     int      incx = 1, incy = 1;
 #ifdef USE_VENDOR_BLAS
-    complex   alpha = {1.0, 0.0}, beta = {1.0, 0.0};
-    complex   *work_col;
+    realcomplex   alpha = {1.0, 0.0}, beta = {1.0, 0.0};
+    realcomplex   *work_col;
 #endif
-    complex   temp_comp;
+    realcomplex   temp_comp;
     DNformat *Bstore;
-    complex   *Bmat;
+    realcomplex   *Bmat;
     SCformat *Lstore;
     NCformat *Ustore;
-    complex   *Lval, *Uval;
+    realcomplex   *Lval, *Uval;
     int      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
     int      i, j, k, iptr, jcol, n, ldb, nrhs;
-    complex   *work, *rhs_work, *soln;
+    realcomplex   *work, *rhs_work, *soln;
     flops_t  solve_ops;
     void cprint_soln();
 
@@ -341,7 +341,7 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
  * Diagnostic print of the solution vector 
  */
 void
-cprint_soln(int n, int nrhs, complex *soln)
+cprint_soln(int n, int nrhs, realcomplex *soln)
 {
     int i;
 

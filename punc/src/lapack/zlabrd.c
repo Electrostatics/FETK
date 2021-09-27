@@ -130,7 +130,7 @@ static integer c__1 = 1;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors. */
 
 /*  If m >= n, v(1:i-1) = 0, v(i) = 1, and v(i:m) is stored on exit in */

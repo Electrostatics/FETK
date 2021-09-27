@@ -11,39 +11,39 @@ static integer c__2 = 2;
 static integer c__1 = 1;
 
 /* Subroutine */ int ctgex2_(logical *wantq, logical *wantz, integer *n, 
-	complex *a, integer *lda, complex *b, integer *ldb, complex *q, 
-	integer *ldq, complex *z__, integer *ldz, integer *j1, integer *info)
+	realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *q, 
+	integer *ldq, realcomplex *z__, integer *ldz, integer *j1, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, q_dim1, q_offset, z_dim1, 
 	    z_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    double sqrt(doublereal), c_abs(complex *);
-    void r_cnjg(complex *, complex *);
+    double sqrt(doublereal), c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
-    static complex f, g;
+    static realcomplex f, g;
     static integer i__, m;
-    static complex s[4]	/* was [2][2] */, t[4]	/* was [2][2] */;
+    static realcomplex s[4]	/* was [2][2] */, t[4]	/* was [2][2] */;
     static real cq, sa, sb, cz;
-    static complex sq;
+    static realcomplex sq;
     static real ss, ws;
-    static complex sz;
+    static realcomplex sz;
     static real eps, sum;
     static logical weak;
-    static complex cdum;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
-    static complex work[8];
+    static realcomplex cdum;
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
+    static realcomplex work[8];
     static real scale;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), clartg_(complex *, 
-	    complex *, real *, complex *, complex *), classq_(integer *, 
-	    complex *, integer *, real *, real *);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), clartg_(realcomplex *, 
+	    realcomplex *, real *, realcomplex *, realcomplex *), classq_(integer *, 
+	    realcomplex *, integer *, real *, real *);
     static real thresh, smlnum;
     static logical strong;
 

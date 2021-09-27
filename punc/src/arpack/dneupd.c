@@ -117,7 +117,7 @@ static doublereal c_b64 = -1.;
 /*          approximations to the eigenvalues of A*z = lambda*B*z associated */
 /*          with DR. */
 
-/*          NOTE: When Ritz values are complex, they will come in complex */
+/*          NOTE: When Ritz values are complex, they will come in realcomplex */
 /*                conjugate pairs.  If eigenvectors are requested, the */
 /*                corresponding Ritz vectors will also come in conjugate */
 /*                pairs and the real and imaginary parts of these are */

@@ -7,30 +7,30 @@
 
 /* Table of constant values */
 
-static complex c_b5 = {1.f,0.f};
+static realcomplex c_b5 = {1.f,0.f};
 
-/* Subroutine */ int clarfg_(integer *n, complex *alpha, complex *x, integer *
-	incx, complex *tau)
+/* Subroutine */ int clarfg_(integer *n, realcomplex *alpha, realcomplex *x, integer *
+	incx, realcomplex *tau)
 {
     /* System generated locals */
     integer i__1;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double r_imag(complex *), r_sign(real *, real *);
+    double r_imag(realcomplex *), r_sign(real *, real *);
 
     /* Local variables */
     static integer j, knt;
     static real beta;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static real alphi, alphr, xnorm;
-    extern doublereal scnrm2_(integer *, complex *, integer *), slapy3_(real *
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *), slapy3_(real *
 	    , real *, real *);
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
     static real safmin, rsafmn;
 

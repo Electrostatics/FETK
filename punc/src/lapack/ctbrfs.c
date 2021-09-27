@@ -10,19 +10,19 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctbrfs_(char *uplo, char *trans, char *diag, integer *n, 
-	integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, 
-	integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, 
-	complex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen 
+	integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, 
+	integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, 
+	realcomplex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen 
 	trans_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, b_dim1, b_offset, x_dim1, x_offset, i__1, 
 	    i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
@@ -33,14 +33,14 @@ static integer c__1 = 1;
     static real safe1, safe2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctbmv_(char *, char *, char *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, ftnlen, 
-	    ftnlen, ftnlen), ccopy_(integer *, complex *, integer *, complex *
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen, 
+	    ftnlen, ftnlen), ccopy_(integer *, realcomplex *, integer *, realcomplex *
 	    , integer *), ctbsv_(char *, char *, char *, integer *, integer *,
-	     complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
-	    ftnlen), caxpy_(integer *, complex *, complex *, integer *, 
-	    complex *, integer *);
+	     realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
+	    ftnlen), caxpy_(integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical upper;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     static real safmin;

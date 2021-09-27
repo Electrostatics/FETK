@@ -27,8 +27,8 @@ struct {
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* \BeginDoc */
@@ -146,8 +146,8 @@ static integer c__1 = 1;
 /* ----------------------------------------------------------------------- */
 
 /* Subroutine */ int cgetv0_(integer *ido, char *bmat, integer *itry, logical 
-	*initv, integer *n, integer *j, complex *v, integer *ldv, complex *
-	resid, real *rnorm, integer *ipntr, complex *workd, integer *ierr, 
+	*initv, integer *n, integer *j, realcomplex *v, integer *ldv, realcomplex *
+	resid, real *rnorm, integer *ipntr, realcomplex *workd, integer *ierr, 
 	ftnlen bmat_len)
 {
     /* Initialized data */
@@ -157,34 +157,34 @@ static integer c__1 = 1;
     /* System generated locals */
     integer v_dim1, v_offset, i__1, i__2;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *), sqrt(doublereal);
+    double r_imag(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static real t0, t1, t2, t3;
     static integer jj, iter;
     static logical orth;
     static integer iseed[4];
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static integer idist;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    static complex cnorm;
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    static realcomplex cnorm;
     static logical first;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), svout_(integer *, integer *, real *, 
 	    integer *, char *, ftnlen);
-    extern doublereal scnrm2_(integer *, complex *, integer *), slapy2_(real *
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *), slapy2_(real *
 	    , real *);
     static real rnorm0;
     extern /* Subroutine */ int second_(real *), clarnv_(integer *, integer *,
-	     integer *, complex *);
+	     integer *, realcomplex *);
     static integer msglvl;
 
 

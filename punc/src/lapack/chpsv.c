@@ -5,8 +5,8 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int chpsv_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen 
+/* Subroutine */ int chpsv_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -15,9 +15,9 @@
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), chptrf_(
-	    char *, integer *, complex *, integer *, integer *, ftnlen), 
-	    chptrs_(char *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen);
+	    char *, integer *, realcomplex *, integer *, integer *, ftnlen), 
+	    chptrs_(char *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

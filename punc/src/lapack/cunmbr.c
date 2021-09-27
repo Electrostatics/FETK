@@ -12,8 +12,8 @@ static integer c_n1 = -1;
 static integer c__2 = 2;
 
 /* Subroutine */ int cunmbr_(char *vect, char *side, char *trans, integer *m, 
-	integer *n, integer *k, complex *a, integer *lda, complex *tau, 
-	complex *c__, integer *ldc, complex *work, integer *lwork, integer *
+	integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, 
+	realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *
 	info, ftnlen vect_len, ftnlen side_len, ftnlen trans_len)
 {
     /* System generated locals */
@@ -33,12 +33,12 @@ static integer c__2 = 2;
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cunmlq_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static logical notran;
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static logical applyq;
     static char transt[1];
     static integer lwkopt;

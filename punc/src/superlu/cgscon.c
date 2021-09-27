@@ -79,10 +79,10 @@ cgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
     /* Local variables */
     int    kase, kase1, onenrm, i;
     float ainvnm;
-    complex *work;
-    extern int crscl_(int *, complex *, complex *, int *);
+    realcomplex *work;
+    extern int crscl_(int *, realcomplex *, realcomplex *, int *);
 
-    extern int clacon_(int *, complex *, complex *, float *, int *);
+    extern int clacon_(int *, realcomplex *, realcomplex *, float *, int *);
 
     
     /* Test the input parameters. */

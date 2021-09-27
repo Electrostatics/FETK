@@ -6,21 +6,21 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int ctrmm_(char *side, char *uplo, char *transa, char *diag, 
-	integer *m, integer *n, complex *alpha, complex *a, integer *lda, 
-	complex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen 
+	integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, 
+	realcomplex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen 
 	transa_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4, i__5, 
 	    i__6;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical lside;
     static integer nrowa;

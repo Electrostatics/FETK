@@ -7,15 +7,15 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__0 = 0;
 static integer c__1 = 1;
 static integer c__2 = 2;
 static real c_b41 = 1.f;
 
 /* Subroutine */ int csteqr_(char *compz, integer *n, real *d__, real *e, 
-	complex *z__, integer *ldz, real *work, integer *info, ftnlen 
+	realcomplex *z__, integer *ldz, real *work, integer *info, ftnlen 
 	compz_len)
 {
     /* System generated locals */
@@ -38,19 +38,19 @@ static real c_b41 = 1.f;
 	    ;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int clasr_(char *, char *, char *, integer *, 
-	    integer *, real *, real *, complex *, integer *, ftnlen, ftnlen, 
+	    integer *, real *, real *, realcomplex *, integer *, ftnlen, ftnlen, 
 	    ftnlen);
     static real anorm;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer lendm1, lendp1;
     extern /* Subroutine */ int slaev2_(real *, real *, real *, real *, real *
 	    , real *, real *);
     extern doublereal slapy2_(real *, real *);
     static integer iscale;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real safmax;

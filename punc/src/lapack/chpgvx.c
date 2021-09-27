@@ -10,9 +10,9 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int chpgvx_(integer *itype, char *jobz, char *range, char *
-	uplo, integer *n, complex *ap, complex *bp, real *vl, real *vu, 
-	integer *il, integer *iu, real *abstol, integer *m, real *w, complex *
-	z__, integer *ldz, complex *work, real *rwork, integer *iwork, 
+	uplo, integer *n, realcomplex *ap, realcomplex *bp, real *vl, real *vu, 
+	integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *
+	z__, integer *ldz, realcomplex *work, real *rwork, integer *iwork, 
 	integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, 
 	ftnlen uplo_len)
 {
@@ -24,18 +24,18 @@ static integer c__1 = 1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static char trans[1];
     extern /* Subroutine */ int ctpmv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical wantz, alleig, indeig, valeig;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), chpgst_(
-	    integer *, char *, integer *, complex *, complex *, integer *, 
-	    ftnlen), chpevx_(char *, char *, char *, integer *, complex *, 
+	    integer *, char *, integer *, realcomplex *, realcomplex *, integer *, 
+	    ftnlen), chpevx_(char *, char *, char *, integer *, realcomplex *, 
 	    real *, real *, integer *, integer *, real *, integer *, real *, 
-	    complex *, integer *, complex *, real *, integer *, integer *, 
+	    realcomplex *, integer *, realcomplex *, real *, integer *, integer *, 
 	    integer *, ftnlen, ftnlen, ftnlen), cpptrf_(char *, integer *, 
-	    complex *, integer *, ftnlen);
+	    realcomplex *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

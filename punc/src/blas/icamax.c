@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-integer icamax_(integer *n, complex *cx, integer *incx)
+integer icamax_(integer *n, realcomplex *cx, integer *incx)
 {
     /* System generated locals */
     integer ret_val, i__1, i__2;
     real r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, ix;

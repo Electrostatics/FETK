@@ -10,13 +10,13 @@
 static integer c__1 = 1;
 static real c_b16 = -1.f;
 
-/* Subroutine */ int cpptrf_(char *uplo, integer *n, complex *ap, integer *
+/* Subroutine */ int cpptrf_(char *uplo, integer *n, realcomplex *ap, integer *
 	info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -24,15 +24,15 @@ static real c_b16 = -1.f;
     /* Local variables */
     static integer j, jc, jj;
     static real ajj;
-    extern /* Subroutine */ int chpr_(char *, integer *, real *, complex *, 
-	    integer *, complex *, ftnlen);
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Subroutine */ int chpr_(char *, integer *, real *, realcomplex *, 
+	    integer *, realcomplex *, ftnlen);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), csscal_(
-	    integer *, real *, complex *, integer *), xerbla_(char *, integer 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), csscal_(
+	    integer *, real *, realcomplex *, integer *), xerbla_(char *, integer 
 	    *, ftnlen);
 
 

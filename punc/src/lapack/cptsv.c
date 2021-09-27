@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cptsv_(integer *n, integer *nrhs, real *d__, complex *e, 
-	complex *b, integer *ldb, integer *info)
+/* Subroutine */ int cptsv_(integer *n, integer *nrhs, real *d__, realcomplex *e, 
+	realcomplex *b, integer *ldb, integer *info)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1;
 
     /* Local variables */
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), cpttrf_(
-	    integer *, real *, complex *, integer *), cpttrs_(char *, integer 
-	    *, integer *, real *, complex *, complex *, integer *, integer *, 
+	    integer *, real *, realcomplex *, integer *), cpttrs_(char *, integer 
+	    *, integer *, real *, realcomplex *, realcomplex *, integer *, integer *, 
 	    ftnlen);
 
 

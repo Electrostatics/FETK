@@ -5,8 +5,8 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cppsv_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, complex *b, integer *ldb, integer *info, ftnlen uplo_len)
+/* Subroutine */ int cppsv_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1;
@@ -14,8 +14,8 @@
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), cpptrf_(
-	    char *, integer *, complex *, integer *, ftnlen), cpptrs_(char *, 
-	    integer *, integer *, complex *, complex *, integer *, integer *, 
+	    char *, integer *, realcomplex *, integer *, ftnlen), cpptrs_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, integer *, 
 	    ftnlen);
 
 

@@ -9,7 +9,7 @@
 
 static integer c__1 = 1;
 
-doublereal clangt_(char *norm, integer *n, complex *dl, complex *d__, complex 
+doublereal clangt_(char *norm, integer *n, realcomplex *dl, realcomplex *d__, realcomplex 
 	*du, ftnlen norm_len)
 {
     /* System generated locals */
@@ -17,14 +17,14 @@ doublereal clangt_(char *norm, integer *n, complex *dl, complex *d__, complex
     real ret_val, r__1, r__2;
 
     /* Builtin functions */
-    double c_abs(complex *), sqrt(doublereal);
+    double c_abs(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__;
     static real sum, scale;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real anorm;
-    extern /* Subroutine */ int classq_(integer *, complex *, integer *, real 
+    extern /* Subroutine */ int classq_(integer *, realcomplex *, integer *, real 
 	    *, real *);
 
 

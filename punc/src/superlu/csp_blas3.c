@@ -114,8 +114,8 @@
 
 int
 sp_cgemm(char *transa, char *transb, int m, int n, int k, 
-         complex alpha, SuperMatrix *A, complex *b, int ldb, 
-         complex beta, complex *c, int ldc)
+         realcomplex alpha, SuperMatrix *A, realcomplex *b, int ldb, 
+         realcomplex beta, realcomplex *c, int ldc)
 {
     int    incx = 1, incy = 1;
     int    j;

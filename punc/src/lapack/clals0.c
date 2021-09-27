@@ -14,7 +14,7 @@ static real c_b15 = 0.f;
 static integer c__0 = 0;
 
 /* Subroutine */ int clals0_(integer *icompq, integer *nl, integer *nr, 
-	integer *sqre, integer *nrhs, complex *b, integer *ldb, complex *bx, 
+	integer *sqre, integer *nrhs, realcomplex *b, integer *ldb, realcomplex *bx, 
 	integer *ldbx, integer *perm, integer *givptr, integer *givcol, 
 	integer *ldgcol, real *givnum, integer *ldgnum, real *poles, real *
 	difl, real *difr, real *z__, integer *k, real *c__, real *s, real *
@@ -25,10 +25,10 @@ static integer c__0 = 0;
 	    givnum_offset, poles_dim1, poles_offset, b_dim1, b_offset, 
 	    bx_dim1, bx_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, m, n;
@@ -38,17 +38,17 @@ static integer c__0 = 0;
     static integer jrow;
     extern doublereal snrm2_(integer *, real *, integer *);
     static real diflj, difrj, dsigj;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), sgemv_(char *, integer *, integer *, real *
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), sgemv_(char *, integer *, integer *, real *
 	    , real *, integer *, real *, integer *, real *, real *, integer *,
-	     ftnlen), csrot_(integer *, complex *, integer *, complex *, 
+	     ftnlen), csrot_(integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *, real *, real *);
     extern doublereal slamc3_(real *, real *);
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), csscal_(integer *, real *, complex *, integer *), 
-	    clacpy_(char *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), csscal_(integer *, real *, realcomplex *, integer *), 
+	    clacpy_(char *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
     static real dsigjp;
 
 

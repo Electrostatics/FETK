@@ -7,35 +7,35 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int clatrd_(char *uplo, integer *n, integer *nb, complex *a, 
-	integer *lda, real *e, complex *tau, complex *w, integer *ldw, ftnlen 
+/* Subroutine */ int clatrd_(char *uplo, integer *n, integer *nb, realcomplex *a, 
+	integer *lda, real *e, realcomplex *tau, realcomplex *w, integer *ldw, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, w_dim1, w_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Local variables */
     static integer i__, iw;
-    static complex alpha;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex alpha;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), chemv_(char *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, complex *, 
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), chemv_(char *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, 
 	    integer *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), clarfg_(integer *, complex *, 
-	    complex *, integer *, complex *), clacgv_(integer *, complex *, 
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), clarfg_(integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *), clacgv_(integer *, realcomplex *, 
 	    integer *);
 
 

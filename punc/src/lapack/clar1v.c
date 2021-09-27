@@ -6,17 +6,17 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clar1v_(integer *n, integer *b1, integer *bn, real *
-	sigma, real *d__, real *l, real *ld, real *lld, real *gersch, complex 
+	sigma, real *d__, real *l, real *ld, real *lld, real *gersch, realcomplex 
 	*z__, real *ztz, real *mingma, integer *r__, integer *isuppz, real *
 	work)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
     real r__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j;

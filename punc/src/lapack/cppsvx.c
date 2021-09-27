@@ -10,44 +10,44 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cppsvx_(char *fact, char *uplo, integer *n, integer *
-	nrhs, complex *ap, complex *afp, char *equed, real *s, complex *b, 
-	integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real 
-	*berr, complex *work, real *rwork, integer *info, ftnlen fact_len, 
+	nrhs, realcomplex *ap, realcomplex *afp, char *equed, real *s, realcomplex *b, 
+	integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real 
+	*berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, 
 	ftnlen uplo_len, ftnlen equed_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j;
     static real amax, smin, smax;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real scond, anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical equil, rcequ;
-    extern doublereal clanhp_(char *, char *, integer *, complex *, real *, 
+    extern doublereal clanhp_(char *, char *, integer *, realcomplex *, real *, 
 	    ftnlen, ftnlen), slamch_(char *, ftnlen);
-    extern /* Subroutine */ int claqhp_(char *, integer *, complex *, real *, 
+    extern /* Subroutine */ int claqhp_(char *, integer *, realcomplex *, real *, 
 	    real *, real *, char *, ftnlen, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static real bignum;
-    extern /* Subroutine */ int cppcon_(char *, integer *, complex *, real *, 
-	    real *, complex *, real *, integer *, ftnlen);
+    extern /* Subroutine */ int cppcon_(char *, integer *, realcomplex *, real *, 
+	    real *, realcomplex *, real *, integer *, ftnlen);
     static integer infequ;
-    extern /* Subroutine */ int cppequ_(char *, integer *, complex *, real *, 
+    extern /* Subroutine */ int cppequ_(char *, integer *, realcomplex *, real *, 
 	    real *, real *, integer *, ftnlen), cpprfs_(char *, integer *, 
-	    integer *, complex *, complex *, complex *, integer *, complex *, 
-	    integer *, real *, real *, complex *, real *, integer *, ftnlen), 
-	    cpptrf_(char *, integer *, complex *, integer *, ftnlen);
+	    integer *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, real *, integer *, ftnlen), 
+	    cpptrf_(char *, integer *, realcomplex *, integer *, ftnlen);
     static real smlnum;
-    extern /* Subroutine */ int cpptrs_(char *, integer *, integer *, complex 
-	    *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int cpptrs_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

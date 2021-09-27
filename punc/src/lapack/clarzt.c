@@ -7,26 +7,26 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int clarzt_(char *direct, char *storev, integer *n, integer *
-	k, complex *v, integer *ldv, complex *tau, complex *t, integer *ldt, 
+	k, realcomplex *v, integer *ldv, realcomplex *tau, realcomplex *t, integer *ldt, 
 	ftnlen direct_len, ftnlen storev_len)
 {
     /* System generated locals */
     integer t_dim1, t_offset, v_dim1, v_offset, i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, info;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmv_(char *, char *, char *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
-	    ftnlen), clacgv_(integer *, complex *, integer *), xerbla_(char *,
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
+	    ftnlen), clacgv_(integer *, realcomplex *, integer *), xerbla_(char *,
 	     integer *, ftnlen);
 
 

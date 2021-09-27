@@ -5,17 +5,17 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgesv_(integer *n, integer *nrhs, complex *a, integer *
-	lda, integer *ipiv, complex *b, integer *ldb, integer *info)
+/* Subroutine */ int cgesv_(integer *n, integer *nrhs, realcomplex *a, integer *
+	lda, integer *ipiv, realcomplex *b, integer *ldb, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1;
 
     /* Local variables */
-    extern /* Subroutine */ int cgetrf_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cgetrf_(integer *, integer *, realcomplex *, 
 	    integer *, integer *, integer *), xerbla_(char *, integer *, 
-	    ftnlen), cgetrs_(char *, integer *, integer *, complex *, integer 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+	    ftnlen), cgetrs_(char *, integer *, integer *, realcomplex *, integer 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

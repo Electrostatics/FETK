@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cspr_(char *uplo, integer *n, complex *alpha, complex *x,
-	 integer *incx, complex *ap, ftnlen uplo_len)
+/* Subroutine */ int cspr_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x,
+	 integer *incx, realcomplex *ap, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Local variables */
     static integer i__, j, k, kk, ix, jx, kx, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 

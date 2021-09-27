@@ -28,9 +28,9 @@
 /* 
  * Function prototypes 
  */
-void cusolve(int, int, complex*, complex*);
-void clsolve(int, int, complex*, complex*);
-void cmatvec(int, int, int, complex*, complex*, complex*);
+void cusolve(int, int, realcomplex*, realcomplex*);
+void clsolve(int, int, realcomplex*, realcomplex*);
+void cmatvec(int, int, int, realcomplex*, realcomplex*, realcomplex*);
 
 
 
@@ -50,8 +50,8 @@ int
 ccolumn_bmod (
 	     const int  jcol,	  /* in */
 	     const int  nseg,	  /* in */
-	     complex     *dense,	  /* in */
-	     complex     *tempv,	  /* working array */
+	     realcomplex     *dense,	  /* in */
+	     realcomplex     *tempv,	  /* working array */
 	     int        *segrep,  /* in */
 	     int        *repfnz,  /* in */
 	     int        fpanelc,  /* in -- first column in the current panel */
@@ -66,7 +66,7 @@ ccolumn_bmod (
          ftcs3 = _cptofcd("U", strlen("U"));
 #endif
     int         incx = 1, incy = 1;
-    complex      alpha, beta;
+    realcomplex      alpha, beta;
     
     /* krep = representative of current k-th supernode
      * fsupc = first supernodal column
@@ -76,7 +76,7 @@ ccolumn_bmod (
      * kfnz = first nonz in the k-th supernodal segment
      * no_zeros = no of leading zeros in a supernodal U-segment
      */
-    complex       ukj, ukj1, ukj2;
+    realcomplex       ukj, ukj1, ukj2;
     int          luptr, luptr1, luptr2;
     int          fsupc, nsupc, nsupr, segsze;
     int          nrow;	  /* No of rows in the matrix of matrix-vector */
@@ -89,14 +89,14 @@ ccolumn_bmod (
 			     panel and the first column of the current snode. */
     int          *xsup, *supno;
     int          *lsub, *xlsub;
-    complex       *lusup;
+    realcomplex       *lusup;
     int          *xlusup;
     int          nzlumax;
-    complex       *tempv1;
-    complex      zero = {0.0, 0.0};
-    complex      one = {1.0, 0.0};
-    complex      none = {-1.0, 0.0};
-    complex	 comp_temp, comp_temp1;
+    realcomplex       *tempv1;
+    realcomplex      zero = {0.0, 0.0};
+    realcomplex      one = {1.0, 0.0};
+    realcomplex      none = {-1.0, 0.0};
+    realcomplex	 comp_temp, comp_temp1;
     int          mem_error;
     flops_t      *ops = stat->ops;
 

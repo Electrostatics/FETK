@@ -7,60 +7,60 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int ctgevc_(char *side, char *howmny, logical *select, 
-	integer *n, complex *a, integer *lda, complex *b, integer *ldb, 
-	complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *mm, 
-	integer *m, complex *work, real *rwork, integer *info, ftnlen 
+	integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, 
+	realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *mm, 
+	integer *m, realcomplex *work, real *rwork, integer *info, ftnlen 
 	side_len, ftnlen howmny_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, vl_dim1, vl_offset, vr_dim1, 
 	    vr_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4, r__5, r__6;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
-    static complex d__;
+    static realcomplex d__;
     static integer i__, j;
-    static complex ca, cb;
+    static realcomplex ca, cb;
     static integer je, im, jr;
     static real big;
     static logical lsa, lsb;
     static real ulp;
-    static complex sum;
+    static realcomplex sum;
     static integer ibeg, ieig, iend;
     static real dmin__;
     static integer isrc;
     static real temp;
-    static complex suma, sumb;
+    static realcomplex suma, sumb;
     static real xmax, scale;
     static logical ilall;
     static integer iside;
     static real sbeta;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static real small;
     static logical compl;
     static real anorm, bnorm;
     static logical compr, ilbbad;
     static real acoefa, bcoefa, acoeff;
-    static complex bcoeff;
+    static realcomplex bcoeff;
     static logical ilback;
     extern /* Subroutine */ int slabad_(real *, real *);
     static real ascale, bscale;
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
     extern doublereal slamch_(char *, ftnlen);
-    static complex salpha;
+    static realcomplex salpha;
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real bignum;

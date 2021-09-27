@@ -10,7 +10,7 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctbtrs_(char *uplo, char *trans, char *diag, integer *n, 
-	integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, 
+	integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, 
 	integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, 
 	ftnlen diag_len)
 {
@@ -21,7 +21,7 @@ static integer c__1 = 1;
     static integer j;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctbsv_(char *, char *, char *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, ftnlen, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen, 
 	    ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

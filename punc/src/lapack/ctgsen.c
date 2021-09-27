@@ -10,48 +10,48 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctgsen_(integer *ijob, logical *wantq, logical *wantz, 
-	logical *select, integer *n, complex *a, integer *lda, complex *b, 
-	integer *ldb, complex *alpha, complex *beta, complex *q, integer *ldq,
-	 complex *z__, integer *ldz, integer *m, real *pl, real *pr, real *
-	dif, complex *work, integer *lwork, integer *iwork, integer *liwork, 
+	logical *select, integer *n, realcomplex *a, integer *lda, realcomplex *b, 
+	integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *q, integer *ldq,
+	 realcomplex *z__, integer *ldz, integer *m, real *pl, real *pr, real *
+	dif, realcomplex *work, integer *lwork, integer *iwork, integer *liwork, 
 	integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, q_dim1, q_offset, z_dim1, 
 	    z_offset, i__1, i__2, i__3;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double sqrt(doublereal), c_abs(complex *);
-    void r_cnjg(complex *, complex *);
+    double sqrt(doublereal), c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, k, n1, n2, ks, mn2, ijb, kase, ierr;
     static real dsum;
     static logical swap;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static logical wantd;
     static integer lwmin;
     static logical wantp, wantd1, wantd2;
     static real dscale;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     static real rdscal;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int ctgexc_(logical *, logical *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *, integer *, integer *, integer *), xerbla_(
-	    char *, integer *, ftnlen), classq_(integer *, complex *, integer 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, integer *, integer *), xerbla_(
+	    char *, integer *, ftnlen), classq_(integer *, realcomplex *, integer 
 	    *, real *, real *);
     static integer liwmin;
     extern /* Subroutine */ int ctgsyl_(char *, integer *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, real *, real *, complex *, integer *, integer *, integer *, 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, integer *, integer *, integer *, 
 	    ftnlen);
     static logical lquery;
 
@@ -69,7 +69,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CTGSEN reorders the generalized Schur decomposition of a complex */
+/*  CTGSEN reorders the generalized Schur decomposition of a realcomplex */
 /*  matrix pair (A, B) (in terms of an unitary equivalence trans- */
 /*  formation Q' * (A, B) * Z), so that a selected cluster of eigenvalues */
 /*  appears in the leading diagonal blocks of the pair (A,B). The leading */

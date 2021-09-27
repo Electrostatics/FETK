@@ -10,41 +10,41 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctrsyl_(char *trana, char *tranb, integer *isgn, integer 
-	*m, integer *n, complex *a, integer *lda, complex *b, integer *ldb, 
-	complex *c__, integer *ldc, real *scale, integer *info, ftnlen 
+	*m, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, 
+	realcomplex *c__, integer *ldc, real *scale, integer *info, ftnlen 
 	trana_len, ftnlen tranb_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, i__1, i__2, 
 	    i__3, i__4;
     real r__1, r__2;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k, l;
-    static complex a11;
+    static realcomplex a11;
     static real db;
-    static complex x11;
+    static realcomplex x11;
     static real da11;
-    static complex vec;
+    static realcomplex vec;
     static real dum[1], eps, sgn, smin;
-    static complex suml, sumr;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    static realcomplex suml, sumr;
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Complex */ VOID cdotu_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotu_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern /* Subroutine */ int slabad_(real *, real *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
     static real scaloc;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static real bignum;
     static logical notrna, notrnb;

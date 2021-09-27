@@ -7,29 +7,29 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int cgbtrs_(char *trans, integer *n, integer *kl, integer *
-	ku, integer *nrhs, complex *ab, integer *ldab, integer *ipiv, complex 
+	ku, integer *nrhs, realcomplex *ab, integer *ldab, integer *ipiv, realcomplex 
 	*b, integer *ldb, integer *info, ftnlen trans_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, b_dim1, b_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, l, kd, lm;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cswap_(integer *, complex *, integer *, complex *, integer *), 
-	    ctbsv_(char *, char *, char *, integer *, integer *, complex *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *), 
+	    ctbsv_(char *, char *, char *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical lnoti;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *), 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *), 
 	    xerbla_(char *, integer *, ftnlen);
     static logical notran;
 

@@ -40,13 +40,13 @@
     ===================================================================== 
 </pre>
 */
-double scsum1_(int *n, complex *cx, int *incx)
+double scsum1_(int *n, realcomplex *cx, int *incx)
 {
     /* System generated locals */
     int i__1, i__2;
     float ret_val;
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
     /* Local variables */
     static int i, nincx;
     static float stemp;

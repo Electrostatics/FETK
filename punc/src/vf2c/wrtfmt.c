@@ -315,7 +315,7 @@ w_ed(struct syl *p, char *ptr, ftnlen len)
 	case IM:
 		return(wrt_IM((Uint *)ptr,p->p1,p->p2.i[0],len,10));
 
-		/* O and OM don't work right for character, double, complex, */
+		/* O and OM don't work right for character, double, realcomplex, */
 		/* or doublecomplex, and they differ from Fortran 90 in */
 		/* showing a minus sign for negative values. */
 

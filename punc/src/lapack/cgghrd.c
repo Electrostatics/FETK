@@ -7,36 +7,36 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int cgghrd_(char *compq, char *compz, integer *n, integer *
-	ilo, integer *ihi, complex *a, integer *lda, complex *b, integer *ldb,
-	 complex *q, integer *ldq, complex *z__, integer *ldz, integer *info, 
+	ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *b, integer *ldb,
+	 realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, integer *info, 
 	ftnlen compq_len, ftnlen compz_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, q_dim1, q_offset, z_dim1, 
 	    z_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real c__;
-    static complex s;
+    static realcomplex s;
     static logical ilq, ilz;
     static integer jcol;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
     static integer jrow;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    static complex ctemp;
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), clartg_(complex *, 
-	    complex *, real *, complex *, complex *), xerbla_(char *, integer 
+    static realcomplex ctemp;
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), clartg_(realcomplex *, 
+	    realcomplex *, real *, realcomplex *, realcomplex *), xerbla_(char *, integer 
 	    *, ftnlen);
     static integer icompq, icompz;
 

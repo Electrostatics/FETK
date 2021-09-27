@@ -124,8 +124,8 @@ static integer c__4 = 4;
 /*          to the top left of the Schur form. */
 /*          If SORT = 'N', SELECT is not referenced. */
 /*          An eigenvalue WR(j)+sqrt(-1)*WI(j) is selected if */
-/*          SELECT(WR(j),WI(j)) is true; i.e., if either one of a complex */
-/*          conjugate pair of eigenvalues is selected, then both complex */
+/*          SELECT(WR(j),WI(j)) is true; i.e., if either one of a realcomplex */
+/*          conjugate pair of eigenvalues is selected, then both realcomplex */
 /*          eigenvalues are selected. */
 /*          Note that a selected complex eigenvalue may no longer */
 /*          satisfy SELECT(WR(j),WI(j)) = .TRUE. after ordering, since */

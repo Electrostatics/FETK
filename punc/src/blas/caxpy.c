@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int caxpy_(integer *n, complex *ca, complex *cx, integer *
-	incx, complex *cy, integer *incy)
+/* Subroutine */ int caxpy_(integer *n, realcomplex *ca, realcomplex *cx, integer *
+	incx, realcomplex *cy, integer *incy)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, ix, iy;

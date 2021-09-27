@@ -43,7 +43,7 @@ static real c_b4 = 1.f;
 
 /*  where either */
 /*  1) CC = 0 so that AA and DD are real eigenvalues of the matrix, or */
-/*  2) AA = DD and BB*CC < 0, so that AA + or - sqrt(BB*CC) are complex */
+/*  2) AA = DD and BB*CC < 0, so that AA + or - sqrt(BB*CC) are realcomplex */
 /*  conjugate eigenvalues. */
 
 /*  Arguments */

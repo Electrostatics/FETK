@@ -7,14 +7,14 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c__0 = 0;
 
-/* Subroutine */ int cggev_(char *jobvl, char *jobvr, integer *n, complex *a, 
-	integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta,
-	 complex *vl, integer *ldvl, complex *vr, integer *ldvr, complex *
+/* Subroutine */ int cggev_(char *jobvl, char *jobvr, integer *n, realcomplex *a, 
+	integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta,
+	 realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, realcomplex *
 	work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, 
 	ftnlen jobvr_len)
 {
@@ -22,10 +22,10 @@ static integer c__0 = 0;
     integer a_dim1, a_offset, b_dim1, b_offset, vl_dim1, vl_offset, vr_dim1, 
 	    vr_offset, i__1, i__2, i__3, i__4;
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_imag(complex *);
+    double sqrt(doublereal), r_imag(realcomplex *);
 
     /* Local variables */
     static integer jc, in, jr, ihi, ilo;
@@ -39,46 +39,46 @@ static integer c__0 = 0;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer ileft, icols, irwrk, irows;
     extern /* Subroutine */ int cggbak_(char *, char *, integer *, integer *, 
-	    integer *, real *, real *, integer *, complex *, integer *, 
-	    integer *, ftnlen, ftnlen), cggbal_(char *, integer *, complex *, 
-	    integer *, complex *, integer *, integer *, integer *, real *, 
+	    integer *, real *, real *, integer *, realcomplex *, integer *, 
+	    integer *, ftnlen, ftnlen), cggbal_(char *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, integer *, integer *, real *, 
 	    real *, real *, integer *, ftnlen), slabad_(real *, real *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
     extern /* Subroutine */ int cgghrd_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
-	    integer *, complex *, integer *, integer *, ftnlen, ftnlen), 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, integer *, ftnlen, ftnlen), 
 	    clascl_(char *, integer *, integer *, real *, real *, integer *, 
-	    integer *, complex *, integer *, integer *, ftnlen);
+	    integer *, realcomplex *, integer *, integer *, ftnlen);
     static logical ilascl, ilbscl;
-    extern /* Subroutine */ int cgeqrf_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, integer *);
+    extern /* Subroutine */ int cgeqrf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), claset_(char *, 
-	    integer *, integer *, complex *, complex *, complex *, integer *, 
-	    ftnlen), ctgevc_(char *, char *, logical *, integer *, complex *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
-	    integer *, integer *, integer *, complex *, real *, integer *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), claset_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, realcomplex *, integer *, 
+	    ftnlen), ctgevc_(char *, char *, logical *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, integer *, integer *, realcomplex *, real *, integer *, 
 	    ftnlen, ftnlen), xerbla_(char *, integer *, ftnlen);
     static logical ldumma[1];
     static char chtemp[1];
     static real bignum;
     extern /* Subroutine */ int chgeqz_(char *, char *, char *, integer *, 
-	    integer *, integer *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *, real *, integer *, ftnlen, ftnlen, ftnlen);
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, integer *, ftnlen, ftnlen, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     static integer ijobvl, iright, ijobvr;
     extern /* Subroutine */ int cungqr_(integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, integer *);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, integer *);
     static real anrmto;
     static integer lwkmin;
     static real bnrmto;
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static real smlnum;
     static integer lwkopt;
     static logical lquery;

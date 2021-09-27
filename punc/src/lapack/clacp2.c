@@ -6,7 +6,7 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clacp2_(char *uplo, integer *m, integer *n, real *a, 
-	integer *lda, complex *b, integer *ldb, ftnlen uplo_len)
+	integer *lda, realcomplex *b, integer *ldb, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4;

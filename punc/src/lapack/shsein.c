@@ -98,7 +98,7 @@ static logical c_true = TRUE_;
 /*  SELECT  (input/output) LOGICAL array, dimension (N) */
 /*          Specifies the eigenvectors to be computed. To select the */
 /*          real eigenvector corresponding to a real eigenvalue WR(j), */
-/*          SELECT(j) must be set to .TRUE.. To select the complex */
+/*          SELECT(j) must be set to .TRUE.. To select the realcomplex */
 /*          eigenvector corresponding to a complex eigenvalue */
 /*          (WR(j),WI(j)), with complex conjugate (WR(j+1),WI(j+1)), */
 /*          either SELECT(j) or SELECT(j+1) or both must be set to */

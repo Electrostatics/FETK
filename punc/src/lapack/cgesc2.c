@@ -8,31 +8,31 @@
 /* Table of constant values */
 
 static integer c__1 = 1;
-static complex c_b13 = {1.f,0.f};
+static realcomplex c_b13 = {1.f,0.f};
 static integer c_n1 = -1;
 
-/* Subroutine */ int cgesc2_(integer *n, complex *a, integer *lda, complex *
+/* Subroutine */ int cgesc2_(integer *n, realcomplex *a, integer *lda, realcomplex *
 	rhs, integer *ipiv, integer *jpiv, real *scale)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void c_div(complex *, complex *, complex *);
+    double c_abs(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;
     static real eps;
-    static complex temp;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex temp;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *), slabad_(real *, real *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     static real bignum;
-    extern /* Subroutine */ int claswp_(integer *, complex *, integer *, 
+    extern /* Subroutine */ int claswp_(integer *, realcomplex *, integer *, 
 	    integer *, integer *, integer *, integer *);
     static real smlnum;
 

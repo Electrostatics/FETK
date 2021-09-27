@@ -42,7 +42,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZHECON estimates the reciprocal of the condition number of a complex */
+/*  ZHECON estimates the reciprocal of the condition number of a realcomplex */
 /*  Hermitian matrix A using the factorization A = U*D*U**H or */
 /*  A = L*D*L**H computed by ZHETRF. */
 

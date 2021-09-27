@@ -11,8 +11,8 @@ static real c_b11 = 1.f;
 static integer c__1 = 1;
 
 /* Subroutine */ int chbev_(char *jobz, char *uplo, integer *n, integer *kd, 
-	complex *ab, integer *ldab, real *w, complex *z__, integer *ldz, 
-	complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen 
+	realcomplex *ab, integer *ldab, real *w, realcomplex *z__, integer *ldz, 
+	realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -32,13 +32,13 @@ static integer c__1 = 1;
     static integer iinfo;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static logical lower, wantz;
-    extern doublereal clanhb_(char *, char *, integer *, integer *, complex *,
+    extern doublereal clanhb_(char *, char *, integer *, integer *, realcomplex *,
 	     integer *, real *, ftnlen, ftnlen);
     static integer iscale;
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), chbtrd_(char *, char *, integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, integer *, complex *, 
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), chbtrd_(char *, char *, integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
     static real safmin;
@@ -46,7 +46,7 @@ static integer c__1 = 1;
     static real bignum;
     static integer indrwk;
     extern /* Subroutine */ int csteqr_(char *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
+	    realcomplex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
 	    *, real *, real *, integer *);
     static real smlnum;
 

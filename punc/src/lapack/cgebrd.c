@@ -7,33 +7,33 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__3 = 3;
 static integer c__2 = 2;
 
-/* Subroutine */ int cgebrd_(integer *m, integer *n, complex *a, integer *lda,
-	 real *d__, real *e, complex *tauq, complex *taup, complex *work, 
+/* Subroutine */ int cgebrd_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 real *d__, real *e, realcomplex *tauq, realcomplex *taup, realcomplex *work, 
 	integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, nb, nx;
     static real ws;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     static integer nbmin, iinfo, minmn;
-    extern /* Subroutine */ int cgebd2_(integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, complex *, complex *, 
-	    integer *), clabrd_(integer *, integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, complex *, complex *, 
-	    integer *, complex *, integer *), xerbla_(char *, integer *, 
+    extern /* Subroutine */ int cgebd2_(integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, realcomplex *, realcomplex *, 
+	    integer *), clabrd_(integer *, integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), xerbla_(char *, integer *, 
 	    ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
@@ -138,7 +138,7 @@ static integer c__2 = 2;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors; v(1:i-1) = 0, v(i) = 1, and v(i+1:m) is stored on exit in */
 /*  A(i+1:m,i); u(1:i) = 0, u(i+1) = 1, and u(i+2:n) is stored on exit in */
 /*  A(i,i+2:n); tauq is stored in TAUQ(i) and taup in TAUP(i). */
@@ -151,7 +151,7 @@ static integer c__2 = 2;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors; v(1:i) = 0, v(i+1) = 1, and v(i+2:m) is stored on exit in */
 /*  A(i+2:m,i); u(1:i-1) = 0, u(i) = 1, and u(i+1:n) is stored on exit in */
 /*  A(i,i+1:n); tauq is stored in TAUQ(i) and taup in TAUP(i). */

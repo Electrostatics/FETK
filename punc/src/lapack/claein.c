@@ -10,33 +10,33 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int claein_(logical *rightv, logical *noinit, integer *n, 
-	complex *h__, integer *ldh, complex *w, complex *v, complex *b, 
+	realcomplex *h__, integer *ldh, realcomplex *w, realcomplex *v, realcomplex *b, 
 	integer *ldb, real *rwork, real *eps3, real *smlnum, integer *info)
 {
     /* System generated locals */
     integer b_dim1, b_offset, h_dim1, h_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_imag(complex *);
+    double sqrt(doublereal), r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j;
-    static complex x, ei, ej;
+    static realcomplex x, ei, ej;
     static integer its, ierr;
-    static complex temp;
+    static realcomplex temp;
     static real scale;
     static char trans[1];
     static real rtemp, rootn, vnorm;
-    extern doublereal scnrm2_(integer *, complex *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
-	    *), clatrs_(char *, char *, char *, char *, integer *, complex *, 
-	    integer *, complex *, real *, real *, integer *, ftnlen, ftnlen, 
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
+	    *), clatrs_(char *, char *, char *, char *, integer *, realcomplex *, 
+	    integer *, realcomplex *, real *, real *, integer *, ftnlen, ftnlen, 
 	    ftnlen, ftnlen);
-    extern doublereal scasum_(integer *, complex *, integer *);
+    extern doublereal scasum_(integer *, realcomplex *, integer *);
     static char normin[1];
     static real nrmsml, growto;
 

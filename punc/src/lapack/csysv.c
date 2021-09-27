@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int csysv_(char *uplo, integer *n, integer *nrhs, complex *a,
-	 integer *lda, integer *ipiv, complex *b, integer *ldb, complex *work,
+/* Subroutine */ int csysv_(char *uplo, integer *n, integer *nrhs, realcomplex *a,
+	 integer *lda, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *work,
 	 integer *lwork, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -23,12 +23,12 @@ static integer c_n1 = -1;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
-    extern /* Subroutine */ int csytrf_(char *, integer *, complex *, integer 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csytrf_(char *, integer *, realcomplex *, integer 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static integer lwkopt;
     static logical lquery;
-    extern /* Subroutine */ int csytrs_(char *, integer *, integer *, complex 
-	    *, integer *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csytrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

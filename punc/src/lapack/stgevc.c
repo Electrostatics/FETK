@@ -104,7 +104,7 @@ static logical c_false = FALSE_;
 /*  A. */
 
 /*  A must be block upper triangular, with 1-by-1 and 2-by-2 diagonal */
-/*  blocks.  Corresponding to each 2-by-2 diagonal block is a complex */
+/*  blocks.  Corresponding to each 2-by-2 diagonal block is a realcomplex */
 /*  conjugate pair of eigenvalues and eigenvectors; only one */
 /*  eigenvector of the pair is computed, namely the one corresponding */
 /*  to the eigenvalue with positive imaginary part. */
@@ -207,7 +207,7 @@ static logical c_false = FALSE_;
 /*  INFO    (output) INTEGER */
 /*          = 0:  successful exit. */
 /*          < 0:  if INFO = -i, the i-th argument had an illegal value. */
-/*          > 0:  the 2-by-2 block (INFO:INFO+1) does not have a complex */
+/*          > 0:  the 2-by-2 block (INFO:INFO+1) does not have a realcomplex */
 /*                eigenvalue. */
 
 /*  Further Details */

@@ -484,7 +484,7 @@ rd_ed(struct syl *p, char *ptr, ftnlen len)
 	case I: ch = rd_I((Uint *)ptr,p->p1,len, 10);
 		break;
 
-		/* O and OM don't work right for character, double, complex, */
+		/* O and OM don't work right for character, double, realcomplex, */
 		/* or doublecomplex, and they differ from Fortran 90 in */
 		/* showing a minus sign for negative values. */
 

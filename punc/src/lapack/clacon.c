@@ -9,16 +9,16 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int clacon_(integer *n, complex *v, complex *x, real *est, 
+/* Subroutine */ int clacon_(integer *n, realcomplex *v, realcomplex *x, real *est, 
 	integer *kase)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *), r_imag(complex *);
+    double c_abs(realcomplex *), r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, iter;
@@ -26,10 +26,10 @@ static integer c__1 = 1;
     static integer jump;
     static real absxi;
     static integer jlast;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    extern integer icmax1_(integer *, complex *, integer *);
-    extern doublereal scsum1_(integer *, complex *, integer *), slamch_(char *
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    extern integer icmax1_(integer *, realcomplex *, integer *);
+    extern doublereal scsum1_(integer *, realcomplex *, integer *), slamch_(char *
 	    , ftnlen);
     static real safmin, altsgn, estold;
 

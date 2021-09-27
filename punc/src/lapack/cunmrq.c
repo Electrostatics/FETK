@@ -13,8 +13,8 @@ static integer c__2 = 2;
 static integer c__65 = 65;
 
 /* Subroutine */ int cunmrq_(char *side, char *trans, integer *m, integer *n, 
-	integer *k, complex *a, integer *lda, complex *tau, complex *c__, 
-	integer *ldc, complex *work, integer *lwork, integer *info, ftnlen 
+	integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, 
+	integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen 
 	side_len, ftnlen trans_len)
 {
     /* System generated locals */
@@ -28,18 +28,18 @@ static integer c__65 = 65;
 
     /* Local variables */
     static integer i__;
-    static complex t[4160]	/* was [65][64] */;
+    static realcomplex t[4160]	/* was [65][64] */;
     static integer i1, i2, i3, ib, nb, mi, ni, nq, nw, iws;
     static logical left;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nbmin, iinfo;
     extern /* Subroutine */ int cunmr2_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, ftnlen, ftnlen), clarfb_(char *, char *, 
-	    char *, char *, integer *, integer *, integer *, complex *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen, ftnlen), clarfb_(char *, char *, 
+	    char *, char *, integer *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), clarft_(char *, char *
-	    , integer *, integer *, complex *, integer *, complex *, complex *
+	    , integer *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

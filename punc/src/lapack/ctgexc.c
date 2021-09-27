@@ -6,8 +6,8 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int ctgexc_(logical *wantq, logical *wantz, integer *n, 
-	complex *a, integer *lda, complex *b, integer *ldb, complex *q, 
-	integer *ldq, complex *z__, integer *ldz, integer *ifst, integer *
+	realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *q, 
+	integer *ldq, realcomplex *z__, integer *ldz, integer *ifst, integer *
 	ilst, integer *info)
 {
     /* System generated locals */
@@ -17,8 +17,8 @@
     /* Local variables */
     static integer here;
     extern /* Subroutine */ int ctgex2_(logical *, logical *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *, integer *, integer *), xerbla_(char *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, integer *), xerbla_(char *, 
 	    integer *, ftnlen);
 
 
@@ -35,7 +35,7 @@
 /*  Purpose */
 /*  ======= */
 
-/*  CTGEXC reorders the generalized Schur decomposition of a complex */
+/*  CTGEXC reorders the generalized Schur decomposition of a realcomplex */
 /*  matrix pair (A,B), using an unitary equivalence transformation */
 /*  (A, B) := Q * (A, B) * Z', so that the diagonal block of (A, B) with */
 /*  row index IFST is moved to row ILST. */

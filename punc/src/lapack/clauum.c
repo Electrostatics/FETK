@@ -7,12 +7,12 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static real c_b21 = 1.f;
 
-/* Subroutine */ int clauum_(char *uplo, integer *n, complex *a, integer *lda,
+/* Subroutine */ int clauum_(char *uplo, integer *n, realcomplex *a, integer *lda,
 	 integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -21,16 +21,16 @@ static real c_b21 = 1.f;
     /* Local variables */
     static integer i__, ib, nb;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen), cherk_(char *, 
-	    char *, integer *, integer *, real *, complex *, integer *, real *
-	    , complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen), cherk_(char *, 
+	    char *, integer *, integer *, real *, realcomplex *, integer *, real *
+	    , realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clauu2_(char *, integer *, complex *, integer 
+    extern /* Subroutine */ int clauu2_(char *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

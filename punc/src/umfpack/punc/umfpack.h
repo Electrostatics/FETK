@@ -190,7 +190,7 @@ extern "C" {
 #define UMFPACK_SIZE_OF_INT 4		/* sizeof (int) */
 #define UMFPACK_SIZE_OF_LONG 5		/* sizeof (UF_long) */
 #define UMFPACK_SIZE_OF_POINTER 6	/* sizeof (void *) */
-#define UMFPACK_SIZE_OF_ENTRY 7		/* sizeof (Entry), real or complex */
+#define UMFPACK_SIZE_OF_ENTRY 7		/* sizeof (Entry), real or realcomplex */
 #define UMFPACK_NDENSE_ROW 8		/* number of dense rows */
 #define UMFPACK_NEMPTY_ROW 9		/* number of empty rows */
 #define UMFPACK_NDENSE_COL 10		/* number of dense rows */

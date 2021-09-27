@@ -7,18 +7,18 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int clarrv_(integer *n, real *d__, real *l, integer *isplit, 
 	integer *m, real *w, integer *iblock, real *gersch, real *tol, 
-	complex *z__, integer *ldz, integer *isuppz, real *work, integer *
+	realcomplex *z__, integer *ldz, integer *isuppz, real *work, integer *
 	iwork, integer *info)
 {
     /* System generated locals */
     integer z_dim1, z_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -30,30 +30,30 @@ static integer c__1 = 1;
     static real sigma;
     static integer ndone, iinfo, iindr;
     static real resid;
-    extern /* Complex */ VOID cdotu_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotu_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     static integer nclus;
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), scopy_(integer *, real *, 
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), scopy_(integer *, real *, 
 	    integer *, real *, integer *);
     static integer iindc1, iindc2, indin1, indin2;
     extern /* Subroutine */ int clar1v_(integer *, integer *, integer *, real 
-	    *, real *, real *, real *, real *, real *, complex *, real *, 
+	    *, real *, real *, real *, real *, real *, realcomplex *, real *, 
 	    real *, integer *, integer *, real *);
-    extern doublereal scnrm2_(integer *, complex *, integer *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
     static real lambda;
     static integer ibegin, indgap, indlld;
     extern doublereal slamch_(char *, ftnlen);
     static real mingma;
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
     static integer oldien, oldncl;
     static real relgap;
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen);
     static integer oldcls, ndepth, inderr, iindwk;
     extern /* Subroutine */ int cstein_(integer *, real *, real *, integer *, 
-	    real *, integer *, integer *, complex *, integer *, real *, 
+	    real *, integer *, integer *, realcomplex *, integer *, real *, 
 	    integer *, integer *, integer *), slarrb_(integer *, real *, real 
 	    *, real *, real *, integer *, integer *, real *, real *, real *, 
 	    real *, real *, real *, integer *, integer *);

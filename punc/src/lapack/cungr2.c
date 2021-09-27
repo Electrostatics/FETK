@@ -5,22 +5,22 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cungr2_(integer *m, integer *n, integer *k, complex *a, 
-	integer *lda, complex *tau, complex *work, integer *info)
+/* Subroutine */ int cungr2_(integer *m, integer *n, integer *k, realcomplex *a, 
+	integer *lda, realcomplex *tau, realcomplex *work, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, l, ii;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), clarf_(char *, integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, complex *, ftnlen), 
-	    clacgv_(integer *, complex *, integer *), xerbla_(char *, integer 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), clarf_(char *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen), 
+	    clacgv_(integer *, realcomplex *, integer *), xerbla_(char *, integer 
 	    *, ftnlen);
 
 

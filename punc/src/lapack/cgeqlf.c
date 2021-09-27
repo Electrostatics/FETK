@@ -12,20 +12,20 @@ static integer c_n1 = -1;
 static integer c__3 = 3;
 static integer c__2 = 2;
 
-/* Subroutine */ int cgeqlf_(integer *m, integer *n, complex *a, integer *lda,
-	 complex *tau, complex *work, integer *lwork, integer *info)
+/* Subroutine */ int cgeqlf_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4;
 
     /* Local variables */
     static integer i__, k, ib, nb, ki, kk, mu, nu, nx, iws, nbmin, iinfo;
-    extern /* Subroutine */ int cgeql2_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *), clarfb_(char *, char 
-	    *, char *, char *, integer *, integer *, integer *, complex *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int cgeql2_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *), clarfb_(char *, char 
+	    *, char *, char *, integer *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), clarft_(char *, char *
-	    , integer *, integer *, complex *, integer *, complex *, complex *
+	    , integer *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

@@ -7,48 +7,48 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int cgbbrd_(char *vect, integer *m, integer *n, integer *ncc,
-	 integer *kl, integer *ku, complex *ab, integer *ldab, real *d__, 
-	real *e, complex *q, integer *ldq, complex *pt, integer *ldpt, 
-	complex *c__, integer *ldc, complex *work, real *rwork, integer *info,
+	 integer *kl, integer *ku, realcomplex *ab, integer *ldab, real *d__, 
+	real *e, realcomplex *q, integer *ldq, realcomplex *pt, integer *ldpt, 
+	realcomplex *c__, integer *ldc, realcomplex *work, real *rwork, integer *info,
 	 ftnlen vect_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, c_dim1, c_offset, pt_dim1, pt_offset, q_dim1, 
 	    q_offset, i__1, i__2, i__3, i__4, i__5, i__6, i__7;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j, l;
-    static complex t;
+    static realcomplex t;
     static integer j1, j2, kb;
-    static complex ra, rb;
+    static realcomplex ra, rb;
     static real rc;
     static integer kk, ml, nr, mu;
-    static complex rs;
+    static realcomplex rs;
     static integer kb1, ml0, mu0, klm, kun, nrt, klu1, inca;
     static real abst;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *), cscal_(integer *, 
-	    complex *, complex *, integer *);
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *), cscal_(integer *, 
+	    realcomplex *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical wantb, wantc;
     static integer minmn;
     static logical wantq;
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), clartg_(complex *, 
-	    complex *, real *, complex *, complex *), xerbla_(char *, integer 
-	    *, ftnlen), clargv_(integer *, complex *, integer *, complex *, 
-	    integer *, real *, integer *), clartv_(integer *, complex *, 
-	    integer *, complex *, integer *, real *, complex *, integer *);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), clartg_(realcomplex *, 
+	    realcomplex *, real *, realcomplex *, realcomplex *), xerbla_(char *, integer 
+	    *, ftnlen), clargv_(integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, real *, integer *), clartv_(integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, realcomplex *, integer *);
     static logical wantpt;
 
 

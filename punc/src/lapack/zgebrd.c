@@ -140,7 +140,7 @@ static integer c__2 = 2;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors; v(1:i-1) = 0, v(i) = 1, and v(i+1:m) is stored on exit in */
 /*  A(i+1:m,i); u(1:i) = 0, u(i+1) = 1, and u(i+2:n) is stored on exit in */
 /*  A(i,i+2:n); tauq is stored in TAUQ(i) and taup in TAUP(i). */
@@ -153,7 +153,7 @@ static integer c__2 = 2;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors; v(1:i) = 0, v(i+1) = 1, and v(i+2:m) is stored on exit in */
 /*  A(i+2:m,i); u(1:i-1) = 0, u(i) = 1, and u(i+1:n) is stored on exit in */
 /*  A(i,i+1:n); tauq is stored in TAUQ(i) and taup in TAUP(i). */

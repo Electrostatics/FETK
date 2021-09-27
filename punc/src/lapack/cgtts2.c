@@ -6,19 +6,19 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgtts2_(integer *itrans, integer *n, integer *nrhs, 
-	complex *dl, complex *d__, complex *du, complex *du2, integer *ipiv, 
-	complex *b, integer *ldb)
+	realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, 
+	realcomplex *b, integer *ldb)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2, i__3, i__4, i__5, i__6, i__7, i__8;
-    complex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *), r_cnjg(complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *), r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;
-    static complex temp;
+    static realcomplex temp;
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

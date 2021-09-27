@@ -101,7 +101,7 @@ static logical c_true = TRUE_;
 
 /*  LREAL   (input) LOGICAL */
 /*          On entry, LREAL specifies the input matrix structure: */
-/*             = .FALSE.,    the input is complex */
+/*             = .FALSE.,    the input is realcomplex */
 /*             = .TRUE.,     the input is real */
 
 /*  N       (input) INTEGER */

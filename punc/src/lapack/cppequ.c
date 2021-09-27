@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cppequ_(char *uplo, integer *n, complex *ap, real *s, 
+/* Subroutine */ int cppequ_(char *uplo, integer *n, realcomplex *ap, real *s, 
 	real *scond, real *amax, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */

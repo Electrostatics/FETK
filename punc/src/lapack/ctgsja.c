@@ -7,53 +7,53 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static real c_b39 = -1.f;
 static real c_b42 = 1.f;
 
 /* Subroutine */ int ctgsja_(char *jobu, char *jobv, char *jobq, integer *m, 
-	integer *p, integer *n, integer *k, integer *l, complex *a, integer *
-	lda, complex *b, integer *ldb, real *tola, real *tolb, real *alpha, 
-	real *beta, complex *u, integer *ldu, complex *v, integer *ldv, 
-	complex *q, integer *ldq, complex *work, integer *ncycle, integer *
+	integer *p, integer *n, integer *k, integer *l, realcomplex *a, integer *
+	lda, realcomplex *b, integer *ldb, real *tola, real *tolb, real *alpha, 
+	real *beta, realcomplex *u, integer *ldu, realcomplex *v, integer *ldv, 
+	realcomplex *q, integer *ldq, realcomplex *work, integer *ncycle, integer *
 	info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, q_dim1, q_offset, u_dim1, 
 	    u_offset, v_dim1, v_offset, i__1, i__2, i__3, i__4;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;
     static real a1, b1, a3, b3;
-    static complex a2, b2;
+    static realcomplex a2, b2;
     static real csq, csu, csv;
-    static complex snq;
+    static realcomplex snq;
     static real rwk;
-    static complex snu, snv;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
+    static realcomplex snu, snv;
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
     static real gamma;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical initq, initu, initv, wantq, upper;
     static real error, ssmin;
     static logical wantu, wantv;
-    extern /* Subroutine */ int clags2_(logical *, real *, complex *, real *, 
-	    real *, complex *, real *, real *, complex *, real *, complex *, 
-	    real *, complex *), clapll_(integer *, complex *, integer *, 
-	    complex *, integer *, real *), csscal_(integer *, real *, complex 
+    extern /* Subroutine */ int clags2_(logical *, real *, realcomplex *, real *, 
+	    real *, realcomplex *, real *, real *, realcomplex *, real *, realcomplex *, 
+	    real *, realcomplex *), clapll_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *), csscal_(integer *, real *, realcomplex 
 	    *, integer *);
     static integer kcycle;
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen), slartg_(real *, real *, real *, real *, real *
 	    );
 

@@ -9,9 +9,9 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cgtcon_(char *norm, integer *n, complex *dl, complex *
-	d__, complex *du, complex *du2, integer *ipiv, real *anorm, real *
-	rcond, complex *work, integer *info, ftnlen norm_len)
+/* Subroutine */ int cgtcon_(char *norm, integer *n, realcomplex *dl, realcomplex *
+	d__, realcomplex *du, realcomplex *du2, integer *ipiv, real *anorm, real *
+	rcond, realcomplex *work, integer *info, ftnlen norm_len)
 {
     /* System generated locals */
     integer i__1, i__2;
@@ -19,12 +19,12 @@ static integer c__1 = 1;
     /* Local variables */
     static integer i__, kase, kase1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *), xerbla_(char *, integer *, ftnlen);
     static real ainvnm;
     static logical onenrm;
-    extern /* Subroutine */ int cgttrs_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, complex *, integer *, complex *, integer 
+    extern /* Subroutine */ int cgttrs_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen);
 
 
@@ -41,7 +41,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CGTCON estimates the reciprocal of the condition number of a complex */
+/*  CGTCON estimates the reciprocal of the condition number of a realcomplex */
 /*  tridiagonal matrix A using the LU factorization as computed by */
 /*  CGTTRF. */
 

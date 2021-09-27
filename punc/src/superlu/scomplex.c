@@ -19,7 +19,7 @@
 
 
 /*! \brief Complex Division c = a/b */
-void c_div(complex *c, complex *a, complex *b)
+void c_div(realcomplex *c, realcomplex *a, realcomplex *b)
 {
     float ratio, den;
     float abr, abi, cr, ci;
@@ -49,7 +49,7 @@ void c_div(complex *c, complex *a, complex *b)
 
 
 /*! \brief Returns sqrt(z.r^2 + z.i^2) */
-double c_abs(complex *z)
+double c_abs(realcomplex *z)
 {
     float temp;
     float real = z->r;
@@ -71,7 +71,7 @@ double c_abs(complex *z)
 
 
 /*! \brief Approximates the abs. Returns abs(z.r) + abs(z.i) */
-double c_abs1(complex *z)
+double c_abs1(realcomplex *z)
 {
     float real = z->r;
     float imag = z->i;
@@ -83,7 +83,7 @@ double c_abs1(complex *z)
 }
 
 /*! \brief Return the exponentiation */
-void c_exp(complex *r, complex *z)
+void c_exp(realcomplex *r, realcomplex *z)
 {
     float expx;
 
@@ -93,14 +93,14 @@ void c_exp(complex *r, complex *z)
 }
 
 /*! \brief Return the complex conjugate */
-void r_cnjg(complex *r, complex *z)
+void r_cnjg(realcomplex *r, realcomplex *z)
 {
     r->r = z->r;
     r->i = -z->i;
 }
 
 /*! \brief Return the imaginary part */
-double r_imag(complex *z)
+double r_imag(realcomplex *z)
 {
     return (z->i);
 }

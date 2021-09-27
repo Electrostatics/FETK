@@ -10,7 +10,7 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctptrs_(char *uplo, char *trans, char *diag, integer *n, 
-	integer *nrhs, complex *ap, complex *b, integer *ldb, integer *info, 
+	integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, integer *info, 
 	ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len)
 {
     /* System generated locals */
@@ -21,7 +21,7 @@ static integer c__1 = 1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), xerbla_(
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), xerbla_(
 	    char *, integer *, ftnlen);
     static logical nounit;
 

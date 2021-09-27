@@ -7,31 +7,31 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cgetrf_(integer *m, integer *n, complex *a, integer *lda,
+/* Subroutine */ int cgetrf_(integer *m, integer *n, realcomplex *a, integer *lda,
 	 integer *ipiv, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, jb, nb;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     static integer iinfo;
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), cgetf2_(integer *, 
-	    integer *, complex *, integer *, integer *, integer *), xerbla_(
+	    integer *, realcomplex *, integer *, integer *, integer *), xerbla_(
 	    char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
-    extern /* Subroutine */ int claswp_(integer *, complex *, integer *, 
+    extern /* Subroutine */ int claswp_(integer *, realcomplex *, integer *, 
 	    integer *, integer *, integer *, integer *);
 
 

@@ -7,20 +7,20 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int chptri_(char *uplo, integer *n, complex *ap, integer *
-	ipiv, complex *work, integer *info, ftnlen uplo_len)
+/* Subroutine */ int chptri_(char *uplo, integer *n, realcomplex *ap, integer *
+	ipiv, realcomplex *work, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void r_cnjg(complex *, complex *);
+    double c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real d__;
@@ -28,14 +28,14 @@ static integer c__1 = 1;
     static real t, ak;
     static integer kc, kp, kx, kpc, npp;
     static real akp1;
-    static complex temp, akkp1;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    static realcomplex temp, akkp1;
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), chpmv_(char *, integer *, complex *, 
-	    complex *, complex *, integer *, complex *, complex *, integer *, 
-	    ftnlen), cswap_(integer *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), chpmv_(char *, integer *, realcomplex *, 
+	    realcomplex *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    ftnlen), cswap_(integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *);
     static integer kstep;
     static logical upper;

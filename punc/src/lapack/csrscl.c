@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int csrscl_(integer *n, real *sa, complex *sx, integer *incx)
+/* Subroutine */ int csrscl_(integer *n, real *sa, realcomplex *sx, integer *incx)
 {
     static real mul, cden;
     static logical done;
     static real cnum, cden1, cnum1;
     extern /* Subroutine */ int slabad_(real *, real *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
     static real bignum, smlnum;
 

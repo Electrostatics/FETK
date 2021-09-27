@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clacrt_(integer *n, complex *cx, integer *incx, complex *
-	cy, integer *incy, complex *c__, complex *s)
+/* Subroutine */ int clacrt_(integer *n, realcomplex *cx, integer *incx, realcomplex *
+	cy, integer *incy, realcomplex *c__, realcomplex *s)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Local variables */
     static integer i__, ix, iy;
-    static complex ctemp;
+    static realcomplex ctemp;
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

@@ -11,33 +11,33 @@ static integer c__2 = 2;
 static integer c__1 = 1;
 
 /* Subroutine */ int ctgsy2_(char *trans, integer *ijob, integer *m, integer *
-	n, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, 
-	integer *ldc, complex *d__, integer *ldd, complex *e, integer *lde, 
-	complex *f, integer *ldf, real *scale, real *rdsum, real *rdscal, 
+	n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, 
+	integer *ldc, realcomplex *d__, integer *ldd, realcomplex *e, integer *lde, 
+	realcomplex *f, integer *ldf, real *scale, real *rdsum, real *rdscal, 
 	integer *info, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, d_dim1, 
 	    d_offset, e_dim1, e_offset, f_dim1, f_offset, i__1, i__2, i__3, 
 	    i__4;
-    complex q__1, q__2, q__3, q__4, q__5, q__6;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
-    static complex z__[4]	/* was [2][2] */, rhs[2];
+    static realcomplex z__[4]	/* was [2][2] */, rhs[2];
     static integer ierr, ipiv[2], jpiv[2];
-    static complex alpha;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex alpha;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), cgesc2_(integer *, complex *, 
-	    integer *, complex *, integer *, integer *, real *), cgetc2_(
-	    integer *, complex *, integer *, integer *, integer *, integer *),
-	     clatdf_(integer *, integer *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), cgesc2_(integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, integer *, real *), cgetc2_(
+	    integer *, realcomplex *, integer *, integer *, integer *, integer *),
+	     clatdf_(integer *, integer *, realcomplex *, integer *, realcomplex *, 
 	    real *, real *, integer *, integer *);
     static real scaloc;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

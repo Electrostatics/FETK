@@ -86,7 +86,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZGBSVX uses the LU factorization to compute the solution to a complex */
+/*  ZGBSVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations A * X = B, A**T * X = B, or A**H * X = B, */
 /*  where A is a band matrix of order N with KL subdiagonals and KU */
 /*  superdiagonals, and X and B are N-by-NRHS matrices. */

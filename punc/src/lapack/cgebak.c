@@ -6,7 +6,7 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgebak_(char *job, char *side, integer *n, integer *ilo, 
-	integer *ihi, real *scale, integer *m, complex *v, integer *ldv, 
+	integer *ihi, real *scale, integer *m, realcomplex *v, integer *ldv, 
 	integer *info, ftnlen job_len, ftnlen side_len)
 {
     /* System generated locals */
@@ -17,10 +17,10 @@
     static real s;
     static integer ii;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical leftv;
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static logical rightv;
 

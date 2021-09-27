@@ -7,7 +7,7 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
 static integer c__6 = 6;
 static integer c_n1 = -1;
 static integer c__9 = 9;
@@ -15,15 +15,15 @@ static integer c__0 = 0;
 static integer c__1 = 1;
 static real c_b81 = 0.f;
 
-/* Subroutine */ int cgelsd_(integer *m, integer *n, integer *nrhs, complex *
-	a, integer *lda, complex *b, integer *ldb, real *s, real *rcond, 
-	integer *rank, complex *work, integer *lwork, real *rwork, integer *
+/* Subroutine */ int cgelsd_(integer *m, integer *n, integer *nrhs, realcomplex *
+	a, integer *lda, realcomplex *b, integer *ldb, real *s, real *rcond, 
+	integer *rank, realcomplex *work, integer *lwork, real *rwork, integer *
 	iwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer ie, il, mm;
@@ -31,23 +31,23 @@ static real c_b81 = 0.f;
     static integer itau, iascl, ibscl;
     static real sfmin;
     static integer minmn, maxmn, itaup, itauq, mnthr, nwork;
-    extern /* Subroutine */ int cgebrd_(integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, complex *, complex *, 
+    extern /* Subroutine */ int cgebrd_(integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, realcomplex *, realcomplex *, 
 	    integer *, integer *), slabad_(real *, real *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
-    extern /* Subroutine */ int cgelqf_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, integer *), clalsd_(
-	    char *, integer *, integer *, integer *, real *, real *, complex *
-	    , integer *, real *, integer *, complex *, real *, integer *, 
+    extern /* Subroutine */ int cgelqf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, integer *), clalsd_(
+	    char *, integer *, integer *, integer *, real *, real *, realcomplex *
+	    , integer *, real *, integer *, realcomplex *, real *, integer *, 
 	    integer *, ftnlen), clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), cgeqrf_(integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, integer *);
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), cgeqrf_(integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), claset_(char *, 
-	    integer *, integer *, complex *, complex *, complex *, integer *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), claset_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, realcomplex *, integer *, 
 	    ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
@@ -55,16 +55,16 @@ static real c_b81 = 0.f;
     extern /* Subroutine */ int slascl_(char *, integer *, integer *, real *, 
 	    real *, integer *, integer *, real *, integer *, integer *, 
 	    ftnlen), cunmbr_(char *, char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen, ftnlen), slaset_(
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen, ftnlen), slaset_(
 	    char *, integer *, integer *, real *, real *, real *, integer *, 
 	    ftnlen), cunmlq_(char *, char *, integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, complex *, 
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen, ftnlen);
     static integer ldwork;
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static integer minwrk, maxwrk;
     static real smlnum;
     static logical lquery;

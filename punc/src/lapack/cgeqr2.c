@@ -9,22 +9,22 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cgeqr2_(integer *m, integer *n, complex *a, integer *lda,
-	 complex *tau, complex *work, integer *info)
+/* Subroutine */ int cgeqr2_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, realcomplex *work, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, k;
-    static complex alpha;
-    extern /* Subroutine */ int clarf_(char *, integer *, integer *, complex *
-	    , integer *, complex *, complex *, integer *, complex *, ftnlen), 
-	    clarfg_(integer *, complex *, complex *, integer *, complex *), 
+    static realcomplex alpha;
+    extern /* Subroutine */ int clarf_(char *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen), 
+	    clarfg_(integer *, realcomplex *, realcomplex *, integer *, realcomplex *), 
 	    xerbla_(char *, integer *, ftnlen);
 
 

@@ -62,7 +62,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZGBCON estimates the reciprocal of the condition number of a complex */
+/*  ZGBCON estimates the reciprocal of the condition number of a realcomplex */
 /*  general band matrix A, in either the 1-norm or the infinity-norm, */
 /*  using the LU factorization computed by ZGBTRF. */
 

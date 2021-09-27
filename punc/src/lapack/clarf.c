@@ -7,23 +7,23 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int clarf_(char *side, integer *m, integer *n, complex *v, 
-	integer *incv, complex *tau, complex *c__, integer *ldc, complex *
+/* Subroutine */ int clarf_(char *side, integer *m, integer *n, realcomplex *v, 
+	integer *incv, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *
 	work, ftnlen side_len)
 {
     /* System generated locals */
     integer c_dim1, c_offset;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
-    extern /* Subroutine */ int cgerc_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cgemv_(char *, integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
+    extern /* Subroutine */ int cgerc_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cgemv_(char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
 	    ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
 

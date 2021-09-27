@@ -7,11 +7,11 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 
 /* Subroutine */ int chegvd_(integer *itype, char *jobz, char *uplo, integer *
-	n, complex *a, integer *lda, complex *b, integer *ldb, real *w, 
-	complex *work, integer *lwork, real *rwork, integer *lrwork, integer *
+	n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *w, 
+	realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *
 	iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen 
 	uplo_len)
 {
@@ -23,23 +23,23 @@ static complex c_b1 = {1.f,0.f};
     static integer neig, lopt;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static integer lwmin;
     static char trans[1];
     static integer liopt;
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper;
     static integer lropt;
     static logical wantz;
-    extern /* Subroutine */ int cheevd_(char *, char *, integer *, complex *, 
-	    integer *, real *, complex *, integer *, real *, integer *, 
+    extern /* Subroutine */ int cheevd_(char *, char *, integer *, realcomplex *, 
+	    integer *, real *, realcomplex *, integer *, real *, integer *, 
 	    integer *, integer *, integer *, ftnlen, ftnlen), chegst_(integer 
-	    *, char *, integer *, complex *, integer *, complex *, integer *, 
+	    *, char *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
 	    integer *, ftnlen), xerbla_(char *, integer *, ftnlen), cpotrf_(
-	    char *, integer *, complex *, integer *, integer *, ftnlen);
+	    char *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static integer liwmin, lrwmin;
     static logical lquery;
 

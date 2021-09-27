@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-/* Complex */ VOID cladiv_(complex * ret_val, complex *x, complex *y)
+/* Complex */ VOID cladiv_(realcomplex * ret_val, realcomplex *x, realcomplex *y)
 {
     /* System generated locals */
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static real zi, zr;

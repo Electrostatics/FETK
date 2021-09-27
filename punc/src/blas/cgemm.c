@@ -6,22 +6,22 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgemm_(char *transa, char *transb, integer *m, integer *
-	n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, 
-	integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen 
+	n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, 
+	integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen 
 	transa_len, ftnlen transb_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, i__1, i__2, 
 	    i__3, i__4, i__5, i__6;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, l, info;
     static logical nota, notb;
-    static complex temp;
+    static realcomplex temp;
     static logical conja, conjb;
     static integer ncola;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);

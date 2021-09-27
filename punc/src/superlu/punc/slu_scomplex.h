@@ -18,7 +18,7 @@
 #ifndef SCOMPLEX_INCLUDE
 #define SCOMPLEX_INCLUDE
 
-typedef struct { float r, i; } complex;
+typedef struct { float r, i; } realcomplex;
 
 
 /* Macro definitions */
@@ -58,12 +58,12 @@ extern "C" {
 #endif
 
 /* Prototypes for functions in scomplex.c */
-void c_div(complex *, complex *, complex *);
-double c_abs(complex *);     /* exact */
-double c_abs1(complex *);    /* approximate */
-void c_exp(complex *, complex *);
-void r_cnjg(complex *, complex *);
-double r_imag(complex *);
+void c_div(realcomplex *, realcomplex *, realcomplex *);
+double c_abs(realcomplex *);     /* exact */
+double c_abs1(realcomplex *);    /* approximate */
+void c_exp(realcomplex *, realcomplex *);
+void r_cnjg(realcomplex *, realcomplex *);
+double r_imag(realcomplex *);
 
 
 #ifdef __cplusplus

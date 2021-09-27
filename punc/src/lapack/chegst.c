@@ -7,36 +7,36 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {.5f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {.5f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static real c_b18 = 1.f;
 
-/* Subroutine */ int chegst_(integer *itype, char *uplo, integer *n, complex *
-	a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen 
+/* Subroutine */ int chegst_(integer *itype, char *uplo, integer *n, realcomplex *
+	a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer k, kb, nb;
     extern /* Subroutine */ int chemm_(char *, char *, integer *, integer *, 
-	    complex *, complex *, integer *, complex *, integer *, complex *, 
-	    complex *, integer *, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), ctrsm_(char *, char *,
-	     char *, char *, integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen, ftnlen, ftnlen);
+	     char *, char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int chegs2_(integer *, char *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, ftnlen), cher2k_(
-	    char *, char *, integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, real *, complex *, integer *, 
+    extern /* Subroutine */ int chegs2_(integer *, char *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen), cher2k_(
+	    char *, char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, realcomplex *, integer *, 
 	    ftnlen, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

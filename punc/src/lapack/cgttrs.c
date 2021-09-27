@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cgttrs_(char *trans, integer *n, integer *nrhs, complex *
-	dl, complex *d__, complex *du, complex *du2, integer *ipiv, complex *
+/* Subroutine */ int cgttrs_(char *trans, integer *n, integer *nrhs, realcomplex *
+	dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, realcomplex *
 	b, integer *ldb, integer *info, ftnlen trans_len)
 {
     /* System generated locals */
@@ -20,7 +20,7 @@ static integer c_n1 = -1;
     /* Local variables */
     static integer j, jb, nb;
     extern /* Subroutine */ int cgtts2_(integer *, integer *, integer *, 
-	    complex *, complex *, complex *, complex *, integer *, complex *, 
+	    realcomplex *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

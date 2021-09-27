@@ -76,7 +76,7 @@
 /*  Purpose */
 /*  ======= */
 
-/*  ZGESVX uses the LU factorization to compute the solution to a complex */
+/*  ZGESVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations */
 /*     A * X = B, */
 /*  where A is an N-by-N matrix and X and B are N-by-NRHS matrices. */

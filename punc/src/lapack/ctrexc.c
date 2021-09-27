@@ -9,27 +9,27 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int ctrexc_(char *compq, integer *n, complex *t, integer *
-	ldt, complex *q, integer *ldq, integer *ifst, integer *ilst, integer *
+/* Subroutine */ int ctrexc_(char *compq, integer *n, realcomplex *t, integer *
+	ldt, realcomplex *q, integer *ldq, integer *ifst, integer *ilst, integer *
 	info, ftnlen compq_len)
 {
     /* System generated locals */
     integer q_dim1, q_offset, t_dim1, t_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer k, m1, m2, m3;
     static real cs;
-    static complex t11, t22, sn, temp;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
+    static realcomplex t11, t22, sn, temp;
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical wantq;
-    extern /* Subroutine */ int clartg_(complex *, complex *, real *, complex 
-	    *, complex *), xerbla_(char *, integer *, ftnlen);
+    extern /* Subroutine */ int clartg_(realcomplex *, realcomplex *, real *, realcomplex 
+	    *, realcomplex *), xerbla_(char *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

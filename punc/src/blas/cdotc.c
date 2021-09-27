@@ -5,19 +5,19 @@
 
 #include <punc/vf2c.h>
 
-/* Complex */ VOID cdotc_(complex * ret_val, integer *n, complex *cx, integer 
-	*incx, complex *cy, integer *incy)
+/* Complex */ VOID cdotc_(realcomplex * ret_val, integer *n, realcomplex *cx, integer 
+	*incx, realcomplex *cy, integer *incy)
 {
     /* System generated locals */
     integer i__1, i__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, ix, iy;
-    static complex ctemp;
+    static realcomplex ctemp;
 
 
 /*     forms the dot product of two vectors, conjugating the first */

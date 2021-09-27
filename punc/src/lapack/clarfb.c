@@ -7,34 +7,34 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int clarfb_(char *side, char *trans, char *direct, char *
-	storev, integer *m, integer *n, integer *k, complex *v, integer *ldv, 
-	complex *t, integer *ldt, complex *c__, integer *ldc, complex *work, 
+	storev, integer *m, integer *n, integer *k, realcomplex *v, integer *ldv, 
+	realcomplex *t, integer *ldt, realcomplex *c__, integer *ldc, realcomplex *work, 
 	integer *ldwork, ftnlen side_len, ftnlen trans_len, ftnlen direct_len,
 	 ftnlen storev_len)
 {
     /* System generated locals */
     integer c_dim1, c_offset, t_dim1, t_offset, v_dim1, v_offset, work_dim1, 
 	    work_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), ctrmm_(char *, char *, char *, char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), clacgv_(integer *, 
-	    complex *, integer *);
+	    realcomplex *, integer *);
     static char transt[1];
 
 

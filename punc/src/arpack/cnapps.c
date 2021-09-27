@@ -27,8 +27,8 @@ struct {
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* \BeginDoc */
@@ -164,9 +164,9 @@ static integer c__1 = 1;
 
 /* ----------------------------------------------------------------------- */
 
-/* Subroutine */ int cnapps_(integer *n, integer *kev, integer *np, complex *
-	shift, complex *v, integer *ldv, complex *h__, integer *ldh, complex *
-	resid, complex *q, integer *ldq, complex *workl, complex *workd)
+/* Subroutine */ int cnapps_(integer *n, integer *kev, integer *np, realcomplex *
+	shift, realcomplex *v, integer *ldv, realcomplex *h__, integer *ldh, realcomplex *
+	resid, realcomplex *q, integer *ldq, realcomplex *workl, realcomplex *workd)
 {
     /* Initialized data */
 
@@ -176,46 +176,46 @@ static integer c__1 = 1;
     integer h_dim1, h_offset, v_dim1, v_offset, q_dim1, q_offset, i__1, i__2, 
 	    i__3, i__4, i__5, i__6;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2, q__3, q__4, q__5;
+    realcomplex q__1, q__2, q__3, q__4, q__5;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real c__;
-    static complex f, g;
+    static realcomplex f, g;
     static integer i__, j;
-    static complex r__, s, t;
+    static realcomplex r__, s, t;
     static real t0, t1;
-    static complex h11, h21;
+    static realcomplex h11, h21;
     static integer jj;
     static real ulp, tst1;
     static integer iend;
     static real unfl, ovfl;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
-    static complex sigma;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), cmout_(integer *, integer *, 
-	    integer *, complex *, integer *, integer *, char *, ftnlen), 
-	    cvout_(integer *, integer *, complex *, integer *, char *, ftnlen)
+    static realcomplex sigma;
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), cmout_(integer *, integer *, 
+	    integer *, realcomplex *, integer *, integer *, char *, ftnlen), 
+	    cvout_(integer *, integer *, realcomplex *, integer *, char *, ftnlen)
 	    , ivout_(integer *, integer *, integer *, integer *, char *, 
 	    ftnlen);
     extern doublereal slapy2_(real *, real *);
     extern /* Subroutine */ int slabad_(real *, real *);
-    extern doublereal clanhs_(char *, integer *, complex *, integer *, 
-	    complex *, ftnlen), slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen);
+    extern doublereal clanhs_(char *, integer *, realcomplex *, integer *, 
+	    realcomplex *, ftnlen), slamch_(char *, ftnlen);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static integer istart, kplusp, msglvl;
     static real smlnum;
-    extern /* Subroutine */ int clartg_(complex *, complex *, real *, complex 
-	    *, complex *), claset_(char *, integer *, integer *, complex *, 
-	    complex *, complex *, integer *, ftnlen), second_(real *);
+    extern /* Subroutine */ int clartg_(realcomplex *, realcomplex *, real *, realcomplex 
+	    *, realcomplex *), claset_(char *, integer *, integer *, realcomplex *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen), second_(real *);
 
 
 /*     %----------------------------------------------------% */

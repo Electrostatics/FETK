@@ -95,8 +95,8 @@ static integer c__1 = 1;
 /*          On entry, if NOINIT = .FALSE. and WI = 0.0, VR must contain */
 /*          a real starting vector for inverse iteration using the real */
 /*          eigenvalue WR; if NOINIT = .FALSE. and WI.ne.0.0, VR and VI */
-/*          must contain the real and imaginary parts of a complex */
-/*          starting vector for inverse iteration using the complex */
+/*          must contain the real and imaginary parts of a realcomplex */
+/*          starting vector for inverse iteration using the realcomplex */
 /*          eigenvalue (WR,WI); otherwise VR and VI need not be set. */
 /*          On exit, if WI = 0.0 (real eigenvalue), VR contains the */
 /*          computed real eigenvector; if WI.ne.0.0 (complex eigenvalue), */

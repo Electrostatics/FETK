@@ -55,7 +55,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZHPTRS solves a system of linear equations A*X = B with a complex */
+/*  ZHPTRS solves a system of linear equations A*X = B with a realcomplex */
 /*  Hermitian matrix A stored in packed format using the factorization */
 /*  A = U*D*U**H or A = L*D*L**H computed by ZHPTRF. */
 

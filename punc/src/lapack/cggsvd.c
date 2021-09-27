@@ -10,10 +10,10 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cggsvd_(char *jobu, char *jobv, char *jobq, integer *m, 
-	integer *n, integer *p, integer *k, integer *l, complex *a, integer *
-	lda, complex *b, integer *ldb, real *alpha, real *beta, complex *u, 
-	integer *ldu, complex *v, integer *ldv, complex *q, integer *ldq, 
-	complex *work, real *rwork, integer *iwork, integer *info, ftnlen 
+	integer *n, integer *p, integer *k, integer *l, realcomplex *a, integer *
+	lda, realcomplex *b, integer *ldb, real *alpha, real *beta, realcomplex *u, 
+	integer *ldu, realcomplex *v, integer *ldv, realcomplex *q, integer *ldq, 
+	realcomplex *work, real *rwork, integer *iwork, integer *info, ftnlen 
 	jobu_len, ftnlen jobv_len, ftnlen jobq_len)
 {
     /* System generated locals */
@@ -33,19 +33,19 @@ static integer c__1 = 1;
     extern /* Subroutine */ int scopy_(integer *, real *, integer *, real *, 
 	    integer *);
     static logical wantu, wantv;
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen), slamch_(char *, ftnlen);
     extern /* Subroutine */ int ctgsja_(char *, char *, char *, integer *, 
-	    integer *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, real *, real *, real *, real *, complex *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
+	    integer *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, real *, real *, real *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen, ftnlen, ftnlen);
     static integer ncycle;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), cggsvp_(
-	    char *, char *, char *, integer *, integer *, integer *, complex *
-	    , integer *, complex *, integer *, real *, real *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
-	    integer *, integer *, real *, complex *, complex *, integer *, 
+	    char *, char *, char *, integer *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, integer *, real *, real *, integer *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, integer *, real *, realcomplex *, realcomplex *, integer *, 
 	    ftnlen, ftnlen, ftnlen);
 
 

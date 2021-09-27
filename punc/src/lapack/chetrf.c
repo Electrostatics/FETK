@@ -11,8 +11,8 @@ static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__2 = 2;
 
-/* Subroutine */ int chetrf_(char *uplo, integer *n, complex *a, integer *lda,
-	 integer *ipiv, complex *work, integer *lwork, integer *info, ftnlen 
+/* Subroutine */ int chetrf_(char *uplo, integer *n, realcomplex *a, integer *lda,
+	 integer *ipiv, realcomplex *work, integer *lwork, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -23,9 +23,9 @@ static integer c__2 = 2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nbmin, iinfo;
     static logical upper;
-    extern /* Subroutine */ int chetf2_(char *, integer *, complex *, integer 
+    extern /* Subroutine */ int chetf2_(char *, integer *, realcomplex *, integer 
 	    *, integer *, integer *, ftnlen), clahef_(char *, integer *, 
-	    integer *, integer *, complex *, integer *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, integer *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

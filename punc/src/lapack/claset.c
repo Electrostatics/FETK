@@ -5,8 +5,8 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int claset_(char *uplo, integer *m, integer *n, complex *
-	alpha, complex *beta, complex *a, integer *lda, ftnlen uplo_len)
+/* Subroutine */ int claset_(char *uplo, integer *m, integer *n, realcomplex *
+	alpha, realcomplex *beta, realcomplex *a, integer *lda, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
