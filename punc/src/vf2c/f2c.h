@@ -7,6 +7,10 @@
 #ifndef F2C_INCLUDE
 #define F2C_INCLUDE
 
+#ifdef complex
+#undef complex
+#endif
+
 typedef long int integer;
 typedef unsigned long int uinteger;
 typedef char *address;
