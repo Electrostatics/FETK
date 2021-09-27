@@ -1,4 +1,4 @@
-FETK-1.5_APBS
+FETK
 =============
 Welcome to a *modified* version of the FETK (The Finite Element Toolkit).
 
