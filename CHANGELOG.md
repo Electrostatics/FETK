@@ -1,8 +1,8 @@
 # FETK Changelog
 
-## [next release] (suggested: 1.8.0)
+## 1.8.0
 
-[date]
+Sep 27, 2021
 
 * Added missing file `mc.h` to `mc/base`
 * Windows dependencies now extracted from Electrostatics/cache repo
@@ -17,7 +17,7 @@
 
 ## 1.7.0
 
-Sept 3, 2021
+Sep 3, 2021
 
 * Fixed install directories for include files
 
