@@ -12,21 +12,21 @@ static integer c_n1 = -1;
 static integer c__5 = 5;
 static integer c__0 = 0;
 static integer c__1 = 1;
-static complex c_b16 = {0.f,0.f};
-static complex c_b53 = {-1.f,0.f};
-static complex c_b54 = {1.f,0.f};
+static realcomplex c_b16 = {0.f,0.f};
+static realcomplex c_b53 = {-1.f,0.f};
+static realcomplex c_b54 = {1.f,0.f};
 
 /* Subroutine */ int ctgsyl_(char *trans, integer *ijob, integer *m, integer *
-	n, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, 
-	integer *ldc, complex *d__, integer *ldd, complex *e, integer *lde, 
-	complex *f, integer *ldf, real *scale, real *dif, complex *work, 
+	n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, 
+	integer *ldc, realcomplex *d__, integer *ldd, realcomplex *e, integer *lde, 
+	realcomplex *f, integer *ldf, real *scale, real *dif, realcomplex *work, 
 	integer *lwork, integer *iwork, integer *info, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, d_dim1, 
 	    d_offset, e_dim1, e_offset, f_dim1, f_offset, i__1, i__2, i__3, 
 	    i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -34,23 +34,23 @@ static complex c_b54 = {1.f,0.f};
     /* Local variables */
     static integer i__, j, k, p, q, ie, je, mb, nb, is, js, pq;
     static real dsum;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *), cgemm_(char *, char *, integer *, integer *, integer *
-	    , complex *, complex *, integer *, complex *, integer *, complex *
-	    , complex *, integer *, ftnlen, ftnlen);
+	    , realcomplex *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *
+	    , realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer ifunc, linfo;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer lwmin;
     static real scale2;
     extern /* Subroutine */ int ctgsy2_(char *, integer *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
 	    *, real *, real *, real *, integer *, ftnlen);
     static real dscale, scaloc;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

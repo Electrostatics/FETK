@@ -10,7 +10,7 @@
 static integer c__1 = 1;
 static real c_b9 = -1.f;
 
-/* Subroutine */ int cpbstf_(char *uplo, integer *n, integer *kd, complex *ab,
+/* Subroutine */ int cpbstf_(char *uplo, integer *n, integer *kd, realcomplex *ab,
 	 integer *ldab, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -24,12 +24,12 @@ static real c_b9 = -1.f;
     static integer j, m, km;
     static real ajj;
     static integer kld;
-    extern /* Subroutine */ int cher_(char *, integer *, real *, complex *, 
-	    integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int cher_(char *, integer *, real *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *), 
-	    csscal_(integer *, real *, complex *, integer *), xerbla_(char *, 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *), 
+	    csscal_(integer *, real *, realcomplex *, integer *), xerbla_(char *, 
 	    integer *, ftnlen);
 
 
@@ -46,7 +46,7 @@ static real c_b9 = -1.f;
 /*  Purpose */
 /*  ======= */
 
-/*  CPBSTF computes a split Cholesky factorization of a complex */
+/*  CPBSTF computes a split Cholesky factorization of a realcomplex */
 /*  Hermitian positive definite band matrix A. */
 
 /*  This routine is designed to be used in conjunction with CHBGST. */

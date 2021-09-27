@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-doublereal scnrm2_(integer *n, complex *x, integer *incx)
+doublereal scnrm2_(integer *n, realcomplex *x, integer *incx)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real ret_val, r__1;
 
     /* Builtin functions */
-    double r_imag(complex *), sqrt(doublereal);
+    double r_imag(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer ix;

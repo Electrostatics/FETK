@@ -1,10 +1,19 @@
 # FETK Changelog
 
-## [next release] (suggested: 1.7.1)
+## [next release] (suggested: 1.8.0)
 
 [date]
 
 * Added missing file `mc.h` to `mc/base`
+* Windows dependencies now extracted from Electrostatics/cache repo
+* Add -fPIC compile flag
+* Switch Windows build to 32-bit (x86)
+* Enable PUNC, GAMER, and MC in the Windows build
+* Fix Windows compatibility issues in PUNC
+    * `access()` from `unistd.h` replaced by `_access()` from `io.h` in Windows
+    * Added check for `_WIN32` in some preprocessor logic
+    * Fixed redefinition of `isatty()`
+    * Deconflict use of `complex` in `f2c` by replacing `complex` typedef with `realcomplex`
 
 ## 1.7.0
 

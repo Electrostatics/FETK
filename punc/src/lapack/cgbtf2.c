@@ -7,26 +7,26 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int cgbtf2_(integer *m, integer *n, integer *kl, integer *ku,
-	 complex *ab, integer *ldab, integer *ipiv, integer *info)
+	 realcomplex *ab, integer *ldab, integer *ipiv, integer *info)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3, i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, km, jp, ju, kv;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), cgeru_(integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, complex *, integer *), cswap_(
-	    integer *, complex *, integer *, complex *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), cgeru_(integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *), cswap_(
+	    integer *, realcomplex *, integer *, realcomplex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 
 

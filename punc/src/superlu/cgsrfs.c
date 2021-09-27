@@ -138,15 +138,15 @@ cgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
     
     /* Table of constant values */
     int    ione = 1;
-    complex ndone = {-1., 0.};
-    complex done = {1., 0.};
+    realcomplex ndone = {-1., 0.};
+    realcomplex done = {1., 0.};
     
     /* Local variables */
     NCformat *Astore;
-    complex   *Aval;
+    realcomplex   *Aval;
     SuperMatrix Bjcol;
     DNformat *Bstore, *Xstore, *Bjcol_store;
-    complex   *Bmat, *Xmat, *Bptr, *Xptr;
+    realcomplex   *Bmat, *Xmat, *Bptr, *Xptr;
     int      kase;
     float   safe1, safe2;
     int      i, j, k, irow, nz, count, notran, rowequ, colequ;
@@ -154,17 +154,17 @@ cgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
     float   s, xk, lstres, eps, safmin;
     char     transc[1];
     trans_t  transt;
-    complex   *work;
+    realcomplex   *work;
     float   *rwork;
     int      *iwork;
     extern double slamch_(char *);
-    extern int clacon_(int *, complex *, complex *, float *, int *);
+    extern int clacon_(int *, realcomplex *, realcomplex *, float *, int *);
 #ifdef _CRAY
-    extern int CCOPY(int *, complex *, int *, complex *, int *);
-    extern int CSAXPY(int *, complex *, complex *, int *, complex *, int *);
+    extern int CCOPY(int *, realcomplex *, int *, realcomplex *, int *);
+    extern int CSAXPY(int *, realcomplex *, realcomplex *, int *, realcomplex *, int *);
 #else
-    extern int ccopy_(int *, complex *, int *, complex *, int *);
-    extern int caxpy_(int *, complex *, complex *, int *, complex *, int *);
+    extern int ccopy_(int *, realcomplex *, int *, realcomplex *, int *);
+    extern int caxpy_(int *, realcomplex *, realcomplex *, int *, realcomplex *, int *);
 #endif
 
     Astore = A->Store;

@@ -9,33 +9,33 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int claqp2_(integer *m, integer *n, integer *offset, complex 
-	*a, integer *lda, integer *jpvt, complex *tau, real *vn1, real *vn2, 
-	complex *work)
+/* Subroutine */ int claqp2_(integer *m, integer *n, integer *offset, realcomplex 
+	*a, integer *lda, integer *jpvt, realcomplex *tau, real *vn1, real *vn2, 
+	realcomplex *work)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *), sqrt(doublereal);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j, mn;
-    static complex aii;
+    static realcomplex aii;
     static integer pvt;
     static real temp, temp2;
-    extern /* Subroutine */ int clarf_(char *, integer *, integer *, complex *
-	    , integer *, complex *, complex *, integer *, complex *, ftnlen);
+    extern /* Subroutine */ int clarf_(char *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen);
     static integer offpi;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer itemp;
-    extern doublereal scnrm2_(integer *, complex *, integer *);
-    extern /* Subroutine */ int clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
+    extern /* Subroutine */ int clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *);
     extern integer isamax_(integer *, real *, integer *);
 
 

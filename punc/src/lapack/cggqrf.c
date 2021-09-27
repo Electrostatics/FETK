@@ -10,24 +10,24 @@
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cggqrf_(integer *n, integer *m, integer *p, complex *a, 
-	integer *lda, complex *taua, complex *b, integer *ldb, complex *taub, 
-	complex *work, integer *lwork, integer *info)
+/* Subroutine */ int cggqrf_(integer *n, integer *m, integer *p, realcomplex *a, 
+	integer *lda, realcomplex *taua, realcomplex *b, integer *ldb, realcomplex *taub, 
+	realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3;
 
     /* Local variables */
     static integer nb, nb1, nb2, nb3, lopt;
-    extern /* Subroutine */ int cgeqrf_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, integer *), cgerqf_(
-	    integer *, integer *, complex *, integer *, complex *, complex *, 
+    extern /* Subroutine */ int cgeqrf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, integer *), cgerqf_(
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, 
 	    integer *, integer *), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static integer lwkopt;
     static logical lquery;
 

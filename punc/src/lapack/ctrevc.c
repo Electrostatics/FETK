@@ -7,23 +7,23 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int ctrevc_(char *side, char *howmny, logical *select, 
-	integer *n, complex *t, integer *ldt, complex *vl, integer *ldvl, 
-	complex *vr, integer *ldvr, integer *mm, integer *m, complex *work, 
+	integer *n, realcomplex *t, integer *ldt, realcomplex *vl, integer *ldvl, 
+	realcomplex *vr, integer *ldvr, integer *mm, integer *m, realcomplex *work, 
 	real *rwork, integer *info, ftnlen side_len, ftnlen howmny_len)
 {
     /* System generated locals */
     integer t_dim1, t_offset, vl_dim1, vl_offset, vr_dim1, vr_offset, i__1, 
 	    i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, ii, ki, is;
@@ -33,21 +33,21 @@ static integer c__1 = 1;
     static logical over;
     static real scale;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static real remax;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical leftv, bothv, somev;
     extern /* Subroutine */ int slabad_(real *, real *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen), clatrs_(char *, char *, 
-	    char *, char *, integer *, complex *, integer *, complex *, real *
+	    char *, char *, integer *, realcomplex *, integer *, realcomplex *, real *
 	    , real *, integer *, ftnlen, ftnlen, ftnlen, ftnlen);
-    extern doublereal scasum_(integer *, complex *, integer *);
+    extern doublereal scasum_(integer *, realcomplex *, integer *);
     static logical rightv;
     static real smlnum;
 

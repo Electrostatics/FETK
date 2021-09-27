@@ -7,15 +7,15 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__0 = 0;
 
-/* Subroutine */ int cgesdd_(char *jobz, integer *m, integer *n, complex *a, 
-	integer *lda, real *s, complex *u, integer *ldu, complex *vt, integer 
-	*ldvt, complex *work, integer *lwork, real *rwork, integer *iwork, 
+/* Subroutine */ int cgesdd_(char *jobz, integer *m, integer *n, realcomplex *a, 
+	integer *lda, real *s, realcomplex *u, integer *ldu, realcomplex *vt, integer 
+	*ldvt, realcomplex *work, integer *lwork, real *rwork, integer *iwork, 
 	integer *info, ftnlen jobz_len)
 {
     /* System generated locals */
@@ -32,53 +32,53 @@ static integer c__0 = 0;
     static real anrm;
     static integer idum[1], ierr, itau, irvt;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer chunk, minmn, wrkbl, itaup, itauq;
     static logical wntqa;
     static integer nwork;
     extern /* Subroutine */ int clacp2_(char *, integer *, integer *, real *, 
-	    integer *, complex *, integer *, ftnlen);
+	    integer *, realcomplex *, integer *, ftnlen);
     static logical wntqn, wntqo, wntqs;
     static integer mnthr1, mnthr2;
-    extern /* Subroutine */ int cgebrd_(integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, complex *, complex *, 
+    extern /* Subroutine */ int cgebrd_(integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, realcomplex *, realcomplex *, 
 	    integer *, integer *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
-    extern /* Subroutine */ int cgelqf_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, integer *), clacrm_(
-	    integer *, integer *, complex *, integer *, real *, integer *, 
-	    complex *, integer *, real *), clarcm_(integer *, integer *, real 
-	    *, integer *, complex *, integer *, complex *, integer *, real *),
+    extern /* Subroutine */ int cgelqf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, integer *), clacrm_(
+	    integer *, integer *, realcomplex *, integer *, real *, integer *, 
+	    realcomplex *, integer *, real *), clarcm_(integer *, integer *, real 
+	    *, integer *, realcomplex *, integer *, realcomplex *, integer *, real *),
 	     clascl_(char *, integer *, integer *, real *, real *, integer *, 
-	    integer *, complex *, integer *, integer *, ftnlen), sbdsdc_(char 
+	    integer *, realcomplex *, integer *, integer *, ftnlen), sbdsdc_(char 
 	    *, char *, integer *, real *, real *, real *, integer *, real *, 
 	    integer *, real *, integer *, real *, integer *, integer *, 
-	    ftnlen, ftnlen), cgeqrf_(integer *, integer *, complex *, integer 
-	    *, complex *, complex *, integer *, integer *);
+	    ftnlen, ftnlen), cgeqrf_(integer *, integer *, realcomplex *, integer 
+	    *, realcomplex *, realcomplex *, integer *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), claset_(char *, 
-	    integer *, integer *, complex *, complex *, complex *, integer *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), claset_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, realcomplex *, integer *, 
 	    ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cungbr_(char *, integer *, integer *, integer 
-	    *, complex *, integer *, complex *, complex *, integer *, integer 
+	    *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, integer 
 	    *, ftnlen);
     static real bignum;
     extern /* Subroutine */ int slascl_(char *, integer *, integer *, real *, 
 	    real *, integer *, integer *, real *, integer *, integer *, 
 	    ftnlen), cunmbr_(char *, char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen, ftnlen), cunglq_(
-	    integer *, integer *, integer *, complex *, integer *, complex *, 
-	    complex *, integer *, integer *);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen, ftnlen), cunglq_(
+	    integer *, integer *, integer *, realcomplex *, integer *, realcomplex *, 
+	    realcomplex *, integer *, integer *);
     static integer ldwrkl;
     extern /* Subroutine */ int cungqr_(integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, integer *);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, integer *);
     static integer ldwrkr, minwrk, ldwrku, maxwrk, ldwkvt;
     static real smlnum;
     static logical wntqas, lquery;
@@ -98,7 +98,7 @@ static integer c__0 = 0;
 /*  Purpose */
 /*  ======= */
 
-/*  CGESDD computes the singular value decomposition (SVD) of a complex */
+/*  CGESDD computes the singular value decomposition (SVD) of a realcomplex */
 /*  M-by-N matrix A, optionally computing the left and/or right singular */
 /*  vectors, by using divide-and-conquer method. The SVD is written */
 

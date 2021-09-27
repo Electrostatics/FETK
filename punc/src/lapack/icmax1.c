@@ -5,13 +5,13 @@
 
 #include <punc/vf2c.h>
 
-integer icmax1_(integer *n, complex *cx, integer *incx)
+integer icmax1_(integer *n, realcomplex *cx, integer *incx)
 {
     /* System generated locals */
     integer ret_val, i__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, ix;

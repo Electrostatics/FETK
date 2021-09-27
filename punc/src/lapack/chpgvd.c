@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int chpgvd_(integer *itype, char *jobz, char *uplo, integer *
-	n, complex *ap, complex *bp, real *w, complex *z__, integer *ldz, 
-	complex *work, integer *lwork, real *rwork, integer *lrwork, integer *
+	n, realcomplex *ap, realcomplex *bp, real *w, realcomplex *z__, integer *ldz, 
+	realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *
 	iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen 
 	uplo_len)
 {
@@ -25,17 +25,17 @@ static integer c__1 = 1;
     static integer lwmin;
     static char trans[1];
     extern /* Subroutine */ int ctpmv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical wantz;
-    extern /* Subroutine */ int chpevd_(char *, char *, integer *, complex *, 
-	    real *, complex *, integer *, complex *, integer *, real *, 
+    extern /* Subroutine */ int chpevd_(char *, char *, integer *, realcomplex *, 
+	    real *, realcomplex *, integer *, realcomplex *, integer *, real *, 
 	    integer *, integer *, integer *, integer *, ftnlen, ftnlen), 
 	    xerbla_(char *, integer *, ftnlen), chpgst_(integer *, char *, 
-	    integer *, complex *, complex *, integer *, ftnlen), cpptrf_(char 
-	    *, integer *, complex *, integer *, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, ftnlen), cpptrf_(char 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static integer liwmin, lrwmin;
     static logical lquery;
 

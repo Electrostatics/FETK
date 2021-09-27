@@ -5,20 +5,20 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int claev2_(complex *a, complex *b, complex *c__, real *rt1, 
-	real *rt2, real *cs1, complex *sn1)
+/* Subroutine */ int claev2_(realcomplex *a, realcomplex *b, realcomplex *c__, real *rt1, 
+	real *rt2, real *cs1, realcomplex *sn1)
 {
     /* System generated locals */
     real r__1, r__2, r__3;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void r_cnjg(complex *, complex *);
+    double c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real t;
-    static complex w;
+    static realcomplex w;
     extern /* Subroutine */ int slaev2_(real *, real *, real *, real *, real *
 	    , real *, real *);
 

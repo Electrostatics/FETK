@@ -7,38 +7,38 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cgglse_(integer *m, integer *n, integer *p, complex *a, 
-	integer *lda, complex *b, integer *ldb, complex *c__, complex *d__, 
-	complex *x, complex *work, integer *lwork, integer *info)
+/* Subroutine */ int cgglse_(integer *m, integer *n, integer *p, realcomplex *a, 
+	integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, realcomplex *d__, 
+	realcomplex *x, realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer nb, mn, nr, nb1, nb2, nb3, nb4, lopt;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), ctrmv_(char *, char *, char *, 
-	    integer *, complex *, integer *, complex *, integer *, ftnlen, 
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), ctrmv_(char *, char *, char *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen, 
 	    ftnlen, ftnlen), ctrsv_(char *, char *, char *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
-	    ftnlen), cggrqf_(integer *, integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, complex *, complex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
+	    ftnlen), cggrqf_(integer *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, realcomplex *, 
 	    integer *, integer *), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen), cunmrq_(char *, 
-	    char *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, complex *, integer *, integer *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen), cunmrq_(char *, 
+	    char *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, realcomplex *, integer *, integer *, 
 	    ftnlen, ftnlen);
     static integer lwkopt;
     static logical lquery;

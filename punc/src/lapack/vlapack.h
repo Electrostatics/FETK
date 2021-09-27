@@ -1,4 +1,4 @@
-extern int cbdsqr_(char *uplo, integer *n, integer *ncvt, integer *nru, integer *ncc, real *d__, real *e, complex *vt, integer *ldvt, complex *u, integer *ldu, complex *c__, integer *ldc, real *rwork, integer *info, ftnlen uplo_len);
+extern int cbdsqr_(char *uplo, integer *n, integer *ncvt, integer *nru, integer *ncc, real *d__, real *e, realcomplex *vt, integer *ldvt, realcomplex *u, integer *ldu, realcomplex *c__, integer *ldc, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slasq1_ 14 5 4 6 6 6 4 */
@@ -10,7 +10,7 @@ extern int cbdsqr_(char *uplo, integer *n, integer *ncvt, integer *nru, integer 
 /*:ref: slas2_ 14 5 6 6 6 6 6 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cgbbrd_(char *vect, integer *m, integer *n, integer *ncc, integer *kl, integer *ku, complex *ab, integer *ldab, real *d__, real *e, complex *q, integer *ldq, complex *pt, integer *ldpt, complex *c__, integer *ldc, complex *work, real *rwork, integer *info, ftnlen vect_len);
+extern int cgbbrd_(char *vect, integer *m, integer *n, integer *ncc, integer *kl, integer *ku, realcomplex *ab, integer *ldab, real *d__, real *e, realcomplex *q, integer *ldq, realcomplex *pt, integer *ldpt, realcomplex *c__, integer *ldc, realcomplex *work, real *rwork, integer *info, ftnlen vect_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -19,7 +19,7 @@ extern int cgbbrd_(char *vect, integer *m, integer *n, integer *ncc, integer *kl
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cgbcon_(char *norm, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, integer *ipiv, real *anorm, real *rcond, complex *work, real *rwork, integer *info, ftnlen norm_len);
+extern int cgbcon_(char *norm, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, integer *ipiv, real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -29,10 +29,10 @@ extern int cgbcon_(char *norm, integer *n, integer *kl, integer *ku, complex *ab
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int cgbequ_(integer *m, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, integer *info);
+extern int cgbequ_(integer *m, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
-extern int cgbrfs_(char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, complex *ab, integer *ldab, complex *afb, integer *ldafb, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen trans_len);
+extern int cgbrfs_(char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb, integer *ldafb, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -41,11 +41,11 @@ extern int cgbrfs_(char *trans, integer *n, integer *kl, integer *ku, integer *n
 /*:ref: cgbtrs_ 14 12 13 4 4 4 4 8 4 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cgbsv_(integer *n, integer *kl, integer *ku, integer *nrhs, complex *ab, integer *ldab, integer *ipiv, complex *b, integer *ldb, integer *info);
+extern int cgbsv_(integer *n, integer *kl, integer *ku, integer *nrhs, realcomplex *ab, integer *ldab, integer *ipiv, realcomplex *b, integer *ldb, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgbtrf_ 14 8 4 4 4 4 8 4 4 4 */
 /*:ref: cgbtrs_ 14 12 13 4 4 4 4 8 4 4 8 4 4 124 */
-extern int cgbsvx_(char *fact, char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, complex *ab, integer *ldab, complex *afb, integer *ldafb, integer *ipiv, char *equed, real *r__, real *c__, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len, ftnlen equed_len);
+extern int cgbsvx_(char *fact, char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb, integer *ldafb, integer *ipiv, char *equed, real *r__, real *c__, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len, ftnlen equed_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -59,13 +59,13 @@ extern int cgbsvx_(char *fact, char *trans, integer *n, integer *kl, integer *ku
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cgbtrs_ 14 12 13 4 4 4 4 8 4 4 8 4 4 124 */
 /*:ref: cgbrfs_ 14 20 13 4 4 4 4 8 4 8 4 4 8 4 8 4 6 6 8 6 4 124 */
-extern int cgbtf2_(integer *m, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, integer *ipiv, integer *info);
+extern int cgbtf2_(integer *m, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, integer *ipiv, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int cgbtrf_(integer *m, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, integer *ipiv, integer *info);
+extern int cgbtrf_(integer *m, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, integer *ipiv, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: cgbtf2_ 14 8 4 4 4 4 8 4 4 4 */
@@ -77,7 +77,7 @@ extern int cgbtrf_(integer *m, integer *n, integer *kl, integer *ku, complex *ab
 /*:ref: claswp_ 14 7 4 8 4 4 4 4 4 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int cgbtrs_(char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, complex *ab, integer *ldab, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen trans_len);
+extern int cgbtrs_(char *trans, integer *n, integer *kl, integer *ku, integer *nrhs, realcomplex *ab, integer *ldab, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
@@ -85,30 +85,30 @@ extern int cgbtrs_(char *trans, integer *n, integer *kl, integer *ku, integer *n
 /*:ref: ctbsv_ 14 12 13 13 13 4 4 8 4 8 4 124 124 124 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
-extern int cgebak_(char *job, char *side, integer *n, integer *ilo, integer *ihi, real *scale, integer *m, complex *v, integer *ldv, integer *info, ftnlen job_len, ftnlen side_len);
+extern int cgebak_(char *job, char *side, integer *n, integer *ilo, integer *ihi, real *scale, integer *m, realcomplex *v, integer *ldv, integer *info, ftnlen job_len, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cgebal_(char *job, integer *n, complex *a, integer *lda, integer *ilo, integer *ihi, real *scale, integer *info, ftnlen job_len);
+extern int cgebal_(char *job, integer *n, realcomplex *a, integer *lda, integer *ilo, integer *ihi, real *scale, integer *info, ftnlen job_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int cgebd2_(integer *m, integer *n, complex *a, integer *lda, real *d__, real *e, complex *tauq, complex *taup, complex *work, integer *info);
+extern int cgebd2_(integer *m, integer *n, realcomplex *a, integer *lda, real *d__, real *e, realcomplex *tauq, realcomplex *taup, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
-extern int cgebrd_(integer *m, integer *n, complex *a, integer *lda, real *d__, real *e, complex *tauq, complex *taup, complex *work, integer *lwork, integer *info);
+extern int cgebrd_(integer *m, integer *n, realcomplex *a, integer *lda, real *d__, real *e, realcomplex *tauq, realcomplex *taup, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clabrd_ 14 13 4 4 4 8 4 6 6 8 8 8 4 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: cgebd2_ 14 10 4 4 8 4 6 6 8 8 8 4 */
-extern int cgecon_(char *norm, integer *n, complex *a, integer *lda, real *anorm, real *rcond, complex *work, real *rwork, integer *info, ftnlen norm_len);
+extern int cgecon_(char *norm, integer *n, realcomplex *a, integer *lda, real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -116,10 +116,10 @@ extern int cgecon_(char *norm, integer *n, complex *a, integer *lda, real *anorm
 /*:ref: clatrs_ 14 15 13 13 13 13 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int cgeequ_(integer *m, integer *n, complex *a, integer *lda, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, integer *info);
+extern int cgeequ_(integer *m, integer *n, realcomplex *a, integer *lda, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
-extern int cgees_(char *jobvs, char *sort, L_fp select, integer *n, complex *a, integer *lda, integer *sdim, complex *w, complex *vs, integer *ldvs, complex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvs_len, ftnlen sort_len);
+extern int cgees_(char *jobvs, char *sort, L_fp select, integer *n, realcomplex *a, integer *lda, integer *sdim, realcomplex *w, realcomplex *vs, integer *ldvs, realcomplex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvs_len, ftnlen sort_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -135,7 +135,7 @@ extern int cgees_(char *jobvs, char *sort, L_fp select, integer *n, complex *a, 
 /*:ref: ctrsen_ 14 17 13 13 12 4 8 4 8 4 8 4 6 6 8 4 4 124 124 */
 /*:ref: cgebak_ 14 12 13 13 4 4 4 6 4 8 4 4 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
-extern int cgeesx_(char *jobvs, char *sort, L_fp select, char *sense, integer *n, complex *a, integer *lda, integer *sdim, complex *w, complex *vs, integer *ldvs, real *rconde, real *rcondv, complex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvs_len, ftnlen sort_len, ftnlen sense_len);
+extern int cgeesx_(char *jobvs, char *sort, L_fp select, char *sense, integer *n, realcomplex *a, integer *lda, integer *sdim, realcomplex *w, realcomplex *vs, integer *ldvs, real *rconde, real *rcondv, realcomplex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvs_len, ftnlen sort_len, ftnlen sense_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -152,7 +152,7 @@ extern int cgeesx_(char *jobvs, char *sort, L_fp select, char *sense, integer *n
 /*:ref: cgebak_ 14 12 13 13 4 4 4 6 4 8 4 4 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: slascl_ 14 11 13 4 4 6 6 4 4 6 4 4 124 */
-extern int cgeev_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda, complex *w, complex *vl, integer *ldvl, complex *vr, integer *ldvr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
+extern int cgeev_(char *jobvl, char *jobvr, integer *n, realcomplex *a, integer *lda, realcomplex *w, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -171,7 +171,7 @@ extern int cgeev_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cgeevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer *n, complex *a, integer *lda, complex *w, complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *ilo, integer *ihi, real *scale, real *abnrm, real *rconde, real *rcondv, complex *work, integer *lwork, real *rwork, integer *info, ftnlen balanc_len, ftnlen jobvl_len, ftnlen jobvr_len, ftnlen sense_len);
+extern int cgeevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer *n, realcomplex *a, integer *lda, realcomplex *w, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *ilo, integer *ihi, real *scale, real *abnrm, real *rconde, real *rcondv, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen balanc_len, ftnlen jobvl_len, ftnlen jobvr_len, ftnlen sense_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -192,7 +192,7 @@ extern int cgeevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer 
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cgegs_(char *jobvsl, char *jobvsr, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *vsl, integer *ldvsl, complex *vsr, integer *ldvsr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len);
+extern int cgegs_(char *jobvsl, char *jobvsr, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *vsl, integer *ldvsl, realcomplex *vsr, integer *ldvsr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -208,7 +208,7 @@ extern int cgegs_(char *jobvsl, char *jobvsr, integer *n, complex *a, integer *l
 /*:ref: cgghrd_ 14 16 13 13 4 4 4 8 4 8 4 8 4 8 4 4 124 124 */
 /*:ref: chgeqz_ 14 23 13 13 13 4 4 4 8 4 8 4 8 8 8 4 8 4 8 4 6 4 124 124 124 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cgegv_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *vl, integer *ldvl, complex *vr, integer *ldvr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
+extern int cgegv_(char *jobvl, char *jobvr, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -225,29 +225,29 @@ extern int cgegv_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda
 /*:ref: chgeqz_ 14 23 13 13 13 4 4 4 8 4 8 4 8 8 8 4 8 4 8 4 6 4 124 124 124 */
 /*:ref: ctgevc_ 14 19 13 13 12 4 8 4 8 4 8 4 8 4 4 4 8 6 4 124 124 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cgehd2_(integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cgehd2_(integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgehrd_(integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cgehrd_(integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clahrd_ 14 10 4 4 4 8 4 8 8 4 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
 /*:ref: cgehd2_ 14 8 4 4 4 8 4 8 8 4 */
-extern int cgelq2_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cgelq2_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgelqf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cgelqf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgelq2_ 14 7 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cgels_(char *trans, integer *m, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, complex *work, integer *lwork, integer *info, ftnlen trans_len);
+extern int cgels_(char *trans, integer *m, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *work, integer *lwork, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -261,7 +261,7 @@ extern int cgels_(char *trans, integer *m, integer *n, integer *nrhs, complex *a
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cgelqf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunmlq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cgelsd_(integer *m, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, real *s, real *rcond, integer *rank, complex *work, integer *lwork, real *rwork, integer *iwork, integer *info);
+extern int cgelsd_(integer *m, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *s, real *rcond, integer *rank, realcomplex *work, integer *lwork, real *rwork, integer *iwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -279,7 +279,7 @@ extern int cgelsd_(integer *m, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cunmlq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: slascl_ 14 11 13 4 4 6 6 4 4 6 4 4 124 */
-extern int cgelss_(integer *m, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, real *s, real *rcond, integer *rank, complex *work, integer *lwork, real *rwork, integer *info);
+extern int cgelss_(integer *m, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *s, real *rcond, integer *rank, realcomplex *work, integer *lwork, real *rwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -302,7 +302,7 @@ extern int cgelss_(integer *m, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: cgelqf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunmlq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: slascl_ 14 11 13 4 4 6 6 4 4 6 4 4 124 */
-extern int cgelsx_(integer *m, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, integer *jpvt, real *rcond, integer *rank, complex *work, real *rwork, integer *info);
+extern int cgelsx_(integer *m, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *jpvt, real *rcond, integer *rank, realcomplex *work, real *rwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slabad_ 14 2 6 6 */
@@ -315,7 +315,7 @@ extern int cgelsx_(integer *m, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: cunm2r_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: clatzm_ 14 11 13 4 4 8 4 8 8 8 4 8 124 */
-extern int cgelsy_(integer *m, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, integer *jpvt, real *rcond, integer *rank, complex *work, integer *lwork, real *rwork, integer *info);
+extern int cgelsy_(integer *m, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *jpvt, real *rcond, integer *rank, realcomplex *work, integer *lwork, real *rwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -330,17 +330,17 @@ extern int cgelsy_(integer *m, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cunmrz_ 14 16 13 13 4 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
-extern int cgeql2_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cgeql2_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgeqlf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cgeqlf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgeql2_ 14 7 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cgeqp3_(integer *m, integer *n, complex *a, integer *lda, integer *jpvt, complex *tau, complex *work, integer *lwork, real *rwork, integer *info);
+extern int cgeqp3_(integer *m, integer *n, realcomplex *a, integer *lda, integer *jpvt, realcomplex *tau, realcomplex *work, integer *lwork, real *rwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
@@ -349,7 +349,7 @@ extern int cgeqp3_(integer *m, integer *n, complex *a, integer *lda, integer *jp
 /*:ref: scnrm2_ 6 3 4 8 4 */
 /*:ref: claqps_ 14 14 4 4 4 4 4 8 4 4 8 6 6 8 8 4 */
 /*:ref: claqp2_ 14 10 4 4 4 8 4 4 8 6 6 8 */
-extern int cgeqpf_(integer *m, integer *n, complex *a, integer *lda, integer *jpvt, complex *tau, complex *work, real *rwork, integer *info);
+extern int cgeqpf_(integer *m, integer *n, realcomplex *a, integer *lda, integer *jpvt, realcomplex *tau, realcomplex *work, real *rwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cgeqr2_ 14 7 4 4 8 4 8 8 4 */
@@ -358,17 +358,17 @@ extern int cgeqpf_(integer *m, integer *n, complex *a, integer *lda, integer *jp
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgeqr2_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cgeqr2_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgeqrf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cgeqrf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgeqr2_ 14 7 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cgerfs_(char *trans, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen trans_len);
+extern int cgerfs_(char *trans, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -377,24 +377,24 @@ extern int cgerfs_(char *trans, integer *n, integer *nrhs, complex *a, integer *
 /*:ref: cgetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cgerq2_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cgerq2_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cgerqf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cgerqf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgerq2_ 14 7 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cgesc2_(integer *n, complex *a, integer *lda, complex *rhs, integer *ipiv, integer *jpiv, real *scale);
+extern int cgesc2_(integer *n, realcomplex *a, integer *lda, realcomplex *rhs, integer *ipiv, integer *jpiv, real *scale);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slabad_ 14 2 6 6 */
 /*:ref: claswp_ 14 7 4 8 4 4 4 4 4 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cgesdd_(char *jobz, integer *m, integer *n, complex *a, integer *lda, real *s, complex *u, integer *ldu, complex *vt, integer *ldvt, complex *work, integer *lwork, real *rwork, integer *iwork, integer *info, ftnlen jobz_len);
+extern int cgesdd_(char *jobz, integer *m, integer *n, realcomplex *a, integer *lda, real *s, realcomplex *u, integer *ldu, realcomplex *vt, integer *ldvt, realcomplex *work, integer *lwork, real *rwork, integer *iwork, integer *info, ftnlen jobz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -416,11 +416,11 @@ extern int cgesdd_(char *jobz, integer *m, integer *n, complex *a, integer *lda,
 /*:ref: cgelqf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunglq_ 14 9 4 4 4 8 4 8 8 4 4 */
 /*:ref: slascl_ 14 11 13 4 4 6 6 4 4 6 4 4 124 */
-extern int cgesv_(integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, integer *info);
+extern int cgesv_(integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgetrf_ 14 6 4 4 8 4 4 4 */
 /*:ref: cgetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
-extern int cgesvd_(char *jobu, char *jobvt, integer *m, integer *n, complex *a, integer *lda, real *s, complex *u, integer *ldu, complex *vt, integer *ldvt, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobu_len, ftnlen jobvt_len);
+extern int cgesvd_(char *jobu, char *jobvt, integer *m, integer *n, realcomplex *a, integer *lda, real *s, realcomplex *u, integer *ldu, realcomplex *vt, integer *ldvt, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobu_len, ftnlen jobvt_len);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -439,7 +439,7 @@ extern int cgesvd_(char *jobu, char *jobvt, integer *m, integer *n, complex *a, 
 /*:ref: cgelqf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunglq_ 14 9 4 4 4 8 4 8 8 4 4 */
 /*:ref: slascl_ 14 11 13 4 4 6 6 4 4 6 4 4 124 */
-extern int cgesvx_(char *fact, char *trans, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, char *equed, real *r__, real *c__, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len, ftnlen equed_len);
+extern int cgesvx_(char *fact, char *trans, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, char *equed, real *r__, real *c__, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len, ftnlen equed_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -452,25 +452,25 @@ extern int cgesvx_(char *fact, char *trans, integer *n, integer *nrhs, complex *
 /*:ref: cgecon_ 14 10 13 4 8 4 6 6 8 6 4 124 */
 /*:ref: cgetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: cgerfs_ 14 18 13 4 4 8 4 8 4 4 8 4 8 4 6 6 8 6 4 124 */
-extern int cgetc2_(integer *n, complex *a, integer *lda, integer *ipiv, integer *jpiv, integer *info);
+extern int cgetc2_(integer *n, realcomplex *a, integer *lda, integer *ipiv, integer *jpiv, integer *info);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slabad_ 14 2 6 6 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int cgetf2_(integer *m, integer *n, complex *a, integer *lda, integer *ipiv, integer *info);
+extern int cgetf2_(integer *m, integer *n, realcomplex *a, integer *lda, integer *ipiv, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int cgetrf_(integer *m, integer *n, complex *a, integer *lda, integer *ipiv, integer *info);
+extern int cgetrf_(integer *m, integer *n, realcomplex *a, integer *lda, integer *ipiv, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: cgetf2_ 14 6 4 4 8 4 4 4 */
 /*:ref: claswp_ 14 7 4 8 4 4 4 4 4 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int cgetri_(integer *n, complex *a, integer *lda, integer *ipiv, complex *work, integer *lwork, integer *info);
+extern int cgetri_(integer *n, realcomplex *a, integer *lda, integer *ipiv, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctrtri_ 14 8 13 13 4 8 4 4 124 124 */
@@ -478,17 +478,17 @@ extern int cgetri_(integer *n, complex *a, integer *lda, integer *ipiv, complex 
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cgetrs_(char *trans, integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen trans_len);
+extern int cgetrs_(char *trans, integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claswp_ 14 7 4 8 4 4 4 4 4 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int cggbak_(char *job, char *side, integer *n, integer *ilo, integer *ihi, real *lscale, real *rscale, integer *m, complex *v, integer *ldv, integer *info, ftnlen job_len, ftnlen side_len);
+extern int cggbak_(char *job, char *side, integer *n, integer *ilo, integer *ihi, real *lscale, real *rscale, integer *m, realcomplex *v, integer *ldv, integer *info, ftnlen job_len, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cggbal_(char *job, integer *n, complex *a, integer *lda, complex *b, integer *ldb, integer *ilo, integer *ihi, real *lscale, real *rscale, real *work, integer *info, ftnlen job_len);
+extern int cggbal_(char *job, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *ilo, integer *ihi, real *lscale, real *rscale, real *work, integer *info, ftnlen job_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
@@ -498,7 +498,7 @@ extern int cggbal_(char *job, integer *n, complex *a, integer *lda, complex *b, 
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int cgges_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, integer *n, complex *a, integer *lda, complex *b, integer *ldb, integer *sdim, complex *alpha, complex *beta, complex *vsl, integer *ldvsl, complex *vsr, integer *ldvsr, complex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len, ftnlen sort_len);
+extern int cgges_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *sdim, realcomplex *alpha, realcomplex *beta, realcomplex *vsl, integer *ldvsl, realcomplex *vsr, integer *ldvsr, realcomplex *work, integer *lwork, real *rwork, logical *bwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len, ftnlen sort_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -516,7 +516,7 @@ extern int cgges_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, integer *
 /*:ref: chgeqz_ 14 23 13 13 13 4 4 4 8 4 8 4 8 8 8 4 8 4 8 4 6 4 124 124 124 */
 /*:ref: ctgsen_ 14 24 4 12 12 12 4 8 4 8 4 8 8 8 4 8 4 4 6 6 6 8 4 4 4 4 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cggesx_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, char *sense, integer *n, complex *a, integer *lda, complex *b, integer *ldb, integer *sdim, complex *alpha, complex *beta, complex *vsl, integer *ldvsl, complex *vsr, integer *ldvsr, real *rconde, real *rcondv, complex *work, integer *lwork, real *rwork, integer *iwork, integer *liwork, logical *bwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len, ftnlen sort_len, ftnlen sense_len);
+extern int cggesx_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, char *sense, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *sdim, realcomplex *alpha, realcomplex *beta, realcomplex *vsl, integer *ldvsl, realcomplex *vsr, integer *ldvsr, real *rconde, real *rcondv, realcomplex *work, integer *lwork, real *rwork, integer *iwork, integer *liwork, logical *bwork, integer *info, ftnlen jobvsl_len, ftnlen jobvsr_len, ftnlen sort_len, ftnlen sense_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -534,7 +534,7 @@ extern int cggesx_(char *jobvsl, char *jobvsr, char *sort, L_fp selctg, char *se
 /*:ref: chgeqz_ 14 23 13 13 13 4 4 4 8 4 8 4 8 8 8 4 8 4 8 4 6 4 124 124 124 */
 /*:ref: ctgsen_ 14 24 4 12 12 12 4 8 4 8 4 8 8 8 4 8 4 4 6 6 6 8 4 4 4 4 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cggev_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *vl, integer *ldvl, complex *vr, integer *ldvr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
+extern int cggev_(char *jobvl, char *jobvr, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobvl_len, ftnlen jobvr_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -552,7 +552,7 @@ extern int cggev_(char *jobvl, char *jobvr, integer *n, complex *a, integer *lda
 /*:ref: chgeqz_ 14 23 13 13 13 4 4 4 8 4 8 4 8 8 8 4 8 4 8 4 6 4 124 124 124 */
 /*:ref: ctgevc_ 14 19 13 13 12 4 8 4 8 4 8 4 8 4 4 4 8 6 4 124 124 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cggevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *ilo, integer *ihi, real *lscale, real *rscale, real *abnrm, real *bbnrm, real *rconde, real *rcondv, complex *work, integer *lwork, real *rwork, integer *iwork, logical *bwork, integer *info, ftnlen balanc_len, ftnlen jobvl_len, ftnlen jobvr_len, ftnlen sense_len);
+extern int cggevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *ilo, integer *ihi, real *lscale, real *rscale, real *abnrm, real *bbnrm, real *rconde, real *rcondv, realcomplex *work, integer *lwork, real *rwork, integer *iwork, logical *bwork, integer *info, ftnlen balanc_len, ftnlen jobvl_len, ftnlen jobvr_len, ftnlen sense_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -572,7 +572,7 @@ extern int cggevx_(char *balanc, char *jobvl, char *jobvr, char *sense, integer 
 /*:ref: ctgevc_ 14 19 13 13 12 4 8 4 8 4 8 4 8 4 4 4 8 6 4 124 124 */
 /*:ref: ctgsna_ 14 22 13 13 12 4 8 4 8 4 8 4 8 4 6 6 4 4 8 4 4 4 124 124 */
 /*:ref: cggbak_ 14 13 13 13 4 4 4 6 6 4 8 4 4 124 124 */
-extern int cggglm_(integer *n, integer *m, integer *p, complex *a, integer *lda, complex *b, integer *ldb, complex *d__, complex *x, complex *y, complex *work, integer *lwork, integer *info);
+extern int cggglm_(integer *n, integer *m, integer *p, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *d__, realcomplex *x, realcomplex *y, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cggqrf_ 14 12 4 4 4 8 4 8 8 4 8 8 4 4 */
@@ -581,13 +581,13 @@ extern int cggglm_(integer *n, integer *m, integer *p, complex *a, integer *lda,
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cunmrq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cgghrd_(char *compq, char *compz, integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *b, integer *ldb, complex *q, integer *ldq, complex *z__, integer *ldz, integer *info, ftnlen compq_len, ftnlen compz_len);
+extern int cgghrd_(char *compq, char *compz, integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, integer *info, ftnlen compq_len, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
-extern int cgglse_(integer *m, integer *n, integer *p, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, complex *d__, complex *x, complex *work, integer *lwork, integer *info);
+extern int cgglse_(integer *m, integer *n, integer *p, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, realcomplex *d__, realcomplex *x, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cggrqf_ 14 12 4 4 4 8 4 8 8 4 8 8 4 4 */
@@ -598,19 +598,19 @@ extern int cgglse_(integer *m, integer *n, integer *p, complex *a, integer *lda,
 /*:ref: ctrmv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: cunmrq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cggqrf_(integer *n, integer *m, integer *p, complex *a, integer *lda, complex *taua, complex *b, integer *ldb, complex *taub, complex *work, integer *lwork, integer *info);
+extern int cggqrf_(integer *n, integer *m, integer *p, realcomplex *a, integer *lda, realcomplex *taua, realcomplex *b, integer *ldb, realcomplex *taub, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgeqrf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunmqr_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: cgerqf_ 14 8 4 4 8 4 8 8 4 4 */
-extern int cggrqf_(integer *m, integer *p, integer *n, complex *a, integer *lda, complex *taua, complex *b, integer *ldb, complex *taub, complex *work, integer *lwork, integer *info);
+extern int cggrqf_(integer *m, integer *p, integer *n, realcomplex *a, integer *lda, realcomplex *taua, realcomplex *b, integer *ldb, realcomplex *taub, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgerqf_ 14 8 4 4 8 4 8 8 4 4 */
 /*:ref: cunmrq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: cgeqrf_ 14 8 4 4 8 4 8 8 4 4 */
-extern int cggsvd_(char *jobu, char *jobv, char *jobq, integer *m, integer *n, integer *p, integer *k, integer *l, complex *a, integer *lda, complex *b, integer *ldb, real *alpha, real *beta, complex *u, integer *ldu, complex *v, integer *ldv, complex *q, integer *ldq, complex *work, real *rwork, integer *iwork, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
+extern int cggsvd_(char *jobu, char *jobv, char *jobq, integer *m, integer *n, integer *p, integer *k, integer *l, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *alpha, real *beta, realcomplex *u, integer *ldu, realcomplex *v, integer *ldv, realcomplex *q, integer *ldq, realcomplex *work, real *rwork, integer *iwork, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clange_ 6 7 13 4 4 8 4 6 124 */
@@ -618,7 +618,7 @@ extern int cggsvd_(char *jobu, char *jobv, char *jobq, integer *m, integer *n, i
 /*:ref: cggsvp_ 14 28 13 13 13 4 4 4 8 4 8 4 6 6 4 4 8 4 8 4 8 4 4 6 8 8 4 124 124 124 */
 /*:ref: ctgsja_ 14 28 13 13 13 4 4 4 4 4 8 4 8 4 6 6 6 6 8 4 8 4 8 4 8 4 4 124 124 124 */
 /*:ref: scopy_ 14 5 4 6 4 6 4 */
-extern int cggsvp_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, integer *n, complex *a, integer *lda, complex *b, integer *ldb, real *tola, real *tolb, integer *k, integer *l, complex *u, integer *ldu, complex *v, integer *ldv, complex *q, integer *ldq, integer *iwork, real *rwork, complex *tau, complex *work, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
+extern int cggsvp_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *tola, real *tolb, integer *k, integer *l, realcomplex *u, integer *ldu, realcomplex *v, integer *ldv, realcomplex *q, integer *ldq, integer *iwork, real *rwork, realcomplex *tau, realcomplex *work, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgeqpf_ 14 9 4 4 8 4 4 8 8 6 4 */
@@ -630,12 +630,12 @@ extern int cggsvp_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, i
 /*:ref: cunmr2_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: cunm2r_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: cgeqr2_ 14 7 4 4 8 4 8 8 4 */
-extern int cgtcon_(char *norm, integer *n, complex *dl, complex *d__, complex *du, complex *du2, integer *ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen norm_len);
+extern int cgtcon_(char *norm, integer *n, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: cgttrs_ 14 12 13 4 4 8 8 8 8 4 8 4 4 124 */
-extern int cgtrfs_(char *trans, integer *n, integer *nrhs, complex *dl, complex *d__, complex *du, complex *dlf, complex *df, complex *duf, complex *du2, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen trans_len);
+extern int cgtrfs_(char *trans, integer *n, integer *nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *dlf, realcomplex *df, realcomplex *duf, realcomplex *du2, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -644,9 +644,9 @@ extern int cgtrfs_(char *trans, integer *n, integer *nrhs, complex *dl, complex 
 /*:ref: cgttrs_ 14 12 13 4 4 8 8 8 8 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cgtsv_(integer *n, integer *nrhs, complex *dl, complex *d__, complex *du, complex *b, integer *ldb, integer *info);
+extern int cgtsv_(integer *n, integer *nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *b, integer *ldb, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgtsvx_(char *fact, char *trans, integer *n, integer *nrhs, complex *dl, complex *d__, complex *du, complex *dlf, complex *df, complex *duf, complex *du2, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len);
+extern int cgtsvx_(char *fact, char *trans, integer *n, integer *nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *dlf, realcomplex *df, realcomplex *duf, realcomplex *du2, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
@@ -657,14 +657,14 @@ extern int cgtsvx_(char *fact, char *trans, integer *n, integer *nrhs, complex *
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cgttrs_ 14 12 13 4 4 8 8 8 8 4 8 4 4 124 */
 /*:ref: cgtrfs_ 14 21 13 4 4 8 8 8 8 8 8 8 4 8 4 8 4 6 6 8 6 4 124 */
-extern int cgttrf_(integer *n, complex *dl, complex *d__, complex *du, complex *du2, integer *ipiv, integer *info);
+extern int cgttrf_(integer *n, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgttrs_(char *trans, integer *n, integer *nrhs, complex *dl, complex *d__, complex *du, complex *du2, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen trans_len);
+extern int cgttrs_(char *trans, integer *n, integer *nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen trans_len);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: cgtts2_ 14 10 4 4 4 8 8 8 8 4 8 4 */
-extern int cgtts2_(integer *itrans, integer *n, integer *nrhs, complex *dl, complex *d__, complex *du, complex *du2, integer *ipiv, complex *b, integer *ldb);
-extern int chbev_(char *jobz, char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int cgtts2_(integer *itrans, integer *n, integer *nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *du2, integer *ipiv, realcomplex *b, integer *ldb);
+extern int chbev_(char *jobz, char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -674,7 +674,7 @@ extern int chbev_(char *jobz, char *uplo, integer *n, integer *kd, complex *ab, 
 /*:ref: ssterf_ 14 4 4 6 6 4 */
 /*:ref: csteqr_ 14 9 13 4 6 6 8 4 6 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int chbevd_(char *jobz, char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chbevd_(char *jobz, char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -686,7 +686,7 @@ extern int chbevd_(char *jobz, char *uplo, integer *n, integer *kd, complex *ab,
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int chbevx_(char *jobz, char *range, char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, complex *q, integer *ldq, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int chbevx_(char *jobz, char *range, char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, realcomplex *q, integer *ldq, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -703,7 +703,7 @@ extern int chbevx_(char *jobz, char *range, char *uplo, integer *n, integer *kd,
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chbgst_(char *vect, char *uplo, integer *n, integer *ka, integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, complex *x, integer *ldx, complex *work, real *rwork, integer *info, ftnlen vect_len, ftnlen uplo_len);
+extern int chbgst_(char *vect, char *uplo, integer *n, integer *ka, integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, realcomplex *x, integer *ldx, realcomplex *work, real *rwork, integer *info, ftnlen vect_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -716,7 +716,7 @@ extern int chbgst_(char *vect, char *uplo, integer *n, integer *ka, integer *kb,
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int chbgv_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chbgv_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpbstf_ 14 7 13 4 4 8 4 4 124 */
@@ -724,7 +724,7 @@ extern int chbgv_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb, 
 /*:ref: chbtrd_ 14 14 13 13 4 4 8 4 6 6 8 4 8 4 124 124 */
 /*:ref: ssterf_ 14 4 4 6 6 4 */
 /*:ref: csteqr_ 14 9 13 4 6 6 8 4 6 4 124 */
-extern int chbgvd_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chbgvd_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpbstf_ 14 7 13 4 4 8 4 4 124 */
@@ -734,7 +734,7 @@ extern int chbgvd_(char *jobz, char *uplo, integer *n, integer *ka, integer *kb,
 /*:ref: cstedc_ 14 14 13 4 6 6 8 4 8 4 6 4 4 4 4 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
-extern int chbgvx_(char *jobz, char *range, char *uplo, integer *n, integer *ka, integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, complex *q, integer *ldq, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int chbgvx_(char *jobz, char *range, char *uplo, integer *n, integer *ka, integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, realcomplex *q, integer *ldq, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpbstf_ 14 7 13 4 4 8 4 4 124 */
@@ -749,7 +749,7 @@ extern int chbgvx_(char *jobz, char *range, char *uplo, integer *n, integer *ka,
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chbtrd_(char *vect, char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *d__, real *e, complex *q, integer *ldq, complex *work, integer *info, ftnlen vect_len, ftnlen uplo_len);
+extern int chbtrd_(char *vect, char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *d__, real *e, realcomplex *q, integer *ldq, realcomplex *work, integer *info, ftnlen vect_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -760,12 +760,12 @@ extern int chbtrd_(char *vect, char *uplo, integer *n, integer *kd, complex *ab,
 /*:ref: clar2v_ 14 8 4 8 8 8 4 6 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int checon_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen uplo_len);
+extern int checon_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: chetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
-extern int cheev_(char *jobz, char *uplo, integer *n, complex *a, integer *lda, real *w, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int cheev_(char *jobz, char *uplo, integer *n, realcomplex *a, integer *lda, real *w, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -777,7 +777,7 @@ extern int cheev_(char *jobz, char *uplo, integer *n, complex *a, integer *lda, 
 /*:ref: cungtr_ 14 9 13 4 8 4 8 8 4 4 124 */
 /*:ref: csteqr_ 14 9 13 4 6 6 8 4 6 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int cheevd_(char *jobz, char *uplo, integer *n, complex *a, integer *lda, real *w, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int cheevd_(char *jobz, char *uplo, integer *n, realcomplex *a, integer *lda, real *w, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -789,7 +789,7 @@ extern int cheevd_(char *jobz, char *uplo, integer *n, complex *a, integer *lda,
 /*:ref: cunmtr_ 14 16 13 13 13 4 4 8 4 8 8 4 8 4 4 124 124 124 */
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int cheevr_(char *jobz, char *range, char *uplo, integer *n, complex *a, integer *lda, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, integer *isuppz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int cheevr_(char *jobz, char *range, char *uplo, integer *n, realcomplex *a, integer *lda, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, integer *isuppz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -805,7 +805,7 @@ extern int cheevr_(char *jobz, char *range, char *uplo, integer *n, complex *a, 
 /*:ref: cstein_ 14 13 4 6 6 4 6 4 4 8 4 6 4 4 4 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cheevx_(char *jobz, char *range, char *uplo, integer *n, complex *a, integer *lda, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int cheevx_(char *jobz, char *range, char *uplo, integer *n, realcomplex *a, integer *lda, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -823,7 +823,7 @@ extern int cheevx_(char *jobz, char *range, char *uplo, integer *n, complex *a, 
 /*:ref: cunmtr_ 14 16 13 13 13 4 4 8 4 8 8 4 8 4 4 124 124 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chegs2_(integer *itype, char *uplo, integer *n, complex *a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int chegs2_(integer *itype, char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
@@ -832,7 +832,7 @@ extern int chegs2_(integer *itype, char *uplo, integer *n, complex *a, integer *
 /*:ref: cher2_ 14 10 13 4 8 8 4 8 4 8 4 124 */
 /*:ref: ctrsv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
 /*:ref: ctrmv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
-extern int chegst_(integer *itype, char *uplo, integer *n, complex *a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int chegst_(integer *itype, char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -841,7 +841,7 @@ extern int chegst_(integer *itype, char *uplo, integer *n, complex *a, integer *
 /*:ref: chemm_ 14 14 13 13 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: cher2k_ 14 14 13 13 4 4 8 8 4 8 4 6 8 4 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int chegv_(integer *itype, char *jobz, char *uplo, integer *n, complex *a, integer *lda, complex *b, integer *ldb, real *w, complex *work, integer *lwork, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chegv_(integer *itype, char *jobz, char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *w, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -850,7 +850,7 @@ extern int chegv_(integer *itype, char *jobz, char *uplo, integer *n, complex *a
 /*:ref: cheev_ 14 12 13 13 4 8 4 6 8 4 6 4 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int chegvd_(integer *itype, char *jobz, char *uplo, integer *n, complex *a, integer *lda, complex *b, integer *ldb, real *w, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chegvd_(integer *itype, char *jobz, char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *w, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpotrf_ 14 6 13 4 8 4 4 124 */
@@ -858,7 +858,7 @@ extern int chegvd_(integer *itype, char *jobz, char *uplo, integer *n, complex *
 /*:ref: cheevd_ 14 15 13 13 4 8 4 6 8 4 6 4 4 4 4 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int chegvx_(integer *itype, char *jobz, char *range, char *uplo, integer *n, complex *a, integer *lda, complex *b, integer *ldb, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int chegvx_(integer *itype, char *jobz, char *range, char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -867,7 +867,7 @@ extern int chegvx_(integer *itype, char *jobz, char *range, char *uplo, integer 
 /*:ref: cheevx_ 14 24 13 13 13 4 8 4 6 6 4 4 6 4 6 8 4 8 4 6 4 4 4 124 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int cherfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cherfs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -876,13 +876,13 @@ extern int cherfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: chetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int chesv_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int chesv_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: chetrf_ 14 9 13 4 8 4 4 8 4 4 124 */
 /*:ref: chetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
-extern int chesvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
+extern int chesvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -893,7 +893,7 @@ extern int chesvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: chetrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: cherfs_ 14 18 13 4 4 8 4 8 4 4 8 4 8 4 6 6 8 6 4 124 */
-extern int chetd2_(char *uplo, integer *n, complex *a, integer *lda, real *d__, real *e, complex *tau, integer *info, ftnlen uplo_len);
+extern int chetd2_(char *uplo, integer *n, realcomplex *a, integer *lda, real *d__, real *e, realcomplex *tau, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
@@ -901,7 +901,7 @@ extern int chetd2_(char *uplo, integer *n, complex *a, integer *lda, real *d__, 
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: cher2_ 14 10 13 4 8 8 4 8 4 8 4 124 */
-extern int chetf2_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, integer *info, ftnlen uplo_len);
+extern int chetf2_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
@@ -909,27 +909,27 @@ extern int chetf2_(char *uplo, integer *n, complex *a, integer *lda, integer *ip
 /*:ref: cher_ 14 8 13 4 6 8 4 8 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: slapy2_ 6 2 6 6 */
-extern int chetrd_(char *uplo, integer *n, complex *a, integer *lda, real *d__, real *e, complex *tau, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int chetrd_(char *uplo, integer *n, realcomplex *a, integer *lda, real *d__, real *e, realcomplex *tau, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clatrd_ 14 10 13 4 4 8 4 6 8 8 4 124 */
 /*:ref: cher2k_ 14 14 13 13 4 4 8 8 4 8 4 6 8 4 124 124 */
 /*:ref: chetd2_ 14 9 13 4 8 4 6 6 8 4 124 */
-extern int chetrf_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int chetrf_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clahef_ 14 11 13 4 4 4 8 4 4 8 4 4 124 */
 /*:ref: chetf2_ 14 7 13 4 8 4 4 4 124 */
-extern int chetri_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, complex *work, integer *info, ftnlen uplo_len);
+extern int chetri_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: chemv_ 14 11 13 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chetrs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int chetrs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
@@ -937,7 +937,7 @@ extern int chetrs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int chgeqz_(char *job, char *compq, char *compz, integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *q, integer *ldq, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *info, ftnlen job_len, ftnlen compq_len, ftnlen compz_len);
+extern int chgeqz_(char *job, char *compq, char *compz, integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen job_len, ftnlen compq_len, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -946,12 +946,12 @@ extern int chgeqz_(char *job, char *compq, char *compz, integer *n, integer *ilo
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
-extern int chpcon_(char *uplo, integer *n, complex *ap, integer *ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen uplo_len);
+extern int chpcon_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: chptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
-extern int chpev_(char *jobz, char *uplo, integer *n, complex *ap, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chpev_(char *jobz, char *uplo, integer *n, realcomplex *ap, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -962,7 +962,7 @@ extern int chpev_(char *jobz, char *uplo, integer *n, complex *ap, real *w, comp
 /*:ref: cupgtr_ 14 9 13 4 8 8 8 4 8 4 124 */
 /*:ref: csteqr_ 14 9 13 4 6 6 8 4 6 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int chpevd_(char *jobz, char *uplo, integer *n, complex *ap, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chpevd_(char *jobz, char *uplo, integer *n, realcomplex *ap, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -973,7 +973,7 @@ extern int chpevd_(char *jobz, char *uplo, integer *n, complex *ap, real *w, com
 /*:ref: cstedc_ 14 14 13 4 6 6 8 4 8 4 6 4 4 4 4 124 */
 /*:ref: cupmtr_ 14 14 13 13 13 4 4 8 8 8 4 8 4 124 124 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
-extern int chpevx_(char *jobz, char *range, char *uplo, integer *n, complex *ap, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int chpevx_(char *jobz, char *range, char *uplo, integer *n, realcomplex *ap, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -989,7 +989,7 @@ extern int chpevx_(char *jobz, char *range, char *uplo, integer *n, complex *ap,
 /*:ref: cupmtr_ 14 14 13 13 13 4 4 8 8 8 4 8 4 124 124 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chpgst_(integer *itype, char *uplo, integer *n, complex *ap, complex *bp, integer *info, ftnlen uplo_len);
+extern int chpgst_(integer *itype, char *uplo, integer *n, realcomplex *ap, realcomplex *bp, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
@@ -999,7 +999,7 @@ extern int chpgst_(integer *itype, char *uplo, integer *n, complex *ap, complex 
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: chpr2_ 14 9 13 4 8 8 4 8 4 8 124 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int chpgv_(integer *itype, char *jobz, char *uplo, integer *n, complex *ap, complex *bp, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chpgv_(integer *itype, char *jobz, char *uplo, integer *n, realcomplex *ap, realcomplex *bp, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpptrf_ 14 5 13 4 8 4 124 */
@@ -1007,7 +1007,7 @@ extern int chpgv_(integer *itype, char *jobz, char *uplo, integer *n, complex *a
 /*:ref: chpev_ 14 12 13 13 4 8 6 8 4 8 6 4 124 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int chpgvd_(integer *itype, char *jobz, char *uplo, integer *n, complex *ap, complex *bp, real *w, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
+extern int chpgvd_(integer *itype, char *jobz, char *uplo, integer *n, realcomplex *ap, realcomplex *bp, real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpptrf_ 14 5 13 4 8 4 124 */
@@ -1015,7 +1015,7 @@ extern int chpgvd_(integer *itype, char *jobz, char *uplo, integer *n, complex *
 /*:ref: chpevd_ 14 16 13 13 4 8 6 8 4 8 4 6 4 4 4 4 124 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int chpgvx_(integer *itype, char *jobz, char *range, char *uplo, integer *n, complex *ap, complex *bp, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, complex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
+extern int chpgvx_(integer *itype, char *jobz, char *range, char *uplo, integer *n, realcomplex *ap, realcomplex *bp, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, ftnlen range_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpptrf_ 14 5 13 4 8 4 124 */
@@ -1023,7 +1023,7 @@ extern int chpgvx_(integer *itype, char *jobz, char *range, char *uplo, integer 
 /*:ref: chpevx_ 14 22 13 13 13 4 8 6 6 4 4 6 4 6 8 4 8 6 4 4 4 124 124 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int chprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int chprfs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1032,12 +1032,12 @@ extern int chprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *
 /*:ref: chptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int chpsv_(char *uplo, integer *n, integer *nrhs, complex *ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int chpsv_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: chptrf_ 14 6 13 4 8 4 4 124 */
 /*:ref: chptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
-extern int chpsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
+extern int chpsvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
@@ -1048,7 +1048,7 @@ extern int chpsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: chptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: chprfs_ 14 16 13 4 4 8 8 4 8 4 8 4 6 6 8 6 4 124 */
-extern int chptrd_(char *uplo, integer *n, complex *ap, real *d__, real *e, complex *tau, integer *info, ftnlen uplo_len);
+extern int chptrd_(char *uplo, integer *n, realcomplex *ap, real *d__, real *e, realcomplex *tau, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
@@ -1056,7 +1056,7 @@ extern int chptrd_(char *uplo, integer *n, complex *ap, real *d__, real *e, comp
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: chpr2_ 14 9 13 4 8 8 4 8 4 8 124 */
-extern int chptrf_(char *uplo, integer *n, complex *ap, integer *ipiv, integer *info, ftnlen uplo_len);
+extern int chptrf_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
@@ -1064,14 +1064,14 @@ extern int chptrf_(char *uplo, integer *n, complex *ap, integer *ipiv, integer *
 /*:ref: chpr_ 14 7 13 4 6 8 4 8 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: slapy2_ 6 2 6 6 */
-extern int chptri_(char *uplo, integer *n, complex *ap, integer *ipiv, complex *work, integer *info, ftnlen uplo_len);
+extern int chptri_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: chpmv_ 14 10 13 4 8 8 8 4 8 8 4 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int chptrs_(char *uplo, integer *n, integer *nrhs, complex *ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int chptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
@@ -1079,13 +1079,13 @@ extern int chptrs_(char *uplo, integer *n, integer *nrhs, complex *ap, integer *
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int chsein_(char *side, char *eigsrc, char *initv, logical *select, integer *n, complex *h__, integer *ldh, complex *w, complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *mm, integer *m, complex *work, real *rwork, integer *ifaill, integer *ifailr, integer *info, ftnlen side_len, ftnlen eigsrc_len, ftnlen initv_len);
+extern int chsein_(char *side, char *eigsrc, char *initv, logical *select, integer *n, realcomplex *h__, integer *ldh, realcomplex *w, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *mm, integer *m, realcomplex *work, real *rwork, integer *ifaill, integer *ifailr, integer *info, ftnlen side_len, ftnlen eigsrc_len, ftnlen initv_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: clanhs_ 6 6 13 4 8 4 6 124 */
 /*:ref: claein_ 14 13 12 12 4 8 4 8 8 8 4 6 6 6 4 */
-extern int chseqr_(char *job, char *compz, integer *n, integer *ilo, integer *ihi, complex *h__, integer *ldh, complex *w, complex *z__, integer *ldz, complex *work, integer *lwork, integer *info, ftnlen job_len, ftnlen compz_len);
+extern int chseqr_(char *job, char *compz, integer *n, integer *ilo, integer *ihi, realcomplex *h__, integer *ldh, realcomplex *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, integer *info, ftnlen job_len, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -1103,27 +1103,27 @@ extern int chseqr_(char *job, char *compz, integer *n, integer *ilo, integer *ih
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarfx_ 14 9 13 4 4 8 8 8 4 8 124 */
-extern int clabrd_(integer *m, integer *n, integer *nb, complex *a, integer *lda, real *d__, real *e, complex *tauq, complex *taup, complex *x, integer *ldx, complex *y, integer *ldy);
+extern int clabrd_(integer *m, integer *n, integer *nb, realcomplex *a, integer *lda, real *d__, real *e, realcomplex *tauq, realcomplex *taup, realcomplex *x, integer *ldx, realcomplex *y, integer *ldy);
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int clacgv_(integer *n, complex *x, integer *incx);
-extern int clacon_(integer *n, complex *v, complex *x, real *est, integer *kase);
+extern int clacgv_(integer *n, realcomplex *x, integer *incx);
+extern int clacon_(integer *n, realcomplex *v, realcomplex *x, real *est, integer *kase);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: scsum1_ 6 3 4 8 4 */
 /*:ref: icmax1_ 4 3 4 8 4 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
-extern int clacp2_(char *uplo, integer *m, integer *n, real *a, integer *lda, complex *b, integer *ldb, ftnlen uplo_len);
+extern int clacp2_(char *uplo, integer *m, integer *n, real *a, integer *lda, realcomplex *b, integer *ldb, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int clacpy_(char *uplo, integer *m, integer *n, complex *a, integer *lda, complex *b, integer *ldb, ftnlen uplo_len);
+extern int clacpy_(char *uplo, integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int clacrm_(integer *m, integer *n, complex *a, integer *lda, real *b, integer *ldb, complex *c__, integer *ldc, real *rwork);
+extern int clacrm_(integer *m, integer *n, realcomplex *a, integer *lda, real *b, integer *ldb, realcomplex *c__, integer *ldc, real *rwork);
 /*:ref: sgemm_ 14 15 13 13 4 4 4 6 6 4 6 4 6 6 4 124 124 */
-extern int clacrt_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy, complex *c__, complex *s);
-extern C_f cladiv_(complex * ret_val, complex *x, complex *y);
+extern int clacrt_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy, realcomplex *c__, realcomplex *s);
+extern C_f cladiv_(realcomplex * ret_val, realcomplex *x, realcomplex *y);
 /*:ref: sladiv_ 14 6 6 6 6 6 6 6 */
-extern int claed0_(integer *qsiz, integer *n, real *d__, real *e, complex *q, integer *ldq, complex *qstore, integer *ldqs, real *rwork, integer *iwork, integer *info);
+extern int claed0_(integer *qsiz, integer *n, real *d__, real *e, realcomplex *q, integer *ldq, realcomplex *qstore, integer *ldqs, real *rwork, integer *iwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: ssteqr_ 14 9 13 4 6 6 6 4 6 4 124 */
@@ -1131,14 +1131,14 @@ extern int claed0_(integer *qsiz, integer *n, real *d__, real *e, complex *q, in
 /*:ref: claed7_ 14 22 4 4 4 4 4 4 6 8 4 6 4 6 4 4 4 4 4 6 8 6 4 4 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: scopy_ 14 5 4 6 4 6 4 */
-extern int claed7_(integer *n, integer *cutpnt, integer *qsiz, integer *tlvls, integer *curlvl, integer *curpbm, real *d__, complex *q, integer *ldq, real *rho, integer *indxq, real *qstore, integer *qptr, integer *prmptr, integer *perm, integer *givptr, integer *givcol, real *givnum, complex *work, real *rwork, integer *iwork, integer *info);
+extern int claed7_(integer *n, integer *cutpnt, integer *qsiz, integer *tlvls, integer *curlvl, integer *curpbm, real *d__, realcomplex *q, integer *ldq, real *rho, integer *indxq, real *qstore, integer *qptr, integer *prmptr, integer *perm, integer *givptr, integer *givcol, real *givnum, realcomplex *work, real *rwork, integer *iwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slaeda_ 14 14 4 4 4 4 4 4 4 4 6 6 4 6 6 4 */
 /*:ref: claed8_ 14 21 4 4 4 8 4 6 6 4 6 6 8 4 6 4 4 4 4 4 4 6 4 */
 /*:ref: slaed9_ 14 13 4 4 4 4 6 6 4 6 6 6 6 4 4 */
 /*:ref: clacrm_ 14 9 4 4 8 4 6 4 8 4 6 */
 /*:ref: slamrg_ 14 6 4 4 6 4 4 4 */
-extern int claed8_(integer *k, integer *n, integer *qsiz, complex *q, integer *ldq, real *d__, real *rho, integer *cutpnt, real *z__, real *dlamda, complex *q2, integer *ldq2, real *w, integer *indxp, integer *indx, integer *indxq, integer *perm, integer *givptr, integer *givcol, real *givnum, integer *info);
+extern int claed8_(integer *k, integer *n, integer *qsiz, realcomplex *q, integer *ldq, real *d__, real *rho, integer *cutpnt, real *z__, real *dlamda, realcomplex *q2, integer *ldq2, real *w, integer *indxp, integer *indx, integer *indxq, integer *perm, integer *givptr, integer *givcol, real *givnum, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: slamrg_ 14 6 4 4 6 4 4 4 */
@@ -1149,22 +1149,22 @@ extern int claed8_(integer *k, integer *n, integer *qsiz, complex *q, integer *l
 /*:ref: slapy2_ 6 2 6 6 */
 /*:ref: csrot_ 14 7 4 8 4 8 4 6 6 */
 /*:ref: scopy_ 14 5 4 6 4 6 4 */
-extern int claein_(logical *rightv, logical *noinit, integer *n, complex *h__, integer *ldh, complex *w, complex *v, complex *b, integer *ldb, real *rwork, real *eps3, real *smlnum, integer *info);
+extern int claein_(logical *rightv, logical *noinit, integer *n, realcomplex *h__, integer *ldh, realcomplex *w, realcomplex *v, realcomplex *b, integer *ldb, real *rwork, real *eps3, real *smlnum, integer *info);
 /*:ref: scnrm2_ 6 3 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cladiv_ 8 3 8 8 8 */
 /*:ref: clatrs_ 14 15 13 13 13 13 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: scasum_ 6 3 4 8 4 */
 /*:ref: icamax_ 4 3 4 8 4 */
-extern int claesy_(complex *a, complex *b, complex *c__, complex *rt1, complex *rt2, complex *evscal, complex *cs1, complex *sn1);
-extern int claev2_(complex *a, complex *b, complex *c__, real *rt1, real *rt2, real *cs1, complex *sn1);
+extern int claesy_(realcomplex *a, realcomplex *b, realcomplex *c__, realcomplex *rt1, realcomplex *rt2, realcomplex *evscal, realcomplex *cs1, realcomplex *sn1);
+extern int claev2_(realcomplex *a, realcomplex *b, realcomplex *c__, real *rt1, real *rt2, real *cs1, realcomplex *sn1);
 /*:ref: slaev2_ 14 7 6 6 6 6 6 6 6 */
-extern int clags2_(logical *upper, real *a1, complex *a2, real *a3, real *b1, complex *b2, real *b3, real *csu, complex *snu, real *csv, complex *snv, real *csq, complex *snq);
+extern int clags2_(logical *upper, real *a1, realcomplex *a2, real *a3, real *b1, realcomplex *b2, real *b3, real *csu, realcomplex *snu, real *csv, realcomplex *snv, real *csq, realcomplex *snq);
 /*:ref: slasv2_ 14 9 6 6 6 6 6 6 6 6 6 */
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
-extern int clagtm_(char *trans, integer *n, integer *nrhs, real *alpha, complex *dl, complex *d__, complex *du, complex *x, integer *ldx, real *beta, complex *b, integer *ldb, ftnlen trans_len);
+extern int clagtm_(char *trans, integer *n, integer *nrhs, real *alpha, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *x, integer *ldx, real *beta, realcomplex *b, integer *ldb, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int clahef_(char *uplo, integer *n, integer *nb, integer *kb, complex *a, integer *lda, integer *ipiv, complex *w, integer *ldw, integer *info, ftnlen uplo_len);
+extern int clahef_(char *uplo, integer *n, integer *nb, integer *kb, realcomplex *a, integer *lda, integer *ipiv, realcomplex *w, integer *ldw, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
@@ -1173,14 +1173,14 @@ extern int clahef_(char *uplo, integer *n, integer *nb, integer *kb, complex *a,
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int clahqr_(logical *wantt, logical *wantz, integer *n, integer *ilo, integer *ihi, complex *h__, integer *ldh, complex *w, integer *iloz, integer *ihiz, complex *z__, integer *ldz, integer *info);
+extern int clahqr_(logical *wantt, logical *wantz, integer *n, integer *ilo, integer *ihi, realcomplex *h__, integer *ldh, realcomplex *w, integer *iloz, integer *ihiz, realcomplex *z__, integer *ldz, integer *info);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: clanhs_ 6 6 13 4 8 4 6 124 */
 /*:ref: cladiv_ 8 3 8 8 8 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int clahrd_(integer *n, integer *k, integer *nb, complex *a, integer *lda, complex *tau, complex *t, integer *ldt, complex *y, integer *ldy);
+extern int clahrd_(integer *n, integer *k, integer *nb, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *t, integer *ldt, realcomplex *y, integer *ldy);
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
@@ -1188,10 +1188,10 @@ extern int clahrd_(integer *n, integer *k, integer *nb, complex *a, integer *lda
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int claic1_(integer *job, integer *j, complex *x, real *sest, complex *w, complex *gamma, real *sestpr, complex *s, complex *c__);
+extern int claic1_(integer *job, integer *j, realcomplex *x, real *sest, realcomplex *w, realcomplex *gamma, real *sestpr, realcomplex *s, realcomplex *c__);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
-extern int clals0_(integer *icompq, integer *nl, integer *nr, integer *sqre, integer *nrhs, complex *b, integer *ldb, complex *bx, integer *ldbx, integer *perm, integer *givptr, integer *givcol, integer *ldgcol, real *givnum, integer *ldgnum, real *poles, real *difl, real *difr, real *z__, integer *k, real *c__, real *s, real *rwork, integer *info);
+extern int clals0_(integer *icompq, integer *nl, integer *nr, integer *sqre, integer *nrhs, realcomplex *b, integer *ldb, realcomplex *bx, integer *ldbx, integer *perm, integer *givptr, integer *givcol, integer *ldgcol, real *givnum, integer *ldgnum, real *poles, real *difl, real *difr, real *z__, integer *k, real *c__, real *s, real *rwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csrot_ 14 7 4 8 4 8 4 6 6 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
@@ -1201,13 +1201,13 @@ extern int clals0_(integer *icompq, integer *nl, integer *nr, integer *sqre, int
 /*:ref: sgemv_ 14 12 13 4 4 6 6 4 6 4 6 6 4 124 */
 /*:ref: clascl_ 14 11 13 4 4 6 6 4 4 8 4 4 124 */
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
-extern int clalsa_(integer *icompq, integer *smlsiz, integer *n, integer *nrhs, complex *b, integer *ldb, complex *bx, integer *ldbx, real *u, integer *ldu, real *vt, integer *k, real *difl, real *difr, real *z__, real *poles, integer *givptr, integer *givcol, integer *ldgcol, integer *perm, real *givnum, real *c__, real *s, real *rwork, integer *iwork, integer *info);
+extern int clalsa_(integer *icompq, integer *smlsiz, integer *n, integer *nrhs, realcomplex *b, integer *ldb, realcomplex *bx, integer *ldbx, real *u, integer *ldu, real *vt, integer *k, real *difl, real *difr, real *z__, real *poles, integer *givptr, integer *givcol, integer *ldgcol, integer *perm, real *givnum, real *c__, real *s, real *rwork, integer *iwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slasdt_ 14 7 4 4 4 4 4 4 4 */
 /*:ref: sgemm_ 14 15 13 13 4 4 4 6 6 4 6 4 6 6 4 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: clals0_ 14 24 4 4 4 4 4 8 4 8 4 4 4 4 4 6 4 6 6 6 6 4 6 6 6 4 */
-extern int clalsd_(char *uplo, integer *smlsiz, integer *n, integer *nrhs, real *d__, real *e, complex *b, integer *ldb, real *rcond, integer *rank, complex *work, real *rwork, integer *iwork, integer *info, ftnlen uplo_len);
+extern int clalsd_(char *uplo, integer *smlsiz, integer *n, integer *nrhs, real *d__, real *e, realcomplex *b, integer *ldb, real *rcond, integer *rank, realcomplex *work, real *rwork, integer *iwork, integer *info, ftnlen uplo_len);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -1225,127 +1225,127 @@ extern int clalsd_(char *uplo, integer *smlsiz, integer *n, integer *nrhs, real 
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: slasda_ 14 24 4 4 4 4 6 6 6 4 6 4 6 6 6 6 4 4 4 4 6 6 6 6 4 4 */
 /*:ref: clalsa_ 14 26 4 4 4 4 8 4 8 4 6 4 6 4 6 6 6 6 4 4 4 4 6 6 6 6 4 4 */
-extern E_f clangb_(char *norm, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, real *work, ftnlen norm_len);
+extern E_f clangb_(char *norm, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, real *work, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clange_(char *norm, integer *m, integer *n, complex *a, integer *lda, real *work, ftnlen norm_len);
+extern E_f clange_(char *norm, integer *m, integer *n, realcomplex *a, integer *lda, real *work, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clangt_(char *norm, integer *n, complex *dl, complex *d__, complex *du, ftnlen norm_len);
+extern E_f clangt_(char *norm, integer *n, realcomplex *dl, realcomplex *d__, realcomplex *du, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clanhb_(char *norm, char *uplo, integer *n, integer *k, complex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clanhb_(char *norm, char *uplo, integer *n, integer *k, realcomplex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clanhe_(char *norm, char *uplo, integer *n, complex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clanhe_(char *norm, char *uplo, integer *n, realcomplex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clanhp_(char *norm, char *uplo, integer *n, complex *ap, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clanhp_(char *norm, char *uplo, integer *n, realcomplex *ap, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clanhs_(char *norm, integer *n, complex *a, integer *lda, real *work, ftnlen norm_len);
+extern E_f clanhs_(char *norm, integer *n, realcomplex *a, integer *lda, real *work, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clanht_(char *norm, integer *n, real *d__, complex *e, ftnlen norm_len);
+extern E_f clanht_(char *norm, integer *n, real *d__, realcomplex *e, ftnlen norm_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
 /*:ref: slassq_ 14 5 4 6 4 6 6 */
-extern E_f clansb_(char *norm, char *uplo, integer *n, integer *k, complex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clansb_(char *norm, char *uplo, integer *n, integer *k, realcomplex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clansp_(char *norm, char *uplo, integer *n, complex *ap, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clansp_(char *norm, char *uplo, integer *n, realcomplex *ap, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clansy_(char *norm, char *uplo, integer *n, complex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len);
+extern E_f clansy_(char *norm, char *uplo, integer *n, realcomplex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clantb_(char *norm, char *uplo, char *diag, integer *n, integer *k, complex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern E_f clantb_(char *norm, char *uplo, char *diag, integer *n, integer *k, realcomplex *ab, integer *ldab, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clantp_(char *norm, char *uplo, char *diag, integer *n, complex *ap, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern E_f clantp_(char *norm, char *uplo, char *diag, integer *n, realcomplex *ap, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern E_f clantr_(char *norm, char *uplo, char *diag, integer *m, integer *n, complex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern E_f clantr_(char *norm, char *uplo, char *diag, integer *m, integer *n, realcomplex *a, integer *lda, real *work, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
-extern int clapll_(integer *n, complex *x, integer *incx, complex *y, integer *incy, real *ssmin);
+extern int clapll_(integer *n, realcomplex *x, integer *incx, realcomplex *y, integer *incy, real *ssmin);
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: slas2_ 14 5 6 6 6 6 6 */
-extern int clapmt_(logical *forwrd, integer *m, integer *n, complex *x, integer *ldx, integer *k);
-extern int claqgb_(integer *m, integer *n, integer *kl, integer *ku, complex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, char *equed, ftnlen equed_len);
+extern int clapmt_(logical *forwrd, integer *m, integer *n, realcomplex *x, integer *ldx, integer *k);
+extern int claqgb_(integer *m, integer *n, integer *kl, integer *ku, realcomplex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, char *equed, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
-extern int claqge_(integer *m, integer *n, complex *a, integer *lda, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, char *equed, ftnlen equed_len);
+extern int claqge_(integer *m, integer *n, realcomplex *a, integer *lda, real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, char *equed, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
-extern int claqhb_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
-/*:ref: slamch_ 6 2 13 124 */
-/*:ref: lsame_ 12 4 13 13 124 124 */
-extern int claqhe_(char *uplo, integer *n, complex *a, integer *lda, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+extern int claqhb_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int claqhp_(char *uplo, integer *n, complex *ap, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+extern int claqhe_(char *uplo, integer *n, realcomplex *a, integer *lda, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int claqp2_(integer *m, integer *n, integer *offset, complex *a, integer *lda, integer *jpvt, complex *tau, real *vn1, real *vn2, complex *work);
+extern int claqhp_(char *uplo, integer *n, realcomplex *ap, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+/*:ref: slamch_ 6 2 13 124 */
+/*:ref: lsame_ 12 4 13 13 124 124 */
+extern int claqp2_(integer *m, integer *n, integer *offset, realcomplex *a, integer *lda, integer *jpvt, realcomplex *tau, real *vn1, real *vn2, realcomplex *work);
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: scnrm2_ 6 3 4 8 4 */
-extern int claqps_(integer *m, integer *n, integer *offset, integer *nb, integer *kb, complex *a, integer *lda, integer *jpvt, complex *tau, real *vn1, real *vn2, complex *auxv, complex *f, integer *ldf);
+extern int claqps_(integer *m, integer *n, integer *offset, integer *nb, integer *kb, realcomplex *a, integer *lda, integer *jpvt, realcomplex *tau, real *vn1, real *vn2, realcomplex *auxv, realcomplex *f, integer *ldf);
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: scnrm2_ 6 3 4 8 4 */
-extern int claqsb_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+extern int claqsb_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int claqsp_(char *uplo, integer *n, complex *ap, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+extern int claqsp_(char *uplo, integer *n, realcomplex *ap, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int claqsy_(char *uplo, integer *n, complex *a, integer *lda, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
+extern int claqsy_(char *uplo, integer *n, realcomplex *a, integer *lda, real *s, real *scond, real *amax, char *equed, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int clar1v_(integer *n, integer *b1, integer *bn, real *sigma, real *d__, real *l, real *ld, real *lld, real *gersch, complex *z__, real *ztz, real *mingma, integer *r__, integer *isuppz, real *work);
+extern int clar1v_(integer *n, integer *b1, integer *bn, real *sigma, real *d__, real *l, real *ld, real *lld, real *gersch, realcomplex *z__, real *ztz, real *mingma, integer *r__, integer *isuppz, real *work);
 /*:ref: slamch_ 6 2 13 124 */
-extern int clar2v_(integer *n, complex *x, complex *y, complex *z__, integer *incx, real *c__, complex *s, integer *incc);
-extern int clarcm_(integer *m, integer *n, real *a, integer *lda, complex *b, integer *ldb, complex *c__, integer *ldc, real *rwork);
+extern int clar2v_(integer *n, realcomplex *x, realcomplex *y, realcomplex *z__, integer *incx, real *c__, realcomplex *s, integer *incc);
+extern int clarcm_(integer *m, integer *n, real *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, integer *ldc, real *rwork);
 /*:ref: sgemm_ 14 15 13 13 4 4 4 6 6 4 6 4 6 6 4 124 124 */
-extern int clarf_(char *side, integer *m, integer *n, complex *v, integer *incv, complex *tau, complex *c__, integer *ldc, complex *work, ftnlen side_len);
+extern int clarf_(char *side, integer *m, integer *n, realcomplex *v, integer *incv, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cgerc_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int clarfb_(char *side, char *trans, char *direct, char *storev, integer *m, integer *n, integer *k, complex *v, integer *ldv, complex *t, integer *ldt, complex *c__, integer *ldc, complex *work, integer *ldwork, ftnlen side_len, ftnlen trans_len, ftnlen direct_len, ftnlen storev_len);
+extern int clarfb_(char *side, char *trans, char *direct, char *storev, integer *m, integer *n, integer *k, realcomplex *v, integer *ldv, realcomplex *t, integer *ldt, realcomplex *c__, integer *ldc, realcomplex *work, integer *ldwork, ftnlen side_len, ftnlen trans_len, ftnlen direct_len, ftnlen storev_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int clarfg_(integer *n, complex *alpha, complex *x, integer *incx, complex *tau);
+extern int clarfg_(integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *tau);
 /*:ref: scnrm2_ 6 3 4 8 4 */
 /*:ref: slapy3_ 6 3 6 6 6 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cladiv_ 8 3 8 8 8 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int clarft_(char *direct, char *storev, integer *n, integer *k, complex *v, integer *ldv, complex *tau, complex *t, integer *ldt, ftnlen direct_len, ftnlen storev_len);
+extern int clarft_(char *direct, char *storev, integer *n, integer *k, realcomplex *v, integer *ldv, realcomplex *tau, realcomplex *t, integer *ldt, ftnlen direct_len, ftnlen storev_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: ctrmv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
-extern int clarfx_(char *side, integer *m, integer *n, complex *v, complex *tau, complex *c__, integer *ldc, complex *work, ftnlen side_len);
+extern int clarfx_(char *side, integer *m, integer *n, realcomplex *v, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cgerc_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int clargv_(integer *n, complex *x, integer *incx, complex *y, integer *incy, real *c__, integer *incc);
+extern int clargv_(integer *n, realcomplex *x, integer *incx, realcomplex *y, integer *incy, real *c__, integer *incc);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slapy2_ 6 2 6 6 */
-extern int clarnv_(integer *idist, integer *iseed, integer *n, complex *x);
+extern int clarnv_(integer *idist, integer *iseed, integer *n, realcomplex *x);
 /*:ref: slaruv_ 14 3 4 4 6 */
-extern int clarrv_(integer *n, real *d__, real *l, integer *isplit, integer *m, real *w, integer *iblock, real *gersch, real *tol, complex *z__, integer *ldz, integer *isuppz, real *work, integer *iwork, integer *info);
+extern int clarrv_(integer *n, real *d__, real *l, integer *isplit, integer *m, real *w, integer *iblock, real *gersch, real *tol, realcomplex *z__, integer *ldz, integer *isuppz, real *work, integer *iwork, integer *info);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
 /*:ref: scopy_ 14 5 4 6 4 6 4 */
@@ -1357,11 +1357,11 @@ extern int clarrv_(integer *n, real *d__, real *l, integer *isplit, integer *m, 
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: scnrm2_ 6 3 4 8 4 */
-extern int clartg_(complex *f, complex *g, real *cs, complex *sn, complex *r__);
+extern int clartg_(realcomplex *f, realcomplex *g, real *cs, realcomplex *sn, realcomplex *r__);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slapy2_ 6 2 6 6 */
-extern int clartv_(integer *n, complex *x, integer *incx, complex *y, integer *incy, real *c__, complex *s, integer *incc);
-extern int clarz_(char *side, integer *m, integer *n, integer *l, complex *v, integer *incv, complex *tau, complex *c__, integer *ldc, complex *work, ftnlen side_len);
+extern int clartv_(integer *n, realcomplex *x, integer *incx, realcomplex *y, integer *incy, real *c__, realcomplex *s, integer *incc);
+extern int clarz_(char *side, integer *m, integer *n, integer *l, realcomplex *v, integer *incv, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
@@ -1369,31 +1369,31 @@ extern int clarz_(char *side, integer *m, integer *n, integer *l, complex *v, in
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
 /*:ref: cgerc_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int clarzb_(char *side, char *trans, char *direct, char *storev, integer *m, integer *n, integer *k, integer *l, complex *v, integer *ldv, complex *t, integer *ldt, complex *c__, integer *ldc, complex *work, integer *ldwork, ftnlen side_len, ftnlen trans_len, ftnlen direct_len, ftnlen storev_len);
+extern int clarzb_(char *side, char *trans, char *direct, char *storev, integer *m, integer *n, integer *k, integer *l, realcomplex *v, integer *ldv, realcomplex *t, integer *ldt, realcomplex *c__, integer *ldc, realcomplex *work, integer *ldwork, ftnlen side_len, ftnlen trans_len, ftnlen direct_len, ftnlen storev_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
-extern int clarzt_(char *direct, char *storev, integer *n, integer *k, complex *v, integer *ldv, complex *tau, complex *t, integer *ldt, ftnlen direct_len, ftnlen storev_len);
+extern int clarzt_(char *direct, char *storev, integer *n, integer *k, realcomplex *v, integer *ldv, realcomplex *tau, realcomplex *t, integer *ldt, ftnlen direct_len, ftnlen storev_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: ctrmv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
-extern int clascl_(char *type__, integer *kl, integer *ku, real *cfrom, real *cto, integer *m, integer *n, complex *a, integer *lda, integer *info, ftnlen type_len);
+extern int clascl_(char *type__, integer *kl, integer *ku, real *cfrom, real *cto, integer *m, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen type_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
-extern int claset_(char *uplo, integer *m, integer *n, complex *alpha, complex *beta, complex *a, integer *lda, ftnlen uplo_len);
+extern int claset_(char *uplo, integer *m, integer *n, realcomplex *alpha, realcomplex *beta, realcomplex *a, integer *lda, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
-extern int clasr_(char *side, char *pivot, char *direct, integer *m, integer *n, real *c__, real *s, complex *a, integer *lda, ftnlen side_len, ftnlen pivot_len, ftnlen direct_len);
+extern int clasr_(char *side, char *pivot, char *direct, integer *m, integer *n, real *c__, real *s, realcomplex *a, integer *lda, ftnlen side_len, ftnlen pivot_len, ftnlen direct_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int classq_(integer *n, complex *x, integer *incx, real *scale, real *sumsq);
-extern int claswp_(integer *n, complex *a, integer *lda, integer *k1, integer *k2, integer *ipiv, integer *incx);
-extern int clasyf_(char *uplo, integer *n, integer *nb, integer *kb, complex *a, integer *lda, integer *ipiv, complex *w, integer *ldw, integer *info, ftnlen uplo_len);
+extern int classq_(integer *n, realcomplex *x, integer *incx, real *scale, real *sumsq);
+extern int claswp_(integer *n, realcomplex *a, integer *lda, integer *k1, integer *k2, integer *ipiv, integer *incx);
+extern int clasyf_(char *uplo, integer *n, integer *nb, integer *kb, realcomplex *a, integer *lda, integer *ipiv, realcomplex *w, integer *ldw, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
@@ -1401,7 +1401,7 @@ extern int clasyf_(char *uplo, integer *n, integer *nb, integer *kb, complex *a,
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int clatbs_(char *uplo, char *trans, char *diag, char *normin, integer *n, integer *kd, complex *ab, integer *ldab, complex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
+extern int clatbs_(char *uplo, char *trans, char *diag, char *normin, integer *n, integer *kd, realcomplex *ab, integer *ldab, realcomplex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1416,7 +1416,7 @@ extern int clatbs_(char *uplo, char *trans, char *diag, char *normin, integer *n
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
-extern int clatdf_(integer *ijob, integer *n, complex *z__, integer *ldz, complex *rhs, real *rdsum, real *rdscal, integer *ipiv, integer *jpiv);
+extern int clatdf_(integer *ijob, integer *n, realcomplex *z__, integer *ldz, realcomplex *rhs, real *rdsum, real *rdscal, integer *ipiv, integer *jpiv);
 /*:ref: claswp_ 14 7 4 8 4 4 4 4 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
@@ -1426,7 +1426,7 @@ extern int clatdf_(integer *ijob, integer *n, complex *z__, integer *ldz, comple
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgesc2_ 14 7 4 8 4 8 4 4 6 */
 /*:ref: scasum_ 6 3 4 8 4 */
-extern int clatps_(char *uplo, char *trans, char *diag, char *normin, integer *n, complex *ap, complex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
+extern int clatps_(char *uplo, char *trans, char *diag, char *normin, integer *n, realcomplex *ap, realcomplex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1441,7 +1441,7 @@ extern int clatps_(char *uplo, char *trans, char *diag, char *normin, integer *n
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
-extern int clatrd_(char *uplo, integer *n, integer *nb, complex *a, integer *lda, real *e, complex *tau, complex *w, integer *ldw, ftnlen uplo_len);
+extern int clatrd_(char *uplo, integer *n, integer *nb, realcomplex *a, integer *lda, real *e, realcomplex *tau, realcomplex *w, integer *ldw, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
@@ -1450,7 +1450,7 @@ extern int clatrd_(char *uplo, integer *n, integer *nb, complex *a, integer *lda
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
-extern int clatrs_(char *uplo, char *trans, char *diag, char *normin, integer *n, complex *a, integer *lda, complex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
+extern int clatrs_(char *uplo, char *trans, char *diag, char *normin, integer *n, realcomplex *a, integer *lda, realcomplex *x, real *scale, real *cnorm, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, ftnlen normin_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1465,11 +1465,11 @@ extern int clatrs_(char *uplo, char *trans, char *diag, char *normin, integer *n
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
-extern int clatrz_(integer *m, integer *n, integer *l, complex *a, integer *lda, complex *tau, complex *work);
+extern int clatrz_(integer *m, integer *n, integer *l, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work);
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
 /*:ref: clarz_ 14 11 13 4 4 4 8 4 8 8 4 8 124 */
-extern int clatzm_(char *side, integer *m, integer *n, complex *v, integer *incv, complex *tau, complex *c1, complex *c2, integer *ldc, complex *work, ftnlen side_len);
+extern int clatzm_(char *side, integer *m, integer *n, realcomplex *v, integer *incv, realcomplex *tau, realcomplex *c1, realcomplex *c2, integer *ldc, realcomplex *work, ftnlen side_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
@@ -1477,14 +1477,14 @@ extern int clatzm_(char *side, integer *m, integer *n, complex *v, integer *incv
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
 /*:ref: cgerc_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int clauu2_(char *uplo, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len);
+extern int clauu2_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int clauum_(char *uplo, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len);
+extern int clauum_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -1492,7 +1492,7 @@ extern int clauum_(char *uplo, integer *n, complex *a, integer *lda, integer *in
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: cherk_ 14 12 13 13 4 4 6 8 4 6 8 4 124 124 */
-extern int cpbcon_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *anorm, real *rcond, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cpbcon_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1500,10 +1500,10 @@ extern int cpbcon_(char *uplo, integer *n, integer *kd, complex *ab, integer *ld
 /*:ref: clatbs_ 14 16 13 13 13 13 4 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int cpbequ_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, real *s, real *scond, real *amax, integer *info, ftnlen uplo_len);
+extern int cpbequ_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *s, real *scond, real *amax, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cpbrfs_(char *uplo, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *afb, integer *ldafb, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cpbrfs_(char *uplo, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb, integer *ldafb, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1512,18 +1512,18 @@ extern int cpbrfs_(char *uplo, integer *n, integer *kd, integer *nrhs, complex *
 /*:ref: cpbtrs_ 14 10 13 4 4 4 8 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cpbstf_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, integer *info, ftnlen uplo_len);
+extern int cpbstf_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cher_ 14 8 13 4 6 8 4 8 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
-extern int cpbsv_(char *uplo, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cpbsv_(char *uplo, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpbtrf_ 14 7 13 4 4 8 4 4 124 */
 /*:ref: cpbtrs_ 14 10 13 4 4 4 8 4 8 4 4 124 */
-extern int cpbsvx_(char *fact, char *uplo, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *afb, integer *ldafb, char *equed, real *s, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+extern int cpbsvx_(char *fact, char *uplo, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb, integer *ldafb, char *equed, real *s, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -1536,13 +1536,13 @@ extern int cpbsvx_(char *fact, char *uplo, integer *n, integer *kd, integer *nrh
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cpbtrs_ 14 10 13 4 4 4 8 4 8 4 4 124 */
 /*:ref: cpbrfs_ 14 18 13 4 4 4 8 4 8 4 8 4 8 4 6 6 8 6 4 124 */
-extern int cpbtf2_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, integer *info, ftnlen uplo_len);
+extern int cpbtf2_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cher_ 14 8 13 4 6 8 4 8 4 124 */
-extern int cpbtrf_(char *uplo, integer *n, integer *kd, complex *ab, integer *ldab, integer *info, ftnlen uplo_len);
+extern int cpbtrf_(char *uplo, integer *n, integer *kd, realcomplex *ab, integer *ldab, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -1551,11 +1551,11 @@ extern int cpbtrf_(char *uplo, integer *n, integer *kd, complex *ab, integer *ld
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: cherk_ 14 12 13 13 4 4 6 8 4 6 8 4 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int cpbtrs_(char *uplo, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cpbtrs_(char *uplo, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctbsv_ 14 12 13 13 13 4 4 8 4 8 4 124 124 124 */
-extern int cpocon_(char *uplo, integer *n, complex *a, integer *lda, real *anorm, real *rcond, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cpocon_(char *uplo, integer *n, realcomplex *a, integer *lda, real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1563,9 +1563,9 @@ extern int cpocon_(char *uplo, integer *n, complex *a, integer *lda, real *anorm
 /*:ref: clatrs_ 14 15 13 13 13 13 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int cpoequ_(integer *n, complex *a, integer *lda, real *s, real *scond, real *amax, integer *info);
+extern int cpoequ_(integer *n, realcomplex *a, integer *lda, real *s, real *scond, real *amax, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cporfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cporfs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1574,12 +1574,12 @@ extern int cporfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: cpotrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cposv_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cposv_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpotrf_ 14 6 13 4 8 4 4 124 */
 /*:ref: cpotrs_ 14 9 13 4 4 8 4 8 4 4 124 */
-extern int cposvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, char *equed, real *s, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+extern int cposvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, char *equed, real *s, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -1591,14 +1591,14 @@ extern int cposvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: cpocon_ 14 10 13 4 8 4 6 6 8 6 4 124 */
 /*:ref: cpotrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: cporfs_ 14 17 13 4 4 8 4 8 4 8 4 8 4 6 6 8 6 4 124 */
-extern int cpotf2_(char *uplo, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len);
+extern int cpotf2_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int cpotrf_(char *uplo, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len);
+extern int cpotrf_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -1606,16 +1606,16 @@ extern int cpotrf_(char *uplo, integer *n, complex *a, integer *lda, integer *in
 /*:ref: cherk_ 14 12 13 13 4 4 6 8 4 6 8 4 124 124 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int cpotri_(char *uplo, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len);
+extern int cpotri_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctrtri_ 14 8 13 13 4 8 4 4 124 124 */
 /*:ref: clauum_ 14 6 13 4 8 4 4 124 */
-extern int cpotrs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cpotrs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int cppcon_(char *uplo, integer *n, complex *ap, real *anorm, real *rcond, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cppcon_(char *uplo, integer *n, realcomplex *ap, real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1623,10 +1623,10 @@ extern int cppcon_(char *uplo, integer *n, complex *ap, real *anorm, real *rcond
 /*:ref: clatps_ 14 14 13 13 13 13 4 8 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int cppequ_(char *uplo, integer *n, complex *ap, real *s, real *scond, real *amax, integer *info, ftnlen uplo_len);
+extern int cppequ_(char *uplo, integer *n, realcomplex *ap, real *s, real *scond, real *amax, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cpprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cpprfs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1635,12 +1635,12 @@ extern int cpprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *
 /*:ref: cpptrs_ 14 8 13 4 4 8 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cppsv_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cppsv_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpptrf_ 14 5 13 4 8 4 124 */
 /*:ref: cpptrs_ 14 8 13 4 4 8 8 4 4 124 */
-extern int cppsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, char *equed, real *s, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
+extern int cppsvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, char *equed, real *s, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -1653,14 +1653,14 @@ extern int cppsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cpptrs_ 14 8 13 4 4 8 8 4 4 124 */
 /*:ref: cpprfs_ 14 15 13 4 4 8 8 8 4 8 4 6 6 8 6 4 124 */
-extern int cpptrf_(char *uplo, integer *n, complex *ap, integer *info, ftnlen uplo_len);
+extern int cpptrf_(char *uplo, integer *n, realcomplex *ap, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: chpr_ 14 7 13 4 6 8 4 8 124 */
-extern int cpptri_(char *uplo, integer *n, complex *ap, integer *info, ftnlen uplo_len);
+extern int cpptri_(char *uplo, integer *n, realcomplex *ap, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctptri_ 14 7 13 13 4 8 4 124 124 */
@@ -1668,31 +1668,31 @@ extern int cpptri_(char *uplo, integer *n, complex *ap, integer *info, ftnlen up
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int cpptrs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cpptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int cptcon_(integer *n, real *d__, complex *e, real *anorm, real *rcond, real *rwork, integer *info);
+extern int cptcon_(integer *n, real *d__, realcomplex *e, real *anorm, real *rcond, real *rwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: isamax_ 4 3 4 6 4 */
-extern int cpteqr_(char *compz, integer *n, real *d__, real *e, complex *z__, integer *ldz, real *work, integer *info, ftnlen compz_len);
+extern int cpteqr_(char *compz, integer *n, real *d__, real *e, realcomplex *z__, integer *ldz, real *work, integer *info, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
 /*:ref: spttrf_ 14 4 4 6 6 4 */
 /*:ref: cbdsqr_ 14 16 13 4 4 4 4 6 6 8 4 8 4 8 4 6 4 124 */
-extern int cptrfs_(char *uplo, integer *n, integer *nrhs, real *d__, complex *e, real *df, complex *ef, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int cptrfs_(char *uplo, integer *n, integer *nrhs, real *d__, realcomplex *e, real *df, realcomplex *ef, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: cpttrs_ 14 9 13 4 4 6 8 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: isamax_ 4 3 4 6 4 */
-extern int cptsv_(integer *n, integer *nrhs, real *d__, complex *e, complex *b, integer *ldb, integer *info);
+extern int cptsv_(integer *n, integer *nrhs, real *d__, realcomplex *e, realcomplex *b, integer *ldb, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cpttrf_ 14 4 4 6 8 4 */
 /*:ref: cpttrs_ 14 9 13 4 4 6 8 8 4 4 124 */
-extern int cptsvx_(char *fact, integer *n, integer *nrhs, real *d__, complex *e, real *df, complex *ef, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len);
+extern int cptsvx_(char *fact, integer *n, integer *nrhs, real *d__, realcomplex *e, real *df, realcomplex *ef, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: scopy_ 14 5 4 6 4 6 4 */
@@ -1704,27 +1704,27 @@ extern int cptsvx_(char *fact, integer *n, integer *nrhs, real *d__, complex *e,
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cpttrs_ 14 9 13 4 4 6 8 8 4 4 124 */
 /*:ref: cptrfs_ 14 17 13 4 4 6 8 6 8 8 4 8 4 6 6 8 6 4 124 */
-extern int cpttrf_(integer *n, real *d__, complex *e, integer *info);
+extern int cpttrf_(integer *n, real *d__, realcomplex *e, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cpttrs_(char *uplo, integer *n, integer *nrhs, real *d__, complex *e, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cpttrs_(char *uplo, integer *n, integer *nrhs, real *d__, realcomplex *e, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: cptts2_ 14 7 4 4 4 6 8 8 4 */
-extern int cptts2_(integer *iuplo, integer *n, integer *nrhs, real *d__, complex *e, complex *b, integer *ldb);
+extern int cptts2_(integer *iuplo, integer *n, integer *nrhs, real *d__, realcomplex *e, realcomplex *b, integer *ldb);
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int crot_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy, real *c__, complex *s);
-extern int cspcon_(char *uplo, integer *n, complex *ap, integer *ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen uplo_len);
+extern int crot_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy, real *c__, realcomplex *s);
+extern int cspcon_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: csptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
-extern int cspmv_(char *uplo, integer *n, complex *alpha, complex *ap, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+extern int cspmv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *ap, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cspr_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *ap, ftnlen uplo_len);
+extern int cspr_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *ap, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int csprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int csprfs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1733,12 +1733,12 @@ extern int csprfs_(char *uplo, integer *n, integer *nrhs, complex *ap, complex *
 /*:ref: csptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int cspsv_(char *uplo, integer *n, integer *nrhs, complex *ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int cspsv_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csptrf_ 14 6 13 4 8 4 4 124 */
 /*:ref: csptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
-extern int cspsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *ap, complex *afp, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
+extern int cspsvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
@@ -1749,33 +1749,33 @@ extern int cspsvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: csptrs_ 14 9 13 4 4 8 4 8 4 4 124 */
 /*:ref: csprfs_ 14 16 13 4 4 8 8 4 8 4 8 4 6 6 8 6 4 124 */
-extern int csptrf_(char *uplo, integer *n, complex *ap, integer *ipiv, integer *info, ftnlen uplo_len);
+extern int csptrf_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cspr_ 14 7 13 4 8 8 4 8 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int csptri_(char *uplo, integer *n, complex *ap, integer *ipiv, complex *work, integer *info, ftnlen uplo_len);
+extern int csptri_(char *uplo, integer *n, realcomplex *ap, integer *ipiv, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: cspmv_ 14 10 13 4 8 8 8 4 8 8 4 124 */
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int csptrs_(char *uplo, integer *n, integer *nrhs, complex *ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int csptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int csrot_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy, real *c__, real *s);
-extern int csrscl_(integer *n, real *sa, complex *sx, integer *incx);
+extern int csrot_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy, real *c__, real *s);
+extern int csrscl_(integer *n, real *sa, realcomplex *sx, integer *incx);
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slabad_ 14 2 6 6 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
-extern int cstedc_(char *compz, integer *n, real *d__, real *e, complex *z__, integer *ldz, complex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen compz_len);
+extern int cstedc_(char *compz, integer *n, real *d__, real *e, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *iwork, integer *liwork, integer *info, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -1791,7 +1791,7 @@ extern int cstedc_(char *compz, integer *n, real *d__, real *e, complex *z__, in
 /*:ref: clacrm_ 14 9 4 4 8 4 6 4 8 4 6 */
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cstegr_(char *jobz, char *range, integer *n, real *d__, real *e, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, integer *isuppz, real *work, integer *lwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen range_len);
+extern int cstegr_(char *jobz, char *range, integer *n, real *d__, real *e, real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, integer *isuppz, real *work, integer *lwork, integer *iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen range_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1801,7 +1801,7 @@ extern int cstegr_(char *jobz, char *range, integer *n, real *d__, real *e, real
 /*:ref: slarre_ 14 12 4 6 6 6 4 4 4 6 6 6 6 4 */
 /*:ref: clarrv_ 14 15 4 6 6 4 4 6 4 6 6 8 4 4 6 4 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int cstein_(integer *n, real *d__, real *e, integer *m, real *w, integer *iblock, integer *isplit, complex *z__, integer *ldz, real *work, integer *iwork, integer *ifail, integer *info);
+extern int cstein_(integer *n, real *d__, real *e, integer *m, real *w, integer *iblock, integer *isplit, realcomplex *z__, integer *ldz, real *work, integer *iwork, integer *ifail, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slarnv_ 14 4 4 4 4 6 */
@@ -1812,7 +1812,7 @@ extern int cstein_(integer *n, real *d__, real *e, integer *m, real *w, integer 
 /*:ref: slagts_ 14 10 4 4 6 6 6 6 4 6 6 4 */
 /*:ref: isamax_ 4 3 4 6 4 */
 /*:ref: snrm2_ 6 3 4 6 4 */
-extern int csteqr_(char *compz, integer *n, real *d__, real *e, complex *z__, integer *ldz, real *work, integer *info, ftnlen compz_len);
+extern int csteqr_(char *compz, integer *n, real *d__, real *e, realcomplex *z__, integer *ldz, real *work, integer *info, ftnlen compz_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1826,18 +1826,18 @@ extern int csteqr_(char *compz, integer *n, real *d__, real *e, complex *z__, in
 /*:ref: slartg_ 14 5 6 6 6 6 6 */
 /*:ref: slasrt_ 14 5 13 4 6 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int csycon_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen uplo_len);
+extern int csycon_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: csytrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
-extern int csymv_(char *uplo, integer *n, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+extern int csymv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int csyr_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *a, integer *lda, ftnlen uplo_len);
+extern int csyr_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *a, integer *lda, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int csyrfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len);
+extern int csyrfs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1846,13 +1846,13 @@ extern int csyrfs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *l
 /*:ref: csytrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int csysv_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int csysv_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: csytrf_ 14 9 13 4 8 4 4 8 4 4 124 */
 /*:ref: csytrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
-extern int csysvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, integer *lwork, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
+extern int csysvx_(char *fact, char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
@@ -1863,34 +1863,34 @@ extern int csysvx_(char *fact, char *uplo, integer *n, integer *nrhs, complex *a
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: csytrs_ 14 10 13 4 4 8 4 4 8 4 4 124 */
 /*:ref: csyrfs_ 14 18 13 4 4 8 4 8 4 4 8 4 8 4 6 6 8 6 4 124 */
-extern int csytf2_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, integer *info, ftnlen uplo_len);
+extern int csytf2_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: csyr_ 14 8 13 4 8 8 4 8 4 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int csytrf_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int csytrf_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clasyf_ 14 11 13 4 4 4 8 4 4 8 4 4 124 */
 /*:ref: csytf2_ 14 7 13 4 8 4 4 4 124 */
-extern int csytri_(char *uplo, integer *n, complex *a, integer *lda, integer *ipiv, complex *work, integer *info, ftnlen uplo_len);
+extern int csytri_(char *uplo, integer *n, realcomplex *a, integer *lda, integer *ipiv, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ccopy_ 14 5 4 8 4 8 4 */
 /*:ref: csymv_ 14 11 13 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: cdotu_ 8 6 8 4 8 4 8 4 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
-extern int csytrs_(char *uplo, integer *n, integer *nrhs, complex *a, integer *lda, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen uplo_len);
+extern int csytrs_(char *uplo, integer *n, integer *nrhs, realcomplex *a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cswap_ 14 5 4 8 4 8 4 */
 /*:ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int ctbcon_(char *norm, char *uplo, char *diag, integer *n, integer *kd, complex *ab, integer *ldab, real *rcond, complex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern int ctbcon_(char *norm, char *uplo, char *diag, integer *n, integer *kd, realcomplex *ab, integer *ldab, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1899,7 +1899,7 @@ extern int ctbcon_(char *norm, char *uplo, char *diag, integer *n, integer *kd, 
 /*:ref: clatbs_ 14 16 13 13 13 13 4 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int ctbrfs_(char *uplo, char *trans, char *diag, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctbrfs_(char *uplo, char *trans, char *diag, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1908,27 +1908,27 @@ extern int ctbrfs_(char *uplo, char *trans, char *diag, integer *n, integer *kd,
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: ctbsv_ 14 12 13 13 13 4 4 8 4 8 4 124 124 124 */
-extern int ctbtrs_(char *uplo, char *trans, char *diag, integer *n, integer *kd, integer *nrhs, complex *ab, integer *ldab, complex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctbtrs_(char *uplo, char *trans, char *diag, integer *n, integer *kd, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctbsv_ 14 12 13 13 13 4 4 8 4 8 4 124 124 124 */
-extern int ctgevc_(char *side, char *howmny, logical *select, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *mm, integer *m, complex *work, real *rwork, integer *info, ftnlen side_len, ftnlen howmny_len);
+extern int ctgevc_(char *side, char *howmny, logical *select, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *mm, integer *m, realcomplex *work, real *rwork, integer *info, ftnlen side_len, ftnlen howmny_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: slabad_ 14 2 6 6 */
 /*:ref: cladiv_ 8 3 8 8 8 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int ctgex2_(logical *wantq, logical *wantz, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *q, integer *ldq, complex *z__, integer *ldz, integer *j1, integer *info);
+extern int ctgex2_(logical *wantq, logical *wantz, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, integer *j1, integer *info);
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
-extern int ctgexc_(logical *wantq, logical *wantz, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *q, integer *ldq, complex *z__, integer *ldz, integer *ifst, integer *ilst, integer *info);
+extern int ctgexc_(logical *wantq, logical *wantz, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, integer *ifst, integer *ilst, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctgex2_ 14 13 12 12 4 8 4 8 4 8 4 8 4 4 4 */
-extern int ctgsen_(integer *ijob, logical *wantq, logical *wantz, logical *select, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *alpha, complex *beta, complex *q, integer *ldq, complex *z__, integer *ldz, integer *m, real *pl, real *pr, real *dif, complex *work, integer *lwork, integer *iwork, integer *liwork, integer *info);
+extern int ctgsen_(integer *ijob, logical *wantq, logical *wantz, logical *select, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *q, integer *ldq, realcomplex *z__, integer *ldz, integer *m, real *pl, real *pr, real *dif, realcomplex *work, integer *lwork, integer *iwork, integer *liwork, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: classq_ 14 5 4 8 4 6 6 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1937,7 +1937,7 @@ extern int ctgsen_(integer *ijob, logical *wantq, logical *wantz, logical *selec
 /*:ref: ctgsyl_ 14 23 13 4 4 4 8 4 8 4 8 4 8 4 8 4 8 4 6 6 8 4 4 4 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int ctgsja_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, integer *n, integer *k, integer *l, complex *a, integer *lda, complex *b, integer *ldb, real *tola, real *tolb, real *alpha, real *beta, complex *u, integer *ldu, complex *v, integer *ldv, complex *q, integer *ldq, complex *work, integer *ncycle, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
+extern int ctgsja_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, integer *n, integer *k, integer *l, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *tola, real *tolb, real *alpha, real *beta, realcomplex *u, integer *ldu, realcomplex *v, integer *ldv, realcomplex *q, integer *ldq, realcomplex *work, integer *ncycle, integer *info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: claset_ 14 8 13 4 4 8 8 8 4 124 */
@@ -1947,7 +1947,7 @@ extern int ctgsja_(char *jobu, char *jobv, char *jobq, integer *m, integer *p, i
 /*:ref: clapll_ 14 6 4 8 4 8 4 6 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: slartg_ 14 5 6 6 6 6 6 */
-extern int ctgsna_(char *job, char *howmny, logical *select, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *vl, integer *ldvl, complex *vr, integer *ldvr, real *s, real *dif, integer *mm, integer *m, complex *work, integer *lwork, integer *iwork, integer *info, ftnlen job_len, ftnlen howmny_len);
+extern int ctgsna_(char *job, char *howmny, logical *select, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, real *s, real *dif, integer *mm, integer *m, realcomplex *work, integer *lwork, integer *iwork, integer *info, ftnlen job_len, ftnlen howmny_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1959,7 +1959,7 @@ extern int ctgsna_(char *job, char *howmny, logical *select, integer *n, complex
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: ctgexc_ 14 14 12 12 4 8 4 8 4 8 4 8 4 4 4 4 */
 /*:ref: ctgsyl_ 14 23 13 4 4 4 8 4 8 4 8 4 8 4 8 4 8 4 6 6 8 4 4 4 124 */
-extern int ctgsy2_(char *trans, integer *ijob, integer *m, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, integer *ldc, complex *d__, integer *ldd, complex *e, integer *lde, complex *f, integer *ldf, real *scale, real *rdsum, real *rdscal, integer *info, ftnlen trans_len);
+extern int ctgsy2_(char *trans, integer *ijob, integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, integer *ldc, realcomplex *d__, integer *ldd, realcomplex *e, integer *lde, realcomplex *f, integer *ldf, real *scale, real *rdsum, real *rdscal, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cgetc2_ 14 6 4 8 4 4 4 4 */
@@ -1967,7 +1967,7 @@ extern int ctgsy2_(char *trans, integer *ijob, integer *m, integer *n, complex *
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: clatdf_ 14 9 4 4 8 4 8 6 6 4 4 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
-extern int ctgsyl_(char *trans, integer *ijob, integer *m, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, integer *ldc, complex *d__, integer *ldd, complex *e, integer *lde, complex *f, integer *ldf, real *scale, real *dif, complex *work, integer *lwork, integer *iwork, integer *info, ftnlen trans_len);
+extern int ctgsyl_(char *trans, integer *ijob, integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, integer *ldc, realcomplex *d__, integer *ldd, realcomplex *e, integer *lde, realcomplex *f, integer *ldf, real *scale, real *dif, realcomplex *work, integer *lwork, integer *iwork, integer *info, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
@@ -1976,7 +1976,7 @@ extern int ctgsyl_(char *trans, integer *ijob, integer *m, integer *n, complex *
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
 /*:ref: cgemm_ 14 15 13 13 4 4 4 8 8 4 8 4 8 8 4 124 124 */
-extern int ctpcon_(char *norm, char *uplo, char *diag, integer *n, complex *ap, real *rcond, complex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern int ctpcon_(char *norm, char *uplo, char *diag, integer *n, realcomplex *ap, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1985,7 +1985,7 @@ extern int ctpcon_(char *norm, char *uplo, char *diag, integer *n, complex *ap, 
 /*:ref: clatps_ 14 14 13 13 13 13 4 8 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int ctprfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, complex *ap, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctprfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -1994,16 +1994,16 @@ extern int ctprfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrh
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int ctptri_(char *uplo, char *diag, integer *n, complex *ap, integer *info, ftnlen uplo_len, ftnlen diag_len);
+extern int ctptri_(char *uplo, char *diag, integer *n, realcomplex *ap, integer *info, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctpmv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int ctptrs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, complex *ap, complex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctptrs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctpsv_ 14 10 13 13 13 4 8 8 4 124 124 124 */
-extern int ctrcon_(char *norm, char *uplo, char *diag, integer *n, complex *a, integer *lda, real *rcond, complex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
+extern int ctrcon_(char *norm, char *uplo, char *diag, integer *n, realcomplex *a, integer *lda, real *rcond, realcomplex *work, real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -2012,7 +2012,7 @@ extern int ctrcon_(char *norm, char *uplo, char *diag, integer *n, complex *a, i
 /*:ref: clatrs_ 14 15 13 13 13 13 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int ctrevc_(char *side, char *howmny, logical *select, integer *n, complex *t, integer *ldt, complex *vl, integer *ldvl, complex *vr, integer *ldvr, integer *mm, integer *m, complex *work, real *rwork, integer *info, ftnlen side_len, ftnlen howmny_len);
+extern int ctrevc_(char *side, char *howmny, logical *select, integer *n, realcomplex *t, integer *ldt, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *mm, integer *m, realcomplex *work, real *rwork, integer *info, ftnlen side_len, ftnlen howmny_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -2023,12 +2023,12 @@ extern int ctrevc_(char *side, char *howmny, logical *select, integer *n, comple
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
-extern int ctrexc_(char *compq, integer *n, complex *t, integer *ldt, complex *q, integer *ldq, integer *ifst, integer *ilst, integer *info, ftnlen compq_len);
+extern int ctrexc_(char *compq, integer *n, realcomplex *t, integer *ldt, realcomplex *q, integer *ldq, integer *ifst, integer *ilst, integer *info, ftnlen compq_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clartg_ 14 5 8 8 6 8 8 */
 /*:ref: crot_ 14 7 4 8 4 8 4 6 8 */
-extern int ctrrfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, complex *x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctrrfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -2037,7 +2037,7 @@ extern int ctrrfs_(char *uplo, char *trans, char *diag, integer *n, integer *nrh
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
 /*:ref: ctrsv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
-extern int ctrsen_(char *job, char *compq, logical *select, integer *n, complex *t, integer *ldt, complex *q, integer *ldq, complex *w, integer *m, real *s, real *sep, complex *work, integer *lwork, integer *info, ftnlen job_len, ftnlen compq_len);
+extern int ctrsen_(char *job, char *compq, logical *select, integer *n, realcomplex *t, integer *ldt, realcomplex *q, integer *ldq, realcomplex *w, integer *m, real *s, real *sep, realcomplex *work, integer *lwork, integer *info, ftnlen job_len, ftnlen compq_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clange_ 6 7 13 4 4 8 4 6 124 */
@@ -2045,7 +2045,7 @@ extern int ctrsen_(char *job, char *compq, logical *select, integer *n, complex 
 /*:ref: clacpy_ 14 8 13 4 4 8 4 8 4 124 */
 /*:ref: ctrsyl_ 14 15 13 13 4 4 4 8 4 8 4 8 4 6 4 124 124 */
 /*:ref: clacon_ 14 5 4 8 8 6 4 */
-extern int ctrsna_(char *job, char *howmny, logical *select, integer *n, complex *t, integer *ldt, complex *vl, integer *ldvl, complex *vr, integer *ldvr, real *s, real *sep, integer *mm, integer *m, complex *work, integer *ldwork, real *rwork, integer *info, ftnlen job_len, ftnlen howmny_len);
+extern int ctrsna_(char *job, char *howmny, logical *select, integer *n, realcomplex *t, integer *ldt, realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, real *s, real *sep, integer *mm, integer *m, realcomplex *work, integer *ldwork, real *rwork, integer *info, ftnlen job_len, ftnlen howmny_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -2058,7 +2058,7 @@ extern int ctrsna_(char *job, char *howmny, logical *select, integer *n, complex
 /*:ref: clatrs_ 14 15 13 13 13 13 4 8 4 8 6 6 4 124 124 124 124 */
 /*:ref: icamax_ 4 3 4 8 4 */
 /*:ref: csrscl_ 14 4 4 6 8 4 */
-extern int ctrsyl_(char *trana, char *tranb, integer *isgn, integer *m, integer *n, complex *a, integer *lda, complex *b, integer *ldb, complex *c__, integer *ldc, real *scale, integer *info, ftnlen trana_len, ftnlen tranb_len);
+extern int ctrsyl_(char *trana, char *tranb, integer *isgn, integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *c__, integer *ldc, real *scale, integer *info, ftnlen trana_len, ftnlen tranb_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: slamch_ 6 2 13 124 */
@@ -2068,23 +2068,23 @@ extern int ctrsyl_(char *trana, char *tranb, integer *isgn, integer *m, integer 
 /*:ref: cladiv_ 8 3 8 8 8 */
 /*:ref: csscal_ 14 4 4 6 8 4 */
 /*:ref: cdotc_ 8 6 8 4 8 4 8 4 */
-extern int ctrti2_(char *uplo, char *diag, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len);
+extern int ctrti2_(char *uplo, char *diag, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctrmv_ 14 11 13 13 13 4 8 4 8 4 124 124 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int ctrtri_(char *uplo, char *diag, integer *n, complex *a, integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len);
+extern int ctrtri_(char *uplo, char *diag, integer *n, realcomplex *a, integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: ctrti2_ 14 8 13 13 4 8 4 4 124 124 */
 /*:ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int ctrtrs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctrtrs_(char *uplo, char *trans, char *diag, integer *n, integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: ctrsm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 */
-extern int ctzrqf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, integer *info);
+extern int ctzrqf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarfg_ 14 5 4 8 8 4 8 */
@@ -2092,150 +2092,150 @@ extern int ctzrqf_(integer *m, integer *n, complex *a, integer *lda, complex *ta
 /*:ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124 */
 /*:ref: caxpy_ 14 6 4 8 8 4 8 4 */
 /*:ref: cgerc_ 14 9 4 4 8 8 4 8 4 8 4 */
-extern int ctzrzf_(integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int ctzrzf_(integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clatrz_ 14 7 4 4 4 8 4 8 8 */
 /*:ref: clarzt_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarzb_ 14 20 13 13 13 13 4 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cung2l_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cung2l_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cung2r_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cung2r_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cungbr_(char *vect, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info, ftnlen vect_len);
+extern int cungbr_(char *vect, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info, ftnlen vect_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cungqr_ 14 9 4 4 4 8 4 8 8 4 4 */
 /*:ref: cunglq_ 14 9 4 4 4 8 4 8 8 4 4 */
-extern int cunghr_(integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cunghr_(integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cungqr_ 14 9 4 4 4 8 4 8 8 4 4 */
-extern int cungl2_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cungl2_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cunglq_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cunglq_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cungl2_ 14 8 4 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cungql_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cungql_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cung2l_ 14 8 4 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cungqr_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cungqr_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cung2r_ 14 8 4 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cungr2_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *info);
+extern int cungr2_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *info);
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
 /*:ref: cscal_ 14 4 4 8 8 4 */
-extern int cungrq_(integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info);
+extern int cungrq_(integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info);
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cungr2_ 14 8 4 4 4 8 4 8 8 4 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cungtr_(char *uplo, integer *n, complex *a, integer *lda, complex *tau, complex *work, integer *lwork, integer *info, ftnlen uplo_len);
+extern int cungtr_(char *uplo, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *work, integer *lwork, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cungql_ 14 9 4 4 4 8 4 8 8 4 4 */
 /*:ref: cungqr_ 14 9 4 4 4 8 4 8 8 4 4 */
-extern int cunm2l_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunm2l_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cunm2r_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunm2r_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cunmbr_(char *vect, char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen vect_len, ftnlen side_len, ftnlen trans_len);
+extern int cunmbr_(char *vect, char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen vect_len, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunmqr_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: cunmlq_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cunmhr_(char *side, char *trans, integer *m, integer *n, integer *ilo, integer *ihi, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmhr_(char *side, char *trans, integer *m, integer *n, integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunmqr_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cunml2_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunml2_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cunmlq_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmlq_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunml2_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cunmql_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmql_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunm2l_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cunmqr_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmqr_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunm2r_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cunmr2_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmr2_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clacgv_ 14 3 4 8 4 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
-extern int cunmr3_(char *side, char *trans, integer *m, integer *n, integer *k, integer *l, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmr3_(char *side, char *trans, integer *m, integer *n, integer *k, integer *l, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarz_ 14 11 13 4 4 4 8 4 8 8 4 8 124 */
-extern int cunmrq_(char *side, char *trans, integer *m, integer *n, integer *k, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmrq_(char *side, char *trans, integer *m, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunmr2_ 14 14 13 13 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: clarft_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarfb_ 14 19 13 13 13 13 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cunmrz_(char *side, char *trans, integer *m, integer *n, integer *k, integer *l, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
+extern int cunmrz_(char *side, char *trans, integer *m, integer *n, integer *k, integer *l, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunmr3_ 14 15 13 13 4 4 4 4 8 4 8 8 4 8 4 124 124 */
 /*:ref: clarzt_ 14 11 13 13 4 4 8 4 8 8 4 124 124 */
 /*:ref: clarzb_ 14 20 13 13 13 13 4 4 4 4 8 4 8 4 8 4 8 4 124 124 124 124 */
-extern int cunmtr_(char *side, char *uplo, char *trans, integer *m, integer *n, complex *a, integer *lda, complex *tau, complex *c__, integer *ldc, complex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen uplo_len, ftnlen trans_len);
+extern int cunmtr_(char *side, char *uplo, char *trans, integer *m, integer *n, realcomplex *a, integer *lda, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *lwork, integer *info, ftnlen side_len, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: ilaenv_ 4 9 4 13 13 4 4 4 4 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cunmql_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
 /*:ref: cunmqr_ 14 15 13 13 4 4 4 8 4 8 8 4 8 4 4 124 124 */
-extern int cupgtr_(char *uplo, integer *n, complex *ap, complex *tau, complex *q, integer *ldq, complex *work, integer *info, ftnlen uplo_len);
+extern int cupgtr_(char *uplo, integer *n, realcomplex *ap, realcomplex *tau, realcomplex *q, integer *ldq, realcomplex *work, integer *info, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: cung2l_ 14 8 4 4 4 8 4 8 8 4 */
 /*:ref: cung2r_ 14 8 4 4 4 8 4 8 8 4 */
-extern int cupmtr_(char *side, char *uplo, char *trans, integer *m, integer *n, complex *ap, complex *tau, complex *c__, integer *ldc, complex *work, integer *info, ftnlen side_len, ftnlen uplo_len, ftnlen trans_len);
+extern int cupmtr_(char *side, char *uplo, char *trans, integer *m, integer *n, realcomplex *ap, realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen side_len, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 /*:ref: clarf_ 14 10 13 4 4 8 4 8 8 4 8 124 */
@@ -4563,7 +4563,7 @@ extern int dtzrzf_(integer *m, integer *n, doublereal *a, integer *lda, doublere
 /*:ref: dlarzt_ 14 11 13 13 4 4 7 4 7 7 4 124 124 */
 /*:ref: dlarzb_ 14 20 13 13 13 13 4 4 4 4 7 4 7 4 7 4 7 4 124 124 124 124 */
 extern doublereal dzsum1_(integer *n, doublecomplex *cx, integer *incx);
-extern integer icmax1_(integer *n, complex *cx, integer *incx);
+extern integer icmax1_(integer *n, realcomplex *cx, integer *incx);
 extern integer ieeeck_(integer *ispec, real *zero, real *one);
 extern integer ilaenv_(integer *ispec, char *name__, char *opts, integer *n1, integer *n2, integer *n3, integer *n4, ftnlen name_len, ftnlen opts_len);
 /*:ref: ieeeck_ 4 3 4 6 6 */
@@ -4598,7 +4598,7 @@ extern int sbdsqr_(char *uplo, integer *n, integer *ncvt, integer *nru, integer 
 /*:ref: slas2_ 14 5 6 6 6 6 6 */
 /*:ref: sscal_ 14 4 4 6 6 4 */
 /*:ref: sswap_ 14 5 4 6 4 6 4 */
-extern E_f scsum1_(integer *n, complex *cx, integer *incx);
+extern E_f scsum1_(integer *n, realcomplex *cx, integer *incx);
 extern int sdisna_(char *job, integer *m, integer *n, real *d__, real *sep, integer *info, ftnlen job_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */

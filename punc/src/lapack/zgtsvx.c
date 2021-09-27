@@ -62,7 +62,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZGTSVX uses the LU factorization to compute the solution to a complex */
+/*  ZGTSVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations A * X = B, A**T * X = B, or A**H * X = B, */
 /*  where A is a tridiagonal matrix of order N and X and B are N-by-NRHS */
 /*  matrices. */

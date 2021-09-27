@@ -12,13 +12,13 @@ static integer c__1 = 1;
 static integer c_n1 = -1;
 
 /* Subroutine */ int cstein_(integer *n, real *d__, real *e, integer *m, real 
-	*w, integer *iblock, integer *isplit, complex *z__, integer *ldz, 
+	*w, integer *iblock, integer *isplit, realcomplex *z__, integer *ldz, 
 	real *work, integer *iwork, integer *ifail, integer *info)
 {
     /* System generated locals */
     integer z_dim1, z_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4, r__5;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -72,7 +72,7 @@ static integer c_n1 = -1;
 /*  The maximum number of iterations allowed for each eigenvector is */
 /*  specified by an internal parameter MAXITS (currently set to 5). */
 
-/*  Although the eigenvectors are real, they are stored in a complex */
+/*  Although the eigenvectors are real, they are stored in a realcomplex */
 /*  array, which may be passed to CUNMTR or CUPMTR for back */
 /*  transformation to the eigenvectors of a complex Hermitian matrix */
 /*  which was reduced to tridiagonal form. */

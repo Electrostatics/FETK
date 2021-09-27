@@ -11,48 +11,48 @@ static integer c__2 = 2;
 static integer c__1 = 1;
 
 /* Subroutine */ int clahqr_(logical *wantt, logical *wantz, integer *n, 
-	integer *ilo, integer *ihi, complex *h__, integer *ldh, complex *w, 
-	integer *iloz, integer *ihiz, complex *z__, integer *ldz, integer *
+	integer *ilo, integer *ihi, realcomplex *h__, integer *ldh, realcomplex *w, 
+	integer *iloz, integer *ihiz, realcomplex *z__, integer *ldz, integer *
 	info)
 {
     /* System generated locals */
     integer h_dim1, h_offset, z_dim1, z_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4, r__5, r__6;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void c_sqrt(complex *, complex *), r_cnjg(complex *, complex *);
-    double c_abs(complex *);
+    double r_imag(realcomplex *);
+    void c_sqrt(realcomplex *, realcomplex *), r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, l, m;
     static real s;
-    static complex t, u, v[2], x, y;
+    static realcomplex t, u, v[2], x, y;
     static integer i1, i2;
-    static complex t1;
+    static realcomplex t1;
     static real t2;
-    static complex v2;
+    static realcomplex v2;
     static real h10;
-    static complex h11;
+    static realcomplex h11;
     static real h21;
-    static complex h22;
+    static realcomplex h22;
     static integer nh, nz;
-    static complex h11s;
+    static realcomplex h11s;
     static integer itn, its;
     static real ulp;
-    static complex sum;
+    static realcomplex sum;
     static real tst1;
-    static complex temp;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), ccopy_(integer *, complex *, integer *, complex *, 
+    static realcomplex temp;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), ccopy_(integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *);
     static real rtemp, rwork[1];
-    extern /* Subroutine */ int clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *);
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
+    extern /* Subroutine */ int clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
     extern doublereal slamch_(char *, ftnlen), clanhs_(char *, integer *, 
-	    complex *, integer *, real *, ftnlen);
+	    realcomplex *, integer *, real *, ftnlen);
     static real smlnum;
 
 

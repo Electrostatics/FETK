@@ -10,17 +10,17 @@
 static real c_b6 = 1.f;
 static real c_b7 = 0.f;
 
-/* Subroutine */ int clacrm_(integer *m, integer *n, complex *a, integer *lda,
-	 real *b, integer *ldb, complex *c__, integer *ldc, real *rwork)
+/* Subroutine */ int clacrm_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 real *b, integer *ldb, realcomplex *c__, integer *ldc, real *rwork)
 {
     /* System generated locals */
     integer b_dim1, b_offset, a_dim1, a_offset, c_dim1, c_offset, i__1, i__2, 
 	    i__3, i__4, i__5;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, l;

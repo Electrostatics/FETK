@@ -46,7 +46,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZLARZ applies a complex elementary reflector H to a complex */
+/*  ZLARZ applies a complex elementary reflector H to a realcomplex */
 /*  M-by-N matrix C, from either the left or the right. H is represented */
 /*  in the form */
 

@@ -30,7 +30,12 @@
  */
 
 // FIXME: This is not included by maloc?
+#ifdef _WIN32
+#include <io.h>
+#else
 #include <unistd.h>
+#endif
+
 #include <gamer/biom.h>
 
 // Read a short integer, swapping the bytes
@@ -366,7 +371,12 @@ SurfaceMesh* SurfaceMesh_readLattice(char* segmentation_filename,
   }
 
   // Check if file exists and are readable
+#ifdef _WIN32
+  // checks whether file has mode read-only (4) or read/write (6)
+  if (_access(segmentation_filename, 4) && _access(segmentation_filename, 6)){
+#else
   if (access(segmentation_filename, R_OK)){
+#endif
     printf("Not readable\n");
     return NULL;
   }
@@ -389,7 +399,12 @@ SurfaceMesh* SurfaceMesh_readLattice(char* segmentation_filename,
     }
     
     // Check if file exists and are readable
+#ifdef _WIN32
+    // checks whether file has mode read-only (4) or read/write (6)
+    if (_access(intensity_filename, 4) && _access(intensity_filename, 6)){
+#else
     if (access(intensity_filename, R_OK)){
+#endif
       printf("Not readable\n");
       return NULL;
     }

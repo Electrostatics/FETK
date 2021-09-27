@@ -5,19 +5,19 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgerq2_(integer *m, integer *n, complex *a, integer *lda,
-	 complex *tau, complex *work, integer *info)
+/* Subroutine */ int cgerq2_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, realcomplex *work, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
 
     /* Local variables */
     static integer i__, k;
-    static complex alpha;
-    extern /* Subroutine */ int clarf_(char *, integer *, integer *, complex *
-	    , integer *, complex *, complex *, integer *, complex *, ftnlen), 
-	    clarfg_(integer *, complex *, complex *, integer *, complex *), 
-	    clacgv_(integer *, complex *, integer *), xerbla_(char *, integer 
+    static realcomplex alpha;
+    extern /* Subroutine */ int clarf_(char *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen), 
+	    clarfg_(integer *, realcomplex *, realcomplex *, integer *, realcomplex *), 
+	    clacgv_(integer *, realcomplex *, integer *), xerbla_(char *, integer 
 	    *, ftnlen);
 
 

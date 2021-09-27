@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-doublereal scsum1_(integer *n, complex *cx, integer *incx)
+doublereal scsum1_(integer *n, realcomplex *cx, integer *incx)
 {
     /* System generated locals */
     integer i__1, i__2;
     real ret_val;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, nincx;
@@ -32,7 +32,7 @@ doublereal scsum1_(integer *n, complex *cx, integer *incx)
 /*  Purpose */
 /*  ======= */
 
-/*  SCSUM1 takes the sum of the absolute values of a complex */
+/*  SCSUM1 takes the sum of the absolute values of a realcomplex */
 /*  vector and returns a single precision result. */
 
 /*  Based on SCASUM from the Level 1 BLAS. */

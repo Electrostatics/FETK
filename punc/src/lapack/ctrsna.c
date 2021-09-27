@@ -10,47 +10,47 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctrsna_(char *job, char *howmny, logical *select, 
-	integer *n, complex *t, integer *ldt, complex *vl, integer *ldvl, 
-	complex *vr, integer *ldvr, real *s, real *sep, integer *mm, integer *
-	m, complex *work, integer *ldwork, real *rwork, integer *info, ftnlen 
+	integer *n, realcomplex *t, integer *ldt, realcomplex *vl, integer *ldvl, 
+	realcomplex *vr, integer *ldvr, real *s, real *sep, integer *mm, integer *
+	m, realcomplex *work, integer *ldwork, real *rwork, integer *info, ftnlen 
 	job_len, ftnlen howmny_len)
 {
     /* System generated locals */
     integer t_dim1, t_offset, vl_dim1, vl_offset, vr_dim1, vr_offset, 
 	    work_dim1, work_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *), r_imag(complex *);
+    double c_abs(realcomplex *), r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, ks, ix;
     static real eps, est;
     static integer kase, ierr;
-    static complex prod;
+    static realcomplex prod;
     static real lnrm, rnrm, scale;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    static complex dummy[1];
+    static realcomplex dummy[1];
     static logical wants;
     static real xnorm;
-    extern doublereal scnrm2_(integer *, complex *, integer *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int slabad_(real *, real *), clacon_(integer *, 
-	    complex *, complex *, real *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+	    realcomplex *, realcomplex *, real *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static real bignum;
     static logical wantbh;
     extern /* Subroutine */ int clatrs_(char *, char *, char *, char *, 
-	    integer *, complex *, integer *, complex *, real *, real *, 
+	    integer *, realcomplex *, integer *, realcomplex *, real *, real *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), csrscl_(integer *, 
-	    real *, complex *, integer *), ctrexc_(char *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, integer *, integer 
+	    real *, realcomplex *, integer *), ctrexc_(char *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, integer *, integer 
 	    *, ftnlen);
     static logical somcon;
     static char normin[1];

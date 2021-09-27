@@ -11,23 +11,23 @@ static logical c_false = FALSE_;
 static logical c_true = TRUE_;
 
 /* Subroutine */ int chsein_(char *side, char *eigsrc, char *initv, logical *
-	select, integer *n, complex *h__, integer *ldh, complex *w, complex *
-	vl, integer *ldvl, complex *vr, integer *ldvr, integer *mm, integer *
-	m, complex *work, real *rwork, integer *ifaill, integer *ifailr, 
+	select, integer *n, realcomplex *h__, integer *ldh, realcomplex *w, realcomplex *
+	vl, integer *ldvl, realcomplex *vr, integer *ldvr, integer *mm, integer *
+	m, realcomplex *work, real *rwork, integer *ifaill, integer *ifailr, 
 	integer *info, ftnlen side_len, ftnlen eigsrc_len, ftnlen initv_len)
 {
     /* System generated locals */
     integer h_dim1, h_offset, vl_dim1, vl_offset, vr_dim1, vr_offset, i__1, 
 	    i__2, i__3;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, k, kl, kr, ks;
-    static complex wk;
+    static realcomplex wk;
     static integer kln;
     static real ulp, eps3, unfl;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
@@ -35,10 +35,10 @@ static logical c_true = TRUE_;
     static logical leftv, bothv;
     static real hnorm;
     extern /* Subroutine */ int claein_(logical *, logical *, integer *, 
-	    complex *, integer *, complex *, complex *, complex *, integer *, 
+	    realcomplex *, integer *, realcomplex *, realcomplex *, realcomplex *, integer *, 
 	    real *, real *, real *, integer *);
     extern doublereal slamch_(char *, ftnlen), clanhs_(char *, integer *, 
-	    complex *, integer *, real *, ftnlen);
+	    realcomplex *, integer *, real *, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static logical noinit;
     static integer ldwork;

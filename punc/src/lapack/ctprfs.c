@@ -10,17 +10,17 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctprfs_(char *uplo, char *trans, char *diag, integer *n, 
-	integer *nrhs, complex *ap, complex *b, integer *ldb, complex *x, 
-	integer *ldx, real *ferr, real *berr, complex *work, real *rwork, 
+	integer *nrhs, realcomplex *ap, realcomplex *b, integer *ldb, realcomplex *x, 
+	integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, 
 	integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
@@ -32,15 +32,15 @@ static integer c__1 = 1;
     static integer kase;
     static real safe1, safe2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), ctpmv_(char *, char *, char *, 
-	    integer *, complex *, complex *, integer *, ftnlen, ftnlen, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), ctpmv_(char *, char *, char *, 
+	    integer *, realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, 
 	    ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), clacon_(
-	    integer *, complex *, complex *, real *, integer *);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), clacon_(
+	    integer *, realcomplex *, realcomplex *, real *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

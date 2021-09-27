@@ -70,7 +70,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZTGSEN reorders the generalized Schur decomposition of a complex */
+/*  ZTGSEN reorders the generalized Schur decomposition of a realcomplex */
 /*  matrix pair (A, B) (in terms of an unitary equivalence trans- */
 /*  formation Q' * (A, B) * Z), so that a selected cluster of eigenvalues */
 /*  appears in the leading diagonal blocks of the pair (A,B). The leading */

@@ -7,50 +7,50 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int chbtrd_(char *vect, char *uplo, integer *n, integer *kd, 
-	complex *ab, integer *ldab, real *d__, real *e, complex *q, integer *
-	ldq, complex *work, integer *info, ftnlen vect_len, ftnlen uplo_len)
+	realcomplex *ab, integer *ldab, real *d__, real *e, realcomplex *q, integer *
+	ldq, realcomplex *work, integer *info, ftnlen vect_len, ftnlen uplo_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, q_dim1, q_offset, i__1, i__2, i__3, i__4, 
 	    i__5, i__6;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, l;
-    static complex t;
+    static realcomplex t;
     static integer i2, j1, j2, nq, nr, kd1, ibl, iqb, kdn, jin, nrt, kdm1, 
 	    inca, jend, lend, jinc;
     static real abst;
     static integer incx, last;
-    static complex temp;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
+    static realcomplex temp;
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
     static integer j1end, j1inc;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static integer iqend;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical initq, wantq, upper;
-    extern /* Subroutine */ int clar2v_(integer *, complex *, complex *, 
-	    complex *, integer *, real *, complex *, integer *), clacgv_(
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int clar2v_(integer *, realcomplex *, realcomplex *, 
+	    realcomplex *, integer *, real *, realcomplex *, integer *), clacgv_(
+	    integer *, realcomplex *, integer *);
     static integer iqaend;
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), clartg_(complex *, 
-	    complex *, real *, complex *, complex *), xerbla_(char *, integer 
-	    *, ftnlen), clargv_(integer *, complex *, integer *, complex *, 
-	    integer *, real *, integer *), clartv_(integer *, complex *, 
-	    integer *, complex *, integer *, real *, complex *, integer *);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), clartg_(realcomplex *, 
+	    realcomplex *, real *, realcomplex *, realcomplex *), xerbla_(char *, integer 
+	    *, ftnlen), clargv_(integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, real *, integer *), clartv_(integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, realcomplex *, integer *);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

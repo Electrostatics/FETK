@@ -5,8 +5,8 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cupgtr_(char *uplo, integer *n, complex *ap, complex *
-	tau, complex *q, integer *ldq, complex *work, integer *info, ftnlen 
+/* Subroutine */ int cupgtr_(char *uplo, integer *n, realcomplex *ap, realcomplex *
+	tau, realcomplex *q, integer *ldq, realcomplex *work, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -18,9 +18,9 @@
     static integer iinfo;
     static logical upper;
     extern /* Subroutine */ int cung2l_(integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *), cung2r_(
-	    integer *, integer *, integer *, complex *, integer *, complex *, 
-	    complex *, integer *), xerbla_(char *, integer *, ftnlen);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *), cung2r_(
+	    integer *, integer *, integer *, realcomplex *, integer *, realcomplex *, 
+	    realcomplex *, integer *), xerbla_(char *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

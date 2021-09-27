@@ -9,7 +9,7 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cptcon_(integer *n, real *d__, complex *e, real *anorm, 
+/* Subroutine */ int cptcon_(integer *n, real *d__, realcomplex *e, real *anorm, 
 	real *rcond, real *rwork, integer *info)
 {
     /* System generated locals */
@@ -17,7 +17,7 @@ static integer c__1 = 1;
     real r__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, ix;

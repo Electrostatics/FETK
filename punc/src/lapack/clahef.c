@@ -7,42 +7,42 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int clahef_(char *uplo, integer *n, integer *nb, integer *kb,
-	 complex *a, integer *lda, integer *ipiv, complex *w, integer *ldw, 
+	 realcomplex *a, integer *lda, integer *ipiv, realcomplex *w, integer *ldw, 
 	integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, w_dim1, w_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_imag(complex *);
-    void r_cnjg(complex *, complex *), c_div(complex *, complex *, complex *);
+    double sqrt(doublereal), r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *), c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k;
     static real t, r1;
-    static complex d11, d21, d22;
+    static realcomplex d11, d21, d22;
     static integer jb, jj, kk, jp, kp, kw, kkw, imax, jmax;
     static real alpha;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer kstep;
     static real absakk;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
     static real colmax, rowmax;
 

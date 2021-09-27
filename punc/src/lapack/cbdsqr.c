@@ -13,8 +13,8 @@ static real c_b49 = 1.f;
 static real c_b72 = -1.f;
 
 /* Subroutine */ int cbdsqr_(char *uplo, integer *n, integer *ncvt, integer *
-	nru, integer *ncc, real *d__, real *e, complex *vt, integer *ldvt, 
-	complex *u, integer *ldu, complex *c__, integer *ldc, real *rwork, 
+	nru, integer *ncc, real *d__, real *e, realcomplex *vt, integer *ldvt, 
+	realcomplex *u, integer *ldu, realcomplex *c__, integer *ldc, real *rwork, 
 	integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -46,21 +46,21 @@ static real c_b72 = -1.f;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real oldcs;
     extern /* Subroutine */ int clasr_(char *, char *, char *, integer *, 
-	    integer *, real *, real *, complex *, integer *, ftnlen, ftnlen, 
+	    integer *, real *, real *, realcomplex *, integer *, ftnlen, ftnlen, 
 	    ftnlen);
     static integer oldll;
     static real shift, sigmn, oldsn;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer maxit;
     static real sminl, sigmx;
     static logical lower;
-    extern /* Subroutine */ int csrot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, real *), slasq1_(integer *, real *, 
+    extern /* Subroutine */ int csrot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, real *), slasq1_(integer *, real *, 
 	    real *, real *, integer *), slasv2_(real *, real *, real *, real *
 	    , real *, real *, real *, real *, real *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static real sminoa;
     extern /* Subroutine */ int slartg_(real *, real *, real *, real *, real *

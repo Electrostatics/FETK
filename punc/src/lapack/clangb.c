@@ -9,7 +9,7 @@
 
 static integer c__1 = 1;
 
-doublereal clangb_(char *norm, integer *n, integer *kl, integer *ku, complex *
+doublereal clangb_(char *norm, integer *n, integer *kl, integer *ku, realcomplex *
 	ab, integer *ldab, real *work, ftnlen norm_len)
 {
     /* System generated locals */
@@ -17,14 +17,14 @@ doublereal clangb_(char *norm, integer *n, integer *kl, integer *ku, complex *
     real ret_val, r__1, r__2;
 
     /* Builtin functions */
-    double c_abs(complex *), sqrt(doublereal);
+    double c_abs(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j, k, l;
     static real sum, scale;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real value;
-    extern /* Subroutine */ int classq_(integer *, complex *, integer *, real 
+    extern /* Subroutine */ int classq_(integer *, realcomplex *, integer *, real 
 	    *, real *);
 
 

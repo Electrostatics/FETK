@@ -7,35 +7,35 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__2 = 2;
 
-/* Subroutine */ int cgetri_(integer *n, complex *a, integer *lda, integer *
-	ipiv, complex *work, integer *lwork, integer *info)
+/* Subroutine */ int cgetri_(integer *n, realcomplex *a, integer *lda, integer *
+	ipiv, realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, jb, nb, jj, jp, nn, iws;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen), cgemv_(char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen), cgemv_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, ftnlen);
     static integer nbmin;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *), ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), ctrsm_(char *, char *, char *, char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static integer ldwork;
-    extern /* Subroutine */ int ctrtri_(char *, char *, integer *, complex *, 
+    extern /* Subroutine */ int ctrtri_(char *, char *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen, ftnlen);
     static integer lwkopt;
     static logical lquery;

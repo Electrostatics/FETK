@@ -7,14 +7,14 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static real c_b13 = 1.f;
 static integer c__1 = 1;
 
 /* Subroutine */ int chbevd_(char *jobz, char *uplo, integer *n, integer *kd, 
-	complex *ab, integer *ldab, real *w, complex *z__, integer *ldz, 
-	complex *work, integer *lwork, real *rwork, integer *lrwork, integer *
+	realcomplex *ab, integer *ldab, real *w, realcomplex *z__, integer *ldz, 
+	realcomplex *work, integer *lwork, real *rwork, integer *lrwork, integer *
 	iwork, integer *liwork, integer *info, ftnlen jobz_len, ftnlen 
 	uplo_len)
 {
@@ -33,8 +33,8 @@ static integer c__1 = 1;
     static real rmin, rmax;
     static integer llwk2;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen);
     static real sigma;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer iinfo;
@@ -44,19 +44,19 @@ static integer c__1 = 1;
     static integer llrwk;
     static logical wantz;
     static integer indwk2;
-    extern doublereal clanhb_(char *, char *, integer *, integer *, complex *,
+    extern doublereal clanhb_(char *, char *, integer *, integer *, realcomplex *,
 	     integer *, real *, ftnlen, ftnlen);
     static integer iscale;
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), cstedc_(char *, integer *, real *, real *, complex *, 
-	    integer *, complex *, integer *, real *, integer *, integer *, 
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), cstedc_(char *, integer *, real *, real *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, integer *, integer *, 
 	    integer *, integer *, ftnlen), chbtrd_(char *, char *, integer *, 
-	    integer *, complex *, integer *, real *, real *, complex *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, real *, real *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real bignum;

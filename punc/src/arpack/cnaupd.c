@@ -408,9 +408,9 @@ static integer c__1 = 1;
 /* ----------------------------------------------------------------------- */
 
 /* Subroutine */ int cnaupd_(integer *ido, char *bmat, integer *n, char *
-	which, integer *nev, real *tol, complex *resid, integer *ncv, complex 
-	*v, integer *ldv, integer *iparam, integer *ipntr, complex *workd, 
-	complex *workl, integer *lworkl, real *rwork, integer *info, ftnlen 
+	which, integer *nev, real *tol, realcomplex *resid, integer *ncv, realcomplex 
+	*v, integer *ldv, integer *iparam, integer *ipntr, realcomplex *workd, 
+	realcomplex *workl, integer *lworkl, real *rwork, integer *info, ftnlen 
 	bmat_len, ftnlen which_len)
 {
     /* Format strings */
@@ -453,13 +453,13 @@ static integer c__1 = 1;
     static real t0, t1;
     static integer nb, ih, iq, np, iw, ldh, ldq, nev0, mode, ierr, iupd, next,
 	     ritz;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), ivout_(integer *, integer *, integer *
 	    , integer *, char *, ftnlen), cnaup2_(integer *, char *, integer *
-	    , char *, integer *, integer *, real *, complex *, integer *, 
-	    integer *, integer *, integer *, complex *, integer *, complex *, 
-	    integer *, complex *, complex *, complex *, integer *, complex *, 
-	    integer *, complex *, real *, integer *, ftnlen, ftnlen);
+	    , char *, integer *, integer *, real *, realcomplex *, integer *, 
+	    integer *, integer *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, real *, integer *, ftnlen, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
     extern /* Subroutine */ int second_(real *);
     static integer bounds, ishift, msglvl, mxiter;

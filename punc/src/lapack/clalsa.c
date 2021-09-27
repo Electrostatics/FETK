@@ -12,7 +12,7 @@ static real c_b10 = 0.f;
 static integer c__2 = 2;
 
 /* Subroutine */ int clalsa_(integer *icompq, integer *smlsiz, integer *n, 
-	integer *nrhs, complex *b, integer *ldb, complex *bx, integer *ldbx, 
+	integer *nrhs, realcomplex *b, integer *ldb, realcomplex *bx, integer *ldbx, 
 	real *u, integer *ldu, real *vt, integer *k, real *difl, real *difr, 
 	real *z__, real *poles, integer *givptr, integer *givcol, integer *
 	ldgcol, integer *perm, real *givnum, real *c__, real *s, real *rwork, 
@@ -24,10 +24,10 @@ static integer c__2 = 2;
 	    poles_dim1, poles_offset, u_dim1, u_offset, vt_dim1, vt_offset, 
 	    z_dim1, z_offset, b_dim1, b_offset, bx_dim1, bx_offset, i__1, 
 	    i__2, i__3, i__4, i__5, i__6;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
     integer pow_ii(integer *, integer *);
 
     /* Local variables */
@@ -38,9 +38,9 @@ static integer c__2 = 2;
 	    integer *, real *, real *, integer *, real *, integer *, real *, 
 	    real *, integer *, ftnlen, ftnlen);
     static integer ndimr;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), clals0_(integer *, integer *, integer *, 
-	    integer *, integer *, complex *, integer *, complex *, integer *, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), clals0_(integer *, integer *, integer *, 
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
 	    integer *, integer *, integer *, integer *, real *, integer *, 
 	    real *, real *, real *, real *, integer *, real *, real *, real *,
 	     integer *), xerbla_(char *, integer *, ftnlen), slasdt_(integer *

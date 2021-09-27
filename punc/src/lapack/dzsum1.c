@@ -32,7 +32,7 @@ doublereal dzsum1_(integer *n, doublecomplex *cx, integer *incx)
 /*  Purpose */
 /*  ======= */
 
-/*  DZSUM1 takes the sum of the absolute values of a complex */
+/*  DZSUM1 takes the sum of the absolute values of a realcomplex */
 /*  vector and returns a double precision result. */
 
 /*  Based on DZASUM from the Level 1 BLAS. */

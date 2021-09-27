@@ -6,16 +6,16 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clasr_(char *side, char *pivot, char *direct, integer *m,
-	 integer *n, real *c__, real *s, complex *a, integer *lda, ftnlen 
+	 integer *n, real *c__, real *s, realcomplex *a, integer *lda, ftnlen 
 	side_len, ftnlen pivot_len, ftnlen direct_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Local variables */
     static integer i__, j, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real ctemp, stemp;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

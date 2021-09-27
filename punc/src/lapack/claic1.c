@@ -9,29 +9,29 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int claic1_(integer *job, integer *j, complex *x, real *sest,
-	 complex *w, complex *gamma, real *sestpr, complex *s, complex *c__)
+/* Subroutine */ int claic1_(integer *job, integer *j, realcomplex *x, real *sest,
+	 realcomplex *w, realcomplex *gamma, real *sestpr, realcomplex *s, realcomplex *c__)
 {
     /* System generated locals */
     real r__1, r__2;
-    complex q__1, q__2, q__3, q__4, q__5, q__6;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void r_cnjg(complex *, complex *), c_sqrt(complex *, complex *);
+    double c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *), c_sqrt(realcomplex *, realcomplex *);
     double sqrt(doublereal);
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static real b, t, s1, s2, scl, eps, tmp;
-    static complex sine;
+    static realcomplex sine;
     static real test, zeta1, zeta2;
-    static complex alpha;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    static realcomplex alpha;
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     static real norma, absgam, absalp;
     extern doublereal slamch_(char *, ftnlen);
-    static complex cosine;
+    static realcomplex cosine;
     static real absest;
 
 

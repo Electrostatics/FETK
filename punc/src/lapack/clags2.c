@@ -5,30 +5,30 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clags2_(logical *upper, real *a1, complex *a2, real *a3, 
-	real *b1, complex *b2, real *b3, real *csu, complex *snu, real *csv, 
-	complex *snv, real *csq, complex *snq)
+/* Subroutine */ int clags2_(logical *upper, real *a1, realcomplex *a2, real *a3, 
+	real *b1, realcomplex *b2, real *b3, real *csu, realcomplex *snu, real *csv, 
+	realcomplex *snv, real *csq, realcomplex *snq)
 {
     /* System generated locals */
     real r__1, r__2, r__3, r__4, r__5, r__6, r__7, r__8;
-    complex q__1, q__2, q__3, q__4, q__5;
+    realcomplex q__1, q__2, q__3, q__4, q__5;
 
     /* Builtin functions */
-    double c_abs(complex *), r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double c_abs(realcomplex *), r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real a;
-    static complex b, c__;
+    static realcomplex b, c__;
     static real d__;
-    static complex r__, d1;
+    static realcomplex r__, d1;
     static real s1, s2, fb, fc;
-    static complex ua11, ua12, ua21, ua22, vb11, vb12, vb21, vb22;
+    static realcomplex ua11, ua12, ua21, ua22, vb11, vb12, vb21, vb22;
     static real csl, csr, snl, snr, aua11, aua12, aua21, aua22, avb11, avb12, 
 	    avb21, avb22, ua11r, ua22r, vb11r, vb22r;
     extern /* Subroutine */ int slasv2_(real *, real *, real *, real *, real *
-	    , real *, real *, real *, real *), clartg_(complex *, complex *, 
-	    real *, complex *, complex *);
+	    , real *, real *, real *, real *), clartg_(realcomplex *, realcomplex *, 
+	    real *, realcomplex *, realcomplex *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

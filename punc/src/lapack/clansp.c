@@ -9,7 +9,7 @@
 
 static integer c__1 = 1;
 
-doublereal clansp_(char *norm, char *uplo, integer *n, complex *ap, real *
+doublereal clansp_(char *norm, char *uplo, integer *n, realcomplex *ap, real *
 	work, ftnlen norm_len, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -17,14 +17,14 @@ doublereal clansp_(char *norm, char *uplo, integer *n, complex *ap, real *
     real ret_val, r__1, r__2;
 
     /* Builtin functions */
-    double c_abs(complex *), r_imag(complex *), sqrt(doublereal);
+    double c_abs(realcomplex *), r_imag(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j, k;
     static real sum, absa, scale;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real value;
-    extern /* Subroutine */ int classq_(integer *, complex *, integer *, real 
+    extern /* Subroutine */ int classq_(integer *, realcomplex *, integer *, real 
 	    *, real *);
 
 

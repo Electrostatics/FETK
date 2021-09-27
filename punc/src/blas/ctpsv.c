@@ -6,19 +6,19 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int ctpsv_(char *uplo, char *trans, char *diag, integer *n, 
-	complex *ap, complex *x, integer *incx, ftnlen uplo_len, ftnlen 
+	realcomplex *ap, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen 
 	trans_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *), r_cnjg(complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *), r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, kk, ix, jx, kx, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static logical noconj, nounit;

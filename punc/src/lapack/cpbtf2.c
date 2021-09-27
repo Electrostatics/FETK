@@ -10,7 +10,7 @@
 static real c_b8 = -1.f;
 static integer c__1 = 1;
 
-/* Subroutine */ int cpbtf2_(char *uplo, integer *n, integer *kd, complex *ab,
+/* Subroutine */ int cpbtf2_(char *uplo, integer *n, integer *kd, realcomplex *ab,
 	 integer *ldab, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -24,12 +24,12 @@ static integer c__1 = 1;
     static integer j, kn;
     static real ajj;
     static integer kld;
-    extern /* Subroutine */ int cher_(char *, integer *, real *, complex *, 
-	    integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int cher_(char *, integer *, real *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *), 
-	    csscal_(integer *, real *, complex *, integer *), xerbla_(char *, 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *), 
+	    csscal_(integer *, real *, realcomplex *, integer *), xerbla_(char *, 
 	    integer *, ftnlen);
 
 

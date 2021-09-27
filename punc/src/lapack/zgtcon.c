@@ -43,7 +43,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZGTCON estimates the reciprocal of the condition number of a complex */
+/*  ZGTCON estimates the reciprocal of the condition number of a realcomplex */
 /*  tridiagonal matrix A using the LU factorization as computed by */
 /*  ZGTTRF. */
 

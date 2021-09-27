@@ -11,18 +11,18 @@ static integer c__1 = 1;
 static real c_b36 = .5f;
 
 /* Subroutine */ int clatps_(char *uplo, char *trans, char *diag, char *
-	normin, integer *n, complex *ap, complex *x, real *scale, real *cnorm,
+	normin, integer *n, realcomplex *ap, realcomplex *x, real *scale, real *cnorm,
 	 integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len, 
 	ftnlen normin_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, ip;
@@ -31,32 +31,32 @@ static real c_b36 = .5f;
     static real xbnd;
     static integer imax;
     static real tmax;
-    static complex tjjs;
+    static realcomplex tjjs;
     static real xmax, grow;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static real tscal;
-    static complex uscal;
+    static realcomplex uscal;
     static integer jlast;
-    extern /* Complex */ VOID cdotu_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    static complex csumj;
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Complex */ VOID cdotu_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    static realcomplex csumj;
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), slabad_(
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), slabad_(
 	    real *, real *);
-    extern integer icamax_(integer *, complex *, integer *);
-    extern /* Complex */ VOID cladiv_(complex *, complex *, complex *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
+    extern /* Complex */ VOID cladiv_(realcomplex *, realcomplex *, realcomplex *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static real bignum;
     extern integer isamax_(integer *, real *, integer *);
-    extern doublereal scasum_(integer *, complex *, integer *);
+    extern doublereal scasum_(integer *, realcomplex *, integer *);
     static logical notran;
     static integer jfirst;
     static real smlnum;

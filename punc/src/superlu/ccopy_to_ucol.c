@@ -29,7 +29,7 @@ ccopy_to_ucol(
 	      int        *segrep,  /* in */
 	      int        *repfnz,  /* in */
 	      int        *perm_r,  /* in */
-	      complex     *dense,   /* modified - reset to zero on return */
+	      realcomplex     *dense,   /* modified - reset to zero on return */
 	      GlobalLU_t *Glu      /* modified */
 	      )
 {
@@ -43,11 +43,11 @@ ccopy_to_ucol(
     int new_next, mem_error;
     int       *xsup, *supno;
     int       *lsub, *xlsub;
-    complex    *ucol;
+    realcomplex    *ucol;
     int       *usub, *xusub;
     int       nzumax;
 
-    complex zero = {0.0, 0.0};
+    realcomplex zero = {0.0, 0.0};
 
     xsup    = Glu->xsup;
     supno   = Glu->supno;

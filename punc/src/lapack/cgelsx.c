@@ -7,54 +7,54 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__0 = 0;
 static integer c__2 = 2;
 static integer c__1 = 1;
 
-/* Subroutine */ int cgelsx_(integer *m, integer *n, integer *nrhs, complex *
-	a, integer *lda, complex *b, integer *ldb, integer *jpvt, real *rcond,
-	 integer *rank, complex *work, real *rwork, integer *info)
+/* Subroutine */ int cgelsx_(integer *m, integer *n, integer *nrhs, realcomplex *
+	a, integer *lda, realcomplex *b, integer *ldb, integer *jpvt, real *rcond,
+	 integer *rank, realcomplex *work, real *rwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void r_cnjg(complex *, complex *);
+    double c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
-    static complex c1, c2, s1, s2, t1, t2;
+    static realcomplex c1, c2, s1, s2, t1, t2;
     static integer mn;
     static real anrm, bnrm, smin, smax;
     static integer iascl, ibscl, ismin, ismax;
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), claic1_(integer *, 
-	    integer *, complex *, real *, complex *, complex *, real *, 
-	    complex *, complex *), cunm2r_(char *, char *, integer *, integer 
-	    *, integer *, complex *, integer *, complex *, complex *, integer 
-	    *, complex *, integer *, ftnlen, ftnlen), slabad_(real *, real *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+	    integer *, realcomplex *, real *, realcomplex *, realcomplex *, real *, 
+	    realcomplex *, realcomplex *), cunm2r_(char *, char *, integer *, integer 
+	    *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer 
+	    *, realcomplex *, integer *, ftnlen, ftnlen), slabad_(real *, real *);
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), cgeqpf_(integer *, integer *, complex *, integer *, 
-	    integer *, complex *, complex *, real *, integer *);
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), cgeqpf_(integer *, integer *, realcomplex *, integer *, 
+	    integer *, realcomplex *, realcomplex *, real *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static real bignum;
-    extern /* Subroutine */ int clatzm_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, complex *, complex *, integer *, complex 
+    extern /* Subroutine */ int clatzm_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex 
 	    *, ftnlen);
     static real sminpr;
-    extern /* Subroutine */ int ctzrqf_(integer *, integer *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int ctzrqf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static real smaxpr, smlnum;
 
 

@@ -8,28 +8,28 @@
 /* Table of constant values */
 
 static integer c__1 = 1;
-static complex c_b10 = {-1.f,-0.f};
+static realcomplex c_b10 = {-1.f,-0.f};
 
-/* Subroutine */ int cgetc2_(integer *n, complex *a, integer *lda, integer *
+/* Subroutine */ int cgetc2_(integer *n, realcomplex *a, integer *lda, integer *
 	ipiv, integer *jpiv, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void c_div(complex *, complex *, complex *);
+    double c_abs(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, ip, jp;
     static real eps;
     static integer ipv, jpv;
     static real smin, xmax;
-    extern /* Subroutine */ int cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cswap_(integer *, complex *, integer *, complex *, integer *), 
+    extern /* Subroutine */ int cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *), 
 	    slabad_(real *, real *);
     extern doublereal slamch_(char *, ftnlen);
     static real bignum, smlnum;

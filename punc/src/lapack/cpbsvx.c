@@ -10,9 +10,9 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cpbsvx_(char *fact, char *uplo, integer *n, integer *kd, 
-	integer *nrhs, complex *ab, integer *ldab, complex *afb, integer *
-	ldafb, char *equed, real *s, complex *b, integer *ldb, complex *x, 
-	integer *ldx, real *rcond, real *ferr, real *berr, complex *work, 
+	integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb, integer *
+	ldafb, char *equed, real *s, realcomplex *b, integer *ldb, realcomplex *x, 
+	integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, 
 	real *rwork, integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen 
 	equed_len)
 {
@@ -20,37 +20,37 @@ static integer c__1 = 1;
     integer ab_dim1, ab_offset, afb_dim1, afb_offset, b_dim1, b_offset, 
 	    x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, j1, j2;
     static real amax, smin, smax;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real scond, anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical equil, rcequ, upper;
-    extern doublereal clanhb_(char *, char *, integer *, integer *, complex *,
+    extern doublereal clanhb_(char *, char *, integer *, integer *, realcomplex *,
 	     integer *, real *, ftnlen, ftnlen);
-    extern /* Subroutine */ int claqhb_(char *, integer *, integer *, complex 
+    extern /* Subroutine */ int claqhb_(char *, integer *, integer *, realcomplex 
 	    *, integer *, real *, real *, real *, char *, ftnlen, ftnlen), 
-	    cpbcon_(char *, integer *, integer *, complex *, integer *, real *
-	    , real *, complex *, real *, integer *, ftnlen);
+	    cpbcon_(char *, integer *, integer *, realcomplex *, integer *, real *
+	    , real *, realcomplex *, real *, integer *, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
-	    integer *, ftnlen), cpbequ_(char *, integer *, integer *, complex 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
+	    integer *, ftnlen), cpbequ_(char *, integer *, integer *, realcomplex 
 	    *, integer *, real *, real *, real *, integer *, ftnlen), cpbrfs_(
-	    char *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
-	    real *, real *, complex *, real *, integer *, ftnlen);
+	    char *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    real *, real *, realcomplex *, real *, integer *, ftnlen);
     static real bignum;
-    extern /* Subroutine */ int cpbtrf_(char *, integer *, integer *, complex 
+    extern /* Subroutine */ int cpbtrf_(char *, integer *, integer *, realcomplex 
 	    *, integer *, integer *, ftnlen);
     static integer infequ;
     extern /* Subroutine */ int cpbtrs_(char *, integer *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, integer *, ftnlen);
+	    *, realcomplex *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static real smlnum;
 
 

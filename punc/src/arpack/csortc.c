@@ -65,8 +65,8 @@
 
 /* ----------------------------------------------------------------------- */
 
-/* Subroutine */ int csortc_(char *which, logical *apply, integer *n, complex 
-	*x, complex *y, ftnlen which_len)
+/* Subroutine */ int csortc_(char *which, logical *apply, integer *n, realcomplex 
+	*x, realcomplex *y, ftnlen which_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
@@ -74,11 +74,11 @@
 
     /* Builtin functions */
     integer s_cmp(char *, char *, ftnlen, ftnlen);
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, igap;
-    static complex temp;
+    static realcomplex temp;
     static real temp1, temp2;
     extern doublereal slapy2_(real *, real *);
 

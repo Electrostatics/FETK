@@ -27,8 +27,8 @@ struct {
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static logical c_true = TRUE_;
 static integer c__1 = 1;
 
@@ -131,9 +131,9 @@ static integer c__1 = 1;
 
 /* ----------------------------------------------------------------------- */
 
-/* Subroutine */ int cneigh_(real *rnorm, integer *n, complex *h__, integer *
-	ldh, complex *ritz, complex *bounds, complex *q, integer *ldq, 
-	complex *workl, real *rwork, integer *ierr)
+/* Subroutine */ int cneigh_(real *rnorm, integer *n, realcomplex *h__, integer *
+	ldh, realcomplex *ritz, realcomplex *bounds, realcomplex *q, integer *ldq, 
+	realcomplex *workl, real *rwork, integer *ierr)
 {
     /* System generated locals */
     integer h_dim1, h_offset, q_dim1, q_offset, i__1;
@@ -142,25 +142,25 @@ static integer c__1 = 1;
     /* Local variables */
     static integer j;
     static real t0, t1;
-    static complex vl[1];
+    static realcomplex vl[1];
     static real temp;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), cmout_(integer *, integer *, integer *, 
-	    complex *, integer *, integer *, char *, ftnlen), cvout_(integer *
-	    , integer *, complex *, integer *, char *, ftnlen);
-    extern doublereal scnrm2_(integer *, complex *, integer *);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), cmout_(integer *, integer *, integer *, 
+	    realcomplex *, integer *, integer *, char *, ftnlen), cvout_(integer *
+	    , integer *, realcomplex *, integer *, char *, ftnlen);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), clahqr_(logical *, logical *, integer *, integer *, integer *,
-	     complex *, integer *, complex *, integer *, integer *, complex *,
+	     realcomplex *, integer *, realcomplex *, integer *, integer *, realcomplex *,
 	     integer *, integer *), clacpy_(char *, integer *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen);
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen);
     static logical select[1];
     static integer msglvl;
     extern /* Subroutine */ int ctrevc_(char *, char *, logical *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
-	    integer *, integer *, complex *, real *, integer *, ftnlen, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    integer *, integer *, realcomplex *, real *, integer *, ftnlen, 
 	    ftnlen), second_(real *), claset_(char *, integer *, integer *, 
-	    complex *, complex *, complex *, integer *, ftnlen);
+	    realcomplex *, realcomplex *, realcomplex *, integer *, ftnlen);
 
 
 /*     %----------------------------------------------------% */

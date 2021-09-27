@@ -10,20 +10,20 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cgbsvx_(char *fact, char *trans, integer *n, integer *kl,
-	 integer *ku, integer *nrhs, complex *ab, integer *ldab, complex *afb,
+	 integer *ku, integer *nrhs, realcomplex *ab, integer *ldab, realcomplex *afb,
 	 integer *ldafb, integer *ipiv, char *equed, real *r__, real *c__, 
-	complex *b, integer *ldb, complex *x, integer *ldx, real *rcond, real 
-	*ferr, real *berr, complex *work, real *rwork, integer *info, ftnlen 
+	realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond, real 
+	*ferr, real *berr, realcomplex *work, real *rwork, integer *info, ftnlen 
 	fact_len, ftnlen trans_len, ftnlen equed_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, afb_dim1, afb_offset, b_dim1, b_offset, 
 	    x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j, j1, j2;
@@ -31,36 +31,36 @@ static integer c__1 = 1;
     static char norm[1];
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real rcmin, rcmax, anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical equil;
     extern doublereal clangb_(char *, integer *, integer *, integer *, 
-	    complex *, integer *, real *, ftnlen);
+	    realcomplex *, integer *, real *, ftnlen);
     extern /* Subroutine */ int claqgb_(integer *, integer *, integer *, 
-	    integer *, complex *, integer *, real *, real *, real *, real *, 
+	    integer *, realcomplex *, integer *, real *, real *, real *, real *, 
 	    real *, char *, ftnlen), cgbcon_(char *, integer *, integer *, 
-	    integer *, complex *, integer *, integer *, real *, real *, 
-	    complex *, real *, integer *, ftnlen);
+	    integer *, realcomplex *, integer *, integer *, real *, real *, 
+	    realcomplex *, real *, integer *, ftnlen);
     static real colcnd;
     extern doublereal clantb_(char *, char *, char *, integer *, integer *, 
-	    complex *, integer *, real *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, integer *, real *, ftnlen, ftnlen, ftnlen);
     extern /* Subroutine */ int cgbequ_(integer *, integer *, integer *, 
-	    integer *, complex *, integer *, real *, real *, real *, real *, 
+	    integer *, realcomplex *, integer *, real *, real *, real *, real *, 
 	    real *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     extern /* Subroutine */ int cgbrfs_(char *, integer *, integer *, integer 
-	    *, integer *, complex *, integer *, complex *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, real *, real *, 
-	    complex *, real *, integer *, ftnlen), cgbtrf_(integer *, integer 
-	    *, integer *, integer *, complex *, integer *, integer *, integer 
+	    *, integer *, realcomplex *, integer *, realcomplex *, integer *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, real *, real *, 
+	    realcomplex *, real *, integer *, ftnlen), cgbtrf_(integer *, integer 
+	    *, integer *, integer *, realcomplex *, integer *, integer *, integer 
 	    *);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static real bignum;
     extern /* Subroutine */ int cgbtrs_(char *, integer *, integer *, integer 
-	    *, integer *, complex *, integer *, integer *, complex *, integer 
+	    *, integer *, realcomplex *, integer *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen);
     static integer infequ;
     static logical colequ;
@@ -84,7 +84,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CGBSVX uses the LU factorization to compute the solution to a complex */
+/*  CGBSVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations A * X = B, A**T * X = B, or A**H * X = B, */
 /*  where A is a band matrix of order N with KL subdiagonals and KU */
 /*  superdiagonals, and X and B are N-by-NRHS matrices. */

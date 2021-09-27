@@ -5,21 +5,21 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgtsv_(integer *n, integer *nrhs, complex *dl, complex *
-	d__, complex *du, complex *b, integer *ldb, integer *info)
+/* Subroutine */ int cgtsv_(integer *n, integer *nrhs, realcomplex *dl, realcomplex *
+	d__, realcomplex *du, realcomplex *b, integer *ldb, integer *info)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2, i__3, i__4, i__5, i__6, i__7;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2, q__3, q__4, q__5;
+    realcomplex q__1, q__2, q__3, q__4, q__5;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void c_div(complex *, complex *, complex *);
+    double r_imag(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k;
-    static complex temp, mult;
+    static realcomplex temp, mult;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 
 

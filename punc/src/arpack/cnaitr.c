@@ -27,8 +27,8 @@ struct {
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 static logical c_false = FALSE_;
 static real c_b27 = 1.f;
@@ -242,8 +242,8 @@ static integer c__2 = 2;
 /* ----------------------------------------------------------------------- */
 
 /* Subroutine */ int cnaitr_(integer *ido, char *bmat, integer *n, integer *k,
-	 integer *np, integer *nb, complex *resid, real *rnorm, complex *v, 
-	integer *ldv, complex *h__, integer *ldh, integer *ipntr, complex *
+	 integer *np, integer *nb, realcomplex *resid, real *rnorm, realcomplex *v, 
+	integer *ldv, realcomplex *h__, integer *ldh, integer *ipntr, realcomplex *
 	workd, integer *info, ftnlen bmat_len)
 {
     /* Initialized data */
@@ -253,10 +253,10 @@ static integer c__2 = 2;
     /* System generated locals */
     integer h_dim1, h_offset, v_dim1, v_offset, i__1, i__2, i__3;
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *), sqrt(doublereal);
+    double r_imag(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j;
@@ -269,41 +269,41 @@ static integer c__2 = 2;
     static real temp1;
     static logical orth1, orth2, step3, step4;
     static real betaj;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static integer infol;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    static complex cnorm;
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    static realcomplex cnorm;
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static real rtemp[2];
     extern /* Subroutine */ int cmout_(integer *, integer *, integer *, 
-	    complex *, integer *, integer *, char *, ftnlen);
+	    realcomplex *, integer *, integer *, char *, ftnlen);
     static real wnorm;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), ivout_(integer *, integer *, integer *
 	    , integer *, char *, ftnlen), svout_(integer *, integer *, real *,
 	     integer *, char *, ftnlen), cgetv0_(integer *, char *, integer *,
-	     logical *, integer *, integer *, complex *, integer *, complex *,
-	     real *, integer *, complex *, integer *, ftnlen);
-    extern doublereal scnrm2_(integer *, complex *, integer *), slapy2_(real *
+	     logical *, integer *, integer *, realcomplex *, integer *, realcomplex *,
+	     real *, integer *, realcomplex *, integer *, ftnlen);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *), slapy2_(real *
 	    , real *);
     static real rnorm1;
     extern /* Subroutine */ int slabad_(real *, real *), clascl_(char *, 
 	    integer *, integer *, real *, real *, integer *, integer *, 
-	    complex *, integer *, integer *, ftnlen), csscal_(integer *, real 
-	    *, complex *, integer *);
+	    realcomplex *, integer *, integer *, ftnlen), csscal_(integer *, real 
+	    *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     extern /* Subroutine */ int second_(real *);
     static logical rstart;
     static integer msglvl;
     static real smlnum;
-    extern doublereal clanhs_(char *, integer *, complex *, integer *, 
-	    complex *, ftnlen);
+    extern doublereal clanhs_(char *, integer *, realcomplex *, integer *, 
+	    realcomplex *, ftnlen);
 
 
 /*     %----------------------------------------------------% */

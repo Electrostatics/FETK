@@ -6,8 +6,8 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int chbgv_(char *jobz, char *uplo, integer *n, integer *ka, 
-	integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, 
-	real *w, complex *z__, integer *ldz, complex *work, real *rwork, 
+	integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, 
+	real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, 
 	integer *info, ftnlen jobz_len, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -20,15 +20,15 @@
     static integer iinfo;
     static logical upper, wantz;
     extern /* Subroutine */ int chbtrd_(char *, char *, integer *, integer *, 
-	    complex *, integer *, real *, real *, complex *, integer *, 
-	    complex *, integer *, ftnlen, ftnlen), chbgst_(char *, char *, 
-	    integer *, integer *, integer *, complex *, integer *, complex *, 
-	    integer *, complex *, integer *, complex *, real *, integer *, 
+	    realcomplex *, integer *, real *, real *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen, ftnlen), chbgst_(char *, char *, 
+	    integer *, integer *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, real *, integer *, 
 	    ftnlen, ftnlen), xerbla_(char *, integer *, ftnlen), cpbstf_(char 
-	    *, integer *, integer *, complex *, integer *, integer *, ftnlen);
+	    *, integer *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static integer indwrk;
     extern /* Subroutine */ int csteqr_(char *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
+	    realcomplex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
 	    *, real *, real *, integer *);
 
 

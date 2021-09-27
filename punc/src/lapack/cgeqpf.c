@@ -9,35 +9,35 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cgeqpf_(integer *m, integer *n, complex *a, integer *lda,
-	 integer *jpvt, complex *tau, complex *work, real *rwork, integer *
+/* Subroutine */ int cgeqpf_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 integer *jpvt, realcomplex *tau, realcomplex *work, real *rwork, integer *
 	info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *), sqrt(doublereal);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j, ma, mn;
-    static complex aii;
+    static realcomplex aii;
     static integer pvt;
     static real temp, temp2;
-    extern /* Subroutine */ int clarf_(char *, integer *, integer *, complex *
-	    , integer *, complex *, complex *, integer *, complex *, ftnlen), 
-	    cswap_(integer *, complex *, integer *, complex *, integer *);
+    extern /* Subroutine */ int clarf_(char *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen), 
+	    cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *);
     static integer itemp;
-    extern /* Subroutine */ int cgeqr2_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *);
-    extern doublereal scnrm2_(integer *, complex *, integer *);
+    extern /* Subroutine */ int cgeqr2_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int cunm2r_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, ftnlen, ftnlen), clarfg_(integer *, complex 
-	    *, complex *, integer *, complex *), xerbla_(char *, integer *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen, ftnlen), clarfg_(integer *, realcomplex 
+	    *, realcomplex *, integer *, realcomplex *), xerbla_(char *, integer *, 
 	    ftnlen);
     extern integer isamax_(integer *, real *, integer *);
 

@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int classq_(integer *n, complex *x, integer *incx, real *
+/* Subroutine */ int classq_(integer *n, realcomplex *x, integer *incx, real *
 	scale, real *sumsq)
 {
     /* System generated locals */
@@ -13,7 +13,7 @@
     real r__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer ix;

@@ -10,9 +10,9 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int chpsvx_(char *fact, char *uplo, integer *n, integer *
-	nrhs, complex *ap, complex *afp, integer *ipiv, complex *b, integer *
-	ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
-	complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
+	nrhs, realcomplex *ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *
+	ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
+	realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -21,20 +21,20 @@ static integer c__1 = 1;
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    extern doublereal clanhp_(char *, char *, integer *, complex *, real *, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    extern doublereal clanhp_(char *, char *, integer *, realcomplex *, real *, 
 	    ftnlen, ftnlen), slamch_(char *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int chpcon_(char *, integer *, complex *, integer 
-	    *, real *, real *, complex *, integer *, ftnlen), clacpy_(char *, 
-	    integer *, integer *, complex *, integer *, complex *, integer *, 
+    extern /* Subroutine */ int chpcon_(char *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, integer *, ftnlen), clacpy_(char *, 
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
 	    ftnlen), xerbla_(char *, integer *, ftnlen), chprfs_(char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
-	    integer *, complex *, integer *, real *, real *, complex *, real *
-	    , integer *, ftnlen), chptrf_(char *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, real *, realcomplex *, real *
+	    , integer *, ftnlen), chptrf_(char *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen), chptrs_(char *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, integer *, ftnlen);
+	    *, realcomplex *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

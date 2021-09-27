@@ -6,21 +6,21 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cherk_(char *uplo, char *trans, integer *n, integer *k, 
-	real *alpha, complex *a, integer *lda, real *beta, complex *c__, 
+	real *alpha, realcomplex *a, integer *lda, real *beta, realcomplex *c__, 
 	integer *ldc, ftnlen uplo_len, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, c_dim1, c_offset, i__1, i__2, i__3, i__4, i__5, 
 	    i__6;
     real r__1;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, l, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nrowa;
     static real rtemp;

@@ -474,7 +474,7 @@ static logical c_false = FALSE_;
 /*                 Triangularize the 2 by 2 block by unitary */
 /*                 transformation U = [  cs   i*ss ] */
 /*                                    [ i*ss   cs  ]. */
-/*                 such that the (1,1) position of WORK is complex */
+/*                 such that the (1,1) position of WORK is realcomplex */
 /*                 eigenvalue lambda with positive imaginary part. (2,2) */
 /*                 position of WORK is the complex eigenvalue lambda */
 /*                 with negative imaginary  part. */

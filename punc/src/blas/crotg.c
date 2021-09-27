@@ -5,19 +5,19 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int crotg_(complex *ca, complex *cb, real *c__, complex *s)
+/* Subroutine */ int crotg_(realcomplex *ca, realcomplex *cb, real *c__, realcomplex *s)
 {
     /* System generated locals */
     real r__1, r__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    double c_abs(complex *), sqrt(doublereal);
-    void r_cnjg(complex *, complex *);
+    double c_abs(realcomplex *), sqrt(doublereal);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real norm;
-    static complex alpha;
+    static realcomplex alpha;
     static real scale;
 
     if (c_abs(ca) != 0.f) {

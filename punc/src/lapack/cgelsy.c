@@ -7,67 +7,67 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__0 = 0;
 static integer c__2 = 2;
 
-/* Subroutine */ int cgelsy_(integer *m, integer *n, integer *nrhs, complex *
-	a, integer *lda, complex *b, integer *ldb, integer *jpvt, real *rcond,
-	 integer *rank, complex *work, integer *lwork, real *rwork, integer *
+/* Subroutine */ int cgelsy_(integer *m, integer *n, integer *nrhs, realcomplex *
+	a, integer *lda, realcomplex *b, integer *ldb, integer *jpvt, real *rcond,
+	 integer *rank, realcomplex *work, integer *lwork, real *rwork, integer *
 	info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j;
-    static complex c1, c2, s1, s2;
+    static realcomplex c1, c2, s1, s2;
     static integer nb, mn, nb1, nb2, nb3, nb4;
     static real anrm, bnrm, smin, smax;
     static integer iascl, ibscl;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer ismin, ismax;
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), claic1_(integer *, 
-	    integer *, complex *, real *, complex *, complex *, real *, 
-	    complex *, complex *);
+	    integer *, realcomplex *, real *, realcomplex *, realcomplex *, real *, 
+	    realcomplex *, realcomplex *);
     static real wsize;
-    extern /* Subroutine */ int cgeqp3_(integer *, integer *, complex *, 
-	    integer *, integer *, complex *, complex *, integer *, real *, 
+    extern /* Subroutine */ int cgeqp3_(integer *, integer *, realcomplex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, real *, 
 	    integer *), slabad_(real *, real *);
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
 	    ftnlen);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     static real bignum;
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static real sminpr, smaxpr, smlnum;
     extern /* Subroutine */ int cunmrz_(char *, char *, integer *, integer *, 
-	    integer *, integer *, complex *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, integer *, ftnlen, ftnlen);
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, integer *, ftnlen, ftnlen);
     static integer lwkopt;
     static logical lquery;
-    extern /* Subroutine */ int ctzrzf_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, integer *);
+    extern /* Subroutine */ int ctzrzf_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, integer *);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

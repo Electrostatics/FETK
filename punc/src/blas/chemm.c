@@ -6,22 +6,22 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int chemm_(char *side, char *uplo, integer *m, integer *n, 
-	complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, 
-	complex *beta, complex *c__, integer *ldc, ftnlen side_len, ftnlen 
+	realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, 
+	realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen side_len, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, c_dim1, c_offset, i__1, i__2, 
 	    i__3, i__4, i__5, i__6;
     real r__1;
-    complex q__1, q__2, q__3, q__4, q__5;
+    realcomplex q__1, q__2, q__3, q__4, q__5;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, info;
-    static complex temp1, temp2;
+    static realcomplex temp1, temp2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nrowa;
     static logical upper;

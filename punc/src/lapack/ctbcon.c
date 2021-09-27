@@ -10,7 +10,7 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int ctbcon_(char *norm, char *uplo, char *diag, integer *n, 
-	integer *kd, complex *ab, integer *ldab, real *rcond, complex *work, 
+	integer *kd, realcomplex *ab, integer *ldab, real *rcond, realcomplex *work, 
 	real *rwork, integer *info, ftnlen norm_len, ftnlen uplo_len, ftnlen 
 	diag_len)
 {
@@ -19,7 +19,7 @@ static integer c__1 = 1;
     real r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer ix, kase, kase1;
@@ -28,18 +28,18 @@ static integer c__1 = 1;
     static real anorm;
     static logical upper;
     static real xnorm;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal clantb_(char *, char *, char *, integer *, integer *, 
-	    complex *, integer *, real *, ftnlen, ftnlen, ftnlen), slamch_(
+	    realcomplex *, integer *, real *, ftnlen, ftnlen, ftnlen), slamch_(
 	    char *, ftnlen);
     extern /* Subroutine */ int clatbs_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, integer *, complex *, real *, 
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, real *, 
 	    real *, integer *, ftnlen, ftnlen, ftnlen, ftnlen), xerbla_(char *
 	    , integer *, ftnlen);
     static real ainvnm;
-    extern /* Subroutine */ int csrscl_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csrscl_(integer *, real *, realcomplex *, integer 
 	    *);
     static logical onenrm;
     static char normin[1];

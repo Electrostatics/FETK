@@ -5,8 +5,8 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clartg_(complex *f, complex *g, real *cs, complex *sn, 
-	complex *r__)
+/* Subroutine */ int clartg_(realcomplex *f, realcomplex *g, real *cs, realcomplex *sn, 
+	realcomplex *r__)
 {
     /* Initialized data */
 
@@ -15,20 +15,20 @@
     /* System generated locals */
     integer i__1;
     real r__1, r__2, r__3, r__4, r__5, r__6, r__7, r__8, r__9, r__10;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    double log(doublereal), pow_ri(real *, integer *), r_imag(complex *), 
+    double log(doublereal), pow_ri(real *, integer *), r_imag(realcomplex *), 
 	    sqrt(doublereal);
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real d__;
     static integer i__;
     static real f2, g2;
-    static complex ff;
+    static realcomplex ff;
     static real di, dr;
-    static complex fs, gs;
+    static realcomplex fs, gs;
     static real f2s, g2s, eps, scale;
     static integer count;
     static real safmn2, safmx2;

@@ -7,12 +7,12 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int cstegr_(char *jobz, char *range, integer *n, real *d__, 
 	real *e, real *vl, real *vu, integer *il, integer *iu, real *abstol, 
-	integer *m, real *w, complex *z__, integer *ldz, integer *isuppz, 
+	integer *m, real *w, realcomplex *z__, integer *ldz, integer *isuppz, 
 	real *work, integer *lwork, integer *iwork, integer *liwork, integer *
 	info, ftnlen jobz_len, ftnlen range_len)
 {
@@ -33,7 +33,7 @@ static integer c__1 = 1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer iinfo;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *), 
-	    cswap_(integer *, complex *, integer *, complex *, integer *);
+	    cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *);
     static integer lwmin;
     static logical wantz, alleig;
     static integer ibegin;
@@ -41,14 +41,14 @@ static integer c__1 = 1;
     static integer iindbl;
     static logical valeig;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real bignum;
     static integer iindwk, indgrs, indwof;
     extern /* Subroutine */ int clarrv_(integer *, real *, real *, integer *, 
-	    integer *, real *, integer *, real *, real *, complex *, integer *
+	    integer *, real *, integer *, real *, real *, realcomplex *, integer *
 	    , integer *, real *, integer *, integer *), slarre_(integer *, 
 	    real *, real *, real *, integer *, integer *, integer *, real *, 
 	    real *, real *, real *, integer *);

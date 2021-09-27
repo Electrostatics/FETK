@@ -7,28 +7,28 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int ctrti2_(char *uplo, char *diag, integer *n, complex *a, 
+/* Subroutine */ int ctrti2_(char *uplo, char *diag, integer *n, realcomplex *a, 
 	integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j;
-    static complex ajj;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex ajj;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctrmv_(char *, char *, char *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
 	    ftnlen), xerbla_(char *, integer *, ftnlen);
     static logical nounit;
 

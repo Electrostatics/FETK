@@ -7,36 +7,36 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int chptrs_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen 
+/* Subroutine */ int chptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *), r_cnjg(complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *), r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k;
     static real s;
-    static complex ak, bk;
+    static realcomplex ak, bk;
     static integer kc, kp;
-    static complex akm1, bkm1, akm1k;
+    static realcomplex akm1, bkm1, akm1k;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    static complex denom;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cswap_(integer *, complex *, integer *, complex *, integer *);
+    static realcomplex denom;
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *);
     static logical upper;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *), 
-	    csscal_(integer *, real *, complex *, integer *), xerbla_(char *, 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *), 
+	    csscal_(integer *, real *, realcomplex *, integer *), xerbla_(char *, 
 	    integer *, ftnlen);
 
 
@@ -53,7 +53,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CHPTRS solves a system of linear equations A*X = B with a complex */
+/*  CHPTRS solves a system of linear equations A*X = B with a realcomplex */
 /*  Hermitian matrix A stored in packed format using the factorization */
 /*  A = U*D*U**H or A = L*D*L**H computed by CHPTRF. */
 

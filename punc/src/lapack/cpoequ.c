@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cpoequ_(integer *n, complex *a, integer *lda, real *s, 
+/* Subroutine */ int cpoequ_(integer *n, realcomplex *a, integer *lda, real *s, 
 	real *scond, real *amax, integer *info)
 {
     /* System generated locals */

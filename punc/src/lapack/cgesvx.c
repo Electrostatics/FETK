@@ -6,17 +6,17 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgesvx_(char *fact, char *trans, integer *n, integer *
-	nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *
-	ipiv, char *equed, real *r__, real *c__, complex *b, integer *ldb, 
-	complex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
-	complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
+	nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *
+	ipiv, char *equed, real *r__, real *c__, realcomplex *b, integer *ldb, 
+	realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
+	realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
 	trans_len, ftnlen equed_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, af_dim1, af_offset, b_dim1, b_offset, x_dim1, 
 	    x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j;
@@ -25,31 +25,31 @@
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real rcmin, rcmax, anorm;
     static logical equil;
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
-    extern /* Subroutine */ int claqge_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int claqge_(integer *, integer *, realcomplex *, 
 	    integer *, real *, real *, real *, real *, real *, char *, ftnlen)
-	    , cgecon_(char *, integer *, complex *, integer *, real *, real *,
-	     complex *, real *, integer *, ftnlen);
+	    , cgecon_(char *, integer *, realcomplex *, integer *, real *, real *,
+	     realcomplex *, real *, integer *, ftnlen);
     static real colcnd;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int cgeequ_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cgeequ_(integer *, integer *, realcomplex *, 
 	    integer *, real *, real *, real *, real *, real *, integer *);
     static logical nofact;
-    extern /* Subroutine */ int cgerfs_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, complex *, integer 
-	    *, complex *, integer *, real *, real *, complex *, real *, 
-	    integer *, ftnlen), cgetrf_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cgerfs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, real *, real *, realcomplex *, real *, 
+	    integer *, ftnlen), cgetrf_(integer *, integer *, realcomplex *, 
 	    integer *, integer *, integer *), clacpy_(char *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, ftnlen), 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen), 
 	    xerbla_(char *, integer *, ftnlen);
     static real bignum;
     extern doublereal clantr_(char *, char *, char *, integer *, integer *, 
-	    complex *, integer *, real *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, integer *, real *, ftnlen, ftnlen, ftnlen);
     static integer infequ;
     static logical colequ;
-    extern /* Subroutine */ int cgetrs_(char *, integer *, integer *, complex 
-	    *, integer *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int cgetrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static real rowcnd;
     static logical notran;
     static real smlnum;
@@ -70,7 +70,7 @@
 /*  Purpose */
 /*  ======= */
 
-/*  CGESVX uses the LU factorization to compute the solution to a complex */
+/*  CGESVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations */
 /*     A * X = B, */
 /*  where A is an N-by-N matrix and X and B are N-by-NRHS matrices. */

@@ -19,9 +19,9 @@
 /* 
  * Function prototypes 
  */
-void cusolve(int, int, complex*, complex*);
-void clsolve(int, int, complex*, complex*);
-void cmatvec(int, int, int, complex*, complex*, complex*);
+void cusolve(int, int, realcomplex*, realcomplex*);
+void clsolve(int, int, realcomplex*, realcomplex*);
+void cmatvec(int, int, int, realcomplex*, realcomplex*, realcomplex*);
 
 /*! \brief Solves one of the systems of equations A*x = b,   or   A'*x = b
  * 
@@ -79,7 +79,7 @@ void cmatvec(int, int, int, complex*, complex*, complex*);
  */
 int
 sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L, 
-         SuperMatrix *U, complex *x, SuperLUStat_t *stat, int *info)
+         SuperMatrix *U, realcomplex *x, SuperLUStat_t *stat, int *info)
 {
 #ifdef _CRAY
     _fcd ftcs1 = _cptofcd("L", strlen("L")),
@@ -88,15 +88,15 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 #endif
     SCformat *Lstore;
     NCformat *Ustore;
-    complex   *Lval, *Uval;
+    realcomplex   *Lval, *Uval;
     int incx = 1, incy = 1;
-    complex temp;
-    complex alpha = {1.0, 0.0}, beta = {1.0, 0.0};
-    complex comp_zero = {0.0, 0.0};
+    realcomplex temp;
+    realcomplex alpha = {1.0, 0.0}, beta = {1.0, 0.0};
+    realcomplex comp_zero = {0.0, 0.0};
     int nrow;
     int fsupc, nsupr, nsupc, luptr, istart, irow;
     int i, k, iptr, jcol;
-    complex *work;
+    realcomplex *work;
     flops_t solve_ops;
 
     /* Test the input parameters */
@@ -453,20 +453,20 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
  * </pre>
 */
 int
-sp_cgemv(char *trans, complex alpha, SuperMatrix *A, complex *x, 
-	 int incx, complex beta, complex *y, int incy)
+sp_cgemv(char *trans, realcomplex alpha, SuperMatrix *A, realcomplex *x, 
+	 int incx, realcomplex beta, realcomplex *y, int incy)
 {
 
     /* Local variables */
     NCformat *Astore;
-    complex   *Aval;
+    realcomplex   *Aval;
     int info;
-    complex temp, temp1;
+    realcomplex temp, temp1;
     int lenx, leny, i, j, irow;
     int iy, jx, jy, kx, ky;
     int notran;
-    complex comp_zero = {0.0, 0.0};
-    complex comp_one = {1.0, 0.0};
+    realcomplex comp_zero = {0.0, 0.0};
+    realcomplex comp_one = {1.0, 0.0};
 
     notran = lsame_(trans, "N");
     Astore = A->Store;

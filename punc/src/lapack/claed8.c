@@ -10,9 +10,9 @@
 static real c_b3 = -1.f;
 static integer c__1 = 1;
 
-/* Subroutine */ int claed8_(integer *k, integer *n, integer *qsiz, complex *
+/* Subroutine */ int claed8_(integer *k, integer *n, integer *qsiz, realcomplex *
 	q, integer *ldq, real *d__, real *rho, integer *cutpnt, real *z__, 
-	real *dlamda, complex *q2, integer *ldq2, real *w, integer *indxp, 
+	real *dlamda, realcomplex *q2, integer *ldq2, real *w, integer *indxp, 
 	integer *indx, integer *indxq, integer *perm, integer *givptr, 
 	integer *givcol, real *givnum, integer *info)
 {
@@ -31,13 +31,13 @@ static integer c__1 = 1;
     static real eps, tau, tol;
     static integer jlam, imax, jmax;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *), 
-	    ccopy_(integer *, complex *, integer *, complex *, integer *), 
-	    csrot_(integer *, complex *, integer *, complex *, integer *, 
+	    ccopy_(integer *, realcomplex *, integer *, realcomplex *, integer *), 
+	    csrot_(integer *, realcomplex *, integer *, realcomplex *, integer *, 
 	    real *, real *), scopy_(integer *, real *, integer *, real *, 
 	    integer *);
     extern doublereal slapy2_(real *, real *), slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     extern integer isamax_(integer *, real *, integer *);
     extern /* Subroutine */ int slamrg_(integer *, integer *, real *, integer 

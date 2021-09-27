@@ -15,9 +15,9 @@ static integer c__4 = 4;
 static integer c_n1 = -1;
 
 /* Subroutine */ int cheevr_(char *jobz, char *range, char *uplo, integer *n, 
-	complex *a, integer *lda, real *vl, real *vu, integer *il, integer *
-	iu, real *abstol, integer *m, real *w, complex *z__, integer *ldz, 
-	integer *isuppz, complex *work, integer *lwork, real *rwork, integer *
+	realcomplex *a, integer *lda, real *vl, real *vu, integer *il, integer *
+	iu, real *abstol, integer *m, real *w, realcomplex *z__, integer *ldz, 
+	integer *isuppz, realcomplex *work, integer *lwork, real *rwork, integer *
 	lrwork, integer *iwork, integer *liwork, integer *info, ftnlen 
 	jobz_len, ftnlen range_len, ftnlen uplo_len)
 {
@@ -40,8 +40,8 @@ static integer c_n1 = -1;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static char order[1];
     static integer indwk;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer lwmin;
     static logical lower;
     extern /* Subroutine */ int scopy_(integer *, real *, integer *, real *, 
@@ -50,9 +50,9 @@ static integer c_n1 = -1;
     static integer iscale, ieeeok, indibl, indrdd, indifl, indree;
     static logical valeig;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int chetrd_(char *, integer *, complex *, integer 
-	    *, real *, real *, complex *, complex *, integer *, integer *, 
-	    ftnlen), csscal_(integer *, real *, complex *, integer *);
+    extern /* Subroutine */ int chetrd_(char *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, realcomplex *, integer *, integer *, 
+	    ftnlen), csscal_(integer *, real *, realcomplex *, integer *);
     static real safmin;
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
@@ -61,20 +61,20 @@ static integer c_n1 = -1;
     static integer indtau, indisp;
     extern /* Subroutine */ int cstegr_(char *, char *, integer *, real *, 
 	    real *, real *, real *, integer *, integer *, real *, integer *, 
-	    real *, complex *, integer *, integer *, real *, integer *, 
+	    real *, realcomplex *, integer *, integer *, real *, integer *, 
 	    integer *, integer *, integer *, ftnlen, ftnlen), cstein_(integer 
 	    *, real *, real *, integer *, real *, integer *, integer *, 
-	    complex *, integer *, real *, integer *, integer *, integer *);
+	    realcomplex *, integer *, real *, integer *, integer *, integer *);
     static integer indiwo, indwkn;
-    extern doublereal clansy_(char *, char *, integer *, complex *, integer *,
+    extern doublereal clansy_(char *, char *, integer *, realcomplex *, integer *,
 	     real *, ftnlen, ftnlen);
     static integer indrwk, liwmin;
     extern /* Subroutine */ int ssterf_(integer *, real *, real *, integer *);
     static integer lrwmin, llwrkn, llwork, nsplit;
     static real smlnum;
     extern /* Subroutine */ int cunmtr_(char *, char *, char *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen, ftnlen), sstebz_(
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen, ftnlen), sstebz_(
 	    char *, char *, integer *, real *, real *, integer *, integer *, 
 	    real *, real *, real *, integer *, integer *, real *, integer *, 
 	    integer *, real *, integer *, integer *, ftnlen, ftnlen);

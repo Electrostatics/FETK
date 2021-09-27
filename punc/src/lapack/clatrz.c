@@ -5,23 +5,23 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clatrz_(integer *m, integer *n, integer *l, complex *a, 
-	integer *lda, complex *tau, complex *work)
+/* Subroutine */ int clatrz_(integer *m, integer *n, integer *l, realcomplex *a, 
+	integer *lda, realcomplex *tau, realcomplex *work)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__;
-    static complex alpha;
+    static realcomplex alpha;
     extern /* Subroutine */ int clarz_(char *, integer *, integer *, integer *
-	    , complex *, integer *, complex *, complex *, integer *, complex *
-	    , ftnlen), clarfg_(integer *, complex *, complex *, integer *, 
-	    complex *), clacgv_(integer *, complex *, integer *);
+	    , realcomplex *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *
+	    , ftnlen), clarfg_(integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *), clacgv_(integer *, realcomplex *, integer *);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

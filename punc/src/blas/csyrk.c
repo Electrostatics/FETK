@@ -6,17 +6,17 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int csyrk_(char *uplo, char *trans, integer *n, integer *k, 
-	complex *alpha, complex *a, integer *lda, complex *beta, complex *c__,
+	realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *beta, realcomplex *c__,
 	 integer *ldc, ftnlen uplo_len, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, c_dim1, c_offset, i__1, i__2, i__3, i__4, i__5, 
 	    i__6;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Local variables */
     static integer i__, j, l, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nrowa;
     static logical upper;

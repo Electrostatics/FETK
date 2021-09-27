@@ -9,8 +9,8 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cspcon_(char *uplo, integer *n, complex *ap, integer *
-	ipiv, real *anorm, real *rcond, complex *work, integer *info, ftnlen 
+/* Subroutine */ int cspcon_(char *uplo, integer *n, realcomplex *ap, integer *
+	ipiv, real *anorm, real *rcond, realcomplex *work, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -20,11 +20,11 @@ static integer c__1 = 1;
     static integer i__, ip, kase;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *), xerbla_(char *, integer *, ftnlen);
     static real ainvnm;
-    extern /* Subroutine */ int csptrs_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csptrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

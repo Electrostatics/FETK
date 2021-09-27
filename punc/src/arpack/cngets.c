@@ -118,19 +118,19 @@ static integer c__1 = 1;
 /* ----------------------------------------------------------------------- */
 
 /* Subroutine */ int cngets_(integer *ishift, char *which, integer *kev, 
-	integer *np, complex *ritz, complex *bounds, ftnlen which_len)
+	integer *np, realcomplex *ritz, realcomplex *bounds, ftnlen which_len)
 {
     /* System generated locals */
     integer i__1;
 
     /* Local variables */
     static real t0, t1;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), ivout_(integer *, integer *, integer *
 	    , integer *, char *, ftnlen), second_(real *);
     static integer msglvl;
-    extern /* Subroutine */ int csortc_(char *, logical *, integer *, complex 
-	    *, complex *, ftnlen);
+    extern /* Subroutine */ int csortc_(char *, logical *, integer *, realcomplex 
+	    *, realcomplex *, ftnlen);
 
 
 /*     %----------------------------------------------------% */

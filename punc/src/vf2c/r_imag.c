@@ -4,9 +4,9 @@ extern "C" {
 #endif
 
 #ifdef KR_headers
-double r_imag(z) complex *z;
+double r_imag(z) realcomplex *z;
 #else
-double r_imag(complex *z)
+double r_imag(realcomplex *z)
 #endif
 {
 return(z->i);

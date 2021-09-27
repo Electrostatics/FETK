@@ -9,18 +9,18 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cung2r_(integer *m, integer *n, integer *k, complex *a, 
-	integer *lda, complex *tau, complex *work, integer *info)
+/* Subroutine */ int cung2r_(integer *m, integer *n, integer *k, realcomplex *a, 
+	integer *lda, realcomplex *tau, realcomplex *work, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, l;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), clarf_(char *, integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, complex *, ftnlen), 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), clarf_(char *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen), 
 	    xerbla_(char *, integer *, ftnlen);
 
 

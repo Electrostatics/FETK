@@ -46,7 +46,7 @@ static doublereal c_b9 = -1.;
 /*  Purpose */
 /*  ======= */
 
-/*  ZPBSTF computes a split Cholesky factorization of a complex */
+/*  ZPBSTF computes a split Cholesky factorization of a realcomplex */
 /*  Hermitian positive definite band matrix A. */
 
 /*  This routine is designed to be used in conjunction with ZHBGST. */

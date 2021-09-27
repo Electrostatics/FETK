@@ -10,7 +10,7 @@
 static integer c__1 = 1;
 
 doublereal clantr_(char *norm, char *uplo, char *diag, integer *m, integer *n,
-	 complex *a, integer *lda, real *work, ftnlen norm_len, ftnlen 
+	 realcomplex *a, integer *lda, real *work, ftnlen norm_len, ftnlen 
 	uplo_len, ftnlen diag_len)
 {
     /* System generated locals */
@@ -18,7 +18,7 @@ doublereal clantr_(char *norm, char *uplo, char *diag, integer *m, integer *n,
     real ret_val, r__1, r__2;
 
     /* Builtin functions */
-    double c_abs(complex *), sqrt(doublereal);
+    double c_abs(realcomplex *), sqrt(doublereal);
 
     /* Local variables */
     static integer i__, j;
@@ -26,7 +26,7 @@ doublereal clantr_(char *norm, char *uplo, char *diag, integer *m, integer *n,
     static logical udiag;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real value;
-    extern /* Subroutine */ int classq_(integer *, complex *, integer *, real 
+    extern /* Subroutine */ int classq_(integer *, realcomplex *, integer *, real 
 	    *, real *);
 
 

@@ -7,21 +7,21 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int csprfs_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, complex *afp, integer *ipiv, complex *b, integer *ldb, complex *x,
-	 integer *ldx, real *ferr, real *berr, complex *work, real *rwork, 
+/* Subroutine */ int csprfs_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, realcomplex *afp, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *x,
+	 integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, 
 	integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2, r__3, r__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
@@ -33,21 +33,21 @@ static integer c__1 = 1;
     static integer kase;
     static real safe1, safe2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static integer count;
-    extern /* Subroutine */ int cspmv_(char *, integer *, complex *, complex *
-	    , complex *, integer *, complex *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int cspmv_(char *, integer *, realcomplex *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, realcomplex *, integer *, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real lstres;
-    extern /* Subroutine */ int csptrs_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csptrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

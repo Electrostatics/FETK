@@ -7,13 +7,13 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
 /* Subroutine */ int chegv_(integer *itype, char *jobz, char *uplo, integer *
-	n, complex *a, integer *lda, complex *b, integer *ldb, real *w, 
-	complex *work, integer *lwork, real *rwork, integer *info, ftnlen 
+	n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *w, 
+	realcomplex *work, integer *lwork, real *rwork, integer *info, ftnlen 
 	jobz_len, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -21,24 +21,24 @@ static integer c_n1 = -1;
 
     /* Local variables */
     static integer nb, neig;
-    extern /* Subroutine */ int cheev_(char *, char *, integer *, complex *, 
-	    integer *, real *, complex *, integer *, real *, integer *, 
+    extern /* Subroutine */ int cheev_(char *, char *, integer *, realcomplex *, 
+	    integer *, real *, realcomplex *, integer *, real *, integer *, 
 	    ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static char trans[1];
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper, wantz;
-    extern /* Subroutine */ int chegst_(integer *, char *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int chegst_(integer *, char *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), cpotrf_(
-	    char *, integer *, complex *, integer *, integer *, ftnlen);
+	    char *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static integer lwkopt;
     static logical lquery;
 

@@ -41,7 +41,7 @@
    ===================================================================== 
   </pre>
 */
-int icmax1_(int *n, complex *cx, int *incx)
+int icmax1_(int *n, realcomplex *cx, int *incx)
 {
 /*
        NEXT LINE IS THE ONLY MODIFICATION.   

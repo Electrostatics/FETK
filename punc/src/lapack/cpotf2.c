@@ -7,16 +7,16 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int cpotf2_(char *uplo, integer *n, complex *a, integer *lda,
+/* Subroutine */ int cpotf2_(char *uplo, integer *n, realcomplex *a, integer *lda,
 	 integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -24,15 +24,15 @@ static integer c__1 = 1;
     /* Local variables */
     static integer j;
     static real ajj;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int clacgv_(integer *, complex *, integer *), 
-	    csscal_(integer *, real *, complex *, integer *), xerbla_(char *, 
+    extern /* Subroutine */ int clacgv_(integer *, realcomplex *, integer *), 
+	    csscal_(integer *, real *, realcomplex *, integer *), xerbla_(char *, 
 	    integer *, ftnlen);
 
 

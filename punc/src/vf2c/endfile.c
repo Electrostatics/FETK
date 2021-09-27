@@ -4,7 +4,7 @@
 /* Compile this with -DNO_TRUNCATE if unistd.h does not exist or */
 /* if it does not define int truncate(const char *name, off_t). */
 
-#ifdef MSDOS
+#if defined MSDOS || defined _WIN32
 #undef NO_TRUNCATE
 #define NO_TRUNCATE
 #endif

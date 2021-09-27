@@ -6,7 +6,7 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgbequ_(integer *m, integer *n, integer *kl, integer *ku,
-	 complex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real 
+	 realcomplex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real 
 	*colcnd, real *amax, integer *info)
 {
     /* System generated locals */
@@ -14,7 +14,7 @@
     real r__1, r__2, r__3, r__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j, kd;

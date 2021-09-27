@@ -7,32 +7,32 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static real c_b14 = -1.f;
 static real c_b15 = 1.f;
 
-/* Subroutine */ int cpotrf_(char *uplo, integer *n, complex *a, integer *lda,
+/* Subroutine */ int cpotrf_(char *uplo, integer *n, realcomplex *a, integer *lda,
 	 integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer j, jb, nb;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen), cherk_(char *, 
-	    char *, integer *, integer *, real *, complex *, integer *, real *
-	    , complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen), cherk_(char *, 
+	    char *, integer *, integer *, real *, realcomplex *, integer *, real *
+	    , realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int cpotf2_(char *, integer *, complex *, integer 
+    extern /* Subroutine */ int cpotf2_(char *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

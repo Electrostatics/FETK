@@ -7,32 +7,32 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int clarfx_(char *side, integer *m, integer *n, complex *v, 
-	complex *tau, complex *c__, integer *ldc, complex *work, ftnlen 
+/* Subroutine */ int clarfx_(char *side, integer *m, integer *n, realcomplex *v, 
+	realcomplex *tau, realcomplex *c__, integer *ldc, realcomplex *work, ftnlen 
 	side_len)
 {
     /* System generated locals */
     integer c_dim1, c_offset, i__1, i__2, i__3, i__4, i__5, i__6, i__7, i__8, 
 	    i__9, i__10, i__11;
-    complex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9, q__10, 
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9, q__10, 
 	    q__11, q__12, q__13, q__14, q__15, q__16, q__17, q__18, q__19;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j;
-    static complex t1, t2, t3, t4, t5, t6, t7, t8, t9, v1, v2, v3, v4, v5, v6,
+    static realcomplex t1, t2, t3, t4, t5, t6, t7, t8, t9, v1, v2, v3, v4, v5, v6,
 	     v7, v8, v9, t10, v10, sum;
-    extern /* Subroutine */ int cgerc_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *);
+    extern /* Subroutine */ int cgerc_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
 
 

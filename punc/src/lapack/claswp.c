@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int claswp_(integer *n, complex *a, integer *lda, integer *
+/* Subroutine */ int claswp_(integer *n, realcomplex *a, integer *lda, integer *
 	k1, integer *k2, integer *ipiv, integer *incx)
 {
     /* System generated locals */
@@ -13,7 +13,7 @@
 
     /* Local variables */
     static integer i__, j, k, i1, i2, n32, ip, ix, ix0, inc;
-    static complex temp;
+    static realcomplex temp;
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

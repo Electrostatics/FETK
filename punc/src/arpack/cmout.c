@@ -34,7 +34,7 @@ static integer c__2 = 2;
 
 /* ----------------------------------------------------------------------- */
 
-/* Subroutine */ int cmout_(integer *lout, integer *m, integer *n, complex *a,
+/* Subroutine */ int cmout_(integer *lout, integer *m, integer *n, realcomplex *a,
 	 integer *lda, integer *idigit, char *ifmt, ftnlen ifmt_len)
 {
     /* Initialized data */

@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cswap_(integer *n, complex *cx, integer *incx, complex *
+/* Subroutine */ int cswap_(integer *n, realcomplex *cx, integer *incx, realcomplex *
 	cy, integer *incy)
 {
     /* System generated locals */
@@ -13,7 +13,7 @@
 
     /* Local variables */
     static integer i__, ix, iy;
-    static complex ctemp;
+    static realcomplex ctemp;
 
 
 /*     interchanges two vectors. */

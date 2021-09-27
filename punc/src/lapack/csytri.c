@@ -7,37 +7,37 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int csytri_(char *uplo, integer *n, complex *a, integer *lda,
-	 integer *ipiv, complex *work, integer *info, ftnlen uplo_len)
+/* Subroutine */ int csytri_(char *uplo, integer *n, realcomplex *a, integer *lda,
+	 integer *ipiv, realcomplex *work, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
-    static complex d__;
+    static realcomplex d__;
     static integer k;
-    static complex t, ak;
+    static realcomplex t, ak;
     static integer kp;
-    static complex akp1, temp, akkp1;
+    static realcomplex akp1, temp, akkp1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    extern /* Complex */ VOID cdotu_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    extern /* Complex */ VOID cdotu_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer kstep;
     static logical upper;
-    extern /* Subroutine */ int csymv_(char *, integer *, complex *, complex *
-	    , integer *, complex *, integer *, complex *, complex *, integer *
+    extern /* Subroutine */ int csymv_(char *, integer *, realcomplex *, realcomplex *
+	    , integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *
 	    , ftnlen), xerbla_(char *, integer *, ftnlen);
 
 

@@ -8,60 +8,60 @@
 /* Table of constant values */
 
 static integer c__1 = 1;
-static complex c_b19 = {1.f,0.f};
-static complex c_b20 = {0.f,0.f};
+static realcomplex c_b19 = {1.f,0.f};
+static realcomplex c_b20 = {0.f,0.f};
 static logical c_false = FALSE_;
 static integer c__3 = 3;
 
 /* Subroutine */ int ctgsna_(char *job, char *howmny, logical *select, 
-	integer *n, complex *a, integer *lda, complex *b, integer *ldb, 
-	complex *vl, integer *ldvl, complex *vr, integer *ldvr, real *s, real 
-	*dif, integer *mm, integer *m, complex *work, integer *lwork, integer 
+	integer *n, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, 
+	realcomplex *vl, integer *ldvl, realcomplex *vr, integer *ldvr, real *s, real 
+	*dif, integer *mm, integer *m, realcomplex *work, integer *lwork, integer 
 	*iwork, integer *info, ftnlen job_len, ftnlen howmny_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, vl_dim1, vl_offset, vr_dim1, 
 	    vr_offset, i__1, i__2;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double c_abs(complex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, k, n1, n2, ks;
     static real eps, cond;
     static integer ierr, ifst;
     static real lnrm;
-    static complex yhax, yhbx;
+    static realcomplex yhax, yhbx;
     static integer ilst;
     static real rnrm, scale;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static integer lwmin;
     static logical wants;
     static integer llwrk;
-    static complex dummy[1];
-    extern doublereal scnrm2_(integer *, complex *, integer *), slapy2_(real *
+    static realcomplex dummy[1];
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *), slapy2_(real *
 	    , real *);
-    static complex dummy1[1];
+    static realcomplex dummy1[1];
     extern /* Subroutine */ int slabad_(real *, real *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), ctgexc_(logical *, 
-	    logical *, integer *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *, complex *, integer *, integer *, integer *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), ctgexc_(logical *, 
+	    logical *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, integer *, integer *, 
 	    integer *), xerbla_(char *, integer *, ftnlen);
     static real bignum;
     static logical wantbh, wantdf, somcon;
     extern /* Subroutine */ int ctgsyl_(char *, integer *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, real *, real *, complex *, integer *, integer *, integer *, 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, integer *, integer *, integer *, 
 	    ftnlen);
     static real smlnum;
     static logical lquery;
@@ -194,7 +194,7 @@ static integer c__3 = 3;
 /*          S(I) = (|v'Au|**2 + |v'Bu|**2)**(1/2) / (norm(u)*norm(v)) */
 
 /*  where u and v are the right and left eigenvectors of (A, B) */
-/*  corresponding to w; |z| denotes the absolute value of the complex */
+/*  corresponding to w; |z| denotes the absolute value of the realcomplex */
 /*  number, and norm(u) denotes the 2-norm of the vector u. The pair */
 /*  (a, b) corresponds to an eigenvalue w = a/b (= v'Au/v'Bu) of the */
 /*  matrix pair (A, B). If both a and b equal zero, then (A,B) is */

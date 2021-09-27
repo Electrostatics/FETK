@@ -31,8 +31,8 @@
 /* 
  * Function prototypes 
  */
-void clsolve(int, int, complex *, complex *);
-void cmatvec(int, int, int, complex *, complex *, complex *);
+void clsolve(int, int, realcomplex *, realcomplex *);
+void cmatvec(int, int, int, realcomplex *, realcomplex *, realcomplex *);
 extern void ccheck_tempv();
 
 /*! \brief
@@ -60,8 +60,8 @@ cpanel_bmod (
 	    const int  w,          /* in */
 	    const int  jcol,       /* in */
 	    const int  nseg,       /* in */
-	    complex     *dense,     /* out, of size n by w */
-	    complex     *tempv,     /* working array */
+	    realcomplex     *dense,     /* out, of size n by w */
+	    realcomplex     *tempv,     /* working array */
 	    int        *segrep,    /* in */
 	    int        *repfnz,    /* in, of size n by w */
 	    GlobalLU_t *Glu,       /* modified */
@@ -77,13 +77,13 @@ cpanel_bmod (
          ftcs3 = _cptofcd("U", strlen("U"));
 #endif
     int          incx = 1, incy = 1;
-    complex       alpha, beta;
+    realcomplex       alpha, beta;
 #endif
 
     register int k, ksub;
     int          fsupc, nsupc, nsupr, nrow;
     int          krep, krep_ind;
-    complex       ukj, ukj1, ukj2;
+    realcomplex       ukj, ukj1, ukj2;
     int          luptr, luptr1, luptr2;
     int          segsze;
     int          block_nrow;  /* no of rows in a block row */
@@ -93,15 +93,15 @@ cpanel_bmod (
     register int jj;	      /* Index through each column in the panel */
     int          *xsup, *supno;
     int          *lsub, *xlsub;
-    complex       *lusup;
+    realcomplex       *lusup;
     int          *xlusup;
     int          *repfnz_col; /* repfnz[] for a column in the panel */
-    complex       *dense_col;  /* dense[] for a column in the panel */
-    complex       *tempv1;             /* Used in 1-D update */
-    complex       *TriTmp, *MatvecTmp; /* used in 2-D update */
-    complex      zero = {0.0, 0.0};
-    complex      one = {1.0, 0.0};
-    complex      comp_temp, comp_temp1;
+    realcomplex       *dense_col;  /* dense[] for a column in the panel */
+    realcomplex       *tempv1;             /* Used in 1-D update */
+    realcomplex       *TriTmp, *MatvecTmp; /* used in 2-D update */
+    realcomplex      zero = {0.0, 0.0};
+    realcomplex      one = {1.0, 0.0};
+    realcomplex      comp_temp, comp_temp1;
     register int ldaTmp;
     register int r_ind, r_hi;
     static   int first = 1, maxsuper, rowblk, colblk;

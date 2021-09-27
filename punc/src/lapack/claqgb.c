@@ -6,13 +6,13 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int claqgb_(integer *m, integer *n, integer *kl, integer *ku,
-	 complex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real 
+	 realcomplex *ab, integer *ldab, real *r__, real *c__, real *rowcnd, real 
 	*colcnd, real *amax, char *equed, ftnlen equed_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j;

@@ -2,7 +2,7 @@
 #include "fio.h"
 #include "string.h"
 #ifndef NON_POSIX_STDIO
-#ifdef MSDOS
+#if defined MSDOS || defined _WIN32
 #include "io.h"
 #else
 #include "unistd.h"	/* for access */

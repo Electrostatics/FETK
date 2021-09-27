@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cptsvx_(char *fact, integer *n, integer *nrhs, real *d__,
-	 complex *e, real *df, complex *ef, complex *b, integer *ldb, complex 
-	*x, integer *ldx, real *rcond, real *ferr, real *berr, complex *work, 
+	 realcomplex *e, real *df, realcomplex *ef, realcomplex *b, integer *ldb, realcomplex 
+	*x, integer *ldx, real *rcond, real *ferr, real *berr, realcomplex *work, 
 	real *rwork, integer *info, ftnlen fact_len)
 {
     /* System generated locals */
@@ -20,20 +20,20 @@ static integer c__1 = 1;
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), scopy_(integer *, real *, integer *, real *
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), scopy_(integer *, real *, integer *, real *
 	    , integer *);
     extern doublereal slamch_(char *, ftnlen), clanht_(char *, integer *, 
-	    real *, complex *, ftnlen);
+	    real *, realcomplex *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
-	    integer *, ftnlen), cptcon_(integer *, real *, complex *, real *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
+	    integer *, ftnlen), cptcon_(integer *, real *, realcomplex *, real *, 
 	    real *, real *, integer *), cptrfs_(char *, integer *, integer *, 
-	    real *, complex *, real *, complex *, complex *, integer *, 
-	    complex *, integer *, real *, real *, complex *, real *, integer *
-	    , ftnlen), cpttrf_(integer *, real *, complex *, integer *), 
-	    cpttrs_(char *, integer *, integer *, real *, complex *, complex *
+	    real *, realcomplex *, real *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, real *, realcomplex *, real *, integer *
+	    , ftnlen), cpttrf_(integer *, real *, realcomplex *, integer *), 
+	    cpttrs_(char *, integer *, integer *, real *, realcomplex *, realcomplex *
 	    , integer *, integer *, ftnlen);
 
 
