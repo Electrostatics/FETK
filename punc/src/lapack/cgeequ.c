@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgeequ_(integer *m, integer *n, complex *a, integer *lda,
+/* Subroutine */ int cgeequ_(integer *m, integer *n, realcomplex *a, integer *lda,
 	 real *r__, real *c__, real *rowcnd, real *colcnd, real *amax, 
 	integer *info)
 {
@@ -14,7 +14,7 @@
     real r__1, r__2, r__3, r__4;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j;

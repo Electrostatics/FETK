@@ -7,29 +7,29 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int clarz_(char *side, integer *m, integer *n, integer *l, 
-	complex *v, integer *incv, complex *tau, complex *c__, integer *ldc, 
-	complex *work, ftnlen side_len)
+	realcomplex *v, integer *incv, realcomplex *tau, realcomplex *c__, integer *ldc, 
+	realcomplex *work, ftnlen side_len)
 {
     /* System generated locals */
     integer c_dim1, c_offset;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
-    extern /* Subroutine */ int cgerc_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cgemv_(char *, integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
+    extern /* Subroutine */ int cgerc_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cgemv_(char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
 	    ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     ccopy_(integer *, complex *, integer *, complex *, integer *), 
-	    caxpy_(integer *, complex *, complex *, integer *, complex *, 
-	    integer *), clacgv_(integer *, complex *, integer *);
+    extern /* Subroutine */ int cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     ccopy_(integer *, realcomplex *, integer *, realcomplex *, integer *), 
+	    caxpy_(integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *), clacgv_(integer *, realcomplex *, integer *);
 
 
 /*  -- LAPACK routine (version 3.0) -- */
@@ -45,7 +45,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CLARZ applies a complex elementary reflector H to a complex */
+/*  CLARZ applies a complex elementary reflector H to a realcomplex */
 /*  M-by-N matrix C, from either the left or the right. H is represented */
 /*  in the form */
 

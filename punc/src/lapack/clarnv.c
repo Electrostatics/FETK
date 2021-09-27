@@ -6,16 +6,16 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clarnv_(integer *idist, integer *iseed, integer *n, 
-	complex *x)
+	realcomplex *x)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
     double log(doublereal), sqrt(doublereal);
-    void c_exp(complex *, complex *);
+    void c_exp(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__;

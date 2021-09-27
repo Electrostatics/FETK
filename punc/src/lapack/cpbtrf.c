@@ -7,34 +7,34 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static real c_b21 = -1.f;
 static real c_b22 = 1.f;
 static integer c__33 = 33;
 
-/* Subroutine */ int cpbtrf_(char *uplo, integer *n, integer *kd, complex *ab,
+/* Subroutine */ int cpbtrf_(char *uplo, integer *n, integer *kd, realcomplex *ab,
 	 integer *ldab, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3, i__4, i__5, i__6;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, i2, i3, ib, nb, ii, jj;
-    static complex work[1056]	/* was [33][32] */;
+    static realcomplex work[1056]	/* was [33][32] */;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen), cherk_(char *, 
-	    char *, integer *, integer *, real *, complex *, integer *, real *
-	    , complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen), cherk_(char *, 
+	    char *, integer *, integer *, real *, realcomplex *, integer *, real *
+	    , realcomplex *, integer *, ftnlen, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), cpbtf2_(char *, 
-	    integer *, integer *, complex *, integer *, integer *, ftnlen), 
-	    cpotf2_(char *, integer *, complex *, integer *, integer *, 
+	    integer *, integer *, realcomplex *, integer *, integer *, ftnlen), 
+	    cpotf2_(char *, integer *, realcomplex *, integer *, integer *, 
 	    ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

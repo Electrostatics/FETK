@@ -27,8 +27,8 @@ struct {
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static doublereal c_b5 = .66666666666666663;
 static integer c__1 = 1;
 static logical c_true = TRUE_;
@@ -281,10 +281,10 @@ static logical c_true = TRUE_;
 
 /* ----------------------------------------------------------------------- */
 /* Subroutine */ int cneupd_(logical *rvec, char *howmny, logical *select, 
-	complex *d__, complex *z__, integer *ldz, complex *sigma, complex *
+	realcomplex *d__, realcomplex *z__, integer *ldz, realcomplex *sigma, realcomplex *
 	workev, char *bmat, integer *n, char *which, integer *nev, real *tol, 
-	complex *resid, integer *ncv, complex *v, integer *ldv, integer *
-	iparam, integer *ipntr, complex *workd, complex *workl, integer *
+	realcomplex *resid, integer *ncv, realcomplex *v, integer *ldv, integer *
+	iparam, integer *ipntr, realcomplex *workd, realcomplex *workl, integer *
 	lworkl, real *rwork, integer *info, ftnlen howmny_len, ftnlen 
 	bmat_len, ftnlen which_len)
 {
@@ -292,69 +292,69 @@ static logical c_true = TRUE_;
     integer v_dim1, v_offset, z_dim1, z_offset, i__1, i__2;
     real r__1, r__2, r__3, r__4;
     doublereal d__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
     double pow_dd(doublereal *, doublereal *);
     integer s_cmp(char *, char *, ftnlen, ftnlen);
     /* Subroutine */ int s_copy(char *, char *, ftnlen, ftnlen);
-    double r_imag(complex *);
-    void c_div(complex *, complex *, complex *);
+    double r_imag(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k, ih, jj, iq, np;
-    static complex vl[1];
+    static realcomplex vl[1];
     static integer wr, ibd, ldh, ldq;
     static real sep;
     static integer irz, mode;
     static real eps23;
     static integer ierr;
-    static complex temp;
+    static realcomplex temp;
     static integer iwev;
     static char type__[6];
     static integer ritz, iheig;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static integer ihbds;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *);
     static real conds;
     static logical reord;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), ctrmm_(char *, char *, char *, char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static integer nconv;
     static real rtemp;
     extern /* Subroutine */ int cmout_(integer *, integer *, integer *, 
-	    complex *, integer *, integer *, char *, ftnlen);
-    static complex rnorm;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+	    realcomplex *, integer *, integer *, char *, ftnlen);
+    static realcomplex rnorm;
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), ivout_(integer *, integer *, integer *
 	    , integer *, char *, ftnlen), cgeqr2_(integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *);
-    extern doublereal scnrm2_(integer *, complex *, integer *);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int cunm2r_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen, ftnlen);
     extern doublereal slapy2_(real *, real *), slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static integer bounds, invsub, iuptri, msglvl, outncv, numcnv, ishift;
     extern /* Subroutine */ int clahqr_(logical *, logical *, integer *, 
-	    integer *, integer *, complex *, integer *, complex *, integer *, 
-	    integer *, complex *, integer *, integer *), cngets_(integer *, 
-	    char *, integer *, integer *, complex *, complex *, ftnlen), 
-	    claset_(char *, integer *, integer *, complex *, complex *, 
-	    complex *, integer *, ftnlen), ctrsen_(char *, char *, logical *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
-	    integer *, real *, real *, complex *, integer *, integer *, 
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    integer *, realcomplex *, integer *, integer *), cngets_(integer *, 
+	    char *, integer *, integer *, realcomplex *, realcomplex *, ftnlen), 
+	    claset_(char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    realcomplex *, integer *, ftnlen), ctrsen_(char *, char *, logical *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, integer *, integer *, 
 	    ftnlen, ftnlen), ctrevc_(char *, char *, logical *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
-	    integer *, integer *, complex *, real *, integer *, ftnlen, 
-	    ftnlen), csscal_(integer *, real *, complex *, integer *);
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
+	    integer *, integer *, realcomplex *, real *, integer *, ftnlen, 
+	    ftnlen), csscal_(integer *, real *, realcomplex *, integer *);
 
 
 /*     %----------------------------------------------------% */

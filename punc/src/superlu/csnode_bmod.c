@@ -32,8 +32,8 @@ csnode_bmod (
 	    const int  jcol,	  /* in */
 	    const int  jsupno,    /* in */
 	    const int  fsupc,     /* in */
-	    complex     *dense,    /* in */
-	    complex     *tempv,    /* working array */
+	    realcomplex     *dense,    /* in */
+	    realcomplex     *tempv,    /* working array */
 	    GlobalLU_t *Glu,      /* modified */
 	    SuperLUStat_t *stat   /* output */
 	    )
@@ -45,15 +45,15 @@ csnode_bmod (
 	 ftcs3 = _cptofcd("U", strlen("U"));
 #endif
     int            incx = 1, incy = 1;
-    complex         alpha = {-1.0, 0.0},  beta = {1.0, 0.0};
+    realcomplex         alpha = {-1.0, 0.0},  beta = {1.0, 0.0};
 #endif
 
-    complex   comp_zero = {0.0, 0.0};
+    realcomplex   comp_zero = {0.0, 0.0};
     int            luptr, nsupc, nsupr, nrow;
     int            isub, irow, i, iptr; 
     register int   ufirst, nextlu;
     int            *lsub, *xlsub;
-    complex         *lusup;
+    realcomplex         *lusup;
     int            *xlusup;
     flops_t *ops = stat->ops;
 

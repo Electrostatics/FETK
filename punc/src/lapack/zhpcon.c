@@ -42,7 +42,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZHPCON estimates the reciprocal of the condition number of a complex */
+/*  ZHPCON estimates the reciprocal of the condition number of a realcomplex */
 /*  Hermitian packed matrix A using the factorization A = U*D*U**H or */
 /*  A = L*D*L**H computed by ZHPTRF. */
 

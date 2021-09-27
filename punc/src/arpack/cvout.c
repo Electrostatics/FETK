@@ -32,7 +32,7 @@ static integer c__2 = 2;
 
 /* ----------------------------------------------------------------------- */
 
-/* Subroutine */ int cvout_(integer *lout, integer *n, complex *cx, integer *
+/* Subroutine */ int cvout_(integer *lout, integer *n, realcomplex *cx, integer *
 	idigit, char *ifmt, ftnlen ifmt_len)
 {
     /* Format strings */

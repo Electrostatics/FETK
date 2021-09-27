@@ -5,19 +5,19 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clartv_(integer *n, complex *x, integer *incx, complex *
-	y, integer *incy, real *c__, complex *s, integer *incc)
+/* Subroutine */ int clartv_(integer *n, realcomplex *x, integer *incx, realcomplex *
+	y, integer *incy, real *c__, realcomplex *s, integer *incc)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, ic, ix, iy;
-    static complex xi, yi;
+    static realcomplex xi, yi;
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

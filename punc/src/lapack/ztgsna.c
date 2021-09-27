@@ -197,7 +197,7 @@ static integer c__3 = 3;
 /*          S(I) = (|v'Au|**2 + |v'Bu|**2)**(1/2) / (norm(u)*norm(v)) */
 
 /*  where u and v are the right and left eigenvectors of (A, B) */
-/*  corresponding to w; |z| denotes the absolute value of the complex */
+/*  corresponding to w; |z| denotes the absolute value of the realcomplex */
 /*  number, and norm(u) denotes the 2-norm of the vector u. The pair */
 /*  (a, b) corresponds to an eigenvalue w = a/b (= v'Au/v'Bu) of the */
 /*  matrix pair (A, B). If both a and b equal zero, then (A,B) is */

@@ -7,25 +7,25 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__2 = 2;
 
-/* Subroutine */ int claesy_(complex *a, complex *b, complex *c__, complex *
-	rt1, complex *rt2, complex *evscal, complex *cs1, complex *sn1)
+/* Subroutine */ int claesy_(realcomplex *a, realcomplex *b, realcomplex *c__, realcomplex *
+	rt1, realcomplex *rt2, realcomplex *evscal, realcomplex *cs1, realcomplex *sn1)
 {
     /* System generated locals */
     real r__1, r__2;
-    complex q__1, q__2, q__3, q__4, q__5, q__6, q__7;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6, q__7;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void pow_ci(complex *, complex *, integer *), c_sqrt(complex *, complex *)
-	    , c_div(complex *, complex *, complex *);
+    double c_abs(realcomplex *);
+    void pow_ci(realcomplex *, realcomplex *, integer *), c_sqrt(realcomplex *, realcomplex *)
+	    , c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
-    static complex s, t;
+    static realcomplex s, t;
     static real z__;
-    static complex tmp;
+    static realcomplex tmp;
     static real babs, tabs, evnorm;
 
 

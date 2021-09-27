@@ -201,7 +201,7 @@ static integer c__4 = 4;
 /*          If JOBVL = 'N', VL is not referenced. */
 /*          If the j-th eigenvalue is real, then u(j) = VL(:,j), */
 /*          the j-th column of VL. */
-/*          If the j-th and (j+1)-st eigenvalues form a complex */
+/*          If the j-th and (j+1)-st eigenvalues form a realcomplex */
 /*          conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and */
 /*          u(j+1) = VL(:,j) - i*VL(:,j+1). */
 
@@ -216,7 +216,7 @@ static integer c__4 = 4;
 /*          If JOBVR = 'N', VR is not referenced. */
 /*          If the j-th eigenvalue is real, then v(j) = VR(:,j), */
 /*          the j-th column of VR. */
-/*          If the j-th and (j+1)-st eigenvalues form a complex */
+/*          If the j-th and (j+1)-st eigenvalues form a realcomplex */
 /*          conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and */
 /*          v(j+1) = VR(:,j) - i*VR(:,j+1). */
 

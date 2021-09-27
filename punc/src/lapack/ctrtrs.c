@@ -7,10 +7,10 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 
 /* Subroutine */ int ctrtrs_(char *uplo, char *trans, char *diag, integer *n, 
-	integer *nrhs, complex *a, integer *lda, complex *b, integer *ldb, 
+	integer *nrhs, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, 
 	integer *info, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len)
 {
     /* System generated locals */
@@ -19,7 +19,7 @@ static complex c_b2 = {1.f,0.f};
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static logical nounit;

@@ -7,15 +7,15 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c__2 = 2;
 
 /* Subroutine */ int chgeqz_(char *job, char *compq, char *compz, integer *n, 
-	integer *ilo, integer *ihi, complex *a, integer *lda, complex *b, 
-	integer *ldb, complex *alpha, complex *beta, complex *q, integer *ldq,
-	 complex *z__, integer *ldz, complex *work, integer *lwork, real *
+	integer *ilo, integer *ihi, realcomplex *a, integer *lda, realcomplex *b, 
+	integer *ldb, realcomplex *alpha, realcomplex *beta, realcomplex *q, integer *ldq,
+	 realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *
 	rwork, integer *info, ftnlen job_len, ftnlen compq_len, ftnlen 
 	compz_len)
 {
@@ -23,55 +23,55 @@ static integer c__2 = 2;
     integer a_dim1, a_offset, b_dim1, b_offset, q_dim1, q_offset, z_dim1, 
 	    z_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1, r__2, r__3, r__4, r__5, r__6;
-    complex q__1, q__2, q__3, q__4, q__5, q__6;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6;
 
     /* Builtin functions */
-    double c_abs(complex *);
-    void r_cnjg(complex *, complex *);
-    double r_imag(complex *);
-    void c_div(complex *, complex *, complex *), pow_ci(complex *, complex *, 
-	    integer *), c_sqrt(complex *, complex *);
+    double c_abs(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double r_imag(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *), pow_ci(realcomplex *, realcomplex *, 
+	    integer *), c_sqrt(realcomplex *, realcomplex *);
 
     /* Local variables */
     static real c__;
     static integer j;
-    static complex s, t;
+    static realcomplex s, t;
     static integer jc, in;
-    static complex u12;
+    static realcomplex u12;
     static integer jr;
-    static complex ad11, ad12, ad21, ad22;
+    static realcomplex ad11, ad12, ad21, ad22;
     static integer jch;
     static logical ilq, ilz;
     static real ulp;
-    static complex abi22;
+    static realcomplex abi22;
     static real absb, atol, btol, temp;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *);
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *);
     static real temp2;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    static complex ctemp;
+    static realcomplex ctemp;
     static integer iiter, ilast, jiter;
     static real anorm, bnorm;
     static integer maxit;
-    static complex shift;
+    static realcomplex shift;
     static real tempr;
-    static complex ctemp2, ctemp3;
+    static realcomplex ctemp2, ctemp3;
     static logical ilazr2;
     static real ascale, bscale;
-    static complex signbc;
+    static realcomplex signbc;
     extern doublereal slamch_(char *, ftnlen), clanhs_(char *, integer *, 
-	    complex *, integer *, real *, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), clartg_(complex *, 
-	    complex *, real *, complex *, complex *);
+	    realcomplex *, integer *, real *, ftnlen);
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), clartg_(realcomplex *, 
+	    realcomplex *, real *, realcomplex *, realcomplex *);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
-    static complex eshift;
+    static realcomplex eshift;
     static logical ilschr;
     static integer icompq, ilastm;
-    static complex rtdisc;
+    static realcomplex rtdisc;
     static integer ischur;
     static logical ilazro;
     static integer icompz, ifirst, ifrstm, istart;

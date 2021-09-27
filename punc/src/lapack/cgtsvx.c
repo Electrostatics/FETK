@@ -10,10 +10,10 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cgtsvx_(char *fact, char *trans, integer *n, integer *
-	nrhs, complex *dl, complex *d__, complex *du, complex *dlf, complex *
-	df, complex *duf, complex *du2, integer *ipiv, complex *b, integer *
-	ldb, complex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
-	complex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
+	nrhs, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *dlf, realcomplex *
+	df, realcomplex *duf, realcomplex *du2, integer *ipiv, realcomplex *b, integer *
+	ldb, realcomplex *x, integer *ldx, real *rcond, real *ferr, real *berr, 
+	realcomplex *work, real *rwork, integer *info, ftnlen fact_len, ftnlen 
 	trans_len)
 {
     /* System generated locals */
@@ -23,23 +23,23 @@ static integer c__1 = 1;
     static char norm[1];
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real anorm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen), clangt_(char *, integer *, 
-	    complex *, complex *, complex *, ftnlen);
+	    realcomplex *, realcomplex *, realcomplex *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), cgtcon_(char *, 
-	    integer *, complex *, complex *, complex *, complex *, integer *, 
-	    real *, real *, complex *, integer *, ftnlen), xerbla_(char *, 
-	    integer *, ftnlen), cgtrfs_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, complex *, complex *, complex *, complex 
-	    *, integer *, complex *, integer *, complex *, integer *, real *, 
-	    real *, complex *, real *, integer *, ftnlen), cgttrf_(integer *, 
-	    complex *, complex *, complex *, complex *, integer *, integer *);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), cgtcon_(char *, 
+	    integer *, realcomplex *, realcomplex *, realcomplex *, realcomplex *, integer *, 
+	    real *, real *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
+	    integer *, ftnlen), cgtrfs_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, realcomplex *, realcomplex *, realcomplex *, realcomplex 
+	    *, integer *, realcomplex *, integer *, realcomplex *, integer *, real *, 
+	    real *, realcomplex *, real *, integer *, ftnlen), cgttrf_(integer *, 
+	    realcomplex *, realcomplex *, realcomplex *, realcomplex *, integer *, integer *);
     static logical notran;
-    extern /* Subroutine */ int cgttrs_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, complex *, integer *, complex *, integer 
+    extern /* Subroutine */ int cgttrs_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen);
 
 
@@ -56,7 +56,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CGTSVX uses the LU factorization to compute the solution to a complex */
+/*  CGTSVX uses the LU factorization to compute the solution to a realcomplex */
 /*  system of linear equations A * X = B, A**T * X = B, or A**H * X = B, */
 /*  where A is a tridiagonal matrix of order N and X and B are N-by-NRHS */
 /*  matrices. */

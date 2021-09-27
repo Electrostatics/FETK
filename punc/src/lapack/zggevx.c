@@ -188,7 +188,7 @@ static integer c__0 = 0;
 /*  B       (input/output) COMPLEX*16 array, dimension (LDB, N) */
 /*          On entry, the matrix B in the pair (A,B). */
 /*          On exit, B has been overwritten. If JOBVL='V' or JOBVR='V' */
-/*          or both, then B contains the second part of the complex */
+/*          or both, then B contains the second part of the realcomplex */
 /*          Schur form of the "balanced" versions of the input A and B. */
 
 /*  LDB     (input) INTEGER */

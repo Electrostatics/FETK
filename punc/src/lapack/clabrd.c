@@ -7,27 +7,27 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int clabrd_(integer *m, integer *n, integer *nb, complex *a, 
-	integer *lda, real *d__, real *e, complex *tauq, complex *taup, 
-	complex *x, integer *ldx, complex *y, integer *ldy)
+/* Subroutine */ int clabrd_(integer *m, integer *n, integer *nb, realcomplex *a, 
+	integer *lda, real *d__, real *e, realcomplex *tauq, realcomplex *taup, 
+	realcomplex *x, integer *ldx, realcomplex *y, integer *ldy)
 {
     /* System generated locals */
     integer a_dim1, a_offset, x_dim1, x_offset, y_dim1, y_offset, i__1, i__2, 
 	    i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__;
-    static complex alpha;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), cgemv_(char *, integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, complex *, 
-	    integer *, ftnlen), clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *), clacgv_(integer *, complex *, integer *);
+    static realcomplex alpha;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), cgemv_(char *, integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, 
+	    integer *, ftnlen), clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *), clacgv_(integer *, realcomplex *, integer *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */
@@ -128,7 +128,7 @@ static integer c__1 = 1;
 
 /*     H(i) = I - tauq * v * v'  and G(i) = I - taup * u * u' */
 
-/*  where tauq and taup are complex scalars, and v and u are complex */
+/*  where tauq and taup are complex scalars, and v and u are realcomplex */
 /*  vectors. */
 
 /*  If m >= n, v(1:i-1) = 0, v(i) = 1, and v(i:m) is stored on exit in */

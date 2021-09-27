@@ -2,6 +2,10 @@
 #include "f2c.h"
 #define PAUSESIG 15
 
+#ifdef _WIN32
+#include <io.h> /* for isatty() */
+#endif
+
 #include "signal1.h"
 #ifdef KR_headers
 #define Void /* void */
@@ -19,8 +23,12 @@ extern "C" {
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern int getpid(void), isatty(int), pause(void);
+extern int getpid(void);
+#ifndef _WIN32
+extern int isatty(int);
 #endif
+extern int pause(void);
+#endif /* KR_headers */
 
 extern VOID f_exit(Void);
 

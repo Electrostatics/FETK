@@ -148,7 +148,7 @@ int cReadVector(FILE *fp, int n, int *where, int perline, int persize)
 }
 
 /*! \brief Read complex numbers as pairs of (real, imaginary) */
-int cReadValues(FILE *fp, int n, complex *destination, int perline, int persize)
+int cReadValues(FILE *fp, int n, realcomplex *destination, int perline, int persize)
 {
     register int i, j, k, s, pair;
     register float realpart;
@@ -183,7 +183,7 @@ int cReadValues(FILE *fp, int n, complex *destination, int perline, int persize)
 
 void
 creadhb(int *nrow, int *ncol, int *nonz,
-	complex **nzval, int **rowind, int **colptr)
+	realcomplex **nzval, int **rowind, int **colptr)
 {
 
     register int i, numer_lines = 0, rhscrd = 0;

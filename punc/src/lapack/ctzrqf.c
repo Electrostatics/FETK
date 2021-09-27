@@ -7,30 +7,30 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int ctzrqf_(integer *m, integer *n, complex *a, integer *lda,
-	 complex *tau, integer *info)
+/* Subroutine */ int ctzrqf_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, k, m1;
-    extern /* Subroutine */ int cgerc_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *);
-    static complex alpha;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), clarfg_(integer *, complex *, 
-	    complex *, integer *, complex *), clacgv_(integer *, complex *, 
+    extern /* Subroutine */ int cgerc_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *);
+    static realcomplex alpha;
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), clarfg_(integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *), clacgv_(integer *, realcomplex *, 
 	    integer *), xerbla_(char *, integer *, ftnlen);
 
 

@@ -8,6 +8,7 @@ add_build_items(
     TYPE EXTERNAL_HEADERS
     ITEMS 
         mc/mc_base.h
+        mc/mc.h
 )
 
 add_build_items(

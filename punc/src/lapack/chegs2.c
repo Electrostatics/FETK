@@ -7,34 +7,34 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int chegs2_(integer *itype, char *uplo, integer *n, complex *
-	a, integer *lda, complex *b, integer *ldb, integer *info, ftnlen 
+/* Subroutine */ int chegs2_(integer *itype, char *uplo, integer *n, realcomplex *
+	a, integer *lda, realcomplex *b, integer *ldb, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer k;
-    static complex ct;
+    static realcomplex ct;
     static real akk, bkk;
-    extern /* Subroutine */ int cher2_(char *, integer *, complex *, complex *
-	    , integer *, complex *, integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int cher2_(char *, integer *, realcomplex *, realcomplex *
+	    , integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static logical upper;
     extern /* Subroutine */ int ctrmv_(char *, char *, char *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
-	    ftnlen), ctrsv_(char *, char *, char *, integer *, complex *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen, ftnlen), clacgv_(
-	    integer *, complex *, integer *), csscal_(integer *, real *, 
-	    complex *, integer *), xerbla_(char *, integer *, ftnlen);
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
+	    ftnlen), ctrsv_(char *, char *, char *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), clacgv_(
+	    integer *, realcomplex *, integer *), csscal_(integer *, real *, 
+	    realcomplex *, integer *), xerbla_(char *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

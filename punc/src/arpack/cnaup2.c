@@ -202,11 +202,11 @@ static integer c__2 = 2;
 /* ----------------------------------------------------------------------- */
 
 /* Subroutine */ int cnaup2_(integer *ido, char *bmat, integer *n, char *
-	which, integer *nev, integer *np, real *tol, complex *resid, integer *
-	mode, integer *iupd, integer *ishift, integer *mxiter, complex *v, 
-	integer *ldv, complex *h__, integer *ldh, complex *ritz, complex *
-	bounds, complex *q, integer *ldq, complex *workl, integer *ipntr, 
-	complex *workd, real *rwork, integer *info, ftnlen bmat_len, ftnlen 
+	which, integer *nev, integer *np, real *tol, realcomplex *resid, integer *
+	mode, integer *iupd, integer *ishift, integer *mxiter, realcomplex *v, 
+	integer *ldv, realcomplex *h__, integer *ldh, realcomplex *ritz, realcomplex *
+	bounds, realcomplex *q, integer *ldq, realcomplex *workl, integer *ipntr, 
+	realcomplex *workd, real *rwork, integer *info, ftnlen bmat_len, ftnlen 
 	which_len)
 {
     /* System generated locals */
@@ -214,10 +214,10 @@ static integer c__2 = 2;
 	    i__3;
     real r__1, r__2, r__3, r__4;
     doublereal d__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double pow_dd(doublereal *, doublereal *), r_imag(complex *);
+    double pow_dd(doublereal *, doublereal *), r_imag(realcomplex *);
     integer s_cmp(char *, char *, ftnlen, ftnlen);
     /* Subroutine */ int s_copy(char *, char *, ftnlen, ftnlen);
     double sqrt(doublereal);
@@ -229,27 +229,27 @@ static integer c__2 = 2;
     static real eps23;
     static integer ierr, iter;
     static logical getv0;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical cnorm;
     static integer nconv;
     static real rtemp;
     extern /* Subroutine */ int cmout_(integer *, integer *, integer *, 
-	    complex *, integer *, integer *, char *, ftnlen);
+	    realcomplex *, integer *, integer *, char *, ftnlen);
     static logical initv;
     static real rnorm;
-    extern /* Subroutine */ int cvout_(integer *, integer *, complex *, 
+    extern /* Subroutine */ int cvout_(integer *, integer *, realcomplex *, 
 	    integer *, char *, ftnlen), ivout_(integer *, integer *, integer *
 	    , integer *, char *, ftnlen), svout_(integer *, integer *, real *,
 	     integer *, char *, ftnlen), cgetv0_(integer *, char *, integer *,
-	     logical *, integer *, integer *, complex *, integer *, complex *,
-	     real *, integer *, complex *, integer *, ftnlen);
-    extern doublereal scnrm2_(integer *, complex *, integer *), slapy2_(real *
+	     logical *, integer *, integer *, realcomplex *, integer *, realcomplex *,
+	     real *, integer *, realcomplex *, integer *, ftnlen);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *), slapy2_(real *
 	    , real *);
-    extern /* Subroutine */ int cneigh_(real *, integer *, complex *, integer 
-	    *, complex *, complex *, complex *, integer *, complex *, real *, 
+    extern /* Subroutine */ int cneigh_(real *, integer *, realcomplex *, integer 
+	    *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, real *, 
 	    integer *);
     static integer nevbef;
     extern doublereal slamch_(char *, ftnlen);
@@ -258,14 +258,14 @@ static integer c__2 = 2;
     static integer kplusp, msglvl, nptemp;
     static char wprime[2];
     extern /* Subroutine */ int cnaitr_(integer *, char *, integer *, integer 
-	    *, integer *, integer *, complex *, real *, complex *, integer *, 
-	    complex *, integer *, integer *, complex *, integer *, ftnlen), 
-	    cngets_(integer *, char *, integer *, integer *, complex *, 
-	    complex *, ftnlen), cnapps_(integer *, integer *, integer *, 
-	    complex *, complex *, integer *, complex *, integer *, complex *, 
-	    complex *, integer *, complex *, complex *), csortc_(char *, 
-	    logical *, integer *, complex *, complex *, ftnlen);
-    static complex cmpnorm;
+	    *, integer *, integer *, realcomplex *, real *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, realcomplex *, integer *, ftnlen), 
+	    cngets_(integer *, char *, integer *, integer *, realcomplex *, 
+	    realcomplex *, ftnlen), cnapps_(integer *, integer *, integer *, 
+	    realcomplex *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, realcomplex *), csortc_(char *, 
+	    logical *, integer *, realcomplex *, realcomplex *, ftnlen);
+    static realcomplex cmpnorm;
 
 
 /*     %----------------------------------------------------% */

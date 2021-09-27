@@ -7,34 +7,34 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int csptrs_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, integer *ipiv, complex *b, integer *ldb, integer *info, ftnlen 
+/* Subroutine */ int csptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, integer *ipiv, realcomplex *b, integer *ldb, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, k;
-    static complex ak, bk;
+    static realcomplex ak, bk;
     static integer kc, kp;
-    static complex akm1, bkm1, akm1k;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex akm1, bkm1, akm1k;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    static complex denom;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *),
-	     cswap_(integer *, complex *, integer *, complex *, integer *);
+    static realcomplex denom;
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *),
+	     cswap_(integer *, realcomplex *, integer *, realcomplex *, integer *);
     static logical upper;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 
@@ -52,7 +52,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CSPTRS solves a system of linear equations A*X = B with a complex */
+/*  CSPTRS solves a system of linear equations A*X = B with a realcomplex */
 /*  symmetric matrix A stored in packed format using the factorization */
 /*  A = U*D*U**T or A = L*D*L**T computed by CSPTRF. */
 

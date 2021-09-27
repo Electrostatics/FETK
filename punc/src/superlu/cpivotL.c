@@ -66,20 +66,20 @@ cpivotL(
        )
 {
 
-    complex one = {1.0, 0.0};
+    realcomplex one = {1.0, 0.0};
     int          fsupc;	    /* first column in the supernode */
     int          nsupc;	    /* no of columns in the supernode */
     int          nsupr;     /* no of rows in the supernode */
     int          lptr;	    /* points to the starting subscript of the supernode */
     int          pivptr, old_pivptr, diag, diagind;
     float       pivmax, rtemp, thresh;
-    complex       temp;
-    complex       *lu_sup_ptr; 
-    complex       *lu_col_ptr;
+    realcomplex       temp;
+    realcomplex       *lu_sup_ptr; 
+    realcomplex       *lu_col_ptr;
     int          *lsub_ptr;
     int          isub, icol, k, itemp;
     int          *lsub, *xlsub;
-    complex       *lusup;
+    realcomplex       *lusup;
     int          *xlusup;
     flops_t      *ops = stat->ops;
 

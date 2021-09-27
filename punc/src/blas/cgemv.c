@@ -5,20 +5,20 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgemv_(char *trans, integer *m, integer *n, complex *
-	alpha, complex *a, integer *lda, complex *x, integer *incx, complex *
-	beta, complex *y, integer *incy, ftnlen trans_len)
+/* Subroutine */ int cgemv_(char *trans, integer *m, integer *n, realcomplex *
+	alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *
+	beta, realcomplex *y, integer *incy, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, ix, iy, jx, jy, kx, ky, info;
-    static complex temp;
+    static realcomplex temp;
     static integer lenx, leny;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

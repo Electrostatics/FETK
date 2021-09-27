@@ -14,9 +14,9 @@ static integer c_n1 = -1;
 static integer c__4 = 4;
 
 /* Subroutine */ int cgeevx_(char *balanc, char *jobvl, char *jobvr, char *
-	sense, integer *n, complex *a, integer *lda, complex *w, complex *vl, 
-	integer *ldvl, complex *vr, integer *ldvr, integer *ilo, integer *ihi,
-	 real *scale, real *abnrm, real *rconde, real *rcondv, complex *work, 
+	sense, integer *n, realcomplex *a, integer *lda, realcomplex *w, realcomplex *vl, 
+	integer *ldvl, realcomplex *vr, integer *ldvr, integer *ilo, integer *ihi,
+	 real *scale, real *abnrm, real *rconde, real *rcondv, realcomplex *work, 
 	integer *lwork, real *rwork, integer *info, ftnlen balanc_len, ftnlen 
 	jobvl_len, ftnlen jobvr_len, ftnlen sense_len)
 {
@@ -24,43 +24,43 @@ static integer c__4 = 4;
     integer a_dim1, a_offset, vl_dim1, vl_offset, vr_dim1, vr_offset, i__1, 
 	    i__2, i__3, i__4;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double sqrt(doublereal), r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, k;
     static char job[1];
     static real scl, dum[1], eps;
-    static complex tmp;
+    static realcomplex tmp;
     static char side[1];
     static integer maxb;
     static real anrm;
     static integer ierr, itau, iwrk, nout;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static integer icond;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern doublereal scnrm2_(integer *, complex *, integer *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int cgebak_(char *, char *, integer *, integer *, 
-	    integer *, real *, integer *, complex *, integer *, integer *, 
-	    ftnlen, ftnlen), cgebal_(char *, integer *, complex *, integer *, 
+	    integer *, real *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen, ftnlen), cgebal_(char *, integer *, realcomplex *, integer *, 
 	    integer *, integer *, real *, integer *, ftnlen), slabad_(real *, 
 	    real *);
     static logical scalea;
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
     static real cscale;
     extern /* Subroutine */ int cgehrd_(integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, integer *),
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, integer *),
 	     clascl_(char *, integer *, integer *, real *, real *, integer *, 
-	    integer *, complex *, integer *, integer *, ftnlen);
+	    integer *, realcomplex *, integer *, integer *, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
-	    *), clacpy_(char *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
+	    *), clacpy_(char *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, ftnlen), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     static logical select[1];
@@ -70,15 +70,15 @@ static integer c__4 = 4;
 	    ftnlen);
     extern integer isamax_(integer *, real *, integer *);
     extern /* Subroutine */ int chseqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen), ctrevc_(char *, 
-	    char *, logical *, integer *, complex *, integer *, complex *, 
-	    integer *, complex *, integer *, integer *, integer *, complex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen), ctrevc_(char *, 
+	    char *, logical *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, integer *, integer *, realcomplex *, 
 	    real *, integer *, ftnlen, ftnlen), cunghr_(integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    integer *), ctrsna_(char *, char *, logical *, integer *, complex 
-	    *, integer *, complex *, integer *, complex *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, real *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    integer *), ctrsna_(char *, char *, logical *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, realcomplex *, integer *, real *, 
+	    real *, integer *, integer *, realcomplex *, integer *, real *, 
 	    integer *, ftnlen, ftnlen);
     static integer minwrk, maxwrk;
     static logical wantvl, wntsnb;

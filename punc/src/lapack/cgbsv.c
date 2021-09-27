@@ -6,7 +6,7 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cgbsv_(integer *n, integer *kl, integer *ku, integer *
-	nrhs, complex *ab, integer *ldab, integer *ipiv, complex *b, integer *
+	nrhs, realcomplex *ab, integer *ldab, integer *ipiv, realcomplex *b, integer *
 	ldb, integer *info)
 {
     /* System generated locals */
@@ -14,9 +14,9 @@
 
     /* Local variables */
     extern /* Subroutine */ int cgbtrf_(integer *, integer *, integer *, 
-	    integer *, complex *, integer *, integer *, integer *), xerbla_(
+	    integer *, realcomplex *, integer *, integer *, integer *), xerbla_(
 	    char *, integer *, ftnlen), cgbtrs_(char *, integer *, integer *, 
-	    integer *, integer *, complex *, integer *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, integer *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen);
 
 

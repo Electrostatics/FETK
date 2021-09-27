@@ -7,44 +7,44 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c__65 = 65;
 
 /* Subroutine */ int cgbtrf_(integer *m, integer *n, integer *kl, integer *ku,
-	 complex *ab, integer *ldab, integer *ipiv, integer *info)
+	 realcomplex *ab, integer *ldab, integer *ipiv, integer *info)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3, i__4, i__5, i__6;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, i2, i3, j2, j3, k2, jb, nb, ii, jj, jm, ip, jp, km,
 	     ju, kv, nw;
-    static complex temp;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex temp;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *), cgemm_(char *, char *, integer *, integer *, integer *
-	    , complex *, complex *, integer *, complex *, integer *, complex *
-	    , complex *, integer *, ftnlen, ftnlen), cgeru_(integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    static complex work13[4160]	/* was [65][64] */, work31[4160]	/* 
+	    , realcomplex *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *
+	    , realcomplex *, integer *, ftnlen, ftnlen), cgeru_(integer *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    static realcomplex work13[4160]	/* was [65][64] */, work31[4160]	/* 
 	    was [65][64] */;
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), cgbtf2_(integer *, 
-	    integer *, integer *, integer *, complex *, integer *, integer *, 
+	    integer *, integer *, integer *, realcomplex *, integer *, integer *, 
 	    integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
-    extern /* Subroutine */ int claswp_(integer *, complex *, integer *, 
+    extern /* Subroutine */ int claswp_(integer *, realcomplex *, integer *, 
 	    integer *, integer *, integer *, integer *);
 
 

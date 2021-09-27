@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clapmt_(logical *forwrd, integer *m, integer *n, complex 
+/* Subroutine */ int clapmt_(logical *forwrd, integer *m, integer *n, realcomplex 
 	*x, integer *ldx, integer *k)
 {
     /* System generated locals */
@@ -13,7 +13,7 @@
 
     /* Local variables */
     static integer i__, j, ii, in;
-    static complex temp;
+    static realcomplex temp;
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

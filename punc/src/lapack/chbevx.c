@@ -7,15 +7,15 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static real c_b16 = 1.f;
 static integer c__1 = 1;
 
 /* Subroutine */ int chbevx_(char *jobz, char *range, char *uplo, integer *n, 
-	integer *kd, complex *ab, integer *ldab, complex *q, integer *ldq, 
+	integer *kd, realcomplex *ab, integer *ldab, realcomplex *q, integer *ldq, 
 	real *vl, real *vu, integer *il, integer *iu, real *abstol, integer *
-	m, real *w, complex *z__, integer *ldz, complex *work, real *rwork, 
+	m, real *w, realcomplex *z__, integer *ldz, realcomplex *work, real *rwork, 
 	integer *iwork, integer *ifail, integer *info, ftnlen jobz_len, 
 	ftnlen range_len, ftnlen uplo_len)
 {
@@ -34,46 +34,46 @@ static integer c__1 = 1;
     static real anrm;
     static integer imax;
     static real rmin, rmax;
-    static complex ctmp1;
+    static realcomplex ctmp1;
     static integer itmp1, indee;
     static real sigma;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
 	    , integer *, ftnlen);
     static integer iinfo;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static char order[1];
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static logical lower;
     extern /* Subroutine */ int scopy_(integer *, real *, integer *, real *, 
 	    integer *);
     static logical wantz;
-    extern doublereal clanhb_(char *, char *, integer *, integer *, complex *,
+    extern doublereal clanhb_(char *, char *, integer *, integer *, realcomplex *,
 	     integer *, real *, ftnlen, ftnlen);
     static logical alleig, indeig;
     static integer iscale, indibl;
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), chbtrd_(char *, char *, integer *, integer *, complex *, 
-	    integer *, real *, real *, complex *, integer *, complex *, 
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), chbtrd_(char *, char *, integer *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen);
     static logical valeig;
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real abstll, bignum;
     static integer indiwk, indisp;
     extern /* Subroutine */ int cstein_(integer *, real *, real *, integer *, 
-	    real *, integer *, integer *, complex *, integer *, real *, 
+	    real *, integer *, integer *, realcomplex *, integer *, real *, 
 	    integer *, integer *, integer *);
     static integer indrwk, indwrk;
     extern /* Subroutine */ int csteqr_(char *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
+	    realcomplex *, integer *, real *, integer *, ftnlen), ssterf_(integer 
 	    *, real *, real *, integer *);
     static integer nsplit;
     extern /* Subroutine */ int sstebz_(char *, char *, integer *, real *, 

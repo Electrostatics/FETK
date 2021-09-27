@@ -5,15 +5,15 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int csscal_(integer *n, real *sa, complex *cx, integer *incx)
+/* Subroutine */ int csscal_(integer *n, real *sa, realcomplex *cx, integer *incx)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, nincx;

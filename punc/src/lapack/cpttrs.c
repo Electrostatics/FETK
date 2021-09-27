@@ -11,7 +11,7 @@ static integer c__1 = 1;
 static integer c_n1 = -1;
 
 /* Subroutine */ int cpttrs_(char *uplo, integer *n, integer *nrhs, real *d__,
-	 complex *e, complex *b, integer *ldb, integer *info, ftnlen uplo_len)
+	 realcomplex *e, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2, i__3;
@@ -20,7 +20,7 @@ static integer c_n1 = -1;
     static integer j, jb, nb, iuplo;
     static logical upper;
     extern /* Subroutine */ int cptts2_(integer *, integer *, integer *, real 
-	    *, complex *, complex *, integer *), xerbla_(char *, integer *, 
+	    *, realcomplex *, realcomplex *, integer *), xerbla_(char *, integer *, 
 	    ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

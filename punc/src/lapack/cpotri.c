@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cpotri_(char *uplo, integer *n, complex *a, integer *lda,
+/* Subroutine */ int cpotri_(char *uplo, integer *n, realcomplex *a, integer *lda,
 	 integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -14,8 +14,8 @@
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), clauum_(
-	    char *, integer *, complex *, integer *, integer *, ftnlen), 
-	    ctrtri_(char *, char *, integer *, complex *, integer *, integer *
+	    char *, integer *, realcomplex *, integer *, integer *, ftnlen), 
+	    ctrtri_(char *, char *, integer *, realcomplex *, integer *, integer *
 	    , ftnlen, ftnlen);
 
 

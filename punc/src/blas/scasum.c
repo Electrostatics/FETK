@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-doublereal scasum_(integer *n, complex *cx, integer *incx)
+doublereal scasum_(integer *n, realcomplex *cx, integer *incx)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real ret_val, r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, nincx;

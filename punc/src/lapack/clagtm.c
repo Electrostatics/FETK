@@ -6,16 +6,16 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int clagtm_(char *trans, integer *n, integer *nrhs, real *
-	alpha, complex *dl, complex *d__, complex *du, complex *x, integer *
-	ldx, real *beta, complex *b, integer *ldb, ftnlen trans_len)
+	alpha, realcomplex *dl, realcomplex *d__, realcomplex *du, realcomplex *x, integer *
+	ldx, real *beta, realcomplex *b, integer *ldb, ftnlen trans_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, x_dim1, x_offset, i__1, i__2, i__3, i__4, i__5, 
 	    i__6, i__7, i__8, i__9, i__10;
-    complex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;

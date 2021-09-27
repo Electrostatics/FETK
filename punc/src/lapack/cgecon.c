@@ -9,8 +9,8 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cgecon_(char *norm, integer *n, complex *a, integer *lda,
-	 real *anorm, real *rcond, complex *work, real *rwork, integer *info, 
+/* Subroutine */ int cgecon_(char *norm, integer *n, realcomplex *a, integer *lda,
+	 real *anorm, real *rcond, realcomplex *work, real *rwork, integer *info, 
 	ftnlen norm_len)
 {
     /* System generated locals */
@@ -18,7 +18,7 @@ static integer c__1 = 1;
     real r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static real sl;
@@ -27,16 +27,16 @@ static integer c__1 = 1;
     static integer kase, kase1;
     static real scale;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real ainvnm;
     extern /* Subroutine */ int clatrs_(char *, char *, char *, char *, 
-	    integer *, complex *, integer *, complex *, real *, real *, 
+	    integer *, realcomplex *, integer *, realcomplex *, real *, real *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), csrscl_(integer *, 
-	    real *, complex *, integer *);
+	    real *, realcomplex *, integer *);
     static logical onenrm;
     static char normin[1];
     static real smlnum;

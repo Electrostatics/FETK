@@ -58,7 +58,7 @@
  *  :ref: cgemv_ 14 12 13 4 4 8 8 4 8 4 8 8 4 124\n
  *  :ref: svout_ 14 6 4 4 6 4 13 124\n
  *  :ref: cvout_ 14 6 4 4 8 4 13 124 */
-VEXTERNC int cgetv0_(integer *ido, char *bmat, integer *itry, logical *initv, integer *n, integer *j, complex *v, integer *ldv, complex *resid, real *rnorm, integer *ipntr, complex *workd, integer *ierr, ftnlen bmat_len);
+VEXTERNC int cgetv0_(integer *ido, char *bmat, integer *itry, logical *initv, integer *n, integer *j, realcomplex *v, integer *ldv, realcomplex *resid, real *rnorm, integer *ipntr, realcomplex *workd, integer *ierr, ftnlen bmat_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -82,7 +82,7 @@ VEXTERNC int cgetv0_(integer *ido, char *bmat, integer *itry, logical *initv, in
  *  :ref: caxpy_ 14 6 4 8 8 4 8 4 \n
  *  :ref: clanhs_ 6 6 13 4 8 4 8 124 \n
  *  :ref: cmout_ 14 8 4 4 4 8 4 4 13 124 */
-VEXTERNC int cnaitr_(integer *ido, char *bmat, integer *n, integer *k, integer *np, integer *nb, complex *resid, real *rnorm, complex *v, integer *ldv, complex *h__, integer *ldh, integer *ipntr, complex *workd, integer *info, ftnlen bmat_len);
+VEXTERNC int cnaitr_(integer *ido, char *bmat, integer *n, integer *k, integer *np, integer *nb, realcomplex *resid, real *rnorm, realcomplex *v, integer *ldv, realcomplex *h__, integer *ldh, integer *ipntr, realcomplex *workd, integer *info, ftnlen bmat_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -105,7 +105,7 @@ VEXTERNC int cnaitr_(integer *ido, char *bmat, integer *n, integer *k, integer *
  *  :ref: caxpy_ 14 6 4 8 8 4 8 4 \n
  *  :ref: cmout_ 14 8 4 4 4 8 4 4 13 124 \n
  */
-VEXTERNC int cnapps_(integer *n, integer *kev, integer *np, complex *shift, complex *v, integer *ldv, complex *h__, integer *ldh, complex *resid, complex *q, integer *ldq, complex *workl, complex *workd);
+VEXTERNC int cnapps_(integer *n, integer *kev, integer *np, realcomplex *shift, realcomplex *v, integer *ldv, realcomplex *h__, integer *ldh, realcomplex *resid, realcomplex *q, integer *ldq, realcomplex *workl, realcomplex *workd);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -129,7 +129,7 @@ VEXTERNC int cnapps_(integer *n, integer *kev, integer *np, complex *shift, comp
  *  :ref: scnrm2_ 6 3 4 8 4 \n
  *  :ref: cmout_ 14 8 4 4 4 8 4 4 13 124 
  */
-VEXTERNC int cnaup2_(integer *ido, char *bmat, integer *n, char *which, integer *nev, integer *np, real *tol, complex *resid, integer *mode, integer *iupd, integer *ishift, integer *mxiter, complex *v, integer *ldv, complex *h__, integer *ldh, complex *ritz, complex *bounds, complex *q, integer *ldq, complex *workl, integer *ipntr, complex *workd, real *rwork, integer *info, ftnlen bmat_len, ftnlen which_len);
+VEXTERNC int cnaup2_(integer *ido, char *bmat, integer *n, char *which, integer *nev, integer *np, real *tol, realcomplex *resid, integer *mode, integer *iupd, integer *ishift, integer *mxiter, realcomplex *v, integer *ldv, realcomplex *h__, integer *ldh, realcomplex *ritz, realcomplex *bounds, realcomplex *q, integer *ldq, realcomplex *workl, integer *ipntr, realcomplex *workd, real *rwork, integer *info, ftnlen bmat_len, ftnlen which_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -143,7 +143,7 @@ VEXTERNC int cnaup2_(integer *ido, char *bmat, integer *n, char *which, integer 
  *  :ref: ivout_ 14 6 4 4 4 4 13 124 \n
  *  :ref: cvout_ 14 6 4 4 8 4 13 124 
  */
-VEXTERNC int cnaupd_(integer *ido, char *bmat, integer *n, char *which, integer *nev, real *tol, complex *resid, integer *ncv, complex *v, integer *ldv, integer *iparam, integer *ipntr, complex *workd, complex *workl, integer *lworkl, real *rwork, integer *info, ftnlen bmat_len, ftnlen which_len);
+VEXTERNC int cnaupd_(integer *ido, char *bmat, integer *n, char *which, integer *nev, real *tol, realcomplex *resid, integer *ncv, realcomplex *v, integer *ldv, integer *iparam, integer *ipntr, realcomplex *workd, realcomplex *workl, integer *lworkl, real *rwork, integer *info, ftnlen bmat_len, ftnlen which_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -161,7 +161,7 @@ VEXTERNC int cnaupd_(integer *ido, char *bmat, integer *n, char *which, integer 
  *  :ref: scnrm2_ 6 3 4 8 4 \n
  *  :ref: csscal_ 14 4 4 6 8 4 \n
  */
-VEXTERNC int cneigh_(real *rnorm, integer *n, complex *h__, integer *ldh, complex *ritz, complex *bounds, complex *q, integer *ldq, complex *workl, real *rwork, integer *ierr);
+VEXTERNC int cneigh_(real *rnorm, integer *n, realcomplex *h__, integer *ldh, realcomplex *ritz, realcomplex *bounds, realcomplex *q, integer *ldq, realcomplex *workl, real *rwork, integer *ierr);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -189,7 +189,7 @@ VEXTERNC int cneigh_(real *rnorm, integer *n, complex *h__, integer *ldh, comple
  *  :ref: ctrmm_ 14 15 13 13 13 13 4 4 8 8 4 8 4 124 124 124 124 \n
  *  :ref: cgeru_ 14 9 4 4 8 8 4 8 4 8 4 
  */
-VEXTERNC int cneupd_(logical *rvec, char *howmny, logical *select, complex *d__, complex *z__, integer *ldz, complex *sigma, complex *workev, char *bmat, integer *n, char *which, integer *nev, real *tol, complex *resid, integer *ncv, complex *v, integer *ldv, integer *iparam, integer *ipntr, complex *workd, complex *workl, integer *lworkl, real *rwork, integer *info, ftnlen howmny_len, ftnlen bmat_len, ftnlen which_len);
+VEXTERNC int cneupd_(logical *rvec, char *howmny, logical *select, realcomplex *d__, realcomplex *z__, integer *ldz, realcomplex *sigma, realcomplex *workev, char *bmat, integer *n, char *which, integer *nev, real *tol, realcomplex *resid, integer *ncv, realcomplex *v, integer *ldv, integer *iparam, integer *ipntr, realcomplex *workd, realcomplex *workl, integer *lworkl, real *rwork, integer *info, ftnlen howmny_len, ftnlen bmat_len, ftnlen which_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
@@ -201,14 +201,14 @@ VEXTERNC int cneupd_(logical *rvec, char *howmny, logical *select, complex *d__,
  *  :ref: ivout_ 14 6 4 4 4 4 13 124 \n
  *  :ref: cvout_ 14 6 4 4 8 4 13 124 
  */
-VEXTERNC int cngets_(integer *ishift, char *which, integer *kev, integer *np, complex *ritz, complex *bounds, ftnlen which_len);
+VEXTERNC int cngets_(integer *ishift, char *which, integer *kev, integer *np, realcomplex *ritz, realcomplex *bounds, ftnlen which_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst
  *  @note
  *  :ref: slapy2_ 6 2 6 6 
  */
-VEXTERNC int csortc_(char *which, logical *apply, integer *n, complex *x, complex *y, ftnlen which_len);
+VEXTERNC int csortc_(char *which, logical *apply, integer *n, realcomplex *x, realcomplex *y, ftnlen which_len);
 
 /** @brief Library VARPACK prototypes 
  *  @author Michael Holst

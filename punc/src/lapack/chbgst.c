@@ -7,53 +7,53 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int chbgst_(char *vect, char *uplo, integer *n, integer *ka, 
-	integer *kb, complex *ab, integer *ldab, complex *bb, integer *ldbb, 
-	complex *x, integer *ldx, complex *work, real *rwork, integer *info, 
+	integer *kb, realcomplex *ab, integer *ldab, realcomplex *bb, integer *ldbb, 
+	realcomplex *x, integer *ldx, realcomplex *work, real *rwork, integer *info, 
 	ftnlen vect_len, ftnlen uplo_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, bb_dim1, bb_offset, x_dim1, x_offset, i__1, 
 	    i__2, i__3, i__4, i__5, i__6, i__7, i__8;
     real r__1;
-    complex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9, q__10;
+    realcomplex q__1, q__2, q__3, q__4, q__5, q__6, q__7, q__8, q__9, q__10;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, l, m;
-    static complex t;
+    static realcomplex t;
     static integer i0, i1, i2, j1, j2;
-    static complex ra;
+    static realcomplex ra;
     static integer nr, nx, ka1, kb1;
-    static complex ra1;
+    static realcomplex ra1;
     static integer j1t, j2t;
     static real bii;
     static integer kbt, nrt, inca;
-    extern /* Subroutine */ int crot_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *), cgerc_(integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int crot_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *), cgerc_(integer *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cgeru_(integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *);
+    extern /* Subroutine */ int cgeru_(integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *);
     static logical upper, wantx;
-    extern /* Subroutine */ int clar2v_(integer *, complex *, complex *, 
-	    complex *, integer *, real *, complex *, integer *), clacgv_(
-	    integer *, complex *, integer *), csscal_(integer *, real *, 
-	    complex *, integer *), claset_(char *, integer *, integer *, 
-	    complex *, complex *, complex *, integer *, ftnlen), clartg_(
-	    complex *, complex *, real *, complex *, complex *), xerbla_(char 
-	    *, integer *, ftnlen), clargv_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, integer *);
+    extern /* Subroutine */ int clar2v_(integer *, realcomplex *, realcomplex *, 
+	    realcomplex *, integer *, real *, realcomplex *, integer *), clacgv_(
+	    integer *, realcomplex *, integer *), csscal_(integer *, real *, 
+	    realcomplex *, integer *), claset_(char *, integer *, integer *, 
+	    realcomplex *, realcomplex *, realcomplex *, integer *, ftnlen), clartg_(
+	    realcomplex *, realcomplex *, real *, realcomplex *, realcomplex *), xerbla_(char 
+	    *, integer *, ftnlen), clargv_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, integer *);
     static logical update;
-    extern /* Subroutine */ int clartv_(integer *, complex *, integer *, 
-	    complex *, integer *, real *, complex *, integer *);
+    extern /* Subroutine */ int clartv_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *, integer *);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

@@ -144,7 +144,7 @@ static integer c__1 = 1;
 /*  WR      (output) DOUBLE PRECISION array, dimension (N) */
 /*  WI      (output) DOUBLE PRECISION array, dimension (N) */
 /*          The real and imaginary parts, respectively, of the computed */
-/*          eigenvalues. If two eigenvalues are computed as a complex */
+/*          eigenvalues. If two eigenvalues are computed as a realcomplex */
 /*          conjugate pair, they are stored in consecutive elements of */
 /*          WR and WI, say the i-th and (i+1)th, with WI(i) > 0 and */
 /*          WI(i+1) < 0. If JOB = 'S', the eigenvalues are stored in the */

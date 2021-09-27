@@ -7,39 +7,39 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int chpgst_(integer *itype, char *uplo, integer *n, complex *
-	ap, complex *bp, integer *info, ftnlen uplo_len)
+/* Subroutine */ int chpgst_(integer *itype, char *uplo, integer *n, realcomplex *
+	ap, realcomplex *bp, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
     real r__1, r__2;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Local variables */
     static integer j, k, j1, k1, jj, kk;
-    static complex ct;
+    static realcomplex ct;
     static real ajj;
     static integer j1j1;
     static real akk;
     static integer k1k1;
     static real bjj, bkk;
-    extern /* Subroutine */ int chpr2_(char *, integer *, complex *, complex *
-	    , integer *, complex *, integer *, complex *, ftnlen);
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Subroutine */ int chpr2_(char *, integer *, realcomplex *, realcomplex *
+	    , integer *, realcomplex *, integer *, realcomplex *, ftnlen);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int chpmv_(char *, integer *, complex *, complex *
-	    , complex *, integer *, complex *, complex *, integer *, ftnlen), 
-	    caxpy_(integer *, complex *, complex *, integer *, complex *, 
-	    integer *), ctpmv_(char *, char *, char *, integer *, complex *, 
-	    complex *, integer *, ftnlen, ftnlen, ftnlen);
+    extern /* Subroutine */ int chpmv_(char *, integer *, realcomplex *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, realcomplex *, integer *, ftnlen), 
+	    caxpy_(integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *), ctpmv_(char *, char *, char *, integer *, realcomplex *, 
+	    realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), csscal_(
-	    integer *, real *, complex *, integer *), xerbla_(char *, integer 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), csscal_(
+	    integer *, real *, realcomplex *, integer *), xerbla_(char *, integer 
 	    *, ftnlen);
 
 

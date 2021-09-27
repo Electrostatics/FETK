@@ -9,8 +9,8 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int chpevd_(char *jobz, char *uplo, integer *n, complex *ap, 
-	real *w, complex *z__, integer *ldz, complex *work, integer *lwork, 
+/* Subroutine */ int chpevd_(char *jobz, char *uplo, integer *n, realcomplex *ap, 
+	real *w, realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, 
 	real *rwork, integer *lrwork, integer *iwork, integer *liwork, 
 	integer *info, ftnlen jobz_len, ftnlen uplo_len)
 {
@@ -33,25 +33,25 @@ static integer c__1 = 1;
     static integer lwmin, llrwk, llwrk;
     static logical wantz;
     static integer iscale;
-    extern doublereal clanhp_(char *, char *, integer *, complex *, real *, 
+    extern doublereal clanhp_(char *, char *, integer *, realcomplex *, real *, 
 	    ftnlen, ftnlen);
     extern /* Subroutine */ int cstedc_(char *, integer *, real *, real *, 
-	    complex *, integer *, complex *, integer *, real *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, real *, integer *, 
 	    integer *, integer *, integer *, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
     static real safmin;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real bignum;
     static integer indtau;
-    extern /* Subroutine */ int chptrd_(char *, integer *, complex *, real *, 
-	    real *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int chptrd_(char *, integer *, realcomplex *, real *, 
+	    real *, realcomplex *, integer *, ftnlen);
     static integer indrwk, indwrk, liwmin;
     extern /* Subroutine */ int ssterf_(integer *, real *, real *, integer *);
     static integer lrwmin;
     extern /* Subroutine */ int cupmtr_(char *, char *, char *, integer *, 
-	    integer *, complex *, complex *, complex *, integer *, complex *, 
+	    integer *, realcomplex *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen);
     static real smlnum;
     static logical lquery;

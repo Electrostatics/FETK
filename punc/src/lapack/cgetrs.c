@@ -7,12 +7,12 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cgetrs_(char *trans, integer *n, integer *nrhs, complex *
-	a, integer *lda, integer *ipiv, complex *b, integer *ldb, integer *
+/* Subroutine */ int cgetrs_(char *trans, integer *n, integer *nrhs, realcomplex *
+	a, integer *lda, integer *ipiv, realcomplex *b, integer *ldb, integer *
 	info, ftnlen trans_len)
 {
     /* System generated locals */
@@ -21,9 +21,9 @@ static integer c_n1 = -1;
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrsm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), xerbla_(char *, 
-	    integer *, ftnlen), claswp_(integer *, complex *, integer *, 
+	    integer *, ftnlen), claswp_(integer *, realcomplex *, integer *, 
 	    integer *, integer *, integer *, integer *);
     static logical notran;
 

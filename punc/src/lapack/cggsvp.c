@@ -7,14 +7,14 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 
 /* Subroutine */ int cggsvp_(char *jobu, char *jobv, char *jobq, integer *m, 
-	integer *p, integer *n, complex *a, integer *lda, complex *b, integer 
-	*ldb, real *tola, real *tolb, integer *k, integer *l, complex *u, 
-	integer *ldu, complex *v, integer *ldv, complex *q, integer *ldq, 
-	integer *iwork, real *rwork, complex *tau, complex *work, integer *
+	integer *p, integer *n, realcomplex *a, integer *lda, realcomplex *b, integer 
+	*ldb, real *tola, real *tolb, integer *k, integer *l, realcomplex *u, 
+	integer *ldu, realcomplex *v, integer *ldv, realcomplex *q, integer *ldq, 
+	integer *iwork, real *rwork, realcomplex *tau, realcomplex *work, integer *
 	info, ftnlen jobu_len, ftnlen jobv_len, ftnlen jobq_len)
 {
     /* System generated locals */
@@ -23,27 +23,27 @@ static complex c_b2 = {1.f,0.f};
     real r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer i__, j;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical wantq, wantu, wantv;
-    extern /* Subroutine */ int cgeqr2_(integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *), cgerq2_(integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *),
-	     cung2r_(integer *, integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *), cunm2r_(char *, char *, integer 
-	    *, integer *, integer *, complex *, integer *, complex *, complex 
-	    *, integer *, complex *, integer *, ftnlen, ftnlen), cunmr2_(char 
-	    *, char *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, complex *, integer *, ftnlen, 
-	    ftnlen), cgeqpf_(integer *, integer *, complex *, integer *, 
-	    integer *, complex *, complex *, real *, integer *), clacpy_(char 
-	    *, integer *, integer *, complex *, integer *, complex *, integer 
-	    *, ftnlen), claset_(char *, integer *, integer *, complex *, 
-	    complex *, complex *, integer *, ftnlen), xerbla_(char *, integer 
-	    *, ftnlen), clapmt_(logical *, integer *, integer *, complex *, 
+    extern /* Subroutine */ int cgeqr2_(integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *), cgerq2_(integer *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *),
+	     cung2r_(integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *), cunm2r_(char *, char *, integer 
+	    *, integer *, integer *, realcomplex *, integer *, realcomplex *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen, ftnlen), cunmr2_(char 
+	    *, char *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, realcomplex *, integer *, ftnlen, 
+	    ftnlen), cgeqpf_(integer *, integer *, realcomplex *, integer *, 
+	    integer *, realcomplex *, realcomplex *, real *, integer *), clacpy_(char 
+	    *, integer *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, ftnlen), claset_(char *, integer *, integer *, realcomplex *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char *, integer 
+	    *, ftnlen), clapmt_(logical *, integer *, integer *, realcomplex *, 
 	    integer *, integer *);
     static logical forwrd;
 

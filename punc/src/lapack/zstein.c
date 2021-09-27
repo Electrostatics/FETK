@@ -74,7 +74,7 @@ static integer c_n1 = -1;
 /*  The maximum number of iterations allowed for each eigenvector is */
 /*  specified by an internal parameter MAXITS (currently set to 5). */
 
-/*  Although the eigenvectors are real, they are stored in a complex */
+/*  Although the eigenvectors are real, they are stored in a realcomplex */
 /*  array, which may be passed to ZUNMTR or ZUPMTR for back */
 /*  transformation to the eigenvectors of a complex Hermitian matrix */
 /*  which was reduced to tridiagonal form. */

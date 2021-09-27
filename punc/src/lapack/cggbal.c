@@ -11,8 +11,8 @@ static integer c__1 = 1;
 static real c_b35 = 10.f;
 static real c_b71 = .5f;
 
-/* Subroutine */ int cggbal_(char *job, integer *n, complex *a, integer *lda, 
-	complex *b, integer *ldb, integer *ilo, integer *ihi, real *lscale, 
+/* Subroutine */ int cggbal_(char *job, integer *n, realcomplex *a, integer *lda, 
+	realcomplex *b, integer *ldb, integer *ilo, integer *ihi, real *lscale, 
 	real *rscale, real *work, integer *info, ftnlen job_len)
 {
     /* System generated locals */
@@ -20,7 +20,7 @@ static real c_b71 = .5f;
     real r__1, r__2, r__3;
 
     /* Builtin functions */
-    double r_lg10(real *), r_imag(complex *), c_abs(complex *), r_sign(real *,
+    double r_lg10(real *), r_imag(realcomplex *), c_abs(realcomplex *), r_sign(real *,
 	     real *), pow_ri(real *, integer *);
 
     /* Local variables */
@@ -41,16 +41,16 @@ static real c_b71 = .5f;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static real sfmin;
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static real sfmax;
     static integer iflow, kount;
     extern /* Subroutine */ int saxpy_(integer *, real *, real *, integer *, 
 	    real *, integer *);
     static real pgamma;
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static integer lsfmin, lsfmax;
 

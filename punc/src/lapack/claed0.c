@@ -13,7 +13,7 @@ static integer c__2 = 2;
 static integer c__1 = 1;
 
 /* Subroutine */ int claed0_(integer *qsiz, integer *n, real *d__, real *e, 
-	complex *q, integer *ldq, complex *qstore, integer *ldqs, real *rwork,
+	realcomplex *q, integer *ldq, realcomplex *qstore, integer *ldqs, real *rwork,
 	 integer *iwork, integer *info)
 {
     /* System generated locals */
@@ -28,20 +28,20 @@ static integer c__1 = 1;
     static integer i__, j, k, ll, iq, lgn, msd2, smm1, spm1, spm2;
     static real temp;
     static integer curr, iperm;
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer indxq, iwrem;
     extern /* Subroutine */ int scopy_(integer *, real *, integer *, real *, 
 	    integer *);
     static integer iqptr;
     extern /* Subroutine */ int claed7_(integer *, integer *, integer *, 
-	    integer *, integer *, integer *, real *, complex *, integer *, 
+	    integer *, integer *, integer *, real *, realcomplex *, integer *, 
 	    real *, integer *, real *, integer *, integer *, integer *, 
-	    integer *, integer *, real *, complex *, real *, integer *, 
+	    integer *, integer *, real *, realcomplex *, real *, integer *, 
 	    integer *);
     static integer tlvls;
-    extern /* Subroutine */ int clacrm_(integer *, integer *, complex *, 
-	    integer *, real *, integer *, complex *, integer *, real *);
+    extern /* Subroutine */ int clacrm_(integer *, integer *, realcomplex *, 
+	    integer *, real *, integer *, realcomplex *, integer *, real *);
     static integer igivcl;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 

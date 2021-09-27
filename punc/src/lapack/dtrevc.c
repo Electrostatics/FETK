@@ -156,7 +156,7 @@ static logical c_true = TRUE_;
 /*                           corresponding eigenvector. If T(i:i+1,i:i+1) */
 /*                           is a 2-by-2 block whose eigenvalues are */
 /*                           complex-conjugate eigenvalues of T, then */
-/*                           VL(i)+sqrt(-1)*VL(i+1) is the complex */
+/*                           VL(i)+sqrt(-1)*VL(i+1) is the realcomplex */
 /*                           eigenvector corresponding to the eigenvalue */
 /*                           with positive real part. */
 /*          if HOWMNY = 'B', the matrix Q*Y; */
@@ -185,7 +185,7 @@ static logical c_true = TRUE_;
 /*                           corresponding eigenvector. If T(i:i+1,i:i+1) */
 /*                           is a 2-by-2 block whose eigenvalues are */
 /*                           complex-conjugate eigenvalues of T, then */
-/*                           VR(i)+sqrt(-1)*VR(i+1) is the complex */
+/*                           VR(i)+sqrt(-1)*VR(i+1) is the realcomplex */
 /*                           eigenvector corresponding to the eigenvalue */
 /*                           with positive real part. */
 /*          if HOWMNY = 'B', the matrix Q*X; */

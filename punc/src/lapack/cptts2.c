@@ -6,19 +6,19 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cptts2_(integer *iuplo, integer *n, integer *nrhs, real *
-	d__, complex *e, complex *b, integer *ldb)
+	d__, realcomplex *e, realcomplex *b, integer *ldb)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j;
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *);
 
 

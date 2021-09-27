@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cpbequ_(char *uplo, integer *n, integer *kd, complex *ab,
+/* Subroutine */ int cpbequ_(char *uplo, integer *n, integer *kd, realcomplex *ab,
 	 integer *ldab, real *s, real *scond, real *amax, integer *info, 
 	ftnlen uplo_len)
 {

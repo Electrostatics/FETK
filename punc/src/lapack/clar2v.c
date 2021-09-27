@@ -5,28 +5,28 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clar2v_(integer *n, complex *x, complex *y, complex *z__,
-	 integer *incx, real *c__, complex *s, integer *incc)
+/* Subroutine */ int clar2v_(integer *n, realcomplex *x, realcomplex *y, realcomplex *z__,
+	 integer *incx, real *c__, realcomplex *s, integer *incc)
 {
     /* System generated locals */
     integer i__1, i__2;
     real r__1;
-    complex q__1, q__2, q__3, q__4, q__5;
+    realcomplex q__1, q__2, q__3, q__4, q__5;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__;
-    static complex t2, t3, t4;
+    static realcomplex t2, t3, t4;
     static real t5, t6;
     static integer ic;
     static real ci;
-    static complex si;
+    static realcomplex si;
     static integer ix;
     static real xi, yi;
-    static complex zi;
+    static realcomplex zi;
     static real t1i, t1r, sii, zii, sir, zir;
 
 

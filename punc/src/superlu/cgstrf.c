@@ -192,14 +192,14 @@ cgstrf (superlu_options_t *options, SuperMatrix *A, float drop_tol,
                                   options->Fact == SamePattern_SameRowPerm */
     int       *iperm_c; /* inverse of perm_c */
     int       *iwork;
-    complex    *cwork;
+    realcomplex    *cwork;
     int	      *segrep, *repfnz, *parent, *xplore;
     int	      *panel_lsub; /* dense[]/panel_lsub[] pair forms a w-wide SPA */
     int	      *xprune;
     int	      *marker;
-    complex    *dense, *tempv;
+    realcomplex    *dense, *tempv;
     int       *relax_end;
-    complex    *a;
+    realcomplex    *a;
     int       *asub;
     int       *xa_begin, *xa_end;
     int       *xsup, *supno;

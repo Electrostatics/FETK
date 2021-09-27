@@ -7,33 +7,33 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {0.f,0.f};
+static realcomplex c_b2 = {0.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int chptrd_(char *uplo, integer *n, complex *ap, real *d__, 
-	real *e, complex *tau, integer *info, ftnlen uplo_len)
+/* Subroutine */ int chptrd_(char *uplo, integer *n, realcomplex *ap, real *d__, 
+	real *e, realcomplex *tau, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real r__1;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Local variables */
     static integer i__, i1, ii, i1i1;
-    static complex taui;
-    extern /* Subroutine */ int chpr2_(char *, integer *, complex *, complex *
-	    , integer *, complex *, integer *, complex *, ftnlen);
-    static complex alpha;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    static realcomplex taui;
+    extern /* Subroutine */ int chpr2_(char *, integer *, realcomplex *, realcomplex *
+	    , integer *, realcomplex *, integer *, realcomplex *, ftnlen);
+    static realcomplex alpha;
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int chpmv_(char *, integer *, complex *, complex *
-	    , complex *, integer *, complex *, complex *, integer *, ftnlen), 
-	    caxpy_(integer *, complex *, complex *, integer *, complex *, 
+    extern /* Subroutine */ int chpmv_(char *, integer *, realcomplex *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, realcomplex *, integer *, ftnlen), 
+	    caxpy_(integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *);
     static logical upper;
-    extern /* Subroutine */ int clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *), xerbla_(char *, integer *, ftnlen);
+    extern /* Subroutine */ int clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *), xerbla_(char *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

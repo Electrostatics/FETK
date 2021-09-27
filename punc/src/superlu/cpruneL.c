@@ -47,13 +47,13 @@ cpruneL(
        )
 {
 
-    complex     utemp;
+    realcomplex     utemp;
     int        jsupno, irep, irep1, kmin, kmax, krow, movnum;
     int        i, ktemp, minloc, maxloc;
     int        do_prune; /* logical variable */
     int        *xsup, *supno;
     int        *lsub, *xlsub;
-    complex     *lusup;
+    realcomplex     *lusup;
     int        *xlusup;
 
     xsup       = Glu->xsup;

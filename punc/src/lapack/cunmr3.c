@@ -6,24 +6,24 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cunmr3_(char *side, char *trans, integer *m, integer *n, 
-	integer *k, integer *l, complex *a, integer *lda, complex *tau, 
-	complex *c__, integer *ldc, complex *work, integer *info, ftnlen 
+	integer *k, integer *l, realcomplex *a, integer *lda, realcomplex *tau, 
+	realcomplex *c__, integer *ldc, realcomplex *work, integer *info, ftnlen 
 	side_len, ftnlen trans_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, c_dim1, c_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, i1, i2, i3, ja, ic, jc, mi, ni, nq;
     static logical left;
-    static complex taui;
+    static realcomplex taui;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int clarz_(char *, integer *, integer *, integer *
-	    , complex *, integer *, complex *, complex *, integer *, complex *
+	    , realcomplex *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *
 	    , ftnlen), xerbla_(char *, integer *, ftnlen);
     static logical notran;
 

@@ -10,29 +10,29 @@
 static real c_b8 = 1.f;
 static integer c__1 = 1;
 
-/* Subroutine */ int cpptri_(char *uplo, integer *n, complex *ap, integer *
+/* Subroutine */ int cpptri_(char *uplo, integer *n, realcomplex *ap, integer *
 	info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer j, jc, jj;
     static real ajj;
     static integer jjn;
-    extern /* Subroutine */ int chpr_(char *, integer *, real *, complex *, 
-	    integer *, complex *, ftnlen);
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Subroutine */ int chpr_(char *, integer *, real *, realcomplex *, 
+	    integer *, realcomplex *, ftnlen);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctpmv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen), ctptri_(char *, char *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen);
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

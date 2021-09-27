@@ -7,39 +7,39 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int csytf2_(char *uplo, integer *n, complex *a, integer *lda,
+/* Subroutine */ int csytf2_(char *uplo, integer *n, realcomplex *a, integer *lda,
 	 integer *ipiv, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5, i__6;
     real r__1, r__2, r__3, r__4;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    double sqrt(doublereal), r_imag(complex *);
-    void c_div(complex *, complex *, complex *);
+    double sqrt(doublereal), r_imag(realcomplex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
-    static complex t, r1, d11, d12, d21, d22;
+    static realcomplex t, r1, d11, d12, d21, d22;
     static integer kk, kp;
-    static complex wk, wkm1, wkp1;
+    static realcomplex wk, wkm1, wkp1;
     static integer imax, jmax;
-    extern /* Subroutine */ int csyr_(char *, integer *, complex *, complex *,
-	     integer *, complex *, integer *, ftnlen);
+    extern /* Subroutine */ int csyr_(char *, integer *, realcomplex *, realcomplex *,
+	     integer *, realcomplex *, integer *, ftnlen);
     static real alpha;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer kstep;
     static logical upper;
     static real absakk;
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static real colmax, rowmax;
 

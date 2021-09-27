@@ -53,156 +53,156 @@ VEXTERNC logical lsame_(char *ca, char *cb);
 VEXTERNC int xerbla_(char *srname, integer *info);
 /** @brief Library VBLAS prototypes 
     @author Michael Holst */
-VEXTERNC int caxpy_(integer *n, complex *ca, complex *cx, integer *incx, complex *cy, integer *incy);
+VEXTERNC int caxpy_(integer *n, realcomplex *ca, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
 /** @brief Library VBLAS prototypes 
     @author Michael Holst */
-VEXTERNC int ccopy_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
+VEXTERNC int ccopy_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
 /** @brief Library VBLAS prototypes 
     @author Michael Holst */
-VEXTERNC C_f cdotc_(complex * ret_val, integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
+VEXTERNC C_f cdotc_(realcomplex * ret_val, integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
 /** @brief Library VBLAS prototypes 
     @author Michael Holst */
-VEXTERNC C_f cdotu_(complex * ret_val, integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
+VEXTERNC C_f cdotu_(realcomplex * ret_val, integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124. \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cgbmv_(char *trans, integer *m, integer *n, integer *kl, integer *ku, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen trans_len);
+VEXTERNC int cgbmv_(char *trans, integer *m, integer *n, integer *kl, integer *ku, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cgemm_(char *transa, char *transb, integer *m, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen transa_len, ftnlen transb_len);
+VEXTERNC int cgemm_(char *transa, char *transb, integer *m, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen transa_len, ftnlen transb_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cgemv_(char *trans, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen trans_len);
+VEXTERNC int cgemv_(char *trans, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cgerc_(integer *m, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda);
+VEXTERNC int cgerc_(integer *m, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda);
 /** @brief Library VBLAS prototypes. \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cgeru_(integer *m, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda);
-/** @brief Library VBLAS prototypes. \n
- *:ref: lsame_ 12 4 13 13 124 124 \n
- *:ref: xerbla_ 14 3 13 4 124 
-    @author Michael Holst */
-VEXTERNC int chbmv_(char *uplo, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+VEXTERNC int cgeru_(integer *m, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int chemm_(char *side, char *uplo, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
+VEXTERNC int chbmv_(char *uplo, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int chemv_(char *uplo, integer *n, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+VEXTERNC int chemm_(char *side, char *uplo, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cher_(char *uplo, integer *n, real *alpha, complex *x, integer *incx, complex *a, integer *lda, ftnlen uplo_len);
+VEXTERNC int chemv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cher2_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda, ftnlen uplo_len);
+VEXTERNC int cher_(char *uplo, integer *n, real *alpha, realcomplex *x, integer *incx, realcomplex *a, integer *lda, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cher2k_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, real *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+VEXTERNC int cher2_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int cherk_(char *uplo, char *trans, integer *n, integer *k, real *alpha, complex *a, integer *lda, real *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+VEXTERNC int cher2k_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int chpmv_(char *uplo, integer *n, complex *alpha, complex *ap, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+VEXTERNC int cherk_(char *uplo, char *trans, integer *n, integer *k, real *alpha, realcomplex *a, integer *lda, real *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int chpr_(char *uplo, integer *n, real *alpha, complex *x, integer *incx, complex *ap, ftnlen uplo_len);
+VEXTERNC int chpmv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *ap, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int chpr2_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *ap, ftnlen uplo_len);
+VEXTERNC int chpr_(char *uplo, integer *n, real *alpha, realcomplex *x, integer *incx, realcomplex *ap, ftnlen uplo_len);
+/** @brief Library VBLAS prototypes. \n
+ *:ref: lsame_ 12 4 13 13 124 124 \n
+ *:ref: xerbla_ 14 3 13 4 124 
+    @author Michael Holst */
+VEXTERNC int chpr2_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *ap, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. 
     @author Michael Holst */
-VEXTERNC int crotg_(complex *ca, complex *cb, real *c__, complex *s);
+VEXTERNC int crotg_(realcomplex *ca, realcomplex *cb, real *c__, realcomplex *s);
 /** @brief Library VBLAS prototypes. 
     @author Michael Holst */
-VEXTERNC int cscal_(integer *n, complex *ca, complex *cx, integer *incx);
+VEXTERNC int cscal_(integer *n, realcomplex *ca, realcomplex *cx, integer *incx);
 /** @brief Library VBLAS prototypes. 
     @author Michael Holst */
-VEXTERNC int csscal_(integer *n, real *sa, complex *cx, integer *incx);
+VEXTERNC int csscal_(integer *n, real *sa, realcomplex *cx, integer *incx);
 /** @brief Library VBLAS prototypes. 
     @author Michael Holst */
-VEXTERNC int cswap_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
+VEXTERNC int cswap_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int csymm_(char *side, char *uplo, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
+VEXTERNC int csymm_(char *side, char *uplo, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int csyr2k_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+VEXTERNC int csyr2k_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int csyrk_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+VEXTERNC int csyrk_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctbmv_(char *uplo, char *trans, char *diag, integer *n, integer *k, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctbmv_(char *uplo, char *trans, char *diag, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctbsv_(char *uplo, char *trans, char *diag, integer *n, integer *k, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctbsv_(char *uplo, char *trans, char *diag, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctpmv_(char *uplo, char *trans, char *diag, integer *n, complex *ap, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctpmv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *ap, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctpsv_(char *uplo, char *trans, char *diag, integer *n, complex *ap, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctpsv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *ap, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctrmm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
+VEXTERNC int ctrmm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctrmv_(char *uplo, char *trans, char *diag, integer *n, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctrmv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctrsm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
+VEXTERNC int ctrsm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. \n
  *:ref: lsame_ 12 4 13 13 124 124 \n
  *:ref: xerbla_ 14 3 13 4 124 
     @author Michael Holst */
-VEXTERNC int ctrsv_(char *uplo, char *trans, char *diag, integer *n, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+VEXTERNC int ctrsv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /** @brief Library VBLAS prototypes. 
     @author Michael Holst */
 VEXTERNC doublereal dasum_(integer *n, doublereal *dx, integer *incx);
@@ -351,7 +351,7 @@ VEXTERNC doublereal dzasum_(integer *n, doublecomplex *zx, integer *incx);
 VEXTERNC doublereal dznrm2_(integer *n, doublecomplex *x, integer *incx);
 /** @brief Library VBLAS prototypes.
     @author Michael Holst  */
-VEXTERNC integer icamax_(integer *n, complex *cx, integer *incx);
+VEXTERNC integer icamax_(integer *n, realcomplex *cx, integer *incx);
 /** @brief Library VBLAS prototypes.
     @author Michael Holst  */
 VEXTERNC integer idamax_(integer *n, doublereal *dx, integer *incx);
@@ -370,10 +370,10 @@ VEXTERNC E_f sasum_(integer *n, real *sx, integer *incx);
 VEXTERNC int saxpy_(integer *n, real *sa, real *sx, integer *incx, real *sy, integer *incy);
 /** @brief Library VBLAS prototypes.
     @author Michael Holst  */
-VEXTERNC E_f scasum_(integer *n, complex *cx, integer *incx);
+VEXTERNC E_f scasum_(integer *n, realcomplex *cx, integer *incx);
 /** @brief Library VBLAS prototypes.
     @author Michael Holst  */
-VEXTERNC E_f scnrm2_(integer *n, complex *x, integer *incx);
+VEXTERNC E_f scnrm2_(integer *n, realcomplex *x, integer *incx);
 /** @brief Library VBLAS prototypes.
     @author Michael Holst  */
 VEXTERNC int scopy_(integer *n, real *sx, integer *incx, real *sy, integer *incy);

@@ -7,47 +7,47 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static real c_b24 = 1.f;
 
-/* Subroutine */ int clatdf_(integer *ijob, integer *n, complex *z__, integer 
-	*ldz, complex *rhs, real *rdsum, real *rdscal, integer *ipiv, integer 
+/* Subroutine */ int clatdf_(integer *ijob, integer *n, realcomplex *z__, integer 
+	*ldz, realcomplex *rhs, real *rdsum, real *rdscal, integer *ipiv, integer 
 	*jpiv)
 {
     /* System generated locals */
     integer z_dim1, z_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
-    double c_abs(complex *);
-    void c_sqrt(complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
+    void c_sqrt(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k;
-    static complex bm, bp, xm[2], xp[2];
+    static realcomplex bm, bp, xm[2], xp[2];
     static integer info;
-    static complex temp, work[8];
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex temp, work[8];
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     static real scale;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *);
-    static complex pmone;
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
+    static realcomplex pmone;
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static real rtemp, sminu, rwork[2], splus;
-    extern /* Subroutine */ int cgesc2_(integer *, complex *, integer *, 
-	    complex *, integer *, integer *, real *), cgecon_(char *, integer 
-	    *, complex *, integer *, real *, real *, complex *, real *, 
-	    integer *, ftnlen), classq_(integer *, complex *, integer *, real 
-	    *, real *), claswp_(integer *, complex *, integer *, integer *, 
+    extern /* Subroutine */ int cgesc2_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, real *), cgecon_(char *, integer 
+	    *, realcomplex *, integer *, real *, real *, realcomplex *, real *, 
+	    integer *, ftnlen), classq_(integer *, realcomplex *, integer *, real 
+	    *, real *), claswp_(integer *, realcomplex *, integer *, integer *, 
 	    integer *, integer *, integer *);
-    extern doublereal scasum_(integer *, complex *, integer *);
+    extern doublereal scasum_(integer *, realcomplex *, integer *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

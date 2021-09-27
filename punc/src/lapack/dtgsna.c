@@ -189,7 +189,7 @@ static integer c__3 = 3;
 /*  M       (output) INTEGER */
 /*          The number of elements of the arrays S and DIF used to store */
 /*          the specified condition numbers; for each selected real */
-/*          eigenvalue one element is used, and for each selected complex */
+/*          eigenvalue one element is used, and for each selected realcomplex */
 /*          conjugate pair of eigenvalues, two elements are used. */
 /*          If HOWMNY = 'A', M is set to N. */
 
@@ -223,7 +223,7 @@ static integer c__3 = 3;
 /*       S(w) = (|u'Av|**2 + |u'Bv|**2)**(1/2) / (norm(u)*norm(v)) */
 
 /*  where u and v are the left and right eigenvectors of (A, B) */
-/*  corresponding to w; |z| denotes the absolute value of the complex */
+/*  corresponding to w; |z| denotes the absolute value of the realcomplex */
 /*  number, and norm(u) denotes the 2-norm of the vector u. */
 /*  The pair (a, b) corresponds to an eigenvalue w = a/b (= u'Av/u'Bv) */
 /*  of the matrix pair (A, B). If both a and b equal zero, then (A B) is */

@@ -7,13 +7,13 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__0 = 0;
 static integer c__1 = 1;
 
 /* Subroutine */ int cpteqr_(char *compz, integer *n, real *d__, real *e, 
-	complex *z__, integer *ldz, real *work, integer *info, ftnlen 
+	realcomplex *z__, integer *ldz, real *work, integer *info, ftnlen 
 	compz_len)
 {
     /* System generated locals */
@@ -23,16 +23,16 @@ static integer c__1 = 1;
     double sqrt(doublereal);
 
     /* Local variables */
-    static complex c__[1]	/* was [1][1] */;
+    static realcomplex c__[1]	/* was [1][1] */;
     static integer i__;
-    static complex vt[1]	/* was [1][1] */;
+    static realcomplex vt[1]	/* was [1][1] */;
     static integer nru;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int claset_(char *, integer *, integer *, complex 
-	    *, complex *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int claset_(char *, integer *, integer *, realcomplex 
+	    *, realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen), cbdsqr_(char *, integer *, integer *, integer 
-	    *, integer *, real *, real *, complex *, integer *, complex *, 
-	    integer *, complex *, integer *, real *, integer *, ftnlen);
+	    *, integer *, real *, real *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, real *, integer *, ftnlen);
     static integer icompz;
     extern /* Subroutine */ int spttrf_(integer *, real *, real *, integer *);
 

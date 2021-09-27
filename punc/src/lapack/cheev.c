@@ -12,14 +12,14 @@ static integer c_n1 = -1;
 static integer c__0 = 0;
 static real c_b18 = 1.f;
 
-/* Subroutine */ int cheev_(char *jobz, char *uplo, integer *n, complex *a, 
-	integer *lda, real *w, complex *work, integer *lwork, real *rwork, 
+/* Subroutine */ int cheev_(char *jobz, char *uplo, integer *n, realcomplex *a, 
+	integer *lda, real *w, realcomplex *work, integer *lwork, real *rwork, 
 	integer *info, ftnlen jobz_len, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
     double sqrt(doublereal);
@@ -37,15 +37,15 @@ static real c_b18 = 1.f;
     static integer iinfo;
     extern /* Subroutine */ int sscal_(integer *, real *, real *, integer *);
     static logical lower, wantz;
-    extern doublereal clanhe_(char *, char *, integer *, complex *, integer *,
+    extern doublereal clanhe_(char *, char *, integer *, realcomplex *, integer *,
 	     real *, ftnlen, ftnlen);
     static integer iscale;
     extern /* Subroutine */ int clascl_(char *, integer *, integer *, real *, 
-	    real *, integer *, integer *, complex *, integer *, integer *, 
+	    real *, integer *, integer *, realcomplex *, integer *, integer *, 
 	    ftnlen);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int chetrd_(char *, integer *, complex *, integer 
-	    *, real *, real *, complex *, complex *, integer *, integer *, 
+    extern /* Subroutine */ int chetrd_(char *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, realcomplex *, integer *, integer *, 
 	    ftnlen);
     static real safmin;
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
@@ -54,8 +54,8 @@ static real c_b18 = 1.f;
     static real bignum;
     static integer indtau, indwrk;
     extern /* Subroutine */ int csteqr_(char *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, ftnlen), cungtr_(char *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
+	    realcomplex *, integer *, real *, integer *, ftnlen), cungtr_(char *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
 	    integer *, ftnlen), ssterf_(integer *, real *, real *, integer *);
     static integer llwork;
     static real smlnum;

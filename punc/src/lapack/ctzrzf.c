@@ -12,8 +12,8 @@ static integer c_n1 = -1;
 static integer c__3 = 3;
 static integer c__2 = 2;
 
-/* Subroutine */ int ctzrzf_(integer *m, integer *n, complex *a, integer *lda,
-	 complex *tau, complex *work, integer *lwork, integer *info)
+/* Subroutine */ int ctzrzf_(integer *m, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
@@ -21,16 +21,16 @@ static integer c__2 = 2;
     /* Local variables */
     static integer i__, m1, ib, nb, ki, kk, mu, nx, iws, nbmin;
     extern /* Subroutine */ int clarzb_(char *, char *, char *, char *, 
-	    integer *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, complex *, integer *, complex *, integer *, 
+	    integer *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer *, 
 	    ftnlen, ftnlen, ftnlen, ftnlen), xerbla_(char *, integer *, 
 	    ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int clarzt_(char *, char *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, ftnlen, 
-	    ftnlen), clatrz_(integer *, integer *, integer *, complex *, 
-	    integer *, complex *, complex *);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, ftnlen, 
+	    ftnlen), clatrz_(integer *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *);
     static integer ldwork, lwkopt;
     static logical lquery;
 

@@ -7,27 +7,27 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int ctptri_(char *uplo, char *diag, integer *n, complex *ap, 
+/* Subroutine */ int ctptri_(char *uplo, char *diag, integer *n, realcomplex *ap, 
 	integer *info, ftnlen uplo_len, ftnlen diag_len)
 {
     /* System generated locals */
     integer i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void c_div(complex *, complex *, complex *);
+    void c_div(realcomplex *, realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer j, jc, jj;
-    static complex ajj;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
+    static realcomplex ajj;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
 	    integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctpmv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
     static integer jclast;

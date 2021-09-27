@@ -6,16 +6,16 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cposvx_(char *fact, char *uplo, integer *n, integer *
-	nrhs, complex *a, integer *lda, complex *af, integer *ldaf, char *
-	equed, real *s, complex *b, integer *ldb, complex *x, integer *ldx, 
-	real *rcond, real *ferr, real *berr, complex *work, real *rwork, 
+	nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, char *
+	equed, real *s, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, 
+	real *rcond, real *ferr, real *berr, realcomplex *work, real *rwork, 
 	integer *info, ftnlen fact_len, ftnlen uplo_len, ftnlen equed_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, af_dim1, af_offset, b_dim1, b_offset, x_dim1, 
 	    x_offset, i__1, i__2, i__3, i__4, i__5;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j;
@@ -23,26 +23,26 @@
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static real scond, anorm;
     static logical equil, rcequ;
-    extern doublereal clanhe_(char *, char *, integer *, complex *, integer *,
+    extern doublereal clanhe_(char *, char *, integer *, realcomplex *, integer *,
 	     real *, ftnlen, ftnlen);
-    extern /* Subroutine */ int claqhe_(char *, integer *, complex *, integer 
+    extern /* Subroutine */ int claqhe_(char *, integer *, realcomplex *, integer 
 	    *, real *, real *, real *, char *, ftnlen, ftnlen);
     extern doublereal slamch_(char *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     static real bignum;
-    extern /* Subroutine */ int cpocon_(char *, integer *, complex *, integer 
-	    *, real *, real *, complex *, real *, integer *, ftnlen);
+    extern /* Subroutine */ int cpocon_(char *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, real *, integer *, ftnlen);
     static integer infequ;
-    extern /* Subroutine */ int cpoequ_(integer *, complex *, integer *, real 
+    extern /* Subroutine */ int cpoequ_(integer *, realcomplex *, integer *, real 
 	    *, real *, real *, integer *), cporfs_(char *, integer *, integer 
-	    *, complex *, integer *, complex *, integer *, complex *, integer 
-	    *, complex *, integer *, real *, real *, complex *, real *, 
-	    integer *, ftnlen), cpotrf_(char *, integer *, complex *, integer 
+	    *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, real *, real *, realcomplex *, real *, 
+	    integer *, ftnlen), cpotrf_(char *, integer *, realcomplex *, integer 
 	    *, integer *, ftnlen), cpotrs_(char *, integer *, integer *, 
-	    complex *, integer *, complex *, integer *, integer *, ftnlen);
+	    realcomplex *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static real smlnum;
 
 

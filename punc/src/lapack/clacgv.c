@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clacgv_(integer *n, complex *x, integer *incx)
+/* Subroutine */ int clacgv_(integer *n, realcomplex *x, integer *incx)
 {
     /* System generated locals */
     integer i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, ioff;

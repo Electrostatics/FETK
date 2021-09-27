@@ -5,12 +5,12 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cscal_(integer *n, complex *ca, complex *cx, integer *
+/* Subroutine */ int cscal_(integer *n, realcomplex *ca, realcomplex *cx, integer *
 	incx)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, nincx;

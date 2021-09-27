@@ -53,7 +53,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  ZSPTRS solves a system of linear equations A*X = B with a complex */
+/*  ZSPTRS solves a system of linear equations A*X = B with a realcomplex */
 /*  symmetric matrix A stored in packed format using the factorization */
 /*  A = U*D*U**T or A = L*D*L**T computed by ZSPTRF. */
 

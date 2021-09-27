@@ -5,7 +5,7 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int ccopy_(integer *n, complex *cx, integer *incx, complex *
+/* Subroutine */ int ccopy_(integer *n, realcomplex *cx, integer *incx, realcomplex *
 	cy, integer *incy)
 {
     /* System generated locals */

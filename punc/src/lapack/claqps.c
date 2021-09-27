@@ -7,39 +7,39 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
 /* Subroutine */ int claqps_(integer *m, integer *n, integer *offset, integer 
-	*nb, integer *kb, complex *a, integer *lda, integer *jpvt, complex *
-	tau, real *vn1, real *vn2, complex *auxv, complex *f, integer *ldf)
+	*nb, integer *kb, realcomplex *a, integer *lda, integer *jpvt, realcomplex *
+	tau, real *vn1, real *vn2, realcomplex *auxv, realcomplex *f, integer *ldf)
 {
     /* System generated locals */
     integer a_dim1, a_offset, f_dim1, f_offset, i__1, i__2, i__3;
     real r__1, r__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *), sqrt(doublereal);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *), sqrt(doublereal);
     integer i_nint(real *);
 
     /* Local variables */
     static integer j, k, rk;
-    static complex akk;
+    static realcomplex akk;
     static integer pvt;
     static real temp, temp2;
     extern /* Subroutine */ int cgemm_(char *, char *, integer *, integer *, 
-	    integer *, complex *, complex *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen), cgemv_(char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, ftnlen), cswap_(
-	    integer *, complex *, integer *, complex *, integer *);
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen), cgemv_(char *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, ftnlen), cswap_(
+	    integer *, realcomplex *, integer *, realcomplex *, integer *);
     static integer itemp;
-    extern doublereal scnrm2_(integer *, complex *, integer *);
-    extern /* Subroutine */ int clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *);
+    extern doublereal scnrm2_(integer *, realcomplex *, integer *);
+    extern /* Subroutine */ int clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *);
     static integer lsticc;
     extern integer isamax_(integer *, real *, integer *);
     static integer lastrk;

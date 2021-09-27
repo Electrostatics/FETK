@@ -7,31 +7,31 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {0.f,0.f};
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b1 = {0.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 
-/* Subroutine */ int clahrd_(integer *n, integer *k, integer *nb, complex *a, 
-	integer *lda, complex *tau, complex *t, integer *ldt, complex *y, 
+/* Subroutine */ int clahrd_(integer *n, integer *k, integer *nb, realcomplex *a, 
+	integer *lda, realcomplex *tau, realcomplex *t, integer *ldt, realcomplex *y, 
 	integer *ldy)
 {
     /* System generated locals */
     integer a_dim1, a_offset, t_dim1, t_offset, y_dim1, y_offset, i__1, i__2, 
 	    i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__;
-    static complex ei;
-    extern /* Subroutine */ int cscal_(integer *, complex *, complex *, 
-	    integer *), cgemv_(char *, integer *, integer *, complex *, 
-	    complex *, integer *, complex *, integer *, complex *, complex *, 
-	    integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *), ctrmv_(char *, char *, char *, 
-	    integer *, complex *, integer *, complex *, integer *, ftnlen, 
-	    ftnlen, ftnlen), clarfg_(integer *, complex *, complex *, integer 
-	    *, complex *), clacgv_(integer *, complex *, integer *);
+    static realcomplex ei;
+    extern /* Subroutine */ int cscal_(integer *, realcomplex *, realcomplex *, 
+	    integer *), cgemv_(char *, integer *, integer *, realcomplex *, 
+	    realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *, 
+	    integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *), ctrmv_(char *, char *, char *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, ftnlen, 
+	    ftnlen, ftnlen), clarfg_(integer *, realcomplex *, realcomplex *, integer 
+	    *, realcomplex *), clacgv_(integer *, realcomplex *, integer *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

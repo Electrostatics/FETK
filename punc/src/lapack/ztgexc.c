@@ -35,7 +35,7 @@
 /*  Purpose */
 /*  ======= */
 
-/*  ZTGEXC reorders the generalized Schur decomposition of a complex */
+/*  ZTGEXC reorders the generalized Schur decomposition of a realcomplex */
 /*  matrix pair (A,B), using an unitary equivalence transformation */
 /*  (A, B) := Q * (A, B) * Z', so that the diagonal block of (A, B) with */
 /*  row index IFST is moved to row ILST. */

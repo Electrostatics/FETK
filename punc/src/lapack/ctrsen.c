@@ -10,8 +10,8 @@
 static integer c_n1 = -1;
 
 /* Subroutine */ int ctrsen_(char *job, char *compq, logical *select, integer 
-	*n, complex *t, integer *ldt, complex *q, integer *ldq, complex *w, 
-	integer *m, real *s, real *sep, complex *work, integer *lwork, 
+	*n, realcomplex *t, integer *ldt, realcomplex *q, integer *ldq, realcomplex *w, 
+	integer *m, real *s, real *sep, realcomplex *work, integer *lwork, 
 	integer *info, ftnlen job_len, ftnlen compq_len)
 {
     /* System generated locals */
@@ -29,18 +29,18 @@ static integer c_n1 = -1;
     static integer lwmin;
     static logical wantq, wants;
     static real rnorm, rwork[1];
-    extern doublereal clange_(char *, integer *, integer *, complex *, 
+    extern doublereal clange_(char *, integer *, integer *, realcomplex *, 
 	    integer *, real *, ftnlen);
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
-	    *, integer *), clacpy_(char *, integer *, integer *, complex *, 
-	    integer *, complex *, integer *, ftnlen), xerbla_(char *, integer 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
+	    *, integer *), clacpy_(char *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, integer 
 	    *, ftnlen);
     static logical wantbh;
-    extern /* Subroutine */ int ctrexc_(char *, integer *, complex *, integer 
-	    *, complex *, integer *, integer *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int ctrexc_(char *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *, integer *, integer *, integer *, ftnlen);
     static logical wantsp;
     extern /* Subroutine */ int ctrsyl_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, integer *, complex *, 
+	    integer *, realcomplex *, integer *, realcomplex *, integer *, realcomplex *, 
 	    integer *, real *, integer *, ftnlen, ftnlen);
     static logical lquery;
 

@@ -13,25 +13,25 @@ static integer c__3 = 3;
 static integer c__2 = 2;
 static real c_b23 = 1.f;
 
-/* Subroutine */ int chetrd_(char *uplo, integer *n, complex *a, integer *lda,
-	 real *d__, real *e, complex *tau, complex *work, integer *lwork, 
+/* Subroutine */ int chetrd_(char *uplo, integer *n, realcomplex *a, integer *lda,
+	 real *d__, real *e, realcomplex *tau, realcomplex *work, integer *lwork, 
 	integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j, nb, kk, nx, iws;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static integer nbmin, iinfo;
     static logical upper;
-    extern /* Subroutine */ int chetd2_(char *, integer *, complex *, integer 
-	    *, real *, real *, complex *, integer *, ftnlen), cher2k_(char *, 
-	    char *, integer *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, real *, complex *, integer *, ftnlen, 
-	    ftnlen), clatrd_(char *, integer *, integer *, complex *, integer 
-	    *, real *, complex *, complex *, integer *, ftnlen), xerbla_(char 
+    extern /* Subroutine */ int chetd2_(char *, integer *, realcomplex *, integer 
+	    *, real *, real *, realcomplex *, integer *, ftnlen), cher2k_(char *, 
+	    char *, integer *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, real *, realcomplex *, integer *, ftnlen, 
+	    ftnlen), clatrd_(char *, integer *, integer *, realcomplex *, integer 
+	    *, real *, realcomplex *, realcomplex *, integer *, ftnlen), xerbla_(char 
 	    *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);

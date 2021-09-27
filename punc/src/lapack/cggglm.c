@@ -7,35 +7,35 @@
 
 /* Table of constant values */
 
-static complex c_b2 = {1.f,0.f};
+static realcomplex c_b2 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cggglm_(integer *n, integer *m, integer *p, complex *a, 
-	integer *lda, complex *b, integer *ldb, complex *d__, complex *x, 
-	complex *y, complex *work, integer *lwork, integer *info)
+/* Subroutine */ int cggglm_(integer *n, integer *m, integer *p, realcomplex *a, 
+	integer *lda, realcomplex *b, integer *ldb, realcomplex *d__, realcomplex *x, 
+	realcomplex *y, realcomplex *work, integer *lwork, integer *info)
 {
     /* System generated locals */
     integer a_dim1, a_offset, b_dim1, b_offset, i__1, i__2, i__3, i__4;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, nb, np, nb1, nb2, nb3, nb4, lopt;
-    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, complex *
-	    , complex *, integer *, complex *, integer *, complex *, complex *
-	    , integer *, ftnlen), ccopy_(integer *, complex *, integer *, 
-	    complex *, integer *), ctrsv_(char *, char *, char *, integer *, 
-	    complex *, integer *, complex *, integer *, ftnlen, ftnlen, 
-	    ftnlen), cggqrf_(integer *, integer *, integer *, complex *, 
-	    integer *, complex *, complex *, integer *, complex *, complex *, 
+    extern /* Subroutine */ int cgemv_(char *, integer *, integer *, realcomplex *
+	    , realcomplex *, integer *, realcomplex *, integer *, realcomplex *, realcomplex *
+	    , integer *, ftnlen), ccopy_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *), ctrsv_(char *, char *, char *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, ftnlen, ftnlen, 
+	    ftnlen), cggqrf_(integer *, integer *, integer *, realcomplex *, 
+	    integer *, realcomplex *, realcomplex *, integer *, realcomplex *, realcomplex *, 
 	    integer *, integer *), xerbla_(char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cunmqr_(char *, char *, integer *, integer *, 
-	    integer *, complex *, integer *, complex *, complex *, integer *, 
-	    complex *, integer *, integer *, ftnlen, ftnlen), cunmrq_(char *, 
-	    char *, integer *, integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, complex *, integer *, integer *, 
+	    integer *, realcomplex *, integer *, realcomplex *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen, ftnlen), cunmrq_(char *, 
+	    char *, integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, realcomplex *, integer *, integer *, 
 	    ftnlen, ftnlen);
     static integer lwkopt;
     static logical lquery;

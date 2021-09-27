@@ -5,29 +5,29 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int clapll_(integer *n, complex *x, integer *incx, complex *
+/* Subroutine */ int clapll_(integer *n, realcomplex *x, integer *incx, realcomplex *
 	y, integer *incy, real *ssmin)
 {
     /* System generated locals */
     integer i__1;
     real r__1, r__2, r__3;
-    complex q__1, q__2, q__3, q__4;
+    realcomplex q__1, q__2, q__3, q__4;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
-    static complex c__, a11, a12, a22, tau;
+    static realcomplex c__, a11, a12, a22, tau;
     extern /* Subroutine */ int slas2_(real *, real *, real *, real *, real *)
 	    ;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static real ssmax;
-    extern /* Subroutine */ int clarfg_(integer *, complex *, complex *, 
-	    integer *, complex *);
+    extern /* Subroutine */ int clarfg_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *);
 
 
 /*  -- LAPACK auxiliary routine (version 3.0) -- */

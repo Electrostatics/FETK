@@ -10,38 +10,38 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cgbcon_(char *norm, integer *n, integer *kl, integer *ku,
-	 complex *ab, integer *ldab, integer *ipiv, real *anorm, real *rcond, 
-	complex *work, real *rwork, integer *info, ftnlen norm_len)
+	 realcomplex *ab, integer *ldab, integer *ipiv, real *anorm, real *rcond, 
+	realcomplex *work, real *rwork, integer *info, ftnlen norm_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3;
     real r__1, r__2;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static integer j;
-    static complex t;
+    static realcomplex t;
     static integer kd, lm, jp, ix, kase, kase1;
     static real scale;
-    extern /* Complex */ VOID cdotc_(complex *, integer *, complex *, integer 
-	    *, complex *, integer *);
+    extern /* Complex */ VOID cdotc_(realcomplex *, integer *, realcomplex *, integer 
+	    *, realcomplex *, integer *);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static logical lnoti;
-    extern /* Subroutine */ int clacon_(integer *, complex *, complex *, real 
+    extern /* Subroutine */ int clacon_(integer *, realcomplex *, realcomplex *, real 
 	    *, integer *);
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
     extern /* Subroutine */ int clatbs_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, integer *, complex *, real *, 
+	    integer *, integer *, realcomplex *, integer *, realcomplex *, real *, 
 	    real *, integer *, ftnlen, ftnlen, ftnlen, ftnlen), xerbla_(char *
 	    , integer *, ftnlen);
     static real ainvnm;
-    extern /* Subroutine */ int csrscl_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csrscl_(integer *, real *, realcomplex *, integer 
 	    *);
     static logical onenrm;
     static char normin[1];
@@ -61,7 +61,7 @@ static integer c__1 = 1;
 /*  Purpose */
 /*  ======= */
 
-/*  CGBCON estimates the reciprocal of the condition number of a complex */
+/*  CGBCON estimates the reciprocal of the condition number of a realcomplex */
 /*  general band matrix A, in either the 1-norm or the infinity-norm, */
 /*  using the LU factorization computed by CGBTRF. */
 

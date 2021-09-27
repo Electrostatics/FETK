@@ -66,15 +66,15 @@
  */
 
 int
-clacon_(int *n, complex *v, complex *x, float *est, int *kase)
+clacon_(int *n, realcomplex *v, realcomplex *x, float *est, int *kase)
 
 {
 
 
     /* Table of constant values */
     int c__1 = 1;
-    complex      zero = {0.0, 0.0};
-    complex      one = {1.0, 0.0};
+    realcomplex      zero = {0.0, 0.0};
+    realcomplex      one = {1.0, 0.0};
 
     /* System generated locals */
     float d__1;
@@ -87,8 +87,8 @@ clacon_(int *n, complex *v, complex *x, float *est, int *kase)
     float temp;
     float safmin;
     extern double slamch_(char *);
-    extern int icmax1_(int *, complex *, int *);
-    extern double scsum1_(int *, complex *, int *);
+    extern int icmax1_(int *, realcomplex *, int *);
+    extern double scsum1_(int *, realcomplex *, int *);
 
     safmin = slamch_("Safe minimum");
     if ( *kase == 0 ) {

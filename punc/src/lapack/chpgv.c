@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int chpgv_(integer *itype, char *jobz, char *uplo, integer *
-	n, complex *ap, complex *bp, real *w, complex *z__, integer *ldz, 
-	complex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen 
+	n, realcomplex *ap, realcomplex *bp, real *w, realcomplex *z__, integer *ldz, 
+	realcomplex *work, real *rwork, integer *info, ftnlen jobz_len, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -20,19 +20,19 @@ static integer c__1 = 1;
     /* Local variables */
     static integer j, neig;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int chpev_(char *, char *, integer *, complex *, 
-	    real *, complex *, integer *, complex *, real *, integer *, 
+    extern /* Subroutine */ int chpev_(char *, char *, integer *, realcomplex *, 
+	    real *, realcomplex *, integer *, realcomplex *, real *, integer *, 
 	    ftnlen, ftnlen);
     static char trans[1];
     extern /* Subroutine */ int ctpmv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen);
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen);
     static logical wantz;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), chpgst_(
-	    integer *, char *, integer *, complex *, complex *, integer *, 
-	    ftnlen), cpptrf_(char *, integer *, complex *, integer *, ftnlen);
+	    integer *, char *, integer *, realcomplex *, realcomplex *, integer *, 
+	    ftnlen), cpptrf_(char *, integer *, realcomplex *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

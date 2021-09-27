@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cpttrf_(integer *n, real *d__, complex *e, integer *info)
+/* Subroutine */ int cpttrf_(integer *n, real *d__, realcomplex *e, integer *info)
 {
     /* System generated locals */
     integer i__1, i__2;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    double r_imag(complex *);
+    double r_imag(realcomplex *);
 
     /* Local variables */
     static real f, g;

@@ -5,14 +5,14 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int claqsb_(char *uplo, integer *n, integer *kd, complex *ab,
+/* Subroutine */ int claqsb_(char *uplo, integer *n, integer *kd, realcomplex *ab,
 	 integer *ldab, real *s, real *scond, real *amax, char *equed, ftnlen 
 	uplo_len, ftnlen equed_len)
 {
     /* System generated locals */
     integer ab_dim1, ab_offset, i__1, i__2, i__3, i__4;
     real r__1;
-    complex q__1;
+    realcomplex q__1;
 
     /* Local variables */
     static integer i__, j;

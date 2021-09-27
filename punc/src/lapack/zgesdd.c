@@ -110,7 +110,7 @@ static integer c__0 = 0;
 /*  Purpose */
 /*  ======= */
 
-/*  ZGESDD computes the singular value decomposition (SVD) of a complex */
+/*  ZGESDD computes the singular value decomposition (SVD) of a realcomplex */
 /*  M-by-N matrix A, optionally computing the left and/or right singular */
 /*  vectors, by using divide-and-conquer method. The SVD is written */
 

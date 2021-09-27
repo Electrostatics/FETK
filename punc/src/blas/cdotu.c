@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Complex */ VOID cdotu_(complex * ret_val, integer *n, complex *cx, integer 
-	*incx, complex *cy, integer *incy)
+/* Complex */ VOID cdotu_(realcomplex * ret_val, integer *n, realcomplex *cx, integer 
+	*incx, realcomplex *cy, integer *incy)
 {
     /* System generated locals */
     integer i__1, i__2, i__3;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Local variables */
     static integer i__, ix, iy;
-    static complex ctemp;
+    static realcomplex ctemp;
 
 
 /*     forms the dot product of two vectors. */

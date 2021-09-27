@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int chesv_(char *uplo, integer *n, integer *nrhs, complex *a,
-	 integer *lda, integer *ipiv, complex *b, integer *ldb, complex *work,
+/* Subroutine */ int chesv_(char *uplo, integer *n, integer *nrhs, realcomplex *a,
+	 integer *lda, integer *ipiv, realcomplex *b, integer *ldb, realcomplex *work,
 	 integer *lwork, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -20,13 +20,13 @@ static integer c_n1 = -1;
     /* Local variables */
     static integer nb;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int chetrf_(char *, integer *, complex *, integer 
-	    *, integer *, complex *, integer *, integer *, ftnlen), xerbla_(
+    extern /* Subroutine */ int chetrf_(char *, integer *, realcomplex *, integer 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen), xerbla_(
 	    char *, integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
-    extern /* Subroutine */ int chetrs_(char *, integer *, integer *, complex 
-	    *, integer *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int chetrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, integer *, realcomplex *, integer *, integer *, ftnlen);
     static integer lwkopt;
     static logical lquery;
 

@@ -10,24 +10,24 @@
 static integer c__1 = 1;
 
 /* Subroutine */ int cupmtr_(char *side, char *uplo, char *trans, integer *m, 
-	integer *n, complex *ap, complex *tau, complex *c__, integer *ldc, 
-	complex *work, integer *info, ftnlen side_len, ftnlen uplo_len, 
+	integer *n, realcomplex *ap, realcomplex *tau, realcomplex *c__, integer *ldc, 
+	realcomplex *work, integer *info, ftnlen side_len, ftnlen uplo_len, 
 	ftnlen trans_len)
 {
     /* System generated locals */
     integer c_dim1, c_offset, i__1, i__2, i__3;
-    complex q__1;
+    realcomplex q__1;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, i1, i2, i3, ic, jc, ii, mi, ni, nq;
-    static complex aii;
+    static realcomplex aii;
     static logical left;
-    static complex taui;
-    extern /* Subroutine */ int clarf_(char *, integer *, integer *, complex *
-	    , integer *, complex *, complex *, integer *, complex *, ftnlen);
+    static realcomplex taui;
+    extern /* Subroutine */ int clarf_(char *, integer *, integer *, realcomplex *
+	    , integer *, realcomplex *, realcomplex *, integer *, realcomplex *, ftnlen);
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);

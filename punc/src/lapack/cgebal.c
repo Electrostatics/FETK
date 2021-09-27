@@ -9,7 +9,7 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cgebal_(char *job, integer *n, complex *a, integer *lda, 
+/* Subroutine */ int cgebal_(char *job, integer *n, realcomplex *a, integer *lda, 
 	integer *ilo, integer *ihi, real *scale, integer *info, ftnlen 
 	job_len)
 {
@@ -18,7 +18,7 @@ static integer c__1 = 1;
     real r__1, r__2;
 
     /* Builtin functions */
-    double r_imag(complex *), c_abs(complex *);
+    double r_imag(realcomplex *), c_abs(realcomplex *);
 
     /* Local variables */
     static real c__, f, g;
@@ -26,12 +26,12 @@ static integer c__1 = 1;
     static real r__, s, ca, ra;
     static integer ica, ira, iexc;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static real sfmin1, sfmin2, sfmax1, sfmax2;
-    extern integer icamax_(integer *, complex *, integer *);
+    extern integer icamax_(integer *, realcomplex *, integer *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int csscal_(integer *, real *, complex *, integer 
+    extern /* Subroutine */ int csscal_(integer *, real *, realcomplex *, integer 
 	    *), xerbla_(char *, integer *, ftnlen);
     static logical noconv;
 

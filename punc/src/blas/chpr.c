@@ -5,20 +5,20 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int chpr_(char *uplo, integer *n, real *alpha, complex *x, 
-	integer *incx, complex *ap, ftnlen uplo_len)
+/* Subroutine */ int chpr_(char *uplo, integer *n, real *alpha, realcomplex *x, 
+	integer *incx, realcomplex *ap, ftnlen uplo_len)
 {
     /* System generated locals */
     integer i__1, i__2, i__3, i__4, i__5;
     real r__1;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Builtin functions */
-    void r_cnjg(complex *, complex *);
+    void r_cnjg(realcomplex *, realcomplex *);
 
     /* Local variables */
     static integer i__, j, k, kk, ix, jx, kx, info;
-    static complex temp;
+    static realcomplex temp;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 

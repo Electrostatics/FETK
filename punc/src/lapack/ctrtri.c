@@ -7,18 +7,18 @@
 
 /* Table of constant values */
 
-static complex c_b1 = {1.f,0.f};
+static realcomplex c_b1 = {1.f,0.f};
 static integer c__1 = 1;
 static integer c_n1 = -1;
 static integer c__2 = 2;
 
-/* Subroutine */ int ctrtri_(char *uplo, char *diag, integer *n, complex *a, 
+/* Subroutine */ int ctrtri_(char *uplo, char *diag, integer *n, realcomplex *a, 
 	integer *lda, integer *info, ftnlen uplo_len, ftnlen diag_len)
 {
     /* System generated locals */
     address a__1[2];
     integer a_dim1, a_offset, i__1, i__2, i__3[2], i__4, i__5;
-    complex q__1;
+    realcomplex q__1;
     char ch__1[2];
 
     /* Builtin functions */
@@ -28,12 +28,12 @@ static integer c__2 = 2;
     static integer j, jb, nb, nn;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int ctrmm_(char *, char *, char *, char *, 
-	    integer *, integer *, complex *, complex *, integer *, complex *, 
+	    integer *, integer *, realcomplex *, realcomplex *, integer *, realcomplex *, 
 	    integer *, ftnlen, ftnlen, ftnlen, ftnlen), ctrsm_(char *, char *,
-	     char *, char *, integer *, integer *, complex *, complex *, 
-	    integer *, complex *, integer *, ftnlen, ftnlen, ftnlen, ftnlen);
+	     char *, char *, integer *, integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen, ftnlen);
     static logical upper;
-    extern /* Subroutine */ int ctrti2_(char *, char *, integer *, complex *, 
+    extern /* Subroutine */ int ctrti2_(char *, char *, integer *, realcomplex *, 
 	    integer *, integer *, ftnlen, ftnlen), xerbla_(char *, integer *, 
 	    ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 

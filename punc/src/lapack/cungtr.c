@@ -10,8 +10,8 @@
 static integer c__1 = 1;
 static integer c_n1 = -1;
 
-/* Subroutine */ int cungtr_(char *uplo, integer *n, complex *a, integer *lda,
-	 complex *tau, complex *work, integer *lwork, integer *info, ftnlen 
+/* Subroutine */ int cungtr_(char *uplo, integer *n, realcomplex *a, integer *lda,
+	 realcomplex *tau, realcomplex *work, integer *lwork, integer *info, ftnlen 
 	uplo_len)
 {
     /* System generated locals */
@@ -26,9 +26,9 @@ static integer c_n1 = -1;
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
     extern /* Subroutine */ int cungql_(integer *, integer *, integer *, 
-	    complex *, integer *, complex *, complex *, integer *, integer *),
-	     cungqr_(integer *, integer *, integer *, complex *, integer *, 
-	    complex *, complex *, integer *, integer *);
+	    realcomplex *, integer *, realcomplex *, realcomplex *, integer *, integer *),
+	     cungqr_(integer *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, realcomplex *, integer *, integer *);
     static integer lwkopt;
     static logical lquery;
 

@@ -168,7 +168,7 @@ static doublereal c_b34 = 1.;
 /*          one of a complex conjugate pair of eigenvalues is selected, */
 /*          then both complex eigenvalues are selected. */
 
-/*          Note that in the ill-conditioned case, a selected complex */
+/*          Note that in the ill-conditioned case, a selected realcomplex */
 /*          eigenvalue may no longer satisfy DELZTG(ALPHAR(j),ALPHAI(j), */
 /*          BETA(j)) = .TRUE. after ordering. INFO is to be set to N+2 */
 /*          in this case. */

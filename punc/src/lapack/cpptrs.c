@@ -9,8 +9,8 @@
 
 static integer c__1 = 1;
 
-/* Subroutine */ int cpptrs_(char *uplo, integer *n, integer *nrhs, complex *
-	ap, complex *b, integer *ldb, integer *info, ftnlen uplo_len)
+/* Subroutine */ int cpptrs_(char *uplo, integer *n, integer *nrhs, realcomplex *
+	ap, realcomplex *b, integer *ldb, integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
     integer b_dim1, b_offset, i__1;
@@ -20,7 +20,7 @@ static integer c__1 = 1;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     static logical upper;
     extern /* Subroutine */ int ctpsv_(char *, char *, char *, integer *, 
-	    complex *, complex *, integer *, ftnlen, ftnlen, ftnlen), xerbla_(
+	    realcomplex *, realcomplex *, integer *, ftnlen, ftnlen, ftnlen), xerbla_(
 	    char *, integer *, ftnlen);
 
 

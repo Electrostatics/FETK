@@ -6,7 +6,7 @@
 #include <punc/vf2c.h>
 
 /* Subroutine */ int cpbsv_(char *uplo, integer *n, integer *kd, integer *
-	nrhs, complex *ab, integer *ldab, complex *b, integer *ldb, integer *
+	nrhs, realcomplex *ab, integer *ldab, realcomplex *b, integer *ldb, integer *
 	info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -15,9 +15,9 @@
     /* Local variables */
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen), cpbtrf_(
-	    char *, integer *, integer *, complex *, integer *, integer *, 
-	    ftnlen), cpbtrs_(char *, integer *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, integer *, ftnlen);
+	    char *, integer *, integer *, realcomplex *, integer *, integer *, 
+	    ftnlen), cpbtrs_(char *, integer *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

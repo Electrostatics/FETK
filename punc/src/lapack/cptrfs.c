@@ -8,11 +8,11 @@
 /* Table of constant values */
 
 static integer c__1 = 1;
-static complex c_b16 = {1.f,0.f};
+static realcomplex c_b16 = {1.f,0.f};
 
 /* Subroutine */ int cptrfs_(char *uplo, integer *n, integer *nrhs, real *d__,
-	 complex *e, real *df, complex *ef, complex *b, integer *ldb, complex 
-	*x, integer *ldx, real *ferr, real *berr, complex *work, real *rwork, 
+	 realcomplex *e, real *df, realcomplex *ef, realcomplex *b, integer *ldb, realcomplex 
+	*x, integer *ldx, real *ferr, real *berr, realcomplex *work, real *rwork, 
 	integer *info, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -20,22 +20,22 @@ static complex c_b16 = {1.f,0.f};
 	    i__6;
     real r__1, r__2, r__3, r__4, r__5, r__6, r__7, r__8, r__9, r__10, r__11, 
 	    r__12;
-    complex q__1, q__2, q__3;
+    realcomplex q__1, q__2, q__3;
 
     /* Builtin functions */
-    double r_imag(complex *);
-    void r_cnjg(complex *, complex *);
-    double c_abs(complex *);
+    double r_imag(realcomplex *);
+    void r_cnjg(realcomplex *, realcomplex *);
+    double c_abs(realcomplex *);
 
     /* Local variables */
     static integer i__, j;
     static real s;
-    static complex bi, cx, dx, ex;
+    static realcomplex bi, cx, dx, ex;
     static integer ix, nz;
     static real eps, safe1, safe2;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int caxpy_(integer *, complex *, complex *, 
-	    integer *, complex *, integer *);
+    extern /* Subroutine */ int caxpy_(integer *, realcomplex *, realcomplex *, 
+	    integer *, realcomplex *, integer *);
     static integer count;
     static logical upper;
     extern doublereal slamch_(char *, ftnlen);
@@ -44,7 +44,7 @@ static complex c_b16 = {1.f,0.f};
     extern integer isamax_(integer *, real *, integer *);
     static real lstres;
     extern /* Subroutine */ int cpttrs_(char *, integer *, integer *, real *, 
-	    complex *, complex *, integer *, integer *, ftnlen);
+	    realcomplex *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK routine (version 3.0) -- */

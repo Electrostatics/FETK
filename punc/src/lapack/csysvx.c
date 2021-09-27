@@ -11,9 +11,9 @@ static integer c__1 = 1;
 static integer c_n1 = -1;
 
 /* Subroutine */ int csysvx_(char *fact, char *uplo, integer *n, integer *
-	nrhs, complex *a, integer *lda, complex *af, integer *ldaf, integer *
-	ipiv, complex *b, integer *ldb, complex *x, integer *ldx, real *rcond,
-	 real *ferr, real *berr, complex *work, integer *lwork, real *rwork, 
+	nrhs, realcomplex *a, integer *lda, realcomplex *af, integer *ldaf, integer *
+	ipiv, realcomplex *b, integer *ldb, realcomplex *x, integer *ldx, real *rcond,
+	 real *ferr, real *berr, realcomplex *work, integer *lwork, real *rwork, 
 	integer *info, ftnlen fact_len, ftnlen uplo_len)
 {
     /* System generated locals */
@@ -26,24 +26,24 @@ static integer c_n1 = -1;
     static real anorm;
     extern doublereal slamch_(char *, ftnlen);
     static logical nofact;
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
-    extern doublereal clansy_(char *, char *, integer *, complex *, integer *,
+    extern doublereal clansy_(char *, char *, integer *, realcomplex *, integer *,
 	     real *, ftnlen, ftnlen);
-    extern /* Subroutine */ int csycon_(char *, integer *, complex *, integer 
-	    *, integer *, real *, real *, complex *, integer *, ftnlen), 
-	    csyrfs_(char *, integer *, integer *, complex *, integer *, 
-	    complex *, integer *, integer *, complex *, integer *, complex *, 
-	    integer *, real *, real *, complex *, real *, integer *, ftnlen), 
-	    csytrf_(char *, integer *, complex *, integer *, integer *, 
-	    complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csycon_(char *, integer *, realcomplex *, integer 
+	    *, integer *, real *, real *, realcomplex *, integer *, ftnlen), 
+	    csyrfs_(char *, integer *, integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *, integer *, realcomplex *, integer *, realcomplex *, 
+	    integer *, real *, real *, realcomplex *, real *, integer *, ftnlen), 
+	    csytrf_(char *, integer *, realcomplex *, integer *, integer *, 
+	    realcomplex *, integer *, integer *, ftnlen);
     static integer lwkopt;
     static logical lquery;
-    extern /* Subroutine */ int csytrs_(char *, integer *, integer *, complex 
-	    *, integer *, integer *, complex *, integer *, integer *, ftnlen);
+    extern /* Subroutine */ int csytrs_(char *, integer *, integer *, realcomplex 
+	    *, integer *, integer *, realcomplex *, integer *, integer *, ftnlen);
 
 
 /*  -- LAPACK driver routine (version 3.0) -- */

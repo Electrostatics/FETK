@@ -15,7 +15,7 @@ static real c_b19 = 1.f;
 static integer c__1 = 1;
 
 /* Subroutine */ int cstedc_(char *compz, integer *n, real *d__, real *e, 
-	complex *z__, integer *ldz, complex *work, integer *lwork, real *
+	realcomplex *z__, integer *ldz, realcomplex *work, integer *lwork, real *
 	rwork, integer *lrwork, integer *iwork, integer *liwork, integer *
 	info, ftnlen compz_len)
 {
@@ -34,18 +34,18 @@ static integer c__1 = 1;
     static integer ii, ll, end, lgn;
     static real eps, tiny;
     extern logical lsame_(char *, char *, ftnlen, ftnlen);
-    extern /* Subroutine */ int cswap_(integer *, complex *, integer *, 
-	    complex *, integer *);
+    extern /* Subroutine */ int cswap_(integer *, realcomplex *, integer *, 
+	    realcomplex *, integer *);
     static integer lwmin;
     extern /* Subroutine */ int claed0_(integer *, integer *, real *, real *, 
-	    complex *, integer *, complex *, integer *, real *, integer *, 
+	    realcomplex *, integer *, realcomplex *, integer *, real *, integer *, 
 	    integer *);
     static integer start;
-    extern /* Subroutine */ int clacrm_(integer *, integer *, complex *, 
-	    integer *, real *, integer *, complex *, integer *, real *);
+    extern /* Subroutine */ int clacrm_(integer *, integer *, realcomplex *, 
+	    integer *, real *, integer *, realcomplex *, integer *, real *);
     extern doublereal slamch_(char *, ftnlen);
-    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, complex 
-	    *, integer *, complex *, integer *, ftnlen), xerbla_(char *, 
+    extern /* Subroutine */ int clacpy_(char *, integer *, integer *, realcomplex 
+	    *, integer *, realcomplex *, integer *, ftnlen), xerbla_(char *, 
 	    integer *, ftnlen);
     extern integer ilaenv_(integer *, char *, char *, integer *, integer *, 
 	    integer *, integer *, ftnlen, ftnlen);
@@ -57,7 +57,7 @@ static integer c__1 = 1;
 	    real *, integer *, ftnlen);
     static integer liwmin, icompz;
     extern /* Subroutine */ int csteqr_(char *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, ftnlen);
+	    realcomplex *, integer *, real *, integer *, ftnlen);
     static real orgnrm;
     extern doublereal slanst_(char *, integer *, real *, real *, ftnlen);
     extern /* Subroutine */ int ssterf_(integer *, real *, real *, integer *);

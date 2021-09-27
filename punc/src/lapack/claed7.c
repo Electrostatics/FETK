@@ -12,10 +12,10 @@ static integer c__1 = 1;
 static integer c_n1 = -1;
 
 /* Subroutine */ int claed7_(integer *n, integer *cutpnt, integer *qsiz, 
-	integer *tlvls, integer *curlvl, integer *curpbm, real *d__, complex *
+	integer *tlvls, integer *curlvl, integer *curpbm, real *d__, realcomplex *
 	q, integer *ldq, real *rho, integer *indxq, real *qstore, integer *
 	qptr, integer *prmptr, integer *perm, integer *givptr, integer *
-	givcol, real *givnum, complex *work, real *rwork, integer *iwork, 
+	givcol, real *givnum, realcomplex *work, real *rwork, integer *iwork, 
 	integer *info)
 {
     /* System generated locals */
@@ -28,8 +28,8 @@ static integer c_n1 = -1;
     static integer i__, k, n1, n2, iq, iw, iz, ptr, ind1, ind2, indx, curr, 
 	    indxc, indxp;
     extern /* Subroutine */ int claed8_(integer *, integer *, integer *, 
-	    complex *, integer *, real *, real *, integer *, real *, real *, 
-	    complex *, integer *, real *, integer *, integer *, integer *, 
+	    realcomplex *, integer *, real *, real *, integer *, real *, real *, 
+	    realcomplex *, integer *, real *, integer *, integer *, integer *, 
 	    integer *, integer *, integer *, real *, integer *), slaed9_(
 	    integer *, integer *, integer *, integer *, real *, real *, 
 	    integer *, real *, real *, real *, real *, integer *, integer *), 
@@ -37,8 +37,8 @@ static integer c_n1 = -1;
 	    integer *, integer *, integer *, real *, real *, integer *, real *
 	    , real *, integer *);
     static integer idlmda;
-    extern /* Subroutine */ int clacrm_(integer *, integer *, complex *, 
-	    integer *, real *, integer *, complex *, integer *, real *), 
+    extern /* Subroutine */ int clacrm_(integer *, integer *, realcomplex *, 
+	    integer *, real *, integer *, realcomplex *, integer *, real *), 
 	    xerbla_(char *, integer *, ftnlen), slamrg_(integer *, integer *, 
 	    real *, integer *, integer *, integer *);
     static integer coltyp;

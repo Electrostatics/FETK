@@ -1,86 +1,86 @@
-extern int caxpy_(integer *n, complex *ca, complex *cx, integer *incx, complex *cy, integer *incy);
-extern int ccopy_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
-extern C_f cdotc_(complex * ret_val, integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
-extern C_f cdotu_(complex * ret_val, integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
-extern int cgbmv_(char *trans, integer *m, integer *n, integer *kl, integer *ku, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen trans_len);
+extern int caxpy_(integer *n, realcomplex *ca, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
+extern int ccopy_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
+extern C_f cdotc_(realcomplex * ret_val, integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
+extern C_f cdotu_(realcomplex * ret_val, integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
+extern int cgbmv_(char *trans, integer *m, integer *n, integer *kl, integer *ku, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgemm_(char *transa, char *transb, integer *m, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen transa_len, ftnlen transb_len);
+extern int cgemm_(char *transa, char *transb, integer *m, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen transa_len, ftnlen transb_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgemv_(char *trans, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen trans_len);
+extern int cgemv_(char *trans, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgerc_(integer *m, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda);
+extern int cgerc_(integer *m, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cgeru_(integer *m, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda);
+extern int cgeru_(integer *m, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda);
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chbmv_(char *uplo, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+extern int chbmv_(char *uplo, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chemm_(char *side, char *uplo, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
+extern int chemm_(char *side, char *uplo, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chemv_(char *uplo, integer *n, complex *alpha, complex *a, integer *lda, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+extern int chemv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cher_(char *uplo, integer *n, real *alpha, complex *x, integer *incx, complex *a, integer *lda, ftnlen uplo_len);
+extern int cher_(char *uplo, integer *n, real *alpha, realcomplex *x, integer *incx, realcomplex *a, integer *lda, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cher2_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *a, integer *lda, ftnlen uplo_len);
+extern int cher2_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cher2k_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, real *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+extern int cher2k_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, real *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int cherk_(char *uplo, char *trans, integer *n, integer *k, real *alpha, complex *a, integer *lda, real *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+extern int cherk_(char *uplo, char *trans, integer *n, integer *k, real *alpha, realcomplex *a, integer *lda, real *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chpmv_(char *uplo, integer *n, complex *alpha, complex *ap, complex *x, integer *incx, complex *beta, complex *y, integer *incy, ftnlen uplo_len);
+extern int chpmv_(char *uplo, integer *n, realcomplex *alpha, realcomplex *ap, realcomplex *x, integer *incx, realcomplex *beta, realcomplex *y, integer *incy, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chpr_(char *uplo, integer *n, real *alpha, complex *x, integer *incx, complex *ap, ftnlen uplo_len);
+extern int chpr_(char *uplo, integer *n, real *alpha, realcomplex *x, integer *incx, realcomplex *ap, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int chpr2_(char *uplo, integer *n, complex *alpha, complex *x, integer *incx, complex *y, integer *incy, complex *ap, ftnlen uplo_len);
+extern int chpr2_(char *uplo, integer *n, realcomplex *alpha, realcomplex *x, integer *incx, realcomplex *y, integer *incy, realcomplex *ap, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int crotg_(complex *ca, complex *cb, real *c__, complex *s);
-extern int cscal_(integer *n, complex *ca, complex *cx, integer *incx);
-extern int csrot_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy, real *c__, real *s);
-extern int csscal_(integer *n, real *sa, complex *cx, integer *incx);
-extern int cswap_(integer *n, complex *cx, integer *incx, complex *cy, integer *incy);
-extern int csymm_(char *side, char *uplo, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
+extern int crotg_(realcomplex *ca, realcomplex *cb, real *c__, realcomplex *s);
+extern int cscal_(integer *n, realcomplex *ca, realcomplex *cx, integer *incx);
+extern int csrot_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy, real *c__, real *s);
+extern int csscal_(integer *n, real *sa, realcomplex *cx, integer *incx);
+extern int cswap_(integer *n, realcomplex *cx, integer *incx, realcomplex *cy, integer *incy);
+extern int csymm_(char *side, char *uplo, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen side_len, ftnlen uplo_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int csyr2k_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, complex *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+extern int csyr2k_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int csyrk_(char *uplo, char *trans, integer *n, integer *k, complex *alpha, complex *a, integer *lda, complex *beta, complex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
+extern int csyrk_(char *uplo, char *trans, integer *n, integer *k, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *beta, realcomplex *c__, integer *ldc, ftnlen uplo_len, ftnlen trans_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctbmv_(char *uplo, char *trans, char *diag, integer *n, integer *k, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctbmv_(char *uplo, char *trans, char *diag, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctbsv_(char *uplo, char *trans, char *diag, integer *n, integer *k, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctbsv_(char *uplo, char *trans, char *diag, integer *n, integer *k, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctpmv_(char *uplo, char *trans, char *diag, integer *n, complex *ap, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctpmv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *ap, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctpsv_(char *uplo, char *trans, char *diag, integer *n, complex *ap, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctpsv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *ap, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctrmm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
+extern int ctrmm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctrmv_(char *uplo, char *trans, char *diag, integer *n, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctrmv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctrsm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, complex *alpha, complex *a, integer *lda, complex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
+extern int ctrsm_(char *side, char *uplo, char *transa, char *diag, integer *m, integer *n, realcomplex *alpha, realcomplex *a, integer *lda, realcomplex *b, integer *ldb, ftnlen side_len, ftnlen uplo_len, ftnlen transa_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
-extern int ctrsv_(char *uplo, char *trans, char *diag, integer *n, complex *a, integer *lda, complex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
+extern int ctrsv_(char *uplo, char *trans, char *diag, integer *n, realcomplex *a, integer *lda, realcomplex *x, integer *incx, ftnlen uplo_len, ftnlen trans_len, ftnlen diag_len);
 /*:ref: lsame_ 12 4 13 13 124 124 */
 /*:ref: xerbla_ 14 3 13 4 124 */
 extern doublereal dasum_(integer *n, doublereal *dx, integer *incx);
@@ -164,7 +164,7 @@ extern int dtrsv_(char *uplo, char *trans, char *diag, integer *n, doublereal *a
 extern doublereal dzasum_(integer *n, doublecomplex *zx, integer *incx);
 /*:ref: dcabs1_ 7 1 9 */
 extern doublereal dznrm2_(integer *n, doublecomplex *x, integer *incx);
-extern integer icamax_(integer *n, complex *cx, integer *incx);
+extern integer icamax_(integer *n, realcomplex *cx, integer *incx);
 extern integer idamax_(integer *n, doublereal *dx, integer *incx);
 extern integer isamax_(integer *n, real *sx, integer *incx);
 extern integer izamax_(integer *n, doublecomplex *zx, integer *incx);
@@ -172,8 +172,8 @@ extern integer izamax_(integer *n, doublecomplex *zx, integer *incx);
 extern logical lsame_(char *ca, char *cb, ftnlen ca_len, ftnlen cb_len);
 extern E_f sasum_(integer *n, real *sx, integer *incx);
 extern int saxpy_(integer *n, real *sa, real *sx, integer *incx, real *sy, integer *incy);
-extern E_f scasum_(integer *n, complex *cx, integer *incx);
-extern E_f scnrm2_(integer *n, complex *x, integer *incx);
+extern E_f scasum_(integer *n, realcomplex *cx, integer *incx);
+extern E_f scnrm2_(integer *n, realcomplex *x, integer *incx);
 extern int scopy_(integer *n, real *sx, integer *incx, real *sy, integer *incy);
 extern E_f sdot_(integer *n, real *sx, integer *incx, real *sy, integer *incy);
 extern E_f sdsdot_(integer *n, real *sb, real *sx, integer *incx, real *sy, integer *incy);

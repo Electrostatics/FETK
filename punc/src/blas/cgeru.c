@@ -5,16 +5,16 @@
 
 #include <punc/vf2c.h>
 
-/* Subroutine */ int cgeru_(integer *m, integer *n, complex *alpha, complex *
-	x, integer *incx, complex *y, integer *incy, complex *a, integer *lda)
+/* Subroutine */ int cgeru_(integer *m, integer *n, realcomplex *alpha, realcomplex *
+	x, integer *incx, realcomplex *y, integer *incy, realcomplex *a, integer *lda)
 {
     /* System generated locals */
     integer a_dim1, a_offset, i__1, i__2, i__3, i__4, i__5;
-    complex q__1, q__2;
+    realcomplex q__1, q__2;
 
     /* Local variables */
     static integer i__, j, ix, jy, kx, info;
-    static complex temp;
+    static realcomplex temp;
     extern /* Subroutine */ int xerbla_(char *, integer *, ftnlen);
 
 /*     .. Scalar Arguments .. */
