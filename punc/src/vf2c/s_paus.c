@@ -19,7 +19,9 @@ extern "C" {
 #ifdef __cplusplus
 extern "C" {
 #endif
-extern int getpid(void), isatty(int), pause(void);
+extern int getpid(void);
+extern int isatty(int);
+extern int pause(void);
 #endif
 
 extern VOID f_exit(Void);

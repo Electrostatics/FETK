@@ -1,6 +1,6 @@
 #include "time.h"
 
-#ifdef MSDOS
+#if defined MSDOS || defined _WIN32
 #undef USE_CLOCK
 #define USE_CLOCK
 #endif
