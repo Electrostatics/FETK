@@ -1,5 +1,7 @@
 FETK
 =============
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Electrostatics/FETK)
+
 Welcome to a *modified* version of the FETK (The Finite Element Toolkit).
 
 The reason that this exists is to deal with issues that we've discovered in the FETK.  The FETK is open source software (see http://www.fetk.org), and yet it's not hosted in a manner that is conducive to forking and merge requests.  At least not to our knowledge.  Therefore we have created this *"fork"* until a more permanent solution presents itself.
