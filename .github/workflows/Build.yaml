@@ -141,6 +141,7 @@ jobs:
         with:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+          fail_on_unmatched_files: true
 
 #      - name: Setup tmate session
 #        if: ${{ ! success() }}
