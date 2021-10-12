@@ -28,9 +28,9 @@ jobs:
             CMAKE_SYSTEM: Darwin
             PACKAGE_TYPE: tar.gz
           - os: windows-latest
-            CMAKE_SYSTEM: win64
+            CMAKE_SYSTEM: win32
             PACKAGE_TYPE: zip
-            WIN_DEPENDENCIES_RELEASE: v0.1.0
+            WIN_DEPENDENCIES_RELEASE: v0.3.0
 
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
@@ -141,6 +141,7 @@ jobs:
         with:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
+          fail_on_unmatched_files: true
 
 #      - name: Setup tmate session
 #        if: ${{ ! success() }}

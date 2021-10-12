@@ -1,5 +1,12 @@
 # FETK Changelog
 
+## 1.8.1
+
+Oct 12, 2021
+
+* Fixed Windows system type
+* Added version badge instead of hardcoded version in README.md
+
 ## 1.8.0
 
 Sep 27, 2021
