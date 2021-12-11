@@ -12,7 +12,7 @@ project(punc
 # Include the common FETK CMake utilities
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
 include(FETKBuildFunctions)
-
+include(FetchContent)
 
 # Set essential variables and paths for the project
 set_basic_vars_and_paths()

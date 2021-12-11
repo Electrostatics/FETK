@@ -41,7 +41,13 @@ endif()
 
 # optional build of superlu (actual build takes place below)
 if(BUILD_SUPERLU)
-    include_directories(superlu)
+    #include_directories(superlu)
+    set(enable_tests OFF)
+    FetchContent_Declare( superlu
+        GIT_REPOSITORY https://github.com/xiaoyeli/superlu.git
+        GIT_TAG e8ed45225963c85a708c129bbcec17ec745d09f5
+    )
+    FetchContent_MakeAvailable( superlu )
 endif()
 
 
@@ -63,7 +69,7 @@ add_build_items(
 
 add_subdirectory(base)
 add_subdirectory(amd) # for public headers only
-add_subdirectory(superlu) # either for public headers only or for the library
+#add_subdirectory(superlu) # either for public headers only or for the library
 add_subdirectory(umfpack) # for public headers only
 
 #message(STATUS "With sources: ${SOURCES}")

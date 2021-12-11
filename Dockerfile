@@ -6,6 +6,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         build-essential \
         cmake \
+        git \
         libarpack2-dev \
         liblapack-dev \
         libf2c2-dev \
