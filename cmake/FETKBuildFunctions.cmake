@@ -43,9 +43,26 @@ macro(set_basic_vars_and_paths)
         # Other options and settings
         ################################################################################
 
-        set(BUILD_SHARED_LIBRARIES OFF)
+        option(BUILD_SHARED_LIBRARIES "Whether or not to build shared libraries" OFF)
         add_compile_options(-fPIC)
-
+        if(NOT BUILD_SHARED_LIBS)
+            if(WIN32)
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .lib .a)
+            else()
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .a)
+            endif()
+        else()
+            if(WIN32)
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .dll)
+            elseif(APPLE)
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .dylib .so)
+            else()
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .so)
+            endif()
+        endif()
+        message(STATUS "Building shared libs: ${BUILD_SHARED_LIBS}")
+        message(STATUS "Find-library suffixes: ${CMAKE_FIND_LIBRARY_SUFFIXES}")
+        
         ################################################################################
         # Enable ansi pedantic compiling
         ################################################################################
