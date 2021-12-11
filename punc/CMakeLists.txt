@@ -87,7 +87,7 @@ find_package( AMD REQUIRED )
 find_package( UMFPACK REQUIRED )
 
 # SuperLU library [done]
-find_package( SuperLU )
+#find_package( SuperLU )
 if(NOT SuperLU_FOUND)
     set(BUILD_SUPERLU ON)
 else()

@@ -7,10 +7,9 @@ RUN apt-get update && \
         build-essential \
         cmake \
         libarpack2-dev \
-        libblas-dev \
         liblapack-dev \
-        libsuperlu-dev \
         libf2c2-dev \
+        libopenblas-dev \
         libsuitesparse-dev \
         && \
     mkdir /src
