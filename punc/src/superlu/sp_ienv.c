@@ -7,7 +7,7 @@
  * History:             Modified from lapack routine ILAENV
  */
 #include "slu_Cnames.h"
-#include "slu_util.h"
+#include "slu_cdefs.h"
 
 /*! \brief
 
