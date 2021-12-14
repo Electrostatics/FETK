@@ -55,6 +55,11 @@ set(BUILD_VF2C ON)
 # BLAS library [done]
 #set( BLA_STATIC ON ) # use static linkage
 set( BLA_VENDOR OpenBLAS )
+if(APPLE)
+    # for openblas installed by Homebrew
+    include_directories(/usr/local/opt/openblas/include)
+    link_directories(/usr/local/opt/openblas/lib)
+endif()
 find_package( BLAS )
 if(NOT BLAS_FOUND)
     set(BUILD_BLAS ON)
