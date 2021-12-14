@@ -42,6 +42,7 @@ endif()
 # optional build of superlu (actual build takes place below)
 if(BUILD_SUPERLU)
     #include_directories(superlu)
+    set(XSDK_ENABLE_Fortran OFF)
     set(enable_tests OFF)
     FetchContent_Declare( superlu
         GIT_REPOSITORY https://github.com/xiaoyeli/superlu.git
