@@ -6,6 +6,9 @@ cmake_policy(SET CMP0048 NEW)
 cmake_policy(SET CMP0054 NEW)
 cmake_policy(SET CMP0077 NEW)
 
+# this is needed for keeping the new behavior of CMP0077 in the build of superlu, which uses and older minimum required CMake
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+
 # Parse the VERSION file
 # First, remove comments
 execute_process(
