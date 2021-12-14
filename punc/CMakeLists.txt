@@ -53,7 +53,7 @@ header_and_type_checks()
 set(BUILD_VF2C ON)
 
 # BLAS library [done]
-set( BLA_STATIC ON ) # use static linkage
+#set( BLA_STATIC ON ) # use static linkage
 set( BLA_VENDOR OpenBLAS )
 find_package( BLAS )
 if(NOT BLAS_FOUND)
@@ -70,8 +70,8 @@ endif()
 # CMake Error at /usr/share/cmake-3.16/Modules/FindLAPACK.cmake:423 (message):
 #   A required library with LAPACK API not found.  Please specify library
 #   location.
-set( BLA_STATIC ON ) # use static linkage
-set( BLA_VENDOR OpenBLAS )
+#set( BLA_STATIC ON ) # use static linkage
+#set( BLA_VENDOR OpenBLAS )
 #find_package( LAPACK REQUIRED )
 #if( LAPACK_FOUND )
 #    message( STATUS "##### Found LAPACK" )
