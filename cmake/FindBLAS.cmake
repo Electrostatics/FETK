@@ -333,6 +333,7 @@ function(CHECK_BLAS_LIBRARIES LIBRARIES _prefix _name _flags _list _deps _addlib
         string(APPEND _combined_name "_deps")
       endif()
       if(_libraries_work)
+        message(STATUS "***** searching for lib with extaddlibdir = ${${_extaddlibdir}")
         find_library(${_prefix}_${_lib_var}_LIBRARY
           NAMES ${_library}
           NAMES_PER_DIR

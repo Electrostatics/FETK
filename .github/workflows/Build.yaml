@@ -83,7 +83,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE}  --debug-find --debug-output ..
+          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} -DOpenBLAS_ROOT=/usr/local/opt/openblas/lib ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
