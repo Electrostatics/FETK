@@ -65,9 +65,7 @@ jobs:
           brew install \
             arpack \
             lapack \
-            openblas \
             suite-sparse
-          echo "DYLD_LIBRARY_PATH=/usr/local/opt/openblas/lib" >> $GITHUB_ENV
 
       - name: Install Window dependencies
         if: startsWith(matrix.os, 'windows')  # Windows only
@@ -83,7 +81,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} -DOpenBLAS_ROOT=/usr/local/opt/openblas/lib ..
+          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
