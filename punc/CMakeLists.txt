@@ -58,7 +58,7 @@ set( BLA_VENDOR OpenBLAS )
 if(APPLE)
     # for openblas installed by Homebrew
     include_directories(/usr/local/opt/openblas/include)
-    link_directories(/usr/local/opt/openblas/lib)
+#    link_directories(/usr/local/opt/openblas/lib)
 endif()
 find_package( BLAS )
 if(NOT BLAS_FOUND)

@@ -53,7 +53,6 @@ jobs:
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
             build-essential \
-            gfortran \
             libarpack2-dev \
             liblapack-dev \
             libf2c2-dev \
@@ -65,10 +64,10 @@ jobs:
         run: |
           brew install \
             arpack \
-            gfortran \
             lapack \
             openblas \
             suite-sparse
+          echo "DYLD_LIBRARY_PATH=/usr/local/opt/openblas/lib" >> $GITHUB_ENV
 
       - name: Install Window dependencies
         if: startsWith(matrix.os, 'windows')  # Windows only
