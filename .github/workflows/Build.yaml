@@ -83,7 +83,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
+          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE}  --debug-find --debug-output ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only

@@ -35,6 +35,6 @@ RUN cd /src && \
     export CC=gcc && \
     mkdir build && \
     cd build && \
-    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} .. && \
+    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} --debug-find --debug-output .. && \
     make install && \
     if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi
