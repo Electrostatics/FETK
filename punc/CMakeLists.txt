@@ -53,19 +53,18 @@ header_and_type_checks()
 set(BUILD_VF2C ON)
 
 # BLAS library [done]
-#set( BLA_STATIC ON ) # use static linkage
-set( BLA_VENDOR OpenBLAS )
+set( BLA_STATIC ON ) # use static linkage
 if(APPLE)
-    # for openblas installed by Homebrew
-    include_directories(/usr/local/opt/openblas/include)
-#    link_directories(/usr/local/opt/openblas/lib)
+    set( BLA_VENDOR Apple )
+else()
+    set( BLA_VENDOR OpenBLAS )
 endif()
 find_package( BLAS )
-if(NOT BLAS_FOUND)
-    set(BUILD_BLAS ON)
-else()
-    set(BUILD_BLAS OFF)
-endif()
+#if(NOT BLAS_FOUND)
+#    set(BUILD_BLAS ON)
+#else()
+#    set(BUILD_BLAS OFF)
+#endif()
 
 # lapack library [error]
 # build seems disabled
