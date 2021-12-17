@@ -69,8 +69,8 @@ if(NOT BLAS_FOUND)
 else()
     set(BUILD_BLAS OFF)
     message(STATUS "Will not build BLAS; using BLAS type ${BLA_VENDOR}")
-    list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
-    list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
+###    list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
+###    list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
 endif()
 
 # lapack library [error]
@@ -93,15 +93,15 @@ endif()
 
 # AMD library
 # We do not optionally build AMD
-find_package( AMD REQUIRED )
-list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
-list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
+###find_package( AMD REQUIRED )
+###list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
+###list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
 
 # UMFPACK library
 # We do not optionally build umfpack
-find_package( UMFPACK REQUIRED )
-list(APPEND PUNC_EXT_LIBS ${UMFPACK_LIBRARIES})
-list(APPEND PUNC_EXT_LIB_DIRS ${UMFPACK_LIBDIR})
+###find_package( UMFPACK REQUIRED )
+###list(APPEND PUNC_EXT_LIBS ${UMFPACK_LIBRARIES})
+###list(APPEND PUNC_EXT_LIB_DIRS ${UMFPACK_LIBDIR})
 
 # SuperLU library
 # We only build SuperLU from its git repo
@@ -119,7 +119,7 @@ if(NOT ARPACK_FOUND)
     set(BUILD_ARPACK ON)
 else()
     set(BUILD_ARPACK OFF)
-    list(APPEND PUNC_EXT_LIBS ${ARPACK_LIBRARIES})
+###    list(APPEND PUNC_EXT_LIBS ${ARPACK_LIBRARIES})
 endif()
 
 # cgcode library
