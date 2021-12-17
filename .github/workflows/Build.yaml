@@ -56,7 +56,7 @@ jobs:
             libarpack2-dev \
             liblapack-dev \
             libf2c2-dev \
-            libopenblas-pthread-dev \
+            libopenblas-serial-dev \
             libsuitesparse-dev
 
       - name: Install macOS dependencies
