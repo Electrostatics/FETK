@@ -78,6 +78,7 @@ add_subdirectory(umfpack) # for public headers only
 #message(STATUS "With internal headers: ${INTERNAL_HEADERS}")
 
 add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
+target_link_directories(punc BEFORE PUBLIC ${PUNC_EXT_LIB_DIRS})
 target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
 
 install(FILES ${EXTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
