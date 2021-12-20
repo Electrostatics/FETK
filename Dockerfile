@@ -10,7 +10,7 @@ RUN apt-get update && \
         libarpack2-dev \
         liblapack-dev \
         libf2c2-dev \
-        libopenblas-dev \
+        libopenblas-serial-dev \
         libsuitesparse-dev \
         && \
     mkdir /src
@@ -34,6 +34,6 @@ RUN cd /src && \
     export CC=gcc && \
     mkdir build && \
     cd build && \
-    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} --debug-find --debug-output .. && \
+    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} .. && \
     make install && \
     if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi
