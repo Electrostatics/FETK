@@ -24,18 +24,22 @@ jobs:
           - os: ubuntu-latest
             CMAKE_SYSTEM: Linux
             PACKAGE_TYPE: tar.gz
+            BLA_VENDOR: OpenBLAS
           - os: macos-latest
             CMAKE_SYSTEM: Darwin
             PACKAGE_TYPE: tar.gz
+            BLA_VENDOR: Apple
           - os: windows-latest
             CMAKE_SYSTEM: win32
             PACKAGE_TYPE: zip
+            BLA_VENDOR: OpenBLAS
             WIN_DEPENDENCIES_RELEASE: v0.4.0
 
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
       CMAKE_SYSTEM: ${{ matrix.CMAKE_SYSTEM }}
       CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+      BLA_VENDOR: ${{ matrix.BLA_VENDOR }}
       WIN_DEPENDENCIES_RELEASE: ${{ matrix.WIN_DEPENDENCIES_RELEASE }}
 
     steps:
@@ -81,7 +85,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
+          cmake -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
@@ -92,7 +96,7 @@ jobs:
           cd build
           echo $CMAKE_PREFIX_PATH
           echo "CREATE_PACKAGE: ${CREATE_PACKAGE}"
-          cmake -DCMAKE_BUILD_TYPE=Release -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A Win32 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A Win32 ..
         shell: bash
 
       - name: Build on Mac and Linux
