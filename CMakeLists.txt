@@ -95,10 +95,22 @@ endif()
 
 
 ########
+# Install additional things
+########
+
+install(DIRECTORY cmake
+        DESTINATION ${CMAKE_INSTALL_DATADIR}
+        COMPONENT cmake_files
+        FILES_MATCHING PATTERN "Find*.cmake")
+
+
+########
 # Package config
 ########
 
-# TODO
+set(CPACK_ARCHIVE_COMPONENT_INSTALL ON)
+set(CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
+get_cmake_property(CPACK_COMPONENTS_ALL COMPONENTS)
 
 
 ########

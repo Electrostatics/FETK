@@ -37,6 +37,7 @@ macro(set_basic_vars_and_paths)
         endif()
         message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
 
+        set(CMAKE_INSTALL_DATAROOTDIR "share/fetk")
         include(GNUInstallDirs)
 
         ################################################################################
