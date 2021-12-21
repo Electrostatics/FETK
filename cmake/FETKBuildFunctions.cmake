@@ -120,7 +120,7 @@ macro(set_basic_vars_and_paths)
         set(PACKAGE_STRING "${PROJECT_NAME} ${PACKAGE_VERSION}")
         set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
-    endif( FETK_STANDALONE )
+    endif()
 
     set(CMAKE_INSTALL_INCLUDEDIR "include/${PROJECT_NAME}")
 
