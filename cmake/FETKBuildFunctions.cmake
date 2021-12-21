@@ -107,7 +107,7 @@ macro(set_basic_vars_and_paths)
             add_definitions(-DHAVE_DEBUG)
         endif()
 
-    else( FETK_STANDALONE )
+    else()
 
         ################################################################################
         # Set package variables
