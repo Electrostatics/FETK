@@ -24,7 +24,11 @@ endif()
 ################################################################################
 macro(set_basic_vars_and_paths)
 
-    if( FETK_STANDALONE )
+    message(STATUS "FETK set_basic_vars_and_paths: ${FETK_STANDALONE}, ${PROJECT_NAME}")
+    # Conditions for this being used:
+    #   1. FETK_STANDALONE means FETK or one of its subprojects is being built in standalone mode
+    #   2. If FETK is a subproject; in this case FETK_STANDALONE will be false and the project name will be FETK
+    if( FETK_STANDALONE OR (NOT FETK_STANDALONE AND ${PROJECT_NAME} STREQUAL "FETK") )
     
         ################################################################################
         # Set paths
@@ -79,6 +83,7 @@ macro(set_basic_vars_and_paths)
         message(STATUS "FETK static build: ${FETK_STATIC_BUILD}")
         message(STATUS "Building shared libs: ${BUILD_SHARED_LIBS}")
         message(STATUS "Find-library suffixes: ${CMAKE_FIND_LIBRARY_SUFFIXES}")
+
         
         ################################################################################
         # Enable ansi pedantic compiling
