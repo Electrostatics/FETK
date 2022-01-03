@@ -49,6 +49,7 @@ if(BUILD_SUPERLU)
         GIT_TAG e8ed45225963c85a708c129bbcec17ec745d09f5
     )
     FetchContent_MakeAvailable( superlu )
+    include_directories(${superlu_SOURCE_DIR}/SRC)
 endif()
 
 
@@ -68,17 +69,20 @@ add_build_items(
     ITEMS ${CMAKE_CURRENT_BINARY_DIR}/punccf.h
 )
 
-add_subdirectory(base)
-add_subdirectory(amd) # for public headers only
-#add_subdirectory(superlu) # either for public headers only or for the library
-add_subdirectory(umfpack) # for public headers only
-
+#message(STATUS "PUNC/src")
 #message(STATUS "With sources: ${SOURCES}")
 #message(STATUS "With external headers: ${EXTERNAL_HEADERS}")
 #message(STATUS "With internal headers: ${INTERNAL_HEADERS}")
+if(${SOURCES})
+    message(FATAL_ERROR "The SOURCES variable should be empty because the PUNC build is currently setup to create an interface library.  If there are actual PUNC sources, this library should be made into an actual library")
+endif()
 
-add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
-target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
+add_library(punc INTERFACE)
+#add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
+target_link_libraries(punc INTERFACE ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
+target_include_directories(punc INTERFACE
+    $<BUILD_INTERFACE:${superlu_SOURCE_DIR}/SRC>
+)
 
-install(FILES ${EXTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(TARGETS punc DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(FILES ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+#install(TARGETS punc DESTINATION ${CMAKE_INSTALL_LIBDIR})
