@@ -24,8 +24,6 @@ set(MC_VERSION ${mc_VERSION})
 
 header_and_type_checks()
 
-
-
 # check for libraries
 #set( BLA_VENDOR "OpenBLAS" )
 set( BLA_STATIC ON )
@@ -38,8 +36,7 @@ set( BLA_STATIC ON )
 #find_package( LAPACK REQUIRED )
 find_package( UMFPACK REQUIRED )
 find_package( SuiteSparse REQUIRED )
-message(STATUS "SUITESPARSE_INCLUDE_DIRS: ${SUITESPARSE_INCLUDE_DIRS}")
-message(STATUS "SUITESPARSE_LIBRARIES: ${SUITESPARSE_LIBRARIES}")
+include_directories( ${SUITESPARSE_INCLUDE_DIRS} )
 list(APPEND MC_EXT_LIBS
     ${UMFPACK_LIBRARIES}
     ${SUITESPARSE_LIBRARIES}
@@ -76,10 +73,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
     ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/base
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/superlu
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/umfpack
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
 )
 list(APPEND MC_INT_LIBS maloc)
 
