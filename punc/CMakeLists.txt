@@ -73,45 +73,9 @@ else()
 ###    list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
 endif()
 
-# lapack library [error]
-# build seems disabled
-# cmake has FindLAPACK
-# tested in docker with apt-get installed liblapack-dev; got an error:
-# -- Looking for cheev_ - not found
-# CMake Error at /usr/share/cmake-3.16/Modules/FindLAPACK.cmake:423 (message):
-#   A required library with LAPACK API not found.  Please specify library
-#   location.
-#set( BLA_STATIC ON ) # use static linkage
-#set( BLA_VENDOR OpenBLAS )
-#find_package( LAPACK REQUIRED )
-#if( LAPACK_FOUND )
-#    message( STATUS "##### Found LAPACK" )
-#endif()
-#if( TARGET LAPACK::LAPACK )
-#    message( STATUS "##### Found LAPACK::LAPACK target" )
-#endif()
-
-# AMD library
-# We do not optionally build AMD
-###find_package( AMD REQUIRED )
-###list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
-###list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
-
-# UMFPACK library
-# We do not optionally build umfpack
-###find_package( UMFPACK REQUIRED )
-###list(APPEND PUNC_EXT_LIBS ${UMFPACK_LIBRARIES})
-###list(APPEND PUNC_EXT_LIB_DIRS ${UMFPACK_LIBDIR})
-
 # SuperLU library
 # We only build SuperLU from its git repo
 set(BUILD_SUPERLU ON)
-#find_package( SuperLU )
-#if(NOT SuperLU_FOUND)
-#    set(BUILD_SUPERLU ON)
-#else()
-#    set(BUILD_SUPERLU OFF)
-#endif()
 
 # ARPACK library
 find_package( ARPACK )
