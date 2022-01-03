@@ -18,6 +18,7 @@ add_build_items(
           punc/vcgcode.h
           punc/vlapack.h
           punc/vpmg.h
+          punc/vf2c.h
 )
 
 add_build_items(
