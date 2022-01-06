@@ -912,7 +912,7 @@ VPUBLIC void Gem_dtor(Gem **thee)
 {
     int i;
 
-    VASSERT( (*thee) != VNULL );
+    //VASSERT( (*thee) != VNULL );
     if ((*thee) != VNULL) {
 
         if ((*thee)->iMadePDE) {
