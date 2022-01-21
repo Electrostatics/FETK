@@ -69,6 +69,8 @@ add_build_items(
     ITEMS ${CMAKE_CURRENT_BINARY_DIR}/punccf.h
 )
 
+add_subdirectory(base)
+
 #message(STATUS "PUNC/src")
 #message(STATUS "With sources: ${SOURCES}")
 #message(STATUS "With external headers: ${EXTERNAL_HEADERS}")
