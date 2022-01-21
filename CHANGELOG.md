@@ -1,8 +1,8 @@
 # FETK Changelog
 
-## 1.X.X
+## 1.9.0
 
-Dec XX, 2021
+Jan 21, 2022
 
 * Added capability for a fully static build
 * Apple BLAS for Macs
