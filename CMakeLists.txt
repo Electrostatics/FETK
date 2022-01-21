@@ -1,6 +1,14 @@
 # Minimum version: 3.7.1 required by CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT
 cmake_minimum_required (VERSION 3.7.1)
 
+cmake_policy(SET CMP0042 NEW)
+cmake_policy(SET CMP0048 NEW)
+cmake_policy(SET CMP0054 NEW)
+cmake_policy(SET CMP0077 NEW)
+
+# this is needed for keeping the new behavior of CMP0077 in the build of superlu, which uses and older minimum required CMake
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+
 # Parse the VERSION file
 # First, remove comments
 execute_process(
@@ -87,10 +95,22 @@ endif()
 
 
 ########
+# Install additional things
+########
+
+install(DIRECTORY cmake
+        DESTINATION ${CMAKE_INSTALL_DATADIR}
+        COMPONENT cmake_files
+        FILES_MATCHING PATTERN "Find*.cmake")
+
+
+########
 # Package config
 ########
 
-# TODO
+set(CPACK_ARCHIVE_COMPONENT_INSTALL ON)
+set(CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
+get_cmake_property(CPACK_COMPONENTS_ALL COMPONENTS)
 
 
 ########

@@ -24,7 +24,11 @@ endif()
 ################################################################################
 macro(set_basic_vars_and_paths)
 
-    if( FETK_STANDALONE )
+    message(STATUS "FETK set_basic_vars_and_paths: ${FETK_STANDALONE}, ${PROJECT_NAME}")
+    # Conditions for this being used:
+    #   1. FETK_STANDALONE means FETK or one of its subprojects is being built in standalone mode
+    #   2. If FETK is a subproject; in this case FETK_STANDALONE will be false and the project name will be FETK
+    if( FETK_STANDALONE OR (NOT FETK_STANDALONE AND ${PROJECT_NAME} STREQUAL "FETK") )
     
         ################################################################################
         # Set paths
@@ -37,15 +41,50 @@ macro(set_basic_vars_and_paths)
         endif()
         message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
 
+        set(CMAKE_INSTALL_DATAROOTDIR "share/fetk")
         include(GNUInstallDirs)
 
         ################################################################################
         # Other options and settings
         ################################################################################
 
-        set(BUILD_SHARED_LIBRARIES OFF)
         add_compile_options(-fPIC)
 
+        option(FETK_STATIC_BUILD "Flag to indicate whether a static build should be used (if false, will be dynamic)" ON)
+
+        if(FETK_STATIC_BUILD)
+            add_definitions(-DFETK_STATIC_BUILD)
+            set(BLA_STATIC ON)
+            set(BUILD_SHARED_LIBS OFF)
+            set(CMAKE_LINK_SEARCH_START_STATIC ON)
+            set(CMAKE_LINK_SEARCH_END_STATIC ON)
+            if(WIN32)
+                set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .lib .a)
+            else()
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .a)
+            endif()
+        else()
+            remove_definitions(-DFETK_STATIC_BUILD)
+            set(BLA_STATIC OFF)
+            set(BUILD_SHARED_LIBS ON)
+            set(CMAKE_LINK_SEARCH_START_STATIC OFF)
+            set(CMAKE_LINK_SEARCH_END_STATIC OFF)
+            if(WIN32)
+                set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL$<$<CONFIG:Debug>:Debug>")
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .dll)
+            elseif(APPLE)
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .dylib .so)
+            else()
+                list(PREPEND CMAKE_FIND_LIBRARY_SUFFIXES .so)
+            endif()
+        endif()
+
+        message(STATUS "FETK static build: ${FETK_STATIC_BUILD}")
+        message(STATUS "Building shared libs: ${BUILD_SHARED_LIBS}")
+        message(STATUS "Find-library suffixes: ${CMAKE_FIND_LIBRARY_SUFFIXES}")
+
+        
         ################################################################################
         # Enable ansi pedantic compiling
         ################################################################################
@@ -68,7 +107,7 @@ macro(set_basic_vars_and_paths)
             add_definitions(-DHAVE_DEBUG)
         endif()
 
-    else( FETK_STANDALONE )
+    else()
 
         ################################################################################
         # Set package variables
@@ -81,7 +120,7 @@ macro(set_basic_vars_and_paths)
         set(PACKAGE_STRING "${PROJECT_NAME} ${PACKAGE_VERSION}")
         set(PACKAGE_BUGREPORT "mholst@math.ucsd.edu")
 
-    endif( FETK_STANDALONE )
+    endif()
 
     set(CMAKE_INSTALL_INCLUDEDIR "include/${PROJECT_NAME}")
 

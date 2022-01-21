@@ -1,5 +1,15 @@
 # FETK Changelog
 
+## 1.9.0
+
+Jan 21, 2022
+
+* Added capability for a fully static build
+* Apple BLAS for Macs
+* Win dependencies v0.4.0
+* Install and package CMake module files
+* SuperLU built from the SuperLU repo
+
 ## 1.8.1
 
 Oct 12, 2021

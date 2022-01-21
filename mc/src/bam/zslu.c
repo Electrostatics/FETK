@@ -26,7 +26,7 @@
  * File:     zslu.c
  *
  * Purpose:  Class Zslu: Wrapper class for a generic sparse direct solver.
- *           (THIS IS FOR SUPERLU 2.0 _OR_ SUPERLU 3.1)
+ *           (THIS IS FOR SUPERLU 2.0 _OR_ SUPERLU 3.1 _OR_ SUPERLU 5)
  *
  * Notes:    Our current choice of a sparse direct solver is the excellent
  *           SuperLU code, which is a native ANSI-C code developed at
@@ -39,21 +39,31 @@
  *           that I usually converted to C using f2c, so that it was not
  *           as easy to work with in a C environment.
  *
+ * Use SuperLU 2.0:
  *           #undef  _USE_SUPERLU_31     (Use SuperLU 2.0)
- *           #define _USE_SUPERLU_31     (Use SuperLU 3.1)
+ *           #undef  _USE_SUPERLU_5
+ * Use SuperLU 3.1:
+ *           #define _USE_SUPERLU_31
+ *           #undef _USE_SUPERLU_5
+ * Use SuperLU 5.X:
+ *           #define _USE_SUPERLU_5
+ *           #undef _USE_SUPERLU_31
  *
  * Author:   Michael Holst (this wrapper only)
  * ***************************************************************************
  */
 
-#define _USE_SUPERLU_31
-/* #undef _USE_SUPERLU_31 */
+#define _USE_SUPERLU_5
+/* #define _USE_SUPERLU_31 */
+#undef _USE_SUPERLU_31
+/* #undef _USE_SUPERLU_5 */
 
 
 #include "zslu_p.h"
-#include <punc/vsuperlu.h>
+#include "punc/punc_base.h"
+#include "slu_ddefs.h"
 
-#if !defined(_USE_SUPERLU_31)
+#if !defined(_USE_SUPERLU_31) && !defined(_USE_SUPERLU_5)
 #include "dsp_defs.h"
 #include "util.h"
 #endif
@@ -87,7 +97,7 @@ VPUBLIC Vmem *zsluVmem = VNULL;
  * Author:   Michael Holst
  * ***************************************************************************
  */
-#if defined(_USE_SUPERLU_31) /* Use SuperLU 3.1 */
+#if defined(_USE_SUPERLU_31) || defined(_USE_SUPERLU_5) /* Use SuperLU 3.1 or 5 */
 VPUBLIC Zslu* Zslu_ctor(Vmem *vmem, int skey, int m, int n, int nnz,
     int *ia, int *ja, double *a)
 {
@@ -258,7 +268,7 @@ VPUBLIC Zslu* Zslu_ctor(Vmem *vmem, int skey, int m, int n, int nnz,
  * Author:   Michael Holst
  * ***************************************************************************
  */
-#if defined(_USE_SUPERLU_31) /* Use SuperLU 3.1 */
+#if defined(_USE_SUPERLU_31) || defined(_USE_SUPERLU_5) /* Use SuperLU 3.1 or 5 */
 VPUBLIC void Zslu_dtor(Zslu **thee)
 {
     VASSERT( (*thee) != VNULL );
@@ -391,7 +401,7 @@ VPUBLIC void Zslu_dtor(Zslu **thee)
  * Author:   Michael Holst
  * ***************************************************************************
  */
-#if defined(_USE_SUPERLU_31) /* Use SuperLU 3.1 */
+#if defined(_USE_SUPERLU_31) || defined(_USE_SUPERLU_5) /* Use SuperLU 3.1 or 5 */
 VPUBLIC int Zslu_factor(Zslu *thee)
 {
     int   info;
@@ -401,6 +411,11 @@ VPUBLIC int Zslu_factor(Zslu *thee)
     SCformat *Lstore;
     SuperMatrix *BB;
     superlu_options_t *oopts;
+
+#if defined(_USE_SUPERLU_5)    
+    GlobalLU_t glu;
+    glu.MemModel = SYSTEM;
+#endif
 
     VASSERT( thee != VNULL );
 
@@ -422,13 +437,21 @@ VPUBLIC int Zslu_factor(Zslu *thee)
 #if USE_DGSSV
     dgssv(thee->opts, thee->A, thee->pc, thee->pr, thee->L, thee->U, thee->B,
           thee->stat, &info);
-#else
+#else // USE_DGSSV
+#if defined(_USE_SUPERLU_5)
+    dgssvx(thee->opts, thee->A, thee->pc, thee->pr, thee->et, thee->equed,
+           thee->R, thee->C, thee->L, thee->U,
+           thee->work, thee->lwork, thee->B, thee->X, &rpg, &rcond,
+           thee->ferr, thee->berr, 
+           &glu, &mem_usage, thee->stat, &info);
+#else // _USE_SUPERLU_5
     dgssvx(thee->opts, thee->A, thee->pc, thee->pr, thee->et, thee->equed,
            thee->R, thee->C, thee->L, thee->U,
            thee->work, thee->lwork, thee->B, thee->X, &rpg, &rcond,
            thee->ferr, thee->berr, &mem_usage, thee->stat, &info);
+#endif // _USE_SUPERLU_5
     oopts->Fact = FACTORED;
-#endif
+#endif // USE_DGSSV
 
     /* some i/o */
     if ( info == 0 || info == (thee->n)+1 ) {
@@ -444,7 +467,12 @@ VPUBLIC int Zslu_factor(Zslu *thee)
             Lstore->nnz + Ustore->nnz - thee->n);
         printf("L\\U MB %.3f\ttotal MB needed %.3f\texpansions %d\n",
             mem_usage.for_lu/1e6, mem_usage.total_needed/1e6,
-            mem_usage.expansions);
+#if defined(_USE_SUPERLU_31)
+            mem_usage.expansions
+#else 
+            glu.num_expansions
+#endif
+            );
         fflush(stdout);
 
     } else if ( info > 0 && thee->lwork == -1 ) {
@@ -528,7 +556,7 @@ VPUBLIC int Zslu_factor(Zslu *thee)
  * Author:   Michael Holst
  * ***************************************************************************
  */
-#if defined(_USE_SUPERLU_31) /* Use SuperLU 3.1 */
+#if defined(_USE_SUPERLU_31) || defined(_USE_SUPERLU_5) /* Use SuperLU 3.1 or 5 */
 VPUBLIC int Zslu_solve(Zslu *thee, int key, double *b, double *x)
 {
     SuperMatrix *BB;
@@ -536,6 +564,11 @@ VPUBLIC int Zslu_solve(Zslu *thee, int key, double *b, double *x)
     double      rpg, rcond;
     int         i, info;
     superlu_options_t *oopts;
+
+#if defined(_USE_SUPERLU_5)    
+    GlobalLU_t Glu;
+    Glu.MemModel = SYSTEM;
+#endif
 
     VASSERT( thee != VNULL );
     VASSERT( thee->statLU );
@@ -559,12 +592,20 @@ VPUBLIC int Zslu_solve(Zslu *thee, int key, double *b, double *x)
     oopts->Fact = DOFACT;
     dgssv(oopts, thee->A, thee->pc, thee->pr, thee->L, thee->U,
            thee->B, thee->stat, &info);
-#else
+#else // USE_DGSSV
+#if defined(_USE_SUPERLU_5)
+    dgssvx(thee->opts, thee->A, thee->pc, thee->pr, thee->et, thee->equed,
+           thee->R, thee->C, thee->L, thee->U,
+           thee->work, thee->lwork, thee->B, thee->X, &rpg, &rcond,
+           thee->ferr, thee->berr, 
+           &Glu, &mem_usage, thee->stat, &info);
+#else // _USE_SUPERLU_5
     dgssvx(thee->opts, thee->A, thee->pc, thee->pr, thee->et, thee->equed,
            thee->R, thee->C, thee->L, thee->U,
            thee->work, thee->lwork, thee->B, thee->X, &rpg, &rcond,
            thee->ferr, thee->berr, &mem_usage, thee->stat, &info);
-#endif
+#endif // _USE_SUPERLU_5
+#endif // USE_DGSSV
 
     printf("Triangular solve: dgssvx() returns info %d\n", info);
     if ( info == 0 || info == (thee->n)+1 ) {

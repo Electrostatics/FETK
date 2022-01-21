@@ -509,6 +509,9 @@ VPUBLIC int Vio_ctor2(Vio *thee, const char *socktype, const char *datafrmt,
 #endif
 
     /* get "my" local hostname */
+#if defined(FETK_STATIC_BUILD)
+    strcpy(thee->lhost,"unknown");
+#else
     if ((VIOgethostname(thee->lhost,sizeof(thee->lhost))) < 0) {
         fprintf(stderr,
             "Vio_ctor2: Gethostname fail INET sock <%s> dueto <%s>\n",
@@ -520,6 +523,7 @@ VPUBLIC int Vio_ctor2(Vio *thee, const char *socktype, const char *datafrmt,
             thee->file, VIOstrerrno(errno));
         strcpy(thee->lhost,"unknown");
     } else strcpy(thee->lhost,hpTmp->h_name);
+#endif
 
     /* default remote hostname */
     strcpy(thee->rhost,"unknown");
@@ -731,6 +735,9 @@ VPUBLIC int Vio_ctor2(Vio *thee, const char *socktype, const char *datafrmt,
                     strcpy(host,hostname);
                 }
 
+#if defined(FETK_STATIC_BUILD)
+                strcpy(thee->rhost,"unknown");
+#else
                 /* get IP address corresponding to this server hostname */
                 if ((hpTmp=gethostbyname(host))==VNULL) {
                     fprintf(stderr,
@@ -747,6 +754,7 @@ VPUBLIC int Vio_ctor2(Vio *thee, const char *socktype, const char *datafrmt,
                     /* save the hostname for the port for later i/o */
                     strcpy(thee->rhost,hpTmp->h_name);
                 }
+#endif
             }
         }
     }
@@ -1082,7 +1090,7 @@ VPUBLIC int Vio_accept(Vio *thee, int nonblock)
 
         /* if we found a writer, get his hostname (just for i/o) */
         if (rc >= 0) {
-#if defined(HAVE_WINSOCK_H)
+#if defined(HAVE_WINSOCK_H) || defined(FETK_STATIC_BUILD)
             strcpy(thee->rhost,"unknown");
 #else
             len = sizeof(struct sockaddr_in);

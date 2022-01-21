@@ -6,11 +6,11 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         build-essential \
         cmake \
+        git \
         libarpack2-dev \
-        libblas-dev \
         liblapack-dev \
-        libsuperlu-dev \
         libf2c2-dev \
+        libopenblas-serial-dev \
         libsuitesparse-dev \
         && \
     mkdir /src
