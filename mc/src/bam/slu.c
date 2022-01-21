@@ -42,7 +42,8 @@
  */
 
 #include "slu_p.h"
-#include <punc/vumfpack.h>
+#include "punc/punc_base.h"
+#include <umfpack.h>
 
 VEMBED(rcsid="$Id: slu.c,v 1.14 2010/08/12 05:18:30 fetk Exp $")
 

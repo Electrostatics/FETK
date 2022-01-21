@@ -24,9 +24,23 @@ set(MC_VERSION ${mc_VERSION})
 
 header_and_type_checks()
 
-
-
 # check for libraries
+#set( BLA_VENDOR "OpenBLAS" )
+set( BLA_STATIC ON )
+#message(STATUS "looking for MC dependencies with openblas and static on")
+#find_library( lapack_found_separately openblas REQUIRED )
+#message(STATUS "#### found lapack: ${lapack_found_separately}")
+#set( paths_from_module ENV;LD_LIBRARY_PATH;/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib)
+#find_library( lapack_found_separately_2 openblas REQUIRED PATHS ${paths_from_module})
+#message(STATUS "#### found lapack 2: ${lapack_found_separately_2}")
+#find_package( LAPACK REQUIRED )
+find_package( UMFPACK REQUIRED )
+find_package( SuiteSparse REQUIRED )
+include_directories( ${SUITESPARSE_INCLUDE_DIRS} )
+list(APPEND MC_EXT_LIBS
+    ${UMFPACK_LIBRARIES}
+    ${SUITESPARSE_LIBRARIES}
+)
 
 # check for disable vender-host-cpu triplet (?)
 
@@ -59,10 +73,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
     ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
     ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/base
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/superlu
-    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/umfpack
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
 )
 list(APPEND MC_INT_LIBS maloc)
 

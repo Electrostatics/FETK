@@ -1,5 +1,5 @@
 ##########
-# CMakeLists.txt for FETK/gamer/src
+# CMakeLists.txt for FETK/mc/src
 ##########
 
 # Initial setup for build

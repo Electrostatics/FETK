@@ -24,18 +24,22 @@ jobs:
           - os: ubuntu-latest
             CMAKE_SYSTEM: Linux
             PACKAGE_TYPE: tar.gz
+            BLA_VENDOR: OpenBLAS
           - os: macos-latest
             CMAKE_SYSTEM: Darwin
             PACKAGE_TYPE: tar.gz
+            BLA_VENDOR: Apple
           - os: windows-latest
             CMAKE_SYSTEM: win32
             PACKAGE_TYPE: zip
-            WIN_DEPENDENCIES_RELEASE: v0.3.0
+            BLA_VENDOR: OpenBLAS
+            WIN_DEPENDENCIES_RELEASE: v0.4.0
 
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
       CMAKE_SYSTEM: ${{ matrix.CMAKE_SYSTEM }}
       CREATE_PACKAGE: ${{ startsWith(github.ref, 'refs/tags/') }}
+      BLA_VENDOR: ${{ matrix.BLA_VENDOR }}
       WIN_DEPENDENCIES_RELEASE: ${{ matrix.WIN_DEPENDENCIES_RELEASE }}
 
     steps:
@@ -53,12 +57,10 @@ jobs:
           sudo apt-get update
           DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
             build-essential \
-            cmake \
             libarpack2-dev \
-            libblas-dev \
             liblapack-dev \
-            libsuperlu-dev \
             libf2c2-dev \
+            libopenblas-serial-dev \
             libsuitesparse-dev
 
       - name: Install macOS dependencies
@@ -66,9 +68,7 @@ jobs:
         run: |
           brew install \
             arpack \
-            openblas \
             lapack \
-            superlu \
             suite-sparse
 
       - name: Install Window dependencies
@@ -85,7 +85,7 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
+          cmake -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
@@ -96,7 +96,7 @@ jobs:
           cd build
           echo $CMAKE_PREFIX_PATH
           echo "CREATE_PACKAGE: ${CREATE_PACKAGE}"
-          cmake -DCMAKE_BUILD_TYPE=Release -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A Win32 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 16 2019" -A Win32 ..
         shell: bash
 
       - name: Build on Mac and Linux
@@ -143,6 +143,6 @@ jobs:
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
           fail_on_unmatched_files: true
 
-#      - name: Setup tmate session
-#        if: ${{ ! success() }}
-#        uses: mxschmitt/action-tmate@v3
+      - name: Setup tmate session
+        if: ${{ ! success() }}
+        uses: mxschmitt/action-tmate@v3

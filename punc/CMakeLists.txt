@@ -12,7 +12,7 @@ project(punc
 # Include the common FETK CMake utilities
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
 include(FETKBuildFunctions)
-
+include(FetchContent)
 
 # Set essential variables and paths for the project
 set_basic_vars_and_paths()
@@ -49,63 +49,49 @@ header_and_type_checks()
 # Here are the libraries that can be built by PUNC
 ################################################################################
 
-# vf2c library [done]
+# vf2c library
+# We only build vf2c
 set(BUILD_VF2C ON)
+message(STATUS "Will build vf2c")
 
-# BLAS library [done]
+# BLAS library
+# We do not optionally build BLAS
 set( BLA_STATIC ON ) # use static linkage
-set( BLA_VENDOR OpenBLAS )
+if(APPLE)
+    set( BLA_VENDOR Apple )
+else()
+    set( BLA_VENDOR OpenBLAS )
+endif()
 find_package( BLAS )
 if(NOT BLAS_FOUND)
     set(BUILD_BLAS ON)
+    message(STATUS "Will build BLAS")
 else()
     set(BUILD_BLAS OFF)
+    message(STATUS "Will not build BLAS; using BLAS type ${BLA_VENDOR}")
+###    list(APPEND PUNC_EXT_LIBS ${AMD_LIBRARIES})
+###    list(APPEND PUNC_EXT_LIB_DIRS ${AMD_LIBDIR})
 endif()
 
-# lapack library [error]
-# build seems disabled
-# cmake has FindLAPACK
-# tested in docker with apt-get installed liblapack-dev; got an error:
-# -- Looking for cheev_ - not found
-# CMake Error at /usr/share/cmake-3.16/Modules/FindLAPACK.cmake:423 (message):
-#   A required library with LAPACK API not found.  Please specify library
-#   location.
-set( BLA_STATIC ON ) # use static linkage
-set( BLA_VENDOR OpenBLAS )
-#find_package( LAPACK REQUIRED )
-#if( LAPACK_FOUND )
-#    message( STATUS "##### Found LAPACK" )
-#endif()
-#if( TARGET LAPACK::LAPACK )
-#    message( STATUS "##### Found LAPACK::LAPACK target" )
-#endif()
+# SuperLU library
+# We only build SuperLU from its git repo
+set(BUILD_SUPERLU ON)
 
-# AMD library [done]
-find_package( AMD REQUIRED )
-
-# UMFPACK library [done]
-find_package( UMFPACK REQUIRED )
-
-# SuperLU library [done]
-find_package( SuperLU )
-if(NOT SuperLU_FOUND)
-    set(BUILD_SUPERLU ON)
-else()
-    set(BUILD_SUPERLU OFF)
-endif()
-
-# ARPACK library [done]
+# ARPACK library
 find_package( ARPACK )
 if(NOT ARPACK_FOUND)
     set(BUILD_ARPACK ON)
 else()
     set(BUILD_ARPACK OFF)
+###    list(APPEND PUNC_EXT_LIBS ${ARPACK_LIBRARIES})
 endif()
 
-# cgcode library [done]
+# cgcode library
+# Will always build cgcode
 set(BUILD_CGCODE ON)
 
-# pmg library [done]
+# pmg library
+# Will always build pmg
 set(BUILD_PMG ON)
 
 ################################################################################
