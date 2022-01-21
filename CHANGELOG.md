@@ -1,9 +1,10 @@
 # FETK Changelog
 
-## 1.9.1
+## 1.9.2
 
 Jan 21, 2022
 
+* Build empty punc library
 * Fixed missing headers from punc
 
 ## 1.9.0
