@@ -59,6 +59,7 @@ endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/base)
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/config/punccf.h.in
@@ -82,10 +83,17 @@ endif()
 #add_library(punc INTERFACE)
 add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
-target_include_directories(punc PUBLIC
-    $<BUILD_INTERFACE:${superlu_SOURCE_DIR}/SRC>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/punc
+#target_include_directories(punc PUBLIC
+#    $<BUILD_INTERFACE:${superlu_SOURCE_DIR}/SRC>
+#    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}
+#    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/punc
+#)
+
+get_target_property( SOURCE_TREE_INCLUDE_DIRS punc INCLUDE_DIRECTORIES )
+target_include_directories( punc
+    INTERFACE 
+        "$<BUILD_INTERFACE:${SOURCE_TREE_INCLUDE_DIRS}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
 install(FILES ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})

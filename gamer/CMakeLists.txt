@@ -53,12 +53,12 @@ header_and_type_checks()
 if(NOT TARGET maloc)
     message(FATAL_ERROR "Maloc target not found")
 endif()
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/base
-    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/psh
-    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
-    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
-)
+#include_directories(
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/base
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/psh
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
+#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
+#)
 list(APPEND GAMER_INT_LIBS maloc)
 
 
