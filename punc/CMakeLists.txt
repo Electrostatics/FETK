@@ -74,8 +74,23 @@ else()
 endif()
 
 # SuperLU library
-# We only build SuperLU from its git repo
-set(BUILD_SUPERLU ON)
+# At the moment, managed distributions of SuperLU include only the shared libraries.
+#   Note: checked on 4/20/22; including apt on Ubuntu and Home/Linuxbrew
+# Therefore, we assume that we'll build SuperLU if we're not building shared libs.
+message(STATUS "()()()() Static build? ${FETK_STATIC_BUILD}")
+if(NOT FETK_STATIC_BUILD)
+    message(STATUS "()()()() PUNC check of SuperLU -- Looking for pre-built")
+    find_package(SuperLU)
+endif()
+if(SuperLU_FOUND)
+    message(STATUS "()()()() Found SuperLU")
+    message(STATUS "()()()() Superlu includes: ${SUPERLU_INCLUDES}")
+    message(STATUS "()()()() Superlu libraries: ${SUPERLU_LIBRARIES}")
+    set(BUILD_SUPERLU OFF)
+else()
+    message(STATUS "()()()() Building SuperLU")
+    set(BUILD_SUPERLU ON)
+endif()
 
 # ARPACK library
 find_package( ARPACK )
