@@ -12,6 +12,7 @@ RUN apt-get update && \
         libf2c2-dev \
         libopenblas-serial-dev \
         libsuitesparse-dev \
+        libsuperlu-dev \
         && \
     mkdir /src
 
@@ -20,7 +21,7 @@ RUN apt-get update && \
 FROM fetk_base
 
 ARG CREATE_PACKAGE=FALSE
-ENV CREATE_PACKAGE=${CREATE_PACKAGE}
+ARG FETK_STATIC_BUILD=ON
 
 COPY cmake /src/cmake
 COPY gamer /src/gamer
@@ -34,6 +35,9 @@ RUN cd /src && \
     export CC=gcc && \
     mkdir build && \
     cd build && \
-    cmake -DCREATE_PACKAGE=${CREATE_PACKAGE} .. && \
+    cmake \
+        -DCREATE_PACKAGE:BOOL=${CREATE_PACKAGE} \
+        -DFETK_STATIC_BUILD:BOOL=${FETK_STATIC_BUILD} \
+        .. && \
     make install && \
     if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi
