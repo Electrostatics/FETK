@@ -22,6 +22,7 @@ FROM fetk_base
 
 ARG CREATE_PACKAGE=FALSE
 ARG FETK_STATIC_BUILD=ON
+ARG MAKEJOBS="-j"
 
 COPY cmake /src/cmake
 COPY gamer /src/gamer
@@ -39,5 +40,5 @@ RUN cd /src && \
         -DCREATE_PACKAGE:BOOL=${CREATE_PACKAGE} \
         -DFETK_STATIC_BUILD:BOOL=${FETK_STATIC_BUILD} \
         .. && \
-    make install && \
+    make ${MAKEJOBS} install && \
     if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi

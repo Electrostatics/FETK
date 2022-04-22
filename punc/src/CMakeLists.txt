@@ -93,14 +93,8 @@ if(${SOURCES})
     message(FATAL_ERROR "The SOURCES variable should be empty because the PUNC build is currently setup to create an interface library.  If there are actual PUNC sources, this library should be made into an actual library")
 endif()
 
-#add_library(punc INTERFACE)
 add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
-#target_include_directories(punc PUBLIC
-#    $<BUILD_INTERFACE:${superlu_SOURCE_DIR}/SRC>
-#    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}
-#    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/punc
-#)
 
 get_target_property( SOURCE_TREE_INCLUDE_DIRS punc INCLUDE_DIRECTORIES )
 target_include_directories( punc

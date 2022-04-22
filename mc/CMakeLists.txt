@@ -67,22 +67,12 @@ list(APPEND MC_EXT_LIBS
 if(NOT TARGET maloc)
     message(FATAL_ERROR "Maloc target not found")
 endif()
-#include_directories(
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/base
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/psh
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsh
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../maloc/src/vsys
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/base
-#    ${CMAKE_CURRENT_SOURCE_DIR}/../punc/src/amd/punc # we need this because punc/umfpack.h has #include
-#)
 list(APPEND MC_INT_LIBS maloc)
 
 # punc library
 if(NOT TARGET punc)
     message(FATAL_ERROR "Punc target not found")
 endif()
-#include_directories(
-#)
 list(APPEND MC_INT_LIBS punc)
 
 
