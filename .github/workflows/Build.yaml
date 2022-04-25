@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         fail-fast: [false]
-        os: [ubuntu-20.04, macos-11, windows-2022]
+        os: [ubuntu-20.04, macos-11, windows-2022, macos-12]
         include:
           - os: ubuntu-20.04
             CMAKE_SYSTEM: Linux
@@ -34,6 +34,10 @@ jobs:
             PACKAGE_TYPE: zip
             BLA_VENDOR: OpenBLAS
             WIN_DEPENDENCIES_RELEASE: v0.4.0
+          - os: macos-12
+            CMAKE_SYSTEM: Darwin
+            PACKAGE_TYPE: tar.gz
+            BLA_VENDOR: Apple
 
     env:
       # job-wide environment variables to use in `run` commands to avoid command-injection risks
