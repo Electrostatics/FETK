@@ -19,17 +19,17 @@ jobs:
     strategy:
       matrix:
         fail-fast: [false]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-20.04, macos-11, windows-2022]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             CMAKE_SYSTEM: Linux
             PACKAGE_TYPE: tar.gz
             BLA_VENDOR: OpenBLAS
-          - os: macos-latest
+          - os: macos-11
             CMAKE_SYSTEM: Darwin
             PACKAGE_TYPE: tar.gz
             BLA_VENDOR: Apple
-          - os: windows-latest
+          - os: windows-2022
             CMAKE_SYSTEM: win32
             PACKAGE_TYPE: zip
             BLA_VENDOR: OpenBLAS
