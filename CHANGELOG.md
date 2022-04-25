@@ -1,5 +1,13 @@
 # FETK Changelog
 
+## X.Y.Z
+
+April 22, 2022
+
+* CMake library targets keep track of the interface include directories
+* PUNC looks for pre-installed SuperLU before building its own (non-static build only)
+* Updated Visual Studio version used in the autmatic build to VS 17 (2022)
+
 ## 1.9.2
 
 Jan 21, 2022
