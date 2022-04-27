@@ -1,8 +1,8 @@
 # FETK Changelog
 
-## X.Y.Z
+## 1.9.3
 
-April 22, 2022
+April 27, 2022
 
 * CMake library targets keep track of the interface include directories
 * PUNC looks for pre-installed SuperLU before building its own (non-static build only)
