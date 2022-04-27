@@ -49,5 +49,12 @@ add_subdirectory(mcsh)
 add_library(mc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(mc ${MC_EXT_LIBS} ${MC_INT_LIBS})
 
+get_target_property( SOURCE_TREE_INCLUDE_DIRS mc INCLUDE_DIRECTORIES )
+target_include_directories( mc
+    INTERFACE 
+        "$<BUILD_INTERFACE:${SOURCE_TREE_INCLUDE_DIRS}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
+)
+
 install(FILES ${EXTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(TARGETS mc DESTINATION ${CMAKE_INSTALL_LIBDIR})

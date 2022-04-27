@@ -13,30 +13,39 @@ setup_for_build()
 if(BUILD_VF2C)
     include_directories(vf2c vf2c/punc)
     add_subdirectory(vf2c)
+    list(APPEND PUNC_INT_LIBS vf2c)
 endif()
 
 # optional build of cgcode
 if(BUILD_CGCODE)
     include_directories(cgcode)
     add_subdirectory(cgcode)
+    list(APPEND PUNC_INT_LIBS cgcode)
 endif()
 
 # optional build of pmg
 if(BUILD_PMG)
     include_directories(pmg)
     add_subdirectory(pmg)
+    list(APPEND PUNC_INT_LIBS pmg)
 endif()
 
 # optional build of blas
 if(BUILD_BLAS)
     include_directories(blas)
     add_subdirectory(blas)
+    list(APPEND PUNC_INT_LIBS blas)
+else()
+    list(APPEND PUNC_EXT_LIBS ${BLAS_LIBRARIES})
 endif()
 
 # optional build of arpack
 if(BUILD_ARPACK)
     include_directories(arpack)
     add_subdirectory(arpack)
+    list(APPEND PUNC_INT_LIBS arpack)
+else()
+    list(APPEND PUNC_EXT_LIBS ${ARPACK_LIBRARIES})
 endif()
 
 # optional build of superlu (actual build takes place below)
@@ -50,6 +59,10 @@ if(BUILD_SUPERLU)
     )
     FetchContent_MakeAvailable( superlu )
     include_directories(${superlu_SOURCE_DIR}/SRC)
+    list(APPEND PUNC_INT_LIBS superlu)
+else()
+    include_directories(${SUPERLU_INCLUDES})
+    list(APPEND PUNC_EXT_LIBS ${SUPERLU_LIBRARIES})
 endif()
 
 
@@ -59,6 +72,7 @@ endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/base)
 
 configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/config/punccf.h.in
@@ -79,13 +93,14 @@ if(${SOURCES})
     message(FATAL_ERROR "The SOURCES variable should be empty because the PUNC build is currently setup to create an interface library.  If there are actual PUNC sources, this library should be made into an actual library")
 endif()
 
-#add_library(punc INTERFACE)
 add_library(punc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(punc ${PUNC_EXT_LIBS} ${PUNC_INT_LIBS})
-target_include_directories(punc PUBLIC
-    $<BUILD_INTERFACE:${superlu_SOURCE_DIR}/SRC>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/punc
+
+get_target_property( SOURCE_TREE_INCLUDE_DIRS punc INCLUDE_DIRECTORIES )
+target_include_directories( punc
+    INTERFACE 
+        "$<BUILD_INTERFACE:${SOURCE_TREE_INCLUDE_DIRS}>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
 install(FILES ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
