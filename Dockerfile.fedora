@@ -1,0 +1,64 @@
+# Fedora-based Docker build
+###########################
+
+FROM fedora:36 AS fetk_base_fedora
+
+RUN dnf -y groupinstall 'Development Tools' && \
+    dnf -y install \
+        unzip \
+        g++ \
+        cmake3 \
+        git \
+        wget \
+        arpack-devel \
+        arpack-static \
+        f2c \
+        eigen3-devel \
+        boost-devel \
+        python3-pip \
+        python3-devel \
+        openblas-serial64 \
+        openblas-static \
+        openblas-devel \
+        lapack-devel \
+        lapack-static \
+        suitesparse-devel \
+        suitesparse-static \
+        && \
+    g++ --version && \
+    ln -s /usr/bin/cmake3 /usr/local/bin/cmake && \
+    wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz && \
+    gunzip metis-5.1.0.tar.gz && \
+    tar -xf metis-5.1.0.tar && \
+    cd metis-5.1.0 && \
+    make config prefix=/usr/local && \
+    make install && \
+    /bin/true
+
+
+#########################################
+
+FROM fetk_base_fedora
+
+ARG CREATE_PACKAGE=FALSE
+ARG FETK_STATIC_BUILD=ON
+ARG MAKEJOBS="-j"
+
+COPY cmake /src/cmake
+COPY gamer /src/gamer
+COPY maloc /src/maloc
+COPY mc /src/mc
+COPY punc /src/punc
+COPY CMakeLists.txt /src/CMakeLists.txt
+COPY VERSION /src/VERSION
+
+RUN cd /src && \
+    export CC=gcc && \
+    mkdir build && \
+    cd build && \
+    cmake \
+        -DCREATE_PACKAGE:BOOL=${CREATE_PACKAGE} \
+        -DFETK_STATIC_BUILD:BOOL=${FETK_STATIC_BUILD} \
+        .. && \
+    make ${MAKEJOBS} install && \
+    if [ "${CREATE_PACKAGE,,}" = true ]; then cpack; fi

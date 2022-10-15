@@ -1,5 +1,11 @@
 # FETK Changelog
 
+## Current version
+
+Unreleased
+
+* Add Fedora Docker container spec for troubleshooting builds on that platform.
+
 ## 1.9.3
 
 April 27, 2022
