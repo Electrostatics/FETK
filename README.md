@@ -1,5 +1,32 @@
 FETK
 =============
+
+Mesh edge regression tests
+--------------------------
+
+Configure with `-DFETK_BUILD_TESTS=ON`, build the `test_edge_order` target,
+and run `ctest --test-dir <build> -C Release --output-on-failure`.
+The default is OFF, including when FETK is embedded in another project.
+The dedicated mesh-edge CI workflow demonstrates the dependency installation
+and configure commands for Linux, macOS, and Windows.
+The build/package workflow also sets `CMAKE_POLICY_VERSION_MINIMUM=3.5` for
+the bundled legacy SuperLU CMake configuration. On modern Apple Clang it
+retains the legacy f2c implicit-int diagnostic as a warning. Windows uses the
+same `C:/vcpkg` dependency cache location in installation and configuration.
+The Windows build runner is pinned to `windows-2022` to match the requested
+Visual Studio 2022 generator.
+CI failures terminate with logs rather than opening an interactive session;
+build/package jobs have a 25-minute timeout.
+
+The tests call `Gem_longestEdge` and `Gem_shortestEdge` in the actual MC library.
+They check deterministic tie-breaking for triangles, tetrahedra, and tetrahedral
+faces under every vertex permutation, as well as unequal edge lengths. Vertex
+IDs cover small values, the signed 32-bit packed-key overflow boundary
+(IDs 21/22), and values near `INT_MAX`; no large mesh allocation is needed.
+Windows has a 32-bit `long` even in a 64-bit process. The expected result
+is determined by edge length, then the ordered pair of vertex IDs: ascending
+for longest-edge ties and descending for shortest-edge ties.
+
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Electrostatics/FETK)
 
 Welcome to a *modified* version of the FETK (The Finite Element Toolkit).

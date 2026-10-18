@@ -1,0 +1,77 @@
+name: Mesh edge regressions
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  edge-order:
+    name: Edge ordering (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, macos-15-intel, windows-2022]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libopenblas-serial-dev libsuitesparse-dev
+
+      - name: macOS dependencies
+        if: runner.os == 'macOS'
+        run: brew install suite-sparse
+
+      - name: Windows dependencies
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          curl --fail --location \
+            https://github.com/Electrostatics/cache/releases/download/v0.4.0/apbs_dependencies_vcpkg.zip \
+            --output "$RUNNER_TEMP/apbs_dependencies_vcpkg.zip"
+          7z x "$RUNNER_TEMP/apbs_dependencies_vcpkg.zip" -aoa -o/c/vcpkg
+
+      - name: Configure Linux
+        if: runner.os == 'Linux'
+        run: |
+          cmake -S . -B build-edge \
+            -DFETK_BUILD_TESTS=ON -DBUILD_GAMER=OFF -DBUILD_PMG=OFF \
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DBLA_VENDOR=OpenBLAS
+
+      - name: Configure macOS
+        if: runner.os == 'macOS'
+        run: |
+          cmake -S . -B build-edge \
+            -DFETK_BUILD_TESTS=ON -DBUILD_GAMER=OFF -DBUILD_PMG=OFF \
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DBLA_VENDOR=Apple -DCMAKE_C_FLAGS=-Wno-error=implicit-int
+
+      - name: Configure Windows
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          cmake -S . -B build-edge -G "Visual Studio 17 2022" -A Win32 \
+            -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake \
+            -DVCPKG_TARGET_TRIPLET=x86-windows \
+            -DFETK_BUILD_TESTS=ON -DBUILD_GAMER=OFF -DBUILD_PMG=OFF \
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DBLA_VENDOR=OpenBLAS
+
+      - name: Build edge regressions
+        run: cmake --build build-edge --config Release --target test_edge_order --parallel 2
+
+      - name: Test edge ordering
+        shell: bash
+        run: |
+          export PATH="/c/vcpkg/installed/x86-windows/bin:$PATH"
+          ctest --test-dir build-edge -C Release --verbose --output-on-failure

@@ -516,8 +516,8 @@ VPUBLIC int Gem_newestVertex(Gem *thee, SS *sm, int face, double *len)
  *           Using x.ge.y we then define (x.eq.y) as (x.ge.y AND y.ge.x).
  *
  *           In the case of a tie, the longest is defined as the edge with
- *           the smallest global edge number (as determined by the global 
- *           vertex numbers).
+ *           the smallest ordered pair (max vertex ID, min vertex ID).
+ *           Compare the pair directly to avoid overflow of a packed key.
  *
  *           Note that by expanding the .eq. definition and simplifying we
  *           can rewrite the test "A is longer than B" as follows:
@@ -530,7 +530,7 @@ VPUBLIC int Gem_longestEdge(Gem *thee, SS *sm, int face, double *len)
 { 
     unsigned int p,q,pp,qq,ii,jj,q_lim;
     int localENumI,localENumJ,vxp_id,vxq_id;
-    long kk, vertexMax, globalENum;
+    unsigned int bestMax, bestMin;
     double tmpLen,edgeLen,TOL;
     VV *vxp, *vxq;
 
@@ -538,8 +538,8 @@ VPUBLIC int Gem_longestEdge(Gem *thee, SS *sm, int face, double *len)
 
     localENumI = -1;
     localENumJ = -1;
-    vertexMax = 100000000;   /* conservative max of vertex numbers */
-    globalENum = -1;         /* the current longest edge global number */
+    bestMax = 0;
+    bestMin = 0;
     edgeLen = -VVLARGE;      /* the current longest edge length */
     TOL = VVSMALL;           /* tolerance for our floating point tests */
 
@@ -571,16 +571,17 @@ VPUBLIC int Gem_longestEdge(Gem *thee, SS *sm, int face, double *len)
 
                 ii = VMAX2( vxp_id, vxq_id );
                 jj = VMIN2( vxp_id, vxq_id );
-                kk = (vertexMax * ii) + jj;
 
 		/* if ( NOT(len(curr_max_edge).ge.len(this_edge))  */
-		/*      OR  num(this_edge) < num(curr_max_edge) )  */
+		/*      OR  ids(this_edge) < ids(curr_max_edge) ) */
                 if ( ( !(edgeLen*(1.+TOL) >= tmpLen) ) 
-                         || (kk < globalENum) ) {
+                         || (ii < bestMax)
+                         || ((ii == bestMax) && (jj < bestMin)) ) {
 
                     localENumI = pp;
                     localENumJ = qq;
-                    globalENum = kk;
+                    bestMax = ii;
+                    bestMin = jj;
                     edgeLen = tmpLen;
 
                 }
@@ -615,8 +616,8 @@ VPUBLIC int Gem_longestEdge(Gem *thee, SS *sm, int face, double *len)
  *           Using x.ge.y we can define (x.eq.y) as (x.ge.y AND y.ge.x).
  *
  *           In the case of a tie, the shortest is defined as the edge with
- *           the largest global edge number (as determined by the global 
- *           vertex numbers).
+ *           the largest ordered pair (max vertex ID, min vertex ID).
+ *           Compare the pair directly to avoid overflow of a packed key.
  *
  *           Note that by expanding the .eq. definition and simplifying we
  *           can rewrite the test "A is shorter than B" as follows:
@@ -629,14 +630,14 @@ VPUBLIC int Gem_shortestEdge(Gem *thee, SS *sm, int face, double *len)
 { 
     unsigned int p,q,pp,qq,ii,jj,q_lim;
     int localENumI,localENumJ,vxp_id,vxq_id;
-    long kk, vertexMax, globalENum;
+    unsigned int bestMax, bestMin;
     double tmpLen,edgeLen,TOL;
     VV *vxp, *vxq;
 
     localENumI = -1;
     localENumJ = -1;
-    vertexMax = 100000000;   /* conservative max of vertex numbers */
-    globalENum = -1;         /* the current longest edge global number */
+    bestMax = 0;
+    bestMin = 0;
     edgeLen = VVLARGE;       /* the current longest edge length */
     TOL = VVSMALL;           /* tolerance for our floating point tests */
 
@@ -668,15 +669,16 @@ VPUBLIC int Gem_shortestEdge(Gem *thee, SS *sm, int face, double *len)
 
                 ii = VMAX2( vxp_id, vxq_id );
                 jj = VMIN2( vxp_id, vxq_id );
-                kk = (vertexMax * ii) + jj;
 
 		/* if ( NOT(len(this_edge).ge.len(curr_min_edge))  */
-		/*      OR num(this_edge) > num(curr_min_edge)  )  */
+		/*      OR ids(this_edge) > ids(curr_min_edge) ) */
                 if ( ( !( tmpLen*(1.+TOL) >= edgeLen ) )
-                        || (kk > globalENum) ) {
+                        || (ii > bestMax)
+                        || ((ii == bestMax) && (jj > bestMin)) ) {
                     localENumI = pp;
                     localENumJ = qq;
-                    globalENum = kk;
+                    bestMax = ii;
+                    bestMin = jj;
                     edgeLen = tmpLen;
                 }
             }
@@ -1524,4 +1526,3 @@ VPUBLIC void Gem_clearCharts(Gem *thee)
         VV_setChart(vx, 0);
     }
 }
-
