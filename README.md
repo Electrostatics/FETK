@@ -13,6 +13,8 @@ The build/package workflow also sets `CMAKE_POLICY_VERSION_MINIMUM=3.5` for
 the bundled legacy SuperLU CMake configuration. On modern Apple Clang it
 retains the legacy f2c implicit-int diagnostic as a warning. Windows uses the
 same `C:/vcpkg` dependency cache location in installation and configuration.
+The Windows build runner is pinned to `windows-2022` to match the requested
+Visual Studio 2022 generator.
 CI failures terminate with logs rather than opening an interactive session;
 build/package jobs have a 25-minute timeout.
 
