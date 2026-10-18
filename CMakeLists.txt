@@ -29,6 +29,11 @@ project(${_PROJECT}
         LANGUAGES C
 )
 
+option(FETK_BUILD_TESTS "Build FETK regression tests" OFF)
+if(FETK_BUILD_TESTS)
+    enable_testing()
+endif()
+
 # Include the common FETK CMake utilities
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(FETKBuildFunctions)

@@ -49,6 +49,15 @@ add_subdirectory(mcsh)
 add_library(mc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(mc ${MC_EXT_LIBS} ${MC_INT_LIBS})
 
+if(FETK_BUILD_TESTS)
+    add_executable(test_edge_order ../tests/test_edge_order.c)
+    target_link_libraries(test_edge_order mc)
+    add_test(NAME gem_longest_edge_order COMMAND test_edge_order longest)
+    add_test(NAME gem_shortest_edge_order COMMAND test_edge_order shortest)
+    set_tests_properties(gem_longest_edge_order gem_shortest_edge_order
+        PROPERTIES TIMEOUT 30)
+endif()
+
 get_target_property( SOURCE_TREE_INCLUDE_DIRS mc INCLUDE_DIRECTORIES )
 target_include_directories( mc
     INTERFACE 
