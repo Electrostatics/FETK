@@ -9,6 +9,12 @@ and run `ctest --test-dir <build> -C Release --output-on-failure`.
 The default is OFF, including when FETK is embedded in another project.
 The dedicated mesh-edge CI workflow demonstrates the dependency installation
 and configure commands for Linux, macOS, and Windows.
+The build/package workflow also sets `CMAKE_POLICY_VERSION_MINIMUM=3.5` for
+the bundled legacy SuperLU CMake configuration. On modern Apple Clang it
+retains the legacy f2c implicit-int diagnostic as a warning. Windows uses the
+same `C:/vcpkg` dependency cache location in installation and configuration.
+CI failures terminate with logs rather than opening an interactive session;
+build/package jobs have a 25-minute timeout.
 
 The tests call `Gem_longestEdge` and `Gem_shortestEdge` in the actual MC library.
 They check deterministic tie-breaking for triangles, tetrahedra, and tetrahedral

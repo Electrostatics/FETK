@@ -14,11 +14,12 @@ jobs:
   Build:
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
     if: "!contains(github.event.head_commit.message, 'noci')"
 
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: [false]
         os: [ubuntu-latest, macos-latest, windows-latest]
         include:
           - os: ubuntu-latest
@@ -85,18 +86,24 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} ..
+          extra_flags=()
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            extra_flags+=("-DCMAKE_C_FLAGS=-Wno-error=implicit-int")
+          fi
+          cmake -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} \
+            -DCMAKE_POLICY_VERSION_MINIMUM=3.5 "${extra_flags[@]}" ..
+        shell: bash
 
       - name: Configure for Windows
         if: startsWith(matrix.os, 'windows')  # Windows only
         env:
-          CMAKE_PREFIX_PATH: ${VCPKG_INSTALLATION_ROOT}/installed/x86-windows
+          CMAKE_PREFIX_PATH: C:/vcpkg/installed/x86-windows
         run: |
           mkdir -p build/Release
           cd build
           echo $CMAKE_PREFIX_PATH
           echo "CREATE_PACKAGE: ${CREATE_PACKAGE}"
-          cmake -DCMAKE_BUILD_TYPE=Release -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=${VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake -G "Visual Studio 17 2022" -A Win32 ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DBLA_VENDOR=${BLA_VENDOR} -DCREATE_PACKAGE=${CREATE_PACKAGE} -DVCPKG_TARGET_TRIPLET=x86-windows -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -G "Visual Studio 17 2022" -A Win32 ..
         shell: bash
 
       - name: Build on Mac and Linux
@@ -142,7 +149,3 @@ jobs:
           files: |
             build/FETK-${{ steps.job-values.outputs.fetk-version-stripped }}-${{ matrix.CMAKE_SYSTEM }}.${{ matrix.PACKAGE_TYPE }}
           fail_on_unmatched_files: true
-
-      - name: Setup tmate session
-        if: ${{ ! success() }}
-        uses: mxschmitt/action-tmate@v3
