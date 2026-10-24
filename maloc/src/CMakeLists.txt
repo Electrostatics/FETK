@@ -36,6 +36,9 @@ add_subdirectory(vsys)
 
 add_library(maloc ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(maloc ${MALOC_EXT_LIBS})
+if(WIN32)
+    target_link_libraries(maloc ws2_32)
+endif()
 
 get_target_property( SOURCE_TREE_INCLUDE_DIRS maloc INCLUDE_DIRECTORIES )
 target_include_directories( maloc
