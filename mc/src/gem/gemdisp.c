@@ -1631,7 +1631,7 @@ VPUBLIC void Gem_writeDX(Gem *thee, Vio *sock,
 VPUBLIC void Gem_writeTEC(Gem *thee, Vio *sock,
     int fldKey, double *defX[MAXV])
 {
-    char str1[10], str2[10];
+    const char *str1, *str2;
     int i, j, vec, dim, dimII, dimVV, numVV, numSS;
     VV *vx;
     SS *sm;
@@ -1650,11 +1650,11 @@ VPUBLIC void Gem_writeTEC(Gem *thee, Vio *sock,
 
     /* create some temporary strings here */
     if( dimVV == 3 ) {
-        sprintf(str1,"TRIANGLES");
-        sprintf(str2,"TRIANGLE");
+        str1 = "TRIANGLES";
+        str2 = "TRIANGLE";
     } else if ( dimVV == 4 ) {
-        sprintf(str1,"TETRAHEDRA");
-        sprintf(str2,"TETRAHEDRON");
+        str1 = "TETRAHEDRA";
+        str2 = "TETRAHEDRON";
     } else {
         VJMPERR3( 0 );
     }
