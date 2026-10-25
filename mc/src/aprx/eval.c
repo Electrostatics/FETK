@@ -270,7 +270,7 @@ VPUBLIC void Aprx_fe2fd(Aprx *thee, Bvec *u, int block,
     Vnm_print(0,"Aprx_fe2fd: Start function evaluation..");
 
     /* Initialize f to initval */
-    f = Vmem_malloc( thee->vmem, nx*ny*nz, sizeof(double) );
+    f = Vmem_malloc( thee->vmem, (size_t)nx*ny*nz, sizeof(double) );
     ijk = -1;
     for (i=0; i<nx; i++) {
         for (j=0; j<ny; j++) {
@@ -390,14 +390,14 @@ VPUBLIC void Aprx_fe2fd(Aprx *thee, Bvec *u, int block,
             fwrite(&x0, sizeof(double), 1, fptr);
             fwrite(&y0, sizeof(double), 1, fptr);
             fwrite(&z0, sizeof(double), 1, fptr);
-            fwrite(f, sizeof(double), nx*ny*nz, fptr);
+            fwrite(f, sizeof(double), (size_t)nx*ny*nz, fptr);
         }
 
         fclose(fptr);
 
     } /* func loop */
 
-    Vmem_free( thee->vmem, nx*ny*nz, sizeof(double), (void**)&f );
+    Vmem_free( thee->vmem, (size_t)nx*ny*nz, sizeof(double), (void**)&f );
 
     Vnm_print(0,"..done.\n");
 }

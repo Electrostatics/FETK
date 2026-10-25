@@ -1117,7 +1117,7 @@ REAL *ymax;
    "  Warning:  %s has value greater than one for number of point markers.\n",
            fname);
   }
-  *ptr = (REAL *) malloc((*nodes + 1) * *dim * sizeof(REAL));
+  *ptr = (REAL *) malloc((size_t) (*nodes + 1) * *dim * sizeof(REAL));
   if (*ptr == (REAL *) NULL) {
     printf("  Out of memory.\n");
     return 1;
@@ -1281,7 +1281,7 @@ REAL *ymax;
            fname);
   }
   if (*pnodes > 0) {
-    *nodeptr = (REAL *) malloc((*pnodes + 1) * *dim * sizeof(REAL));
+    *nodeptr = (REAL *) malloc((size_t) (*pnodes + 1) * *dim * sizeof(REAL));
     if (*nodeptr == (REAL *) NULL) {
       printf("  Out of memory.\n");
       return 1;
@@ -1395,7 +1395,7 @@ REAL *ymax;
     free(*edgeptr);
     return 1;
   }
-  *holeptr = (REAL *) malloc((*holes + 1) * *dim * sizeof(REAL));
+  *holeptr = (REAL *) malloc((size_t) (*holes + 1) * *dim * sizeof(REAL));
   if (*holeptr == (REAL *) NULL) {
     printf("  Out of memory.\n");
     free(*nodeptr);
@@ -1829,7 +1829,7 @@ int **ptr;
     printf("  Error:  %s contains %d subdomains.\n", fname, *subdomains);
     return 1;
   }
-  *ptr = (int *) malloc(*subdomains * *subdomains * sizeof(int));
+  *ptr = (int *) malloc((size_t) *subdomains * *subdomains * sizeof(int));
   if (*ptr == (int *) NULL) {
     printf("  Out of memory.\n");
     return 1;

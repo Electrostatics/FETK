@@ -981,6 +981,6 @@ void gl_clear_stencil_buffer( GLcontext *ctx )
    else {
       /* clear whole stencil buffer */
       MEMSET( ctx->Buffer->Stencil, ctx->Stencil.Clear,
-              ctx->Buffer->Width * ctx->Buffer->Height * sizeof(GLstencil) );
+              (size_t) ctx->Buffer->Width * ctx->Buffer->Height * sizeof(GLstencil) );
    }
 }

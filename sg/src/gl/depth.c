@@ -812,7 +812,7 @@ void gl_alloc_depth_buffer( GLcontext* ctx )
    }
 
    /* allocate new depth buffer, but don't initialize it */
-   ctx->Buffer->Depth = (GLdepth *) malloc( ctx->Buffer->Width
+   ctx->Buffer->Depth = (GLdepth *) malloc( (size_t) ctx->Buffer->Width
                                             * ctx->Buffer->Height
                                             * sizeof(GLdepth) );
    if (!ctx->Buffer->Depth) {

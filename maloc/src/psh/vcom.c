@@ -777,7 +777,7 @@ VPUBLIC int Vcom_reduce(Vcom *thee, void *sendbuf, void *recvbuf, int length,
                 return 0;
         }
 
-        memcpy(recvbuf, sendbuf, memsize*length);
+        memcpy(recvbuf, sendbuf, (size_t)memsize*length);
         return 1;
 
 #endif

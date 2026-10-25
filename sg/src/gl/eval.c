@@ -560,7 +560,7 @@ GLfloat *gl_copy_map_points1f( GLenum target,
       return NULL;
    }
 
-   buffer = (GLfloat *) malloc(uorder * size * sizeof(GLfloat));
+   buffer = (GLfloat *) malloc((size_t) uorder * size * sizeof(GLfloat));
 
    if(buffer) 
       for(i=0, p=buffer; i<uorder; i++, points+=ustride)
@@ -582,7 +582,7 @@ GLfloat *gl_copy_map_points1d( GLenum target,
    GLfloat *buffer, *p;
    GLuint i, k, size = components(target);
 
-   buffer = (GLfloat *) malloc(uorder * size * sizeof(GLfloat));
+   buffer = (GLfloat *) malloc((size_t) uorder * size * sizeof(GLfloat));
 
    if(buffer)
       for(i=0, p=buffer; i<uorder; i++, points+=ustride)

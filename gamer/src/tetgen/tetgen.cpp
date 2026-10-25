@@ -3410,7 +3410,7 @@ listinit(int itbytes, compfunc pcomp, int mitems,int exsize)
   comp = pcomp;
   maxitems = mitems;
   expandsize = exsize;
-  base = (char *) malloc(maxitems * itembytes); 
+  base = (char *) malloc((size_t) maxitems * itembytes); 
   if (base == (char *) NULL) {
     printf("Error:  Out of memory.\n");
     terminatetetgen(1);
@@ -3433,7 +3433,7 @@ void* tetgenmesh::list::append(void *appitem)
 {
   // Do we have enough space?
   if (items == maxitems) {
-    char* newbase = (char *) realloc(base, (maxitems + expandsize) * 
+    char* newbase = (char *) realloc(base, (size_t) (maxitems + expandsize) * 
                                      itembytes);
     if (newbase == (char *) NULL) {
       printf("Error:  Out of memory.\n");
@@ -3467,7 +3467,7 @@ void* tetgenmesh::list::insert(int pos, void* insitem)
   }
   // Do we have enough space.
   if (items == maxitems) {
-    char* newbase = (char *) realloc(base, (maxitems + expandsize) *
+    char* newbase = (char *) realloc(base, (size_t) (maxitems + expandsize) *
                                      itembytes);
     if (newbase == (char *) NULL) {
       printf("Error:  Out of memory.\n");
@@ -3479,7 +3479,7 @@ void* tetgenmesh::list::insert(int pos, void* insitem)
   // Do block move.
   memmove(base + (pos + 1) * itembytes,   // dest
           base + pos * itembytes,         // src
-          (items - pos) * itembytes);     // size in bytes
+          (size_t) (items - pos) * itembytes);     // size in bytes
   // Insert the item.
   if (insitem != (void *) NULL) {
     memcpy(base + pos * itembytes, insitem, itembytes);
@@ -3507,7 +3507,7 @@ void tetgenmesh::list::del(int pos, int order)
       // Do block move. 
       memmove(base + pos * itembytes,       // dest
               base + (pos + 1) * itembytes, // src
-              (items - pos - 1) * itembytes);
+              (size_t) (items - pos - 1) * itembytes);
     } else {
       // Use the last item to overlap the del item.
       memcpy(base + pos * itembytes, // item at pos

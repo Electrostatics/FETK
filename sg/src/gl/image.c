@@ -377,8 +377,8 @@ struct gl_image *gl_unpack_image3D( GLcontext *ctx,
       GLint i, d;
       assert( srcType==GL_UNSIGNED_BYTE );
 
-      width_in_bytes = width * components * sizeof(GLubyte);
-      buffer = malloc( height * width_in_bytes * depth );
+      width_in_bytes = (size_t) width * components * sizeof(GLubyte);
+      buffer = malloc( (size_t) height * width_in_bytes * depth );
       if (!buffer) {
          return NULL;
       }
@@ -434,7 +434,7 @@ struct gl_image *gl_unpack_image3D( GLcontext *ctx,
       GLint elems_per_row;
       GLint i, j, d;
       elems_per_row = width * components;
-      buffer = (GLfloat *) malloc( height * elems_per_row * sizeof(GLfloat) * depth);
+      buffer = (GLfloat *) malloc( (size_t) height * elems_per_row * sizeof(GLfloat) * depth);
       if (!buffer) {
          return NULL;
       }
