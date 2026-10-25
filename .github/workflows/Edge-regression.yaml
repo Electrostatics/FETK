@@ -67,11 +67,34 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
             -DBLA_VENDOR=OpenBLAS
 
-      - name: Build edge regressions
-        run: cmake --build build-edge --config Release --target test_edge_order --parallel 2
+      - name: Build mesh regressions
+        run: cmake --build build-edge --config Release --target test_edge_order test_tec_export --parallel 2
 
-      - name: Test edge ordering
+      - name: Test mesh regressions
         shell: bash
         run: |
           export PATH="/c/vcpkg/installed/x86-windows/bin:$PATH"
           ctest --test-dir build-edge -C Release --verbose --output-on-failure
+
+  tec-sanitizers:
+    name: TEC export sanitizers
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libopenblas-serial-dev libsuitesparse-dev
+      - name: Configure with sanitizers
+        run: |
+          cmake -S . -B build-tec \
+            -DFETK_BUILD_TESTS=ON -DBUILD_GAMER=OFF -DBUILD_PMG=OFF \
+            -DCMAKE_BUILD_TYPE=Debug -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DBLA_VENDOR=OpenBLAS \
+            -DCMAKE_C_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer" \
+            -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+      - name: Build TEC regressions
+        run: cmake --build build-tec --target test_tec_export --parallel 2
+      - name: Test TEC export
+        run: ctest --test-dir build-tec -R gem_tec --verbose --output-on-failure

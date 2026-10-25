@@ -4,6 +4,9 @@
 
 Unreleased
 
+* Fix stack buffer overruns in tetrahedral TEC export by using constant labels.
+  Add triangle and tetrahedron output regressions and sanitizer coverage.
+* Declare MALOC's Windows Winsock dependency for consumers using Vio.
 * Add Fedora Docker container spec for troubleshooting builds on that platform.
 
 ## 1.9.3
@@ -95,4 +98,3 @@ Minor fixes, mostly to address Doxygen warning messages.
 (06/28/2010): 
 
 Initial public release.
-

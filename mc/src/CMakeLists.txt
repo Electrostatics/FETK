@@ -52,6 +52,12 @@ target_link_libraries(mc ${MC_EXT_LIBS} ${MC_INT_LIBS})
 if(FETK_BUILD_TESTS)
     add_executable(test_edge_order ../tests/test_edge_order.c)
     target_link_libraries(test_edge_order mc)
+    add_executable(test_tec_export ../tests/test_tec_export.c)
+    target_link_libraries(test_tec_export mc)
+    add_test(NAME gem_tec_triangle COMMAND test_tec_export 2)
+    add_test(NAME gem_tec_tetrahedron COMMAND test_tec_export 3)
+    set_tests_properties(gem_tec_triangle gem_tec_tetrahedron
+        PROPERTIES TIMEOUT 30)
     add_test(NAME gem_longest_edge_order COMMAND test_edge_order longest)
     add_test(NAME gem_shortest_edge_order COMMAND test_edge_order shortest)
     set_tests_properties(gem_longest_edge_order gem_shortest_edge_order
