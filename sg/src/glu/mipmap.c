@@ -121,12 +121,12 @@ GLint gluScaleImage( GLenum format,
    glGetIntegerv( GL_PACK_SKIP_PIXELS, &packskippixels );
 
    /* Allocate storage for intermediate images */
-   tempin = (GLfloat *) malloc( widthin * heightin
+   tempin = (GLfloat *) malloc( (size_t) widthin * heightin
 			        * components * sizeof(GLfloat) );
    if (!tempin) {
       return GLU_OUT_OF_MEMORY;
    }
-   tempout = (GLfloat *) malloc( widthout * heightout
+   tempout = (GLfloat *) malloc( (size_t) widthout * heightout
 		 	         * components * sizeof(GLfloat) );
    if (!tempout) {
       free( tempin );
@@ -554,7 +554,7 @@ GLint gluBuild1DMipmaps( GLenum target, GLint components,
 
    new_width = 1 << (levels-1);
 
-   texture = (GLubyte *) malloc( new_width * components );
+   texture = (GLubyte *) malloc( (size_t) new_width * components );
    if (!texture) {
       return GLU_OUT_OF_MEMORY;
    }
@@ -637,7 +637,7 @@ GLint gluBuild2DMipmaps( GLenum target, GLint components,
 
    if (w!=width || h!=height) {
       /* must rescale image to get "top" mipmap texture image */
-      image = malloc( (w+4) * h * bpp );
+      image = malloc( (size_t) (w+4) * h * bpp );
       if (!image) {
 	 return GLU_OUT_OF_MEMORY;
       }
@@ -659,7 +659,7 @@ GLint gluBuild2DMipmaps( GLenum target, GLint components,
 
       neww = (w<2) ? 1 : w/2;
       newh = (h<2) ? 1 : h/2;
-      newimage = malloc( (neww+4) * newh * bpp );
+      newimage = malloc( (size_t) (neww+4) * newh * bpp );
       if (!newimage) {
 	 return GLU_OUT_OF_MEMORY;
       }

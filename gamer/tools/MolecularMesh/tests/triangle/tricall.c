@@ -156,7 +156,7 @@ int main()
   in.pointlist[5] = 10.0;
   in.pointlist[6] = 0.0;
   in.pointlist[7] = 10.0;
-  in.pointattributelist = (REAL *) malloc(in.numberofpoints *
+  in.pointattributelist = (REAL *) malloc((size_t) in.numberofpoints *
                                           in.numberofpointattributes *
                                           sizeof(REAL));
   in.pointattributelist[0] = 0.0;

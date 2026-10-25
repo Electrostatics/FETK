@@ -261,7 +261,7 @@ struct gl_texture_image *gl_image_to_texture( GLcontext *ctx,
    texImage->Height2 = 1 << texImage->HeightLog2;
    texImage->Depth2 = 1 << texImage->DepthLog2;
    texImage->MaxLog2 = MAX2( texImage->WidthLog2, texImage->HeightLog2 );
-   texImage->Data = (GLubyte *) malloc( numPixels * components );
+   texImage->Data = (GLubyte *) malloc( (size_t) numPixels * components );
 
    assert(texImage->WidthLog2>=0);
    assert(texImage->HeightLog2>=0);
@@ -1617,7 +1617,7 @@ struct gl_image *gl_read_color_image( GLcontext *ctx, GLint x, GLint y,
       image->Format = format;
       image->Type = GL_UNSIGNED_BYTE;
       image->Interleaved = GL_FALSE;
-      image->Data = (GLubyte *) malloc( width * height * components );
+      image->Data = (GLubyte *) malloc( (size_t) width * height * components );
       if (!image->Data) {
          free(image);
          return NULL;

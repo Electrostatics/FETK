@@ -33,7 +33,7 @@
 
 void gl_alloc_accum_buffer( GLcontext *ctx )
 {
-   GLint n;
+   size_t n;
 
    if (ctx->Buffer->Accum) {
       free( ctx->Buffer->Accum );
@@ -41,7 +41,7 @@ void gl_alloc_accum_buffer( GLcontext *ctx )
    }
 
    /* allocate accumulation buffer if not already present */
-   n = ctx->Buffer->Width * ctx->Buffer->Height * 4 * sizeof(GLaccum);
+   n = (size_t) ctx->Buffer->Width * ctx->Buffer->Height * 4 * sizeof(GLaccum);
    ctx->Buffer->Accum = (GLaccum *) malloc( n );
    if (!ctx->Buffer->Accum) {
       /* unable to setup accumulation buffer */

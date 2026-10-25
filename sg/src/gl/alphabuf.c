@@ -46,7 +46,7 @@
  */
 void gl_alloc_alpha_buffers( GLcontext* ctx )
 {
-   GLint bytes = ctx->Buffer->Width * ctx->Buffer->Height * sizeof(GLubyte);
+   size_t bytes = (size_t) ctx->Buffer->Width * ctx->Buffer->Height * sizeof(GLubyte);
 
    if (ctx->Visual->FrontAlphaEnabled) {
       if (ctx->Buffer->FrontAlpha) {
