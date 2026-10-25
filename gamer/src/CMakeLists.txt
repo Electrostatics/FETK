@@ -37,6 +37,16 @@ add_subdirectory(biom)
 add_library(gamer ${SOURCES} ${EXTERNAL_HEADERS} ${INTERNAL_HEADERS})
 target_link_libraries(gamer ${GAMER_EXT_LIBS} ${GAMER_INT_LIBS})
 
+if(FETK_BUILD_TESTS)
+    add_executable(test_tetgen_pool ../tests/test_tetgen_pool.cpp)
+    target_link_libraries(test_tetgen_pool gamer)
+    foreach(case rollover invalid mesh attribute-limit)
+        add_test(NAME tetgen_pool_${case} COMMAND test_tetgen_pool ${case})
+    endforeach()
+    set_tests_properties(tetgen_pool_rollover tetgen_pool_invalid
+        tetgen_pool_mesh tetgen_pool_attribute-limit PROPERTIES TIMEOUT 60)
+endif()
+
 get_target_property( SOURCE_TREE_INCLUDE_DIRS gamer INCLUDE_DIRECTORIES )
 target_include_directories( gamer
     INTERFACE 

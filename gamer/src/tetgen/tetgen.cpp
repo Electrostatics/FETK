@@ -27,6 +27,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "tetgen_p.h"
+#include <limits.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
@@ -3615,6 +3616,14 @@ tetgenmesh::memorypool::~memorypool()
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
 
+// Size of one pool block: the items, the next-block pointer, and alignment
+//   padding. poolinit() validates that this cannot overflow size_t.
+static size_t poolblockbytes(int itemsperblock, int itembytes, int alignbytes)
+{
+  return (size_t) itemsperblock * (size_t) itembytes + sizeof(void *)
+         + (size_t) alignbytes;
+}
+
 void tetgenmesh::memorypool::
 poolinit(int bytecount, int itemcount, enum wordtype wtype, int alignment)
 {
@@ -3636,16 +3645,25 @@ poolinit(int bytecount, int itemcount, enum wordtype wtype, int alignment)
   if ((int) sizeof(void *) > alignbytes) {
     alignbytes = (int) sizeof(void *);
   }
+  if (bytecount <= 0 || itemcount <= 0 || bytecount > INT_MAX - alignbytes) {
+    printf("Error:  Invalid memory pool item size or count.\n");
+    terminatetetgen(1);
+  }
   itemwords = ((bytecount + alignbytes - 1) /  alignbytes)
             * (alignbytes / wordsize);
   itembytes = itemwords * wordsize;
+  if ((size_t) itemcount > ((size_t) -1 - sizeof(void *) - (size_t) alignbytes)
+                           / (size_t) itembytes) {
+    printf("Error:  Memory pool block size is too large.\n");
+    terminatetetgen(1);
+  }
   itemsperblock = itemcount;
 
   // Allocate a block of items.  Space for `itemsperblock' items and one
   //   pointer (to point to the next block) are allocated, as well as space
   //   to ensure alignment of the items. 
-  firstblock = (void **) malloc(itemsperblock * itembytes + sizeof(void *)
-                                + alignbytes); 
+  firstblock = (void **) malloc(poolblockbytes(itemsperblock, itembytes,
+                                               alignbytes));
   if (firstblock == (void **) NULL) {
     printf("Error:  Out of memory.\n");
     terminatetetgen(1);
@@ -3709,8 +3727,8 @@ void* tetgenmesh::memorypool::alloc()
       // Check if another block must be allocated.
       if (*nowblock == (void *) NULL) {
         // Allocate a new block of items, pointed to by the previous block.
-        newblock = (void **) malloc(itemsperblock * itembytes + sizeof(void *) 
-                                    + alignbytes);
+        newblock = (void **) malloc(poolblockbytes(itemsperblock, itembytes,
+                                                   alignbytes));
         if (newblock == (void **) NULL) {
           printf("Error:  Out of memory.\n");
           terminatetetgen(1);
@@ -7881,6 +7899,20 @@ void tetgenmesh::initializepools()
 {
   enum wordtype wtype;
   int pointsize, elesize, shsize;
+  // Bounds attribute counts so every record-size calculation below fits in
+  //   an int, with headroom for the fixed fields added to each record.
+  const int maxattributes = (INT_MAX - 1024) / (int) sizeof(REAL);
+
+  if (in->numberofpointattributes < 0 ||
+      in->numberofpointattributes > maxattributes ||
+      in->numberoftetrahedronattributes < 0 ||
+      in->numberoftetrahedronattributes > maxattributes ||
+      (b->bgmesh && (bgm != (tetgenmesh *) NULL) &&
+       (bgm->in->numberofpointattributes < 0 ||
+        bgm->in->numberofpointattributes > maxattributes))) {
+    printf("Error:  Invalid number of point or tetrahedron attributes.\n");
+    terminatetetgen(1);
+  }
 
   // Default checkpbc = 0;
   if ((b->plc || b->refine) && (in->pbcgrouplist != NULL)) {

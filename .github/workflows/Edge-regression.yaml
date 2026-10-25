@@ -98,3 +98,22 @@ jobs:
         run: cmake --build build-tec --target test_tec_export --parallel 2
       - name: Test TEC export
         run: ctest --test-dir build-tec -R gem_tec --verbose --output-on-failure
+
+  tetgen-pool-sanitizers:
+    name: TetGen pool sanitizers
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Configure GAMER with sanitizers
+        run: |
+          cmake -S . -B build-tetgen \
+            -DFETK_BUILD_TESTS=ON -DBUILD_GAMER=ON -DBUILD_MC=OFF -DBUILD_PUNC=OFF \
+            -DCMAKE_BUILD_TYPE=Debug -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DCMAKE_C_FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=undefined -fno-omit-frame-pointer" \
+            -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-sanitize-recover=undefined -fno-omit-frame-pointer" \
+            -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+      - name: Build TetGen pool regressions
+        run: cmake --build build-tetgen --target test_tetgen_pool --parallel 2
+      - name: Test TetGen pools
+        run: ctest --test-dir build-tetgen -R tetgen_pool --verbose --output-on-failure

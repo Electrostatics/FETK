@@ -4,6 +4,10 @@
 
 Unreleased
 
+* Validate bundled TetGen memory-pool sizes and point/tetrahedron attribute
+  counts before allocation; invalid sizes now raise a TetGen error instead of
+  producing undersized blocks. Add GAMER pool regressions with sanitizer CI.
+
 * Fix stack buffer overruns in tetrahedral TEC export by using constant labels.
   Add triangle and tetrahedron output regressions and sanitizer coverage.
 * Declare MALOC's Windows Winsock dependency for consumers using Vio.
