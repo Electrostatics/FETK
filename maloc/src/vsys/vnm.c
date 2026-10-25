@@ -284,33 +284,33 @@ VPUBLIC void Vnm_typeChk(void)
 {
     Vnm_print(0,"Vnm_typeChk: Asserting the following type sizes:\n");
     Vnm_print(0,"Vnm_typeChk: SizeOf(char)          = %d (1 on 32-bit arch)\n",
-        sizeof(char));
+        (int)sizeof(char));
     Vnm_print(0,"Vnm_typeChk: SizeOf(short)         = %d (2 on 32-bit arch)\n",
-        sizeof(short));
+        (int)sizeof(short));
     Vnm_print(0,"Vnm_typeChk: SizeOf(int)           = %d (4 on 32-bit arch)\n",
-        sizeof(int));
+        (int)sizeof(int));
     Vnm_print(0,"Vnm_typeChk: SizeOf(unsigned char) = %d (1 on 32-bit arch)\n",
-        sizeof(unsigned char));
+        (int)sizeof(unsigned char));
     Vnm_print(0,"Vnm_typeChk: SizeOf(unsigned short)= %d (2 on 32-bit arch)\n",
-        sizeof(unsigned short));
+        (int)sizeof(unsigned short));
     Vnm_print(0,"Vnm_typeChk: SizeOf(unsigned int)  = %d (4 on 32-bit arch)\n",
-        sizeof(unsigned int));
+        (int)sizeof(unsigned int));
     Vnm_print(0,"Vnm_typeChk: SizeOf(float)         = %d (4 on 32-bit arch)\n",
-        sizeof(float));
+        (int)sizeof(float));
     Vnm_print(0,"Vnm_typeChk: SizeOf(double)        = %d (8 on 32-bit arch)\n",
-        sizeof(double));
+        (int)sizeof(double));
 
     Vnm_print(0,"Vnm_typeChk: Noting also the following type sizes:\n");
     Vnm_print(0,"Vnm_typeChk: SizeOf(long)          = %d (4 on 32-bit arch)\n",
-        sizeof(long));
+        (int)sizeof(long));
     Vnm_print(0,"Vnm_typeChk: SizeOf(unsigned long) = %d (4 on 32-bit arch)\n",
-        sizeof(unsigned long));
+        (int)sizeof(unsigned long));
     Vnm_print(0,"Vnm_typeChk: SizeOf(int*)          = %d (4 on 32-bit arch)\n",
-        sizeof(int*));
+        (int)sizeof(int*));
     Vnm_print(0,"Vnm_typeChk: SizeOf(void*)         = %d (4 on 32-bit arch)\n",
-        sizeof(void*));
+        (int)sizeof(void*));
     Vnm_print(0,"Vnm_typeChk: SizeOf(size_t)        = %d (4 on 32-bit arch)\n",
-        sizeof(size_t));
+        (int)sizeof(size_t));
 
     VASSERT( sizeof(char)              == 1 );
     VASSERT( sizeof(short)             == 2 );
